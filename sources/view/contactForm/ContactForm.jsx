@@ -6,6 +6,7 @@ import validate from 'validate.js';
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
+   
   },
 }));
 
@@ -80,10 +81,10 @@ const ContactForm = () => {
         <input type="hidden" name="form-name" value="contact-form" />
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <Typography variant="h4" align="center">
+            <Typography variant="h1" align="center" >
               <strong>Contact Us</strong>
             </Typography>
-            <Typography variant="h6" color="textSecondary" align="center">
+            <Typography variant="h6" align="center">
               We carefully read and answer to all our emails.
             </Typography>
           </Grid>
@@ -102,6 +103,7 @@ const ContactForm = () => {
               onChange={handleChange}
               type="text"
               value={formState.values.fullname || ''}
+              
             />
           </Grid>
           <Grid item xs={12} sm={6}>
