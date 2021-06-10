@@ -1,0 +1,90 @@
+import React from "react";
+import CardAds from "./CardAds";
+import { makeStyles } from "@material-ui/core/styles";
+import { Typography } from "@material-ui/core";
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles((theme) => ({
+    marketplace: {
+     display : "grid",
+     gridTemplateColumns : "300px 300px 300px",
+     gridTemplateRows : "400px 400px",
+     gridGap : "60px", 
+     justifyContent : "center"
+
+    },
+
+    title:{
+        display : "flex",
+        justifyContent : "center",
+        paddingBottom : "20px",
+        paddingTop : "20px"
+    },
+
+    button:{
+        display: "flex", 
+        marginLeft:"1000px",
+        marginBottom:"30px",
+        borderRadius : "15px",
+        color : "black"
+    }
+}));
+
+const adsCard = [
+  {
+    id: "1",
+    photo: "https://placedog.net/500",
+    title: "Vélo Cargo",
+    price: "1230 €",
+    city: "Bordeaux",
+  },
+  {
+    id: "2",
+    photo: "https://placedog.net/604",
+    title: "Vélo Cargo",
+    price: "1380 €",
+    city: "Bordeaux",
+  },
+  {
+    id: "3",
+    photo: "https://placedog.net/700",
+    title: "Vélo Cargo",
+    price: "1560 €",
+    city: "Bordeaux",
+  },
+  {
+    id: "4",
+    photo: "https://placedog.net/800",
+    title: "Vélo Cargo",
+    price: "1800 €",
+    city: "Bordeaux",
+  },
+  {
+    id: "5",
+    photo: "https://placedog.net/900",
+    title: "Vélo Cargo",
+    price: "2300 €",
+    city: "Bordeaux",
+  },
+  {
+    id: "6",
+    photo: "https://placedog.net/990",
+    title: "Vélo Cargo",
+    price: "2580 €",
+    city: "Bordeaux",
+  },
+];
+function CardAdsList() {
+    const classes = useStyles();
+
+  return <div>
+<Typography className={classes.title} variant="h5">DERNIERES ANNONCES</Typography>
+  <div className={classes.marketplace} >
+      
+ {adsCard.map((card, index) => (<CardAds {...card} key={index} />))}
+  </div>;
+  <Button variant="contained" color="secondary" className={classes.button}>Voir Plus</Button>
+  </div>
+}
+
+export default CardAdsList;
