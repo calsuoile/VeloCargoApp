@@ -5,11 +5,14 @@ import TextField from '@material-ui/core/TextField';
 const useStyles = makeStyles((theme) => ({
     list: {
       display: 'flex',
-      backgroundColor: "#68DB96",
+      backgroundColor: "#68db96",
       justifyContent: 'space-around'
     },
     img:{
-        width: "20%"
+        width: "20%",
+    },
+    container:{
+        backgroundColor: "#68db96",
     }
 }));
 
@@ -17,6 +20,7 @@ function Footer(props) {
     const classes = useStyles();
 
     return (
+        <div className={classes.container}>
         <div className={classes.list}>
             <div>
                 <ul>
@@ -41,11 +45,13 @@ function Footer(props) {
             </div>
             <div className={classes.abonnez}>
             <TextField id="standard-search" label="S'abonner !" type="search" />
-            
             </div>
+    </div>
 
-            <img className={classes.img} src="/assets/logo.jpg"/>
-        </div>
+            <div className={classes.logoform}>
+            <img className={classes.img} src="/assets/logoVC.png"/>
+            </div>
+            </div>
     );
 }
 
