@@ -1,37 +1,49 @@
+import { common } from "@material-ui/core/colors";
 import palette from "./palette";
 
+// A utiliser dans des balises <Typrography> avec variant="...". 
 const typography = {
   h1: {
-    color: palette.primary.main,
+    color: palette.primary.dark,
     fontWeight: 900,
     fontSize: "40px",
     lineHeight: 1.1,
     fontFamily: "Staatliches, cursive",
+    // Gros titre épais et vert clair. 
   },
   h2: {
-    color: palette.text.primary,
-    fontWeight: 900,
+    color: palette.primary.main, 
+    fontWeight: 400,
     fontSize: "38px",
     lineHeight: 1.5,
-    fontFamily: "Staatliches, cursive",
+    fontFamily: "Open Sans Condensed, sans-serif",
+    textTransform: "uppercase",
+    // Sous titre fin et vert en majuscule. 
   },
   h3: {
-    color: palette.text.primary,
-    fontWeight: 900,
+    color: palette.secondary.main,
+    fontWeight: 400,
     fontSize: "32px",
     lineHeight: 1.25,
+    fontFamily: "Staatliches, cursive",
+    // Titre regular jaune foncé GROSSE LETTRE majucule
   },
   h4: {
-    color: palette.text.primary,
-    fontWeight: 900,
+    color: palette.primary.light,
+    fontWeight: 400,
     fontSize: "24px",
     lineHeight: 1.35,
+    fontfamily: "Raleway"
+    // Titre lettre arrondie et jaune clair. 
   },
   h5: {
-    color: palette.text.primary,
-    fontWeight: 900,
-    fontSize: "20px",
-    lineHeight: 1.4,
+    color: common.black, 
+    fontWeight: 400,
+    fontSize: "38px",
+    lineHeight: 1.5,
+    fontFamily: "Open Sans Condensed, sans-serif",
+    textTransform: "uppercase",
+    // Même titre que h2 en Noir. 
   },
   h6: {
     color: palette.secondary.light,
@@ -56,11 +68,14 @@ const typography = {
     fontSize: "14px",
     lineHeight: 1.3,
     fontFamily: "Open Sans Condensed, sans-serif",
+    // Typo pour paragraphe et texte. (petite taille)
   },
   body2: {
-    color: palette.text.secondary,
-    fontSize: "14px",
+    color: common.black,
+    fontSize: "16px",
     lineHeight: 1.3,
+    fontFamily: "Raleway",
+    // Typo pour paragraphe et texte, lettre arrondie (taille moyenne)
   },
   button: {
     color: palette.primary.light,
@@ -77,10 +92,15 @@ const typography = {
     fontSize: "13px",
     textTransform: "uppercase",
     fontWeight: "bold",
+    color: palette.secondary.light
   },
+  // sous titre petite lettre en majuscule, terra cotta. 
   outlined: {
-    fontFamily: "Open Sans Condensed"
+    fontFamily: "Open Sans Condensed",
+   
   },
 };
+
+
 
 export default typography;
