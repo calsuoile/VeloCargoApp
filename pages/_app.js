@@ -1,11 +1,14 @@
-import ContactForm from '../sources/view/contactForm/ContactForm'
+import React from 'react';
+import Footer from '../sources/layout/Footer';
+import Home from '../sources/view/home/Home'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
   return (
   <>
-  <Component {...pageProps} />
-  <ContactForm/>
+  {/* <Component {...pageProps} /> */}
+  <Home />
+  <Footer />
   </>
   )
 }
