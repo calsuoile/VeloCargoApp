@@ -4,13 +4,15 @@ import ContactForm from "../sources/view/contactForm/ContactForm";
 import "../styles/globals.css";
 import theme from "../sources/theme";
 import Home from "../sources/view/home/Home";
+import Ads from "../sources/view/ads/view_ads/Ads";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-     <Home />
+        <Home />
+        <Ads />
 
         {/* <ContactForm/> */}
       </ThemeProvider>
