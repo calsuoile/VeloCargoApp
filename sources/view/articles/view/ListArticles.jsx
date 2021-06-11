@@ -19,7 +19,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: theme.spacing(1),
     width: "100%",
     height: "100%",
-    marginLeft: "20px",
+    marginLeft: "10px",
+    marginBottom: "50px",
+    marginTop: "50px",
     display: "flex",
     alignItems: "center",
     "& .MuiOutlinedInput-notchedOutline": {
