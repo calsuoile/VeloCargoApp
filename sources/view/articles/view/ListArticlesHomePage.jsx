@@ -1,3 +1,4 @@
+import { Button, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import ArticleCard from "./ArticleCard";
@@ -5,12 +6,16 @@ import ArticleCard from "./ArticleCard";
 const useStyles = makeStyles((theme) => ({
   button: {
     display: "flex",
-    justifyContent: "flex-end",
-    margin: "10px",
+    marginLeft: "1000px",
+    marginBottom: "30px",
+    borderRadius: "15px",
+    color: "black",
   },
-  test: {
+  title: {
     display: "flex",
     justifyContent: "center",
+    paddingBottom: "20px",
+    paddingTop: "20px",
   },
 
   cards: {
@@ -47,17 +52,23 @@ const ListArticlesHomePage = () => {
 
   return (
     <>
-      <div className={classes.test}>
-        <h1>ARTICLES & ASTUCES</h1>
-      </div>
+      <Typography className={classes.title} variant="h5">
+        DERNIERS ARTICLES & ASTUCES
+      </Typography>
       <div className={classes.cards}>
         {/* map pour affichage de tous les éléments de l'objet articles */}
         {articles.map((article, index) => (
           <ArticleCard key={index} {...article} />
         ))}
       </div>
-      <div className={classes.button}>
-        <button>VOIR PLUS</button>
+      <div>
+        <Button
+          variant="contained"
+          color="secondary"
+          className={classes.button}
+        >
+          Voir Plus
+        </Button>
       </div>
     </>
   );
