@@ -11,13 +11,18 @@ const useStyles = makeStyles((theme) => ({
   cardContainer: {
     maxWidth: 345,
     margin: "10px",
-    borderRadius: "10px",
-
-    
-
+    borderRadius: "5px",
   },
   media: {
     height: 140,
+  },
+  image: {
+    width: "100%",
+    height:300,
+  },
+
+  test: {
+    alignItems: "flex-end",
   },
 }));
 
@@ -25,28 +30,26 @@ export default function ArticleCard({ title, avatar, date }) {
   const classes = useStyles();
 
   return (
-    <div className={classes.cardContainer}>
-      <Card>
-        <CardActionArea>
-          <img src={avatar} />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              {title}
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              {date}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
-          <Button size="small" color="primary">
-            Partager
-          </Button>
-          <Button size="small" color="primary">
-            Lire
-          </Button>
-        </CardActions>
-      </Card>
-    </div>
+    <Card className={classes.cardContainer}>
+      <CardActionArea>
+        <img className={classes.image} src={avatar} />
+        <CardContent>
+          <Typography gutterBottom variant="h3" component="h2">
+            {title}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {date}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button size="small" color="primary">
+          Partager
+        </Button>
+        <Button size="small" color="primary">
+          Lire
+        </Button>
+      </CardActions>
+    </Card>
   );
 }
