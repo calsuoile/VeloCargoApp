@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-import Footer from '../sources/layout/Footer';
-import Home from '../sources/view/home/Home'
-import Contact from '../sources/view/Form/Contact'
-import '../styles/globals.css'
-=======
 import React from "react";
 import ListArticles from "../sources/view/articles/view/ListArticles";
 import ListArticlesHomePage from "../sources/view/articles/view/ListArticlesHomePage";
@@ -16,19 +9,9 @@ import ContactForm from "../sources/view/contactForm/ContactForm";
 import "../styles/globals.css";
 import theme from "../sources/theme";
 import Home from "../sources/view/home/Home";
->>>>>>> origin/dev
 
 function MyApp() {
   return (
-<<<<<<< HEAD
-  <>
-  {/* <Component {...pageProps} /> */}
-  {/* <Home />
-  <Footer /> */}
-  {/* <Contact /> */}
-  </>
-  )
-=======
     <>
       <ListArticlesHomePage />
       {/* <ViewArticle /> */}
@@ -41,7 +24,6 @@ function MyApp() {
       </ThemeProvider>
     </>
   );
->>>>>>> origin/dev
 }
 
 export default MyApp;
