@@ -9,7 +9,6 @@ import ViewArticle from "../sources/view/articles/view/ViewArticle";
 import { CssBaseline } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
 import theme from "../sources/theme";
-import Home from "../sources/view/home/Home";
 
 function MyApp() {
   return (
