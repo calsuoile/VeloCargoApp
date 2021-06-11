@@ -13,10 +13,10 @@ import IconButton from "@material-ui/core/IconButton";
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
-    borderRadius: "15px",
-    margin: "5px",
+    height: 400,
+    borderRadius: "5px",
+    margin: "10px",
     backgroundColor: "#fff",
-    
   },
   media: {
     height: 140,
@@ -28,19 +28,19 @@ const useStyles = makeStyles({
 
   image: {
     width: "100%",
+    height: 250,
   },
   // city: {
   //   paddingLeft: "12px",
   // },
 
   cityandicon: {
-    height: '100px',
+    height: "50px",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingLeft :"20px",
-    paddingRight: '20px'
- 
+    paddingLeft: "20px",
+    paddingRight: "20px",
   },
 });
 
