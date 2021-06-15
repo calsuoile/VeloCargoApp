@@ -1,13 +1,7 @@
-import ContactForm from '../sources/view/contactForm/ContactForm'
-import '../styles/globals.css'
-
-function MyApp({ Component, pageProps }) {
+export default function Nextra({ Component, pageProps }) {
   return (
-  <>
-  <Component {...pageProps} />
-  <ContactForm/>
-  </>
+    <>
+      <Component {...pageProps} />
+    </>
   )
 }
-
-export default MyApp
