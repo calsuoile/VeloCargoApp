@@ -5,3 +5,5 @@ export default function Nextra({ Component, pageProps }) {
     </>
   )
 }
+
+export default MyApp;
