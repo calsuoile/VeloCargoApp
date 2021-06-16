@@ -6,21 +6,21 @@ import ListArticles from "../sources/view/articles/view/ListArticles";
 import { CssBaseline } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
 import theme from "../sources/theme";
-<<<<<<< HEAD
-=======
 import Ads from "../sources/view/ads/view_ads/Ads";
->>>>>>> origin/dev
+import Login from "../sources/view/connexion/components/Login";
 
 function MyApp() {
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Home />
-        <Ads />
-        <ListArticles />
-        <Footer />
-      </ThemeProvider>
+   
+    <ThemeProvider theme={theme}>
+    <CssBaseline />
+    <Login />
+    <Home /> 
+      {/* <Ads />
+      <ListArticles /> */}
+     <Footer /> 
+    </ThemeProvider> 
     </>
   );
 }
