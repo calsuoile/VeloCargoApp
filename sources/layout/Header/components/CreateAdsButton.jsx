@@ -15,7 +15,7 @@ export default function CreateAdsButton() {
 
   return (
     <div className={classes.root}>
-      <Button variant="contained" color="primary">
+      <Button variant="contained" color="secondary">
         DÉPOSER UNE ANNONCE
       </Button>
     </div>

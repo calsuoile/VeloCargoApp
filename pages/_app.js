@@ -1,9 +1,7 @@
-export default function Nextra({ Component, pageProps }) {
+export default function VeloCargo({ Component, pageProps }) {
   return (
     <>
       <Component {...pageProps} />
     </>
   )
 }
-
-export default MyApp;

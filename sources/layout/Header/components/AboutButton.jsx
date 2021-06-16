@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(1),
     },
+    border: "none",
   },
 }));
 
@@ -15,7 +16,7 @@ export default function AboutButton() {
 
   return (
     <div className={classes.root}>
-      <Button variant="contained" color="primary">
+      <Button variant="contained" color="primary" >
         À PROPOS
       </Button>
     </div>

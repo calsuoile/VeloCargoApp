@@ -12,22 +12,20 @@ import IconsHeader from './IconsHeader';
 import ArticlesTipsButton from './ArticlesTipsButton';
 import CreateAdsButton from './CreateAdsButton';
 import AboutButton from './AboutButton';
+import { Hidden } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
   menuButton: {
+    display: 'flex',
     marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-    },
-  },
+    [theme.breakpoints.up('md')]: {
+      display: 'none'
+  }},
   search: {
+    display: 'flex',
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
@@ -52,19 +50,28 @@ const useStyles = makeStyles((theme) => ({
   },
   inputRoot: {
     color: 'inherit',
+    display: 'flex',
+
   },
   inputInput: {
+    display: 'flex',
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
     transition: theme.transitions.create('width'),
     width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: '12ch',
+    [theme.breakpoints.up('md')]: {
+      width: '3ch',
       '&:focus': {
         width: '20ch',
       },
     },
+  },
+  img: {
+    display: 'flex',
+    width: '80px',
+    height: '63px',
+    marginRight: theme.spacing(2),
   },
 }));
 
@@ -83,13 +90,17 @@ export default function SearchBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            VéloCargo
-          </Typography>
-          <SplitButtonType />
+          <img className={classes.img} src="/assets/logoVC.png"/>
+          <Hidden smDown>
+          <SplitButtonType/>
+          </Hidden>
+          <Hidden mdDown>
           <ArticlesTipsButton/>
+          </Hidden>
           <div style={{flexGrow: 1}}></div>
-          <CreateAdsButton />
+          <Hidden smDown>
+          <CreateAdsButton variant="body2"/>
+          </Hidden>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -103,7 +114,9 @@ export default function SearchBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
+          <Hidden smDown>
           <AboutButton />
+          </Hidden>
           <IconsHeader/>
         </Toolbar>
       </AppBar>

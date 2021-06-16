@@ -10,6 +10,11 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
   },
+  favorite: {
+    [theme.breakpoints.down('sm')]: {
+      display: 'none'
+    }
+  }
 }));
 
 export default function IconsHeader() {
@@ -17,7 +22,7 @@ export default function IconsHeader() {
 
   return (
     <div className={classes.root}>
-      <IconButton aria-label="like">
+      <IconButton className={classes.favorite} aria-label="like">
         <FavoriteBorderIcon />
       </IconButton>
       <IconButton aria-label="account">
