@@ -7,12 +7,12 @@ import DoubleArrowIcon from '@material-ui/icons/DoubleArrow';
 const images = [
   {
     url: '/assets/cargo3.jpg',
-    title: 'Vendre un vélo cargo ',
+    title: 'Acheter un vélo cargo',
     width: '50%',
   },
   {
     url: '/assets/cargo1.jpg',
-    title: 'Acheter un vélo cargo',
+    title: 'Vendre un vélo cargo',
     width: '50%',
   },
 ];
@@ -120,7 +120,7 @@ function Buysell() {
           <span className={classes.imageButton}>
             <Typography
               component="span"
-              variant="subtitle1"
+              variant="h3"
               color="inherit"
               className={classes.imageTitle}
             >
