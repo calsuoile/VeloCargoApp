@@ -2,7 +2,7 @@ import React from "react";
 import CardAds from "./CardAds";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
-import Button from '@material-ui/core/Button';
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
     marketplace: {
@@ -19,12 +19,12 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: "column"
       },
 
-    title:{
-        display : "flex",
-        justifyContent : "center",
-        paddingBottom : "20px",
-        paddingTop : "20px"
-    },
+  title: {
+    display: "flex",
+    justifyContent: "center",
+    paddingBottom: "20px",
+    paddingTop: "20px",
+  },
 
     button:{
         display: "flex", 
@@ -38,58 +38,66 @@ const useStyles = makeStyles((theme) => ({
 const adsCard = [
   {
     id: "1",
-    photo: "https://placedog.net/500",
+    photo: "https://source.unsplash.com/random?bike/4",
     title: "Vélo Cargo",
     price: "1230 €",
     city: "Bordeaux",
   },
   {
     id: "2",
-    photo: "https://placedog.net/604",
+    photo: "https://source.unsplash.com/random?bike/5",
     title: "Vélo Cargo",
     price: "1380 €",
     city: "Bordeaux",
   },
   {
     id: "3",
-    photo: "https://placedog.net/700",
+    photo: "https://source.unsplash.com/random?bike/6",
     title: "Vélo Cargo",
     price: "1560 €",
     city: "Bordeaux",
   },
   {
     id: "4",
-    photo: "https://placedog.net/800",
+    photo: "https://source.unsplash.com/random?bike/7",
     title: "Vélo Cargo",
     price: "1800 €",
     city: "Bordeaux",
   },
   {
     id: "5",
-    photo: "https://placedog.net/900",
+    photo: "https://source.unsplash.com/random?bike/8",
     title: "Vélo Cargo",
     price: "2300 €",
     city: "Bordeaux",
   },
   {
     id: "6",
-    photo: "https://placedog.net/990",
+    photo: "https://source.unsplash.com/random?bike/9",
     title: "Vélo Cargo",
     price: "2580 €",
     city: "Bordeaux",
   },
 ];
 function CardAdsList() {
-    const classes = useStyles();
+  const classes = useStyles();
 
-  return <div>
-<Typography className={classes.title} variant="h5">DERNIERES ANNONCES</Typography>
-  <div className={classes.marketplace} >
-      
- {adsCard.map((card, index) => (<CardAds {...card} key={index} />))}
-  </div>;
-  <Button variant="contained" color="secondary" className={classes.button}>Voir Plus</Button>
-  </div>
+  return (
+    <div>
+      <Typography className={classes.title} variant="h5">
+        DERNIERES ANNONCES
+      </Typography>
+      <div className={classes.marketplace}>
+        {adsCard.map((card, index) => (
+          <CardAds {...card} key={index} />
+        ))}
+      </div>
+      ;
+      <Button variant="contained" color="secondary" className={classes.button}>
+        Voir Plus
+      </Button>
+    </div>
+  );
 }
 
 export default CardAdsList;
