@@ -7,8 +7,8 @@ const palette = {
   type: "light",
   primary: {
     light: "rgba(252, 242, 55, 1)", // jaune clair vif
-    main: "rgba(129, 249, 171, 1)", // vert clair vif
-    dark: "rgba(104, 219, 150, 1)", // vert clair moins vif
+    main: "rgba(90, 206, 108, 1)", // vert
+    dark: "rgba(250, 219, 150, 1)", // vert clair moins vif
     contrastText: "rgba(255, 255, 255, 1)", // blanc
   },
   secondary: {
