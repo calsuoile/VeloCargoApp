@@ -5,13 +5,19 @@ import { Typography } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
-  marketplace: {
-    display: "grid",
-    gridTemplateColumns: "300px 300px 300px",
-    gridTemplateRows: "400px 400px",
-    gridGap: "60px",
-    justifyContent: "center",
-  },
+    marketplace: {
+     display : "grid",
+     gridTemplateColumns : "300px 300px 300px",
+     gridTemplateRows : "400px 400px",
+     gridGap : "60px", 
+     justifyContent : "center"
+
+    },
+    [theme.breakpoints.down("sm")]: {
+       
+        display: "flex",
+        flexDirection: "column"
+      },
 
   title: {
     display: "flex",
@@ -20,14 +26,13 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "20px",
   },
 
-  button: {
-    display: "flex",
-    marginLeft: "1000px",
-    marginBottom: "30px",
-    marginTop: "30px",
-    borderRadius: "15px",
-    color: "black",
-  },
+    button:{
+        display: "flex", 
+        marginLeft:"90%",
+        marginBottom:"30px",
+        borderRadius : "15px",
+        color : "black"
+    }
 }));
 
 const adsCard = [
