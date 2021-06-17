@@ -7,16 +7,20 @@ import { CssBaseline } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
 import theme from "../sources/theme";
 import Ads from "../sources/view/ads/view_ads/Ads";
+import DatePickers from "../sources/common/components/DatePickers";
+import CreateAds from "../sources/view/ads/create_ads/CreateAds"
 
 function MyApp() {
   return (
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Home />
-        <Ads />
-        <ListArticles />
-        <Footer />
+        {/* <Home />
+        <Ads /> */}
+        
+        {/* <ListArticles /> */}
+         <CreateAds />
+        {/* <Footer /> */}
       </ThemeProvider>
     </>
   );

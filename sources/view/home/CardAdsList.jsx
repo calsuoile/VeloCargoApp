@@ -13,6 +13,11 @@ const useStyles = makeStyles((theme) => ({
      justifyContent : "center"
 
     },
+    [theme.breakpoints.down("sm")]: {
+       
+        display: "flex",
+        flexDirection: "column"
+      },
 
     title:{
         display : "flex",
@@ -23,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 
     button:{
         display: "flex", 
-        marginLeft:"1000px",
+        marginLeft:"90%",
         marginBottom:"30px",
         borderRadius : "15px",
         color : "black"

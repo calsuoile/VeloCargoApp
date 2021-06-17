@@ -13,7 +13,7 @@ import IconButton from "@material-ui/core/IconButton";
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
-    borderRadius: "15px",
+    borderRadius: "5px",
     margin: "5px",
     backgroundColor: "#fff",
     
