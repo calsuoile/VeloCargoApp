@@ -12,27 +12,24 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 345,
     margin: "10px",
     borderRadius: "5px",
-  },
-  media: {
-    height: 140,
-  },
-  image: {
-    width: "100%",
-    height:300,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
 
-  test: {
-    alignItems: "flex-end",
+  image: {
+    width: "100%",
+    height: 300,
   },
 }));
 
-export default function ArticleCard({ title, avatar, date }) {
+export default function ArticleCard({ title, photo, date }) {
   const classes = useStyles();
 
   return (
     <Card className={classes.cardContainer}>
       <CardActionArea>
-        <img className={classes.image} src={avatar} />
+        <img className={classes.image} src={photo} />
         <CardContent>
           <Typography gutterBottom variant="h3" component="h2">
             {title}
