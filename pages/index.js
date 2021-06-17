@@ -10,7 +10,7 @@ function index(props) {
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <CssBaseline />
+      <CssBaseline />
       <Header/>
       <Home />
       <Footer />
