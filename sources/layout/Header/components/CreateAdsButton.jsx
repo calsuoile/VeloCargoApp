@@ -6,6 +6,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
       margin: theme.spacing(1),
+      backgroundColor: "#f4c15b"
     },
   },
 }));
@@ -15,7 +16,7 @@ export default function CreateAdsButton() {
 
   return (
     <div className={classes.root}>
-      <Button variant="contained" color="secondary">
+      <Button variant="contained">
         DÉPOSER UNE ANNONCE
       </Button>
     </div>

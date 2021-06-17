@@ -1,18 +1,16 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import SplitButtonType from './SplitButtonType';
 import IconsHeader from './IconsHeader';
 import ArticlesTipsButton from './ArticlesTipsButton';
 import CreateAdsButton from './CreateAdsButton';
 import AboutButton from './AboutButton';
-import { Hidden } from '@material-ui/core';
+import { Hidden, Typography } from '@material-ui/core';
+import BurgerMenu from './BurgerMenu';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,16 +19,16 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     display: 'flex',
     marginRight: theme.spacing(2),
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('sm')]: {
       display: 'none'
   }},
   search: {
     display: 'flex',
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
+    backgroundColor: fade(theme.palette.primary.dark, 0.50),
     '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
+      backgroundColor: fade(theme.palette.primary.main, 0.25),
     },
     marginLeft: 0,
     width: '100%',
@@ -80,17 +78,12 @@ export default function SearchBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" color="inherit">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
           <img className={classes.img} src="/assets/logoVC.png"/>
+          <Hidden mdUp>
+          <BurgerMenu className={classes.menuButton}/>
+          </Hidden>
           <Hidden smDown>
           <SplitButtonType/>
           </Hidden>
@@ -99,14 +92,14 @@ export default function SearchBar() {
           </Hidden>
           <div style={{flexGrow: 1}}></div>
           <Hidden smDown>
-          <CreateAdsButton variant="body2"/>
+          <CreateAdsButton/>
           </Hidden>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
             <InputBase
-              placeholder="Search…"
+              placeholder="Rechercher…"
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,

@@ -105,7 +105,7 @@ function Buysell() {
           focusRipple
           key={image.title}
           className={classes.image}
-          focusVisible ClassName={classes.focusVisible}
+          focusVisibleClassName={classes.focusVisible}
           style={{
             width: image.width,
           }}

@@ -38,7 +38,7 @@ export default function SplitButtonType() {
   };
 
   return (
-      <div>
+      <div style={{position: 'relative', zIndex: 1,}}>
         <ButtonGroup variant="contained" color="primary" ref={anchorRef} aria-label="split button">
           <Button onClick={handleClick}>{options[selectedIndex]}</Button>
           <Button
