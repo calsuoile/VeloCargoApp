@@ -80,7 +80,7 @@ function CardAdsList() {
   return (
     <div>
       <Typography className={classes.title} variant="h5">
-        DERNIERES ANNONCES
+        {/* DERNIERES ANNONCES */}
       </Typography>
       <div className={classes.marketplace}>
         {adsCard.map((card, index) => (
