@@ -90,8 +90,8 @@ const ViewArticle = () => {
           className={classes.image}
         />
       </div>
-      <Typography>
-        <h1 style={{ margin: "20px" }}>{articleView.title}</h1>
+      <Typography variant="h1" style={{ margin: "20px" }}>
+       {articleView.title}
       </Typography>
       <Typography className={classes.authorImage}>
         <Avatar alt="Clément Fouillet" src="/assets/clement_fouillet.jpg" />
@@ -100,12 +100,12 @@ const ViewArticle = () => {
         </i>
       </Typography>
       <div className={classes.container}>
-        <Typography className={classes.containerText}>
-          <p>{articleView.text}</p>
+        <Typography variant= "body2" className={classes.containerText}>
+        {articleView.text}
         </Typography>
         <div className={classes.containerOtherArticles}>
           <Typography variant="body1">
-            <h2>Derniers articles</h2>
+            Derniers articles
           </Typography>
           {otherArticles.map((otherArticle, index) => (
             <OtherArticlesWindow key={index} {...otherArticle} />

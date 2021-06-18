@@ -85,7 +85,7 @@ function CardAdsList() {
   return (
     <div>
       <Typography className={classes.title} variant="h5">
-        {/* DERNIERES ANNONCES */}
+       ACHETER UN VELO CARGO
       </Typography>
       <div className={classes.marketplace}>
         {adsCard.map((card, index) => (
