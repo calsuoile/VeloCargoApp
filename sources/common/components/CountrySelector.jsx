@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react'
-import Select from '@material-ui/core/Select';
+// import Select from '@material-ui/core/Select';
 import countryList from 'react-select-country-list'
+import Select, { components } from "react-select";
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
@@ -27,11 +28,11 @@ function CountrySelector() {
 
   return (
       <div>
-            <FormControl className={classes.formControl}>
+             {/* <FormControl className={classes.formControl}> */}
             <InputLabel id="demo-simple-select-label">Pays</InputLabel>
-            <Select options={options} value={value} onChange={changeHandler} className={classes.selector} label="pays" color="primary"/>
-
-            </FormControl>
+            <Select options={options} value={value} onChange={changeHandler} className={classes.selector} label={"pays"} color="primary"/>
+            
+            {/* </FormControl> */}
   
  
   </div>
