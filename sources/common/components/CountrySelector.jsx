@@ -1,16 +1,16 @@
 import React, { useState, useMemo } from 'react'
-// import Select from '@material-ui/core/Select';
-import countryList from 'react-select-country-list'
 import Select, { components } from "react-select";
+import countryList from 'react-select-country-list'
 import { makeStyles } from "@material-ui/core/styles";
-import InputLabel from '@material-ui/core/InputLabel';
-import FormControl from '@material-ui/core/FormControl';
+
 
 const useStyles = makeStyles({
  selector : {
-     width: 400, 
+     width: 250, 
      variant: "outlined",
      color: "green", 
+     marginTop: "10px"
+
 //      marginTop: theme.spacing(2),
  }
 

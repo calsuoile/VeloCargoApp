@@ -90,11 +90,9 @@ const ViewArticle = () => {
         />
       </div>
       <Typography variant="h1" style={{ margin: "20px" }}>
-<<<<<<< HEAD:sources/view/articles/view/ViewArticle.jsx
-       {articleView.title}
-=======
+
         {articleView.title}
->>>>>>> origin/dev:sources/view/articles/view-articles/ViewArticle.jsx
+
       </Typography>
       <div className={classes.authorImage}>
         <Avatar alt="Clément Fouillet" src="/assets/clement_fouillet.jpg" />
@@ -105,21 +103,11 @@ const ViewArticle = () => {
         </Typography>
       </div>
       <div className={classes.container}>
-<<<<<<< HEAD:sources/view/articles/view/ViewArticle.jsx
-        <Typography  variant="body2" className={classes.containerText}>
-          {articleView.text}
-        </Typography>
-        <div className={classes.containerOtherArticles}>
-          <Typography variant="body1">
-            Derniers articles
-          </Typography>
-=======
         <Typography variant="body1" className={classes.containerText}>
           {articleView.text}
         </Typography>
         <div className={classes.containerOtherArticles}>
           <Typography variant="h6">Derniers articles</Typography>
->>>>>>> origin/dev:sources/view/articles/view-articles/ViewArticle.jsx
           {otherArticles.map((otherArticle, index) => (
             <OtherArticlesWindow key={index} {...otherArticle} />
           ))}
