@@ -28,11 +28,11 @@ function CountrySelector() {
 
   return (
       <div>
+             {/* <FormControl className={classes.formControl}> */}
+            <InputLabel id="demo-simple-select-label">Pays</InputLabel>
+            <Select options={options} value={value} onChange={changeHandler} className={classes.selector} label={"pays"} color="primary"/>
             
-            <h5>Pays</h5>
-            <Select options={options} value={value} onChange={changeHandler} className={classes.selector} label="pays" color="primary"/>
-
-            
+            {/* </FormControl> */}
   
  
   </div>
