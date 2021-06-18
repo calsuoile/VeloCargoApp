@@ -5,6 +5,9 @@ import Header from '../sources/layout/Header/Header';
 import theme from '../sources/theme';
 import Footer from '../sources/layout/Footer';
 import Home from '../sources/view/home/Home';
+import CreateAds from '../sources/view/ads/create_ads/CreateAds';
+import Ads from '../sources/view/ads/view_ads/Ads';
+import Marketplace from '../sources/view/marketplace/Marketplace'
 
 function index(props) {
   return (
@@ -12,8 +15,11 @@ function index(props) {
       <ThemeProvider theme={theme}>
       <CssBaseline />
       <Header/>
+    
       <Home />
       <Footer />
+      
+    
       </ThemeProvider>
     </div>
   );
