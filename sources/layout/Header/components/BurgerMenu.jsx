@@ -18,19 +18,19 @@ import AddLocationIcon from "@material-ui/icons/AddLocation";
 const useStyles = makeStyles({
   list: {
     width: 350,
-    color: "#4E96AF",
+    color: "#f4c15b",
   },
 
   burgerbut: {
-    color: "white",
-    backgroundColor: "#f4c15b",
-    height: "60px",
+    backgroundColor: "white",
+    height: "40px",
+    width: "30px",
     fontFamily: "Staatliches, cursive",
     textAlign: "center",
     fontWeight: "bold",
-    margin: "10px",
+    margin: "5px",
     "&:hover": {
-      background: "",
+      background: "#f4c15b",
     },
   },
   puces: {
@@ -116,10 +116,14 @@ const useStyles = makeStyles({
     },
   },
   menuicon: {
-    color: "white",
-    fontSize: "35px",
+    color: "#f4c15b",
+    fontSize: "40px",
     marginLeft: "10px",
+    marginRight: "10px",
+    "&:hover": {
+        color: "white",
   },
+},
   homeicon: {
     color: "#F2B869",
     fontSize: "30px",

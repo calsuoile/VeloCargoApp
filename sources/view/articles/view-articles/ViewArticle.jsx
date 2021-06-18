@@ -1,6 +1,5 @@
-import { Avatar, colors, makeStyles, Typography } from "@material-ui/core";
-import { CancelScheduleSendSharp } from "@material-ui/icons";
 import React from "react";
+import { Avatar, colors, makeStyles, Typography } from "@material-ui/core";
 import OtherArticlesWindow from "./components/OtherArticlesWindow";
 
 const useStyles = makeStyles((theme) => ({
@@ -90,23 +89,25 @@ const ViewArticle = () => {
           className={classes.image}
         />
       </div>
-      <Typography>
-        <h1 style={{ margin: "20px" }}>{articleView.title}</h1>
+      <Typography variant="h1" style={{ margin: "20px" }}>
+
+        {articleView.title}
+
       </Typography>
-      <Typography className={classes.authorImage}>
+      <div className={classes.authorImage}>
         <Avatar alt="Clément Fouillet" src="/assets/clement_fouillet.jpg" />
-        <i style={{ marginLeft: "10px", marginTop: "10px" }}>
+        <Typography
+          style={{ marginLeft: "10px", marginTop: "10px", fontStyle: "italic" }}
+        >
           Le {articleView.date} par {articleView.author}{" "}
-        </i>
-      </Typography>
+        </Typography>
+      </div>
       <div className={classes.container}>
-        <Typography className={classes.containerText}>
-          <p>{articleView.text}</p>
+        <Typography variant="body1" className={classes.containerText}>
+          {articleView.text}
         </Typography>
         <div className={classes.containerOtherArticles}>
-          <Typography variant="body1">
-            <h2>Derniers articles</h2>
-          </Typography>
+          <Typography variant="h6">Derniers articles</Typography>
           {otherArticles.map((otherArticle, index) => (
             <OtherArticlesWindow key={index} {...otherArticle} />
           ))}
