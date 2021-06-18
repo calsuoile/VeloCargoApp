@@ -1,5 +1,5 @@
 import React from "react";
-import ListArticlesHomePage from "../articles/view/ListArticlesHomePage";
+import ListArticlesHomePage from "../articles/view-articles/ListArticlesHomePage";
 import Buysell from "./Buysell";
 import CardAdsList from "./CardAdsList";
 

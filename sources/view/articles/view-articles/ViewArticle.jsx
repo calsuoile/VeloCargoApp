@@ -1,6 +1,5 @@
-import { Avatar, colors, makeStyles, Typography } from "@material-ui/core";
-import { CancelScheduleSendSharp } from "@material-ui/icons";
 import React from "react";
+import { Avatar, colors, makeStyles, Typography } from "@material-ui/core";
 import OtherArticlesWindow from "./components/OtherArticlesWindow";
 
 const useStyles = makeStyles((theme) => ({
@@ -91,15 +90,22 @@ const ViewArticle = () => {
         />
       </div>
       <Typography variant="h1" style={{ margin: "20px" }}>
+<<<<<<< HEAD:sources/view/articles/view/ViewArticle.jsx
        {articleView.title}
+=======
+        {articleView.title}
+>>>>>>> origin/dev:sources/view/articles/view-articles/ViewArticle.jsx
       </Typography>
-      <Typography className={classes.authorImage}>
+      <div className={classes.authorImage}>
         <Avatar alt="Clément Fouillet" src="/assets/clement_fouillet.jpg" />
-        <i style={{ marginLeft: "10px", marginTop: "10px" }}>
+        <Typography
+          style={{ marginLeft: "10px", marginTop: "10px", fontStyle: "italic" }}
+        >
           Le {articleView.date} par {articleView.author}{" "}
-        </i>
-      </Typography>
+        </Typography>
+      </div>
       <div className={classes.container}>
+<<<<<<< HEAD:sources/view/articles/view/ViewArticle.jsx
         <Typography  variant="body2" className={classes.containerText}>
           {articleView.text}
         </Typography>
@@ -107,6 +113,13 @@ const ViewArticle = () => {
           <Typography variant="body1">
             Derniers articles
           </Typography>
+=======
+        <Typography variant="body1" className={classes.containerText}>
+          {articleView.text}
+        </Typography>
+        <div className={classes.containerOtherArticles}>
+          <Typography variant="h6">Derniers articles</Typography>
+>>>>>>> origin/dev:sources/view/articles/view-articles/ViewArticle.jsx
           {otherArticles.map((otherArticle, index) => (
             <OtherArticlesWindow key={index} {...otherArticle} />
           ))}
