@@ -9,7 +9,7 @@ import IconsHeader from './IconsHeader';
 import ArticlesTipsButton from './ArticlesTipsButton';
 import CreateAdsButton from './CreateAdsButton';
 import AboutButton from './AboutButton';
-import { Hidden, Typography } from '@material-ui/core';
+import { Hidden } from '@material-ui/core';
 import BurgerMenu from './BurgerMenu';
 
 const useStyles = makeStyles((theme) => ({
@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('md')]: {
-      width: '3ch',
+      width: '0ch',
       '&:focus': {
         width: '20ch',
       },
@@ -80,7 +80,7 @@ export default function SearchBar() {
     <div className={classes.root}>
       <AppBar position="static" color="inherit">
         <Toolbar>
-          <img className={classes.img} src="/assets/logoVC.png"/>
+          <img className={classes.img} src="/assets/logo.jpg"/>
           <Hidden mdUp>
           <BurgerMenu className={classes.menuButton}/>
           </Hidden>
