@@ -1,24 +1,19 @@
-import React from 'react';
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import TextField from '@material-ui/core/TextField';
-import {
-    Typography,
-    Grid,
-    Button,
-  } from '@material-ui/core';
-import Paper from '@material-ui/core/Paper';
-import InputBase from '@material-ui/core/InputBase';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import DirectionsIcon from '@material-ui/icons/Directions';
-import SendIcon from '@material-ui/icons/Send';
-
+import TextField from "@material-ui/core/TextField";
+import { Typography, Grid, Button } from "@material-ui/core";
+import Paper from "@material-ui/core/Paper";
+import InputBase from "@material-ui/core/InputBase";
+import Divider from "@material-ui/core/Divider";
+import IconButton from "@material-ui/core/IconButton";
+import DirectionsIcon from "@material-ui/icons/Directions";
+import SendIcon from "@material-ui/icons/Send";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: '2px 4px',
-    display: 'flex',
-    alignItems: 'center',
+    padding: "2px 4px",
+    display: "flex",
+    alignItems: "center",
     width: 400,
   },
   input: {
@@ -32,107 +27,109 @@ const useStyles = makeStyles((theme) => ({
     height: 28,
     margin: 4,
   },
-    list: {
-      textDecoration: "none",
-      display: 'flex',
-      backgroundColor: "#68db96",
-      justifyContent: 'space-around',
-    },
+  list: {
+    textDecoration: "none",
+    display: "flex",
+    backgroundColor: "#68db96",
+    justifyContent: "space-around",
+  },
 
-    container:{
-        backgroundColor: "#68db96",
-    },
-    contactform:{
-        display: "flex",
-        justifyContent:"center",
-        flexDirection: "column",
-        padding:"70px",
-        width:"500px",
-    },
-    textfield: {
-        backgroundColor: "white",
-        size: "50px",
-    },
-    button: {
-        size: "40px",
-        margin:"20px",
-        marginTop: "30px",
-        display: "flex",
-        alignItems: "flex-end",
-    },
-    logoform: {
-      display: "flex",
-      justifyContent:"space-around",
-      alignItems: "center",
-    },
-    img: {
-      width: "20%", 
-      height: "20%",
-      "&:hover": {
-        width: "23%", 
+  container: {
+    backgroundColor: "#68db96",
+  },
+  contactform: {
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
+    padding: "70px",
+    width: "500px",
+  },
+  textfield: {
+    backgroundColor: "white",
+    size: "50px",
+  },
+  button: {
+    size: "40px",
+    margin: "20px",
+    marginTop: "30px",
+    display: "flex",
+    alignItems: "flex-end",
+  },
+  logoform: {
+    display: "flex",
+    justifyContent: "space-around",
+    alignItems: "center",
+  },
+  img: {
+    width: "20%",
+    height: "20%",
+    "&:hover": {
+      width: "23%",
       height: "23%",
-      },
     },
-    inputTitle: {
-      margin: "10px",
-    },
-    title: {
-      marginTop: "50px",
-    }
+  },
+  inputTitle: {
+    margin: "10px",
+  },
+  title: {
+    marginTop: "50px",
+  },
 }));
 
 function Footer(props) {
-    const classes = useStyles();
+  const classes = useStyles();
 
-    return (
-        <div className={classes.container}>
-        <div className={classes.list}>
-            <div>
-                <ul className={classes.title}>
-                    <li>LES VELOS CARGO</li>
-                    <li>Triporteur</li>
-                    <li>Biporteur</li>
-                    <li>Tricycle</li>
-                    <li>LongTrail</li>
-                    <li>Remorques</li>
-                    <li>Accessoires</li>
-                </ul>
-            </div>
-            <div>
-                <ul className={classes.title}>
-                    <li>VENDRE UN VELO</li>
-                </ul>
-            </div>
-            <div>
-                <ul className={classes.title}>
-                    <li>ARTICLES</li>
-                </ul>
-            </div>
-    </div>
-  
+  return (
+    <div className={classes.container}>
+      <div className={classes.list}>
+        <div>
+          <ul className={classes.title}>
+            <li>LES VELOS CARGO</li>
+            <li>Triporteur</li>
+            <li>Biporteur</li>
+            <li>Tricycle</li>
+            <li>LongTrail</li>
+            <li>Remorques</li>
+            <li>Accessoires</li>
+          </ul>
+        </div>
+        <div>
+          <ul className={classes.title}>
+            <li>VENDRE UN VELO</li>
+          </ul>
+        </div>
+        <div>
+          <ul className={classes.title}>
+            <li>ARTICLES</li>
+          </ul>
+        </div>
+      </div>
 
-            <div className={classes.logoform}>
-
-           <div className={classes.abonnement}>
+      <div className={classes.logoform}>
+        <div className={classes.abonnement}>
           <h3>S'inscrire à la Newsletter</h3>
           <p>Recoit les nouveautés et autres informations</p>
-            <Paper component="form" className={classes.root}>
-      <InputBase
-        className={classes.input}
-        placeholder="Adresse e-mail"
-        inputProps={{ 'aria-label': 'search google maps' }}
-      />
-      <Divider className={classes.divider} orientation="vertical" />
-      <IconButton color="primary" className={classes.iconButton} aria-label="directions">
-        <SendIcon />
-      </IconButton>
-    </Paper>
-</div>
-<img className={classes.img} src="/assets/logoVC.png"/>
-    <div className={classes.contactform}>
-        <Grid item xs={12} data-aos="fade-up" className={classes.contact}>
-        <h3>Nous contactez</h3>
-          <p>On vous réponds dans les plus brefs délais</p>
+          <Paper component="form" className={classes.root}>
+            <InputBase
+              className={classes.input}
+              placeholder="Adresse e-mail"
+              inputProps={{ "aria-label": "search google maps" }}
+            />
+            <Divider className={classes.divider} orientation="vertical" />
+            <IconButton
+              color="primary"
+              className={classes.iconButton}
+              aria-label="directions"
+            >
+              <SendIcon />
+            </IconButton>
+          </Paper>
+        </div>
+        <img className={classes.img} src="/assets/logoVC.png" />
+        <div className={classes.contactform}>
+          <Grid item xs={12} data-aos="fade-up" className={classes.contact}>
+            <h3>Nous contactez</h3>
+            <p>On vous réponds dans les plus brefs délais</p>
             <Typography
               variant="subtitle1"
               color="textPrimary"
@@ -149,8 +146,8 @@ function Footer(props) {
               fullWidth
               type="text"
             />
-        </Grid>
-        <Grid item xs={12} data-aos="fade-up">
+          </Grid>
+          <Grid item xs={12} data-aos="fade-up">
             <Typography
               variant="subtitle1"
               color="textPrimary"
@@ -159,7 +156,7 @@ function Footer(props) {
               E-mail
             </Typography>
             <TextField
-            className={classes.textfield}
+              className={classes.textfield}
               placeholder="Email"
               variant="outlined"
               size="medium"
@@ -167,8 +164,8 @@ function Footer(props) {
               fullWidth
               type="email"
             />
-        </Grid>
-        <Grid item xs={12} data-aos="fade-up">
+          </Grid>
+          <Grid item xs={12} data-aos="fade-up">
             <Typography
               variant="subtitle1"
               color="textPrimary"
@@ -177,7 +174,7 @@ function Footer(props) {
               Message
             </Typography>
             <TextField
-            className={classes.textfield}
+              className={classes.textfield}
               placeholder="Quelle est ta question?"
               variant="outlined"
               name="message"
@@ -185,8 +182,8 @@ function Footer(props) {
               multiline
               rows={4}
             />
-        </Grid>
-        <Grid item container justify="center" xs={12}>
+          </Grid>
+          <Grid item container justify="center" xs={12}>
             <Button
               className={classes.button}
               variant="contained"
@@ -196,15 +193,11 @@ function Footer(props) {
             >
               Envoyez
             </Button>
-        </Grid>
+          </Grid>
         </div>
-
-
-
-</div>
-</div>
-           
-    );
+      </div>
+    </div>
+  );
 }
 
 export default Footer;
