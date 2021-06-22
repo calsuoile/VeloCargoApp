@@ -1,6 +1,7 @@
 import { CssBaseline } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/styles';
 import React from 'react';
+import Link from 'next/Link';
 import Header from '../sources/layout/Header/Header';
 import theme from '../sources/theme';
 import Footer from '../sources/layout/Footer';
@@ -18,14 +19,14 @@ function index(props) {
       <ThemeProvider theme={theme}>
       <CssBaseline />
       <Header/>
-      <Home />
-      <Footer />
-      <Login />
-      <Marketplace />
-      <Ads />
+       {/* <Home /> */}
+      {/* <Login />  */}
+      <Marketplace /> 
+       {/*<Ads />
       <CreateAds />
       <ListArticles />
-      <ViewArticle />
+      <ViewArticle /> */}
+      <Footer />
       </ThemeProvider>
     </div>
   );

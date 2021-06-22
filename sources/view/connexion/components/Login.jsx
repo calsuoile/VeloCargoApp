@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     width: '100%',
     height: '100vh',
-    backgroundColor: "#EDA274",
+    // backgroundColor: "#EDA274",
 
   },
   contain: {
@@ -77,6 +77,20 @@ const useStyles = makeStyles((theme) => ({
 export default function Login() {
   const classes = useStyles();
 
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+
+  const [firstName, setFirstName] = React.useState("");
+  const [lastName, setLastName] = React.useState("");
+
+  // const handleClick = async () => {
+  //   const userConnection = {
+  //     email: email,
+  //     password: password,
+  //   };
+  //   await axios.post("", userConnection);
+  // };
+
   return (
     <div className={classes.root}>
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square className={classes.contain}>
@@ -89,6 +103,7 @@ export default function Login() {
           </Typography>
           <form className={classes.form} noValidate>
             <TextField
+              value={email}
               variant="outlined"
               margin="normal"
               required
@@ -98,8 +113,10 @@ export default function Login() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={(e) => setEmail(e.target.value)}
             />
             <TextField
+            value={password}
               variant="outlined"
               margin="normal"
               required
@@ -109,6 +126,7 @@ export default function Login() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={(e) => setPassword(e.target.value)}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -120,8 +138,9 @@ export default function Login() {
               variant="contained"
               color="primary"
               className={classes.submit}
+              // onClick={handleClick}
             >
-              Connexion
+              CONNEXION
             </Button>
             <Grid container>
               <Grid item xs>
@@ -141,6 +160,7 @@ export default function Login() {
           </form>
         </div>
       </Grid>
+
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square className={classes.contain}>
         <div className={classes.paper2}>
           <Avatar className={classes.avatar}>
@@ -153,30 +173,35 @@ export default function Login() {
           <div className={classes.name}>
          
           <TextField
+              value={lastName}
               variant="outlined"
               margin="normal"
               required
               fullWidth
-              name="Nom"
+              name="lastName"
               label="Nom"
-              type="name"
-              id="name"
+              type="lastName"
+              id="lastName"
               autoComplete="current-password"
+              onChange={(e) => setLastName(e.target.value)}
               />
                  <TextField
+              value={firstName}
               variant="outlined"
               margin="normal"
               required
               fullWidth
-              name="Prenom"
+              name="firstName"
               label="Prenom"
-              type="name"
-              id="name"
+              type="firstName"
+              id="firstName"
               autoComplete="current-password"
+              onChange={(e) => setFirstName(e.target.value)}
               />
               </div>
 
             <TextField
+            value={email}
               variant="outlined"
               margin="normal"
               required
@@ -186,19 +211,23 @@ export default function Login() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={(e) => setEmail(e.target.value)}
             />
             <TextField
+              value={password}
               variant="outlined"
               margin="normal"
               required
               fullWidth
-              name="Mot de passe"
+              name="password"
               label="Mot de passe"
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={(e) => setPassword(e.target.value)}
             />
             <TextField
+            value={password}
               variant="outlined"
               margin="normal"
               required
@@ -208,6 +237,7 @@ export default function Login() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={(e) => setPassword(e.target.value)}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -219,6 +249,7 @@ export default function Login() {
               variant="contained"
               color="primary"
               className={classes.submit}
+              // onClick={handleClick}
             >
               Connexion
             </Button>

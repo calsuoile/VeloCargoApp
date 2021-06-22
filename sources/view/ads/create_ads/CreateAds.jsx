@@ -104,7 +104,6 @@ export default function CreateAds() {
               label="Description"
               variant="outlined"
               name="description"
-              multilinerowsMax={15}
               value={value}
               onChange={handleChange}
             ></TextField>

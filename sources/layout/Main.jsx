@@ -1,306 +1,306 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { useMediaQuery, Divider } from '@material-ui/core';
-import { Topbar, Footer, Sidebar } from './components';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import clsx from "clsx";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { useMediaQuery, Divider } from "@material-ui/core";
+import { Topbar, Footer, Sidebar } from "./components";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    height: '100%',
+    height: "100%",
   },
 }));
 
-const Main = props => {
+const Main = (props) => {
   const { children } = props;
 
   const classes = useStyles();
 
   const theme = useTheme();
-  const isMd = useMediaQuery(theme.breakpoints.up('md'), {
+  const isMd = useMediaQuery(theme.breakpoints.up("md"), {
     defaultMatches: true,
   });
 
   const pages = {
     landings: {
-      title: 'Landings',
-      id: 'landing-pages',
+      title: "Landings",
+      id: "landing-pages",
       children: {
         services: {
-          groupTitle: 'Services',
+          groupTitle: "Services",
           pages: [
             {
-              title: 'Coworking',
-              href: '/coworking',
+              title: "Coworking",
+              href: "/coworking",
             },
             {
-              title: 'Rental',
-              href: '/rental',
+              title: "Rental",
+              href: "/rental",
             },
             {
-              title: 'Job Listing',
-              href: '/job-listing',
+              title: "Job Listing",
+              href: "/job-listing",
             },
             {
-              title: 'E-Learning',
-              href: '/e-learning',
+              title: "E-Learning",
+              href: "/e-learning",
             },
             {
-              title: 'E-commerce',
-              href: '/e-commerce',
+              title: "E-commerce",
+              href: "/e-commerce",
             },
             {
-              title: 'Expo',
-              href: '/expo',
+              title: "Expo",
+              href: "/expo",
             },
           ],
         },
         apps: {
-          groupTitle: 'Apps',
+          groupTitle: "Apps",
           pages: [
             {
-              title: 'Desktop App',
-              href: '/desktop-app',
+              title: "Desktop App",
+              href: "/desktop-app",
             },
             {
-              title: 'Mobile App',
-              href: '/mobile-app',
+              title: "Mobile App",
+              href: "/mobile-app",
             },
           ],
         },
         web: {
-          groupTitle: 'Web',
+          groupTitle: "Web",
           pages: [
             {
-              title: 'Overview',
-              href: '/home',
+              title: "Overview",
+              href: "/home",
             },
             {
-              title: 'Basic',
-              href: '/web-basic',
+              title: "Basic",
+              href: "/web-basic",
             },
             {
-              title: 'Service',
-              href: '/service',
+              title: "Service",
+              href: "/service",
             },
             {
-              title: 'Startup',
-              href: '/startup',
+              title: "Startup",
+              href: "/startup",
             },
             {
-              title: 'Enterprise',
-              href: '/enterprise',
+              title: "Enterprise",
+              href: "/enterprise",
             },
             {
-              title: 'Cloud Hosting',
-              href: '/cloud-hosting',
+              title: "Cloud Hosting",
+              href: "/cloud-hosting",
             },
             {
-              title: 'Agency',
-              href: '/agency',
+              title: "Agency",
+              href: "/agency",
             },
             {
-              title: 'Design Company',
-              href: '/design-company',
+              title: "Design Company",
+              href: "/design-company",
             },
             {
-              title: 'Logistics',
-              href: '/logistics',
+              title: "Logistics",
+              href: "/logistics",
             },
           ],
         },
       },
     },
     pages: {
-      title: 'Pages',
-      id: 'supported-pages',
+      title: "Pages",
+      id: "supported-pages",
       children: {
         career: {
-          groupTitle: 'Career',
+          groupTitle: "Career",
           pages: [
             {
-              title: 'Lising',
-              href: '/career-listing',
+              title: "Lising",
+              href: "/career-listing",
             },
             {
-              title: 'Lising Minimal',
-              href: '/career-listing-minimal',
+              title: "Lising Minimal",
+              href: "/career-listing-minimal",
             },
             {
-              title: 'Opening',
-              href: '/career-opening',
+              title: "Opening",
+              href: "/career-opening",
             },
           ],
         },
         helpCenter: {
-          groupTitle: 'Help center',
+          groupTitle: "Help center",
           pages: [
             {
-              title: 'Overview',
-              href: '/help-center',
+              title: "Overview",
+              href: "/help-center",
             },
             {
-              title: 'Article',
-              href: '/help-center-article',
+              title: "Article",
+              href: "/help-center-article",
             },
           ],
         },
         company: {
-          groupTitle: 'Company',
+          groupTitle: "Company",
           pages: [
             {
-              title: 'About',
-              href: '/about',
+              title: "About",
+              href: "/about",
             },
             {
-              title: 'About (Cover)',
-              href: '/about-side-cover',
+              title: "About (Cover)",
+              href: "/about-side-cover",
             },
             {
-              title: 'Pricing',
-              href: '/pricing',
+              title: "Pricing",
+              href: "/pricing",
             },
             {
-              title: 'Terms',
-              href: '/company-terms',
+              title: "Terms",
+              href: "/company-terms",
             },
           ],
         },
         contact: {
-          groupTitle: 'Contact',
+          groupTitle: "Contact",
           pages: [
             {
-              title: 'Reach View',
-              href: '/contact-page',
+              title: "Reach View",
+              href: "/contact-page",
             },
             {
-              title: 'Sidebar Map',
-              href: '/contact-sidebar-map',
+              title: "Sidebar Map",
+              href: "/contact-sidebar-map",
             },
             {
-              title: 'Cover',
-              href: '/contact-page-cover',
+              title: "Cover",
+              href: "/contact-page-cover",
             },
           ],
         },
         blog: {
-          groupTitle: 'Blog',
+          groupTitle: "Blog",
           pages: [
             {
-              title: 'Newsroom',
-              href: '/blog-newsroom',
+              title: "Newsroom",
+              href: "/blog-newsroom",
             },
             {
-              title: 'Reach View',
-              href: '/blog-reach-view',
+              title: "Reach View",
+              href: "/blog-reach-view",
             },
             {
-              title: 'Search',
-              href: '/blog-search',
+              title: "Search",
+              href: "/blog-search",
             },
             {
-              title: 'Article',
-              href: '/blog-article',
+              title: "Article",
+              href: "/blog-article",
             },
           ],
         },
         portfolio: {
-          groupTitle: 'Portfolio',
+          groupTitle: "Portfolio",
           pages: [
             {
-              title: 'Basic',
-              href: '/portfolio-page',
+              title: "Basic",
+              href: "/portfolio-page",
             },
             {
-              title: 'Masonry',
-              href: '/portfolio-masonry',
+              title: "Masonry",
+              href: "/portfolio-masonry",
             },
             {
-              title: 'Grid View',
-              href: '/portfolio-grid',
+              title: "Grid View",
+              href: "/portfolio-grid",
             },
             {
-              title: 'Parallax Effect',
-              href: '/agency',
+              title: "Parallax Effect",
+              href: "/agency",
             },
           ],
         },
       },
     },
     account: {
-      title: 'Account',
-      id: 'account',
+      title: "Account",
+      id: "account",
       children: {
         settings: {
-          groupTitle: 'Settings',
+          groupTitle: "Settings",
           pages: [
             {
-              title: 'General',
-              href: '/account/?pid=general',
+              title: "General",
+              href: "/account/?pid=general",
             },
             {
-              title: 'Security',
-              href: '/account/?pid=security',
+              title: "Security",
+              href: "/account/?pid=security",
             },
             {
-              title: 'Notifications',
-              href: '/account/?pid=notifications',
+              title: "Notifications",
+              href: "/account/?pid=notifications",
             },
             {
-              title: 'Billing',
-              href: '/account/?pid=billing',
+              title: "Billing",
+              href: "/account/?pid=billing",
             },
           ],
         },
         signup: {
-          groupTitle: 'Sign up',
+          groupTitle: "Sign up",
           pages: [
             {
-              title: 'Simple',
-              href: '/signup-simple',
+              title: "Simple",
+              href: "/signup-simple",
             },
             {
-              title: 'Cover',
-              href: '/signup-cover',
+              title: "Cover",
+              href: "/signup-cover",
             },
           ],
         },
         signin: {
-          groupTitle: 'Sign in',
+          groupTitle: "Sign in",
           pages: [
             {
-              title: 'Simple',
-              href: '/signin-simple',
+              title: "Simple",
+              href: "/signin-simple",
             },
             {
-              title: 'Cover',
-              href: '/signin-cover',
+              title: "Cover",
+              href: "/signin-cover",
             },
           ],
         },
         password: {
-          groupTitle: 'Password reset',
+          groupTitle: "Password reset",
           pages: [
             {
-              title: 'Simple',
-              href: '/password-reset-simple',
+              title: "Simple",
+              href: "/password-reset-simple",
             },
             {
-              title: 'Cover',
-              href: '/password-reset-cover',
+              title: "Cover",
+              href: "/password-reset-cover",
             },
           ],
         },
         error: {
-          groupTitle: 'Error',
+          groupTitle: "Error",
           pages: [
             {
-              title: 'Simple',
-              href: '/not-found',
+              title: "Simple",
+              href: "/not-found",
             },
             {
-              title: 'Cover',
-              href: '/not-found-cover',
+              title: "Cover",
+              href: "/not-found-cover",
             },
           ],
         },
