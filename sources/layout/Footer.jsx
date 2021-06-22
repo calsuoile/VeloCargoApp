@@ -8,6 +8,10 @@ import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import DirectionsIcon from "@material-ui/icons/Directions";
 import SendIcon from "@material-ui/icons/Send";
+import InstagramIcon from "@material-ui/icons/Instagram";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import TwitterIcon from "@material-ui/icons/Twitter";
+import Logo from "./Footer/Logo";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,8 +45,10 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     flexDirection: "column",
-    padding: "70px",
-    width: "500px",
+    width: "30%",
+    margin: "auto",
+    // padding: "300px",
+    // width: "500px",
   },
   textfield: {
     backgroundColor: "white",
@@ -73,6 +79,13 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     marginTop: "50px",
+  },
+  button: {
+    background: "none",
+    border: "none",
+    "&:hover": {
+      color: "pink",
+    },
   },
 }));
 
@@ -195,9 +208,12 @@ function Footer(props) {
             </Button>
           </Grid>
         </div>
+      <div className={classes.logoform}>
+        <Logo />
       </div>
     </div>
+    </div>
   );
-}
+};
 
 export default Footer;
