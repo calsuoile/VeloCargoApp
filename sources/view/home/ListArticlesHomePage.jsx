@@ -1,7 +1,7 @@
 import { Button, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
-import ArticleCard from "./components/ArticleCard";
+import ArticleCard from "../articles/view-articles/components/ArticleCard";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -61,7 +61,7 @@ const ListArticlesHomePage = () => {
   return (
     <>
       <Typography className={classes.title} variant="h5">
-        DERNIERS ARTICLES & ASTUCES
+        ARTICLES & ASTUCES
       </Typography>
       <div className={classes.cards}>
         {/* map pour affichage de tous les éléments de l'objet articles */}
