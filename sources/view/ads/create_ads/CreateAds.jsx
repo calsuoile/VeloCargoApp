@@ -7,7 +7,6 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import DatePickers from "../../../common/components/DatePickers";
 import { TextField } from "@material-ui/core";
-import CountrySelector from "../../../common/components/CountrySelector";
 import CheckBox from "./CheckBox";
 
 const useStyles = makeStyles((theme) => ({
@@ -125,7 +124,6 @@ export default function CreateAds() {
           <Typography variant="outlined" width="100%">
        
             <div className={classes.localisation}>
-            <CountrySelector className={classes.country}  />
             <TextField
               className={classes.dep}
               id="outlined-basic"

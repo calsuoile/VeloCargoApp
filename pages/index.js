@@ -11,6 +11,7 @@ import ListArticles from "../sources/view/articles/view-articles/ListArticles";
 import ViewArticle from "../sources/view/articles/view-articles/ViewArticle";
 import CreateAds from '../sources/view/ads/create_ads/CreateAds';
 import Ads from '../sources/view/ads/view_ads/Ads';
+import About from '../sources/view/about/About';
 
 function index(props) {
   return (
@@ -18,14 +19,15 @@ function index(props) {
       <ThemeProvider theme={theme}>
       <CssBaseline />
       <Header/>
-      <Home />
+      {/* <Home /> */}
+      <About />
       <Footer />
-      <Login />
+      {/* <Login />
       <Marketplace />
       <Ads />
       <CreateAds />
       <ListArticles />
-      <ViewArticle />
+      <ViewArticle /> */}
       </ThemeProvider>
     </div>
   );
