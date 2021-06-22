@@ -1,5 +1,5 @@
 import React from "react";
-import ListArticlesHomePage from "../articles/view-articles/ListArticlesHomePage";
+import ListArticlesHomePage from "./ListArticlesHomePage";
 import Buysell from "./Buysell";
 import Button from "@material-ui/core/Button";
 import CardAdsList from "./CardAdsList";

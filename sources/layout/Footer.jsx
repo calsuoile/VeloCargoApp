@@ -61,10 +61,11 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "flex-end",
   },
-  // logoform: {
-  //   display: "flex",
-  //   alignItems: "center",
-  // },
+  logoform: {
+    display: "flex",
+    justifyContent: "space-around",
+    alignItems: "center",
+  },
   img: {
     width: "20%",
     height: "20%",
@@ -116,10 +117,32 @@ function Footer(props) {
           </ul>
         </div>
       </div>
-      <div className={classes.contactform}>
+
+      <div className={classes.logoform}>
+        <div className={classes.abonnement}>
+          <h3>S'inscrire à la Newsletter</h3>
+          <p>Recoit les nouveautés et autres informations</p>
+          <Paper component="form" className={classes.root}>
+            <InputBase
+              className={classes.input}
+              placeholder="Adresse e-mail"
+              inputProps={{ "aria-label": "search google maps" }}
+            />
+            <Divider className={classes.divider} orientation="vertical" />
+            <IconButton
+              color="primary"
+              className={classes.iconButton}
+              aria-label="directions"
+            >
+              <SendIcon />
+            </IconButton>
+          </Paper>
+        </div>
+        <img className={classes.img} src="/assets/logoVC.png" />
+        <div className={classes.contactform}>
           <Grid item xs={12} data-aos="fade-up" className={classes.contact}>
-            <h3 style={{textAlign: "center"}}>CONTACTEZ - NOUS</h3>
-            <p style={{textAlign: "center"}}>Une question? <br/> On se fera un plaisir de vous répondre dans les plus brefs délais !</p>
+            <h3>Nous contactez</h3>
+            <p>On vous réponds dans les plus brefs délais</p>
             <Typography
               variant="subtitle1"
               color="textPrimary"
@@ -189,7 +212,8 @@ function Footer(props) {
         <Logo />
       </div>
     </div>
+    </div>
   );
-}
+};
 
 export default Footer;
