@@ -14,14 +14,30 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     marginTop: theme.spacing(8),
   },
+  partnaires: {
+    display: "flex",
+    justifyContent: "space-around",
+  },
+  talkAbout: {
+    display: "flex",
+    justifyContent: "space-around",
+  },
+  title: {
+    display: "flex",
+    justifyContent: "space-around",
+  },
+  img_partnaires: {
+    maxWidth: "200px",
+    maxHeight: "200px",
+  },
   img_title: {
     maxWidth: "300px",
     maxHeight: "500px",
     merginTop: theme.spacing(10),
   },
-  title: {
-    display: "flex",
-    justifyContent: "space-around",
+  img_talkAbout: {
+    maxWidth: "100px",
+    maxHeight: "100px",
   },
 }));
 
@@ -31,7 +47,7 @@ const sections = [
   { title: "Notre vision", url: "#" },
   { title: "Dossier de presse", url: "#" },
   { title: "Ils parlent de nous", url: "#" },
-  { title: "Partenaires", url: "#" },
+  { title: "Partenaires", ahref: "#" },
 ];
 
 export default function Blog() {
@@ -121,31 +137,43 @@ export default function Blog() {
               <h3 className={classes.subtitle}>Dossier de presse</h3>
               <p className={classes.paragraph}></p>
             </div>
+            <h3 className={classes.subtitle}>Ils parlent de nous</h3>
             <div className={classes.talkAbout}>
-              <h3 className={classes.subtitle}>Ils parlent de nous</h3>
-              <p className={classes.paragraph}>Pause vélo</p>
+              {/* <p className={classes.paragraph}>Pause vélo</p> */}
               <img
-                src=""
+                className={classes.img_talkAbout}
+                src="/assets/logo_a_propos/pause_velo.jpg"
                 alt="Pause vélo"
                 href="https://youtu.be/UBvMiqYDE_8?t=732"
               />
-              <p className={classes.paragraph}>Serial Blogueuse</p>
+              {/* <p className={classes.paragraph}>Serial Blogueuse</p> */}
               <img
-                src=""
+                className={classes.img_talkAbout}
+                src="/assets/logo_a_propos/serial_blogueuse.jpg"
                 alt="Serial Blogueuse"
                 href="https://www.serialblogueuse.com/2021/06/02/10-bonnes-raisons-pour-se-deplacer-a-velo-cargo-en-ville/"
               />
             </div>
-            <div className={classes.partnaires}>
-              <h3 className={classes.subtitle}>Partenaires</h3>
-              <p className={classes.paragraph}>Cyclofix</p>
-              <img src="" alt="Cyclofix" href="" />
-              <p className={classes.paragraph}>Velhome</p>
-              <img src="" alt="Velhome" href="" />
-              <p className={classes.paragraph}>Cylantro</p>
-              <img src="" alt="Cylantro" href="" />
-              <p className={classes.paragraph}>Cocolis</p>
-              <img src="" alt="Cocolis" href="" />
+            <h3 className={classes.subtitle}>Partenaires</h3>
+            <div id="partnaires" className={classes.partnaires}>
+              {/* <p className={classes.paragraph}>Cyclofix</p> */}
+              <img
+                className={classes.img_partnaires}
+                src="/assets/logo_a_propos/cyclofix.png"
+                alt="Cyclofix"
+              />
+              {/* <p className={classes.paragraph}>Velhome</p> */}
+              <img
+                className={classes.img_partnaires}
+                src="/assets/logo_a_propos/velhome.png"
+                alt="Velhome"
+              />
+              {/* <p className={classes.paragraph}>Cylantro</p> */}
+              <img
+                className={classes.img_partnaires}
+                src="/assets/logo_a_propos/cylantro.png"
+                alt="Cylantro"
+              />
             </div>
           </div>
         </div>
