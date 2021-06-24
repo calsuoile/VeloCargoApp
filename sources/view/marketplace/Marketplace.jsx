@@ -11,12 +11,12 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-function Marketplace(props) {
+function Marketplace({adsCard}) {
     const classes = useStyles();
     return (
         <div className={classes.Marketplace}>
           <Filter /> 
-          <CardAdsList /> 
+          <CardAdsList adsCard={adsCard}/> 
         </div>
     );
 }

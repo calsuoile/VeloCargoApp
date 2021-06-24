@@ -1,4 +1,4 @@
-import ListArticles from "../sources/view/articles/view-articles/ListArticles";
+import ListArticles from "../../sources/view/articles/view-articles/ListArticles";
 
 export default function ArticlesPage({ articles }) {
   return <ListArticles articles={articles} />;
