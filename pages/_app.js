@@ -23,7 +23,7 @@ export default function VeloCargo({ Component, pageProps }) {
   //     if (accessToken) {
   //       const config = {
   //         headers: {
-  //           Authorization: `Bearer ${accessToken}`,
+  //           Authorization: Bearer ${accessToken},
   //         },
   //       };
 

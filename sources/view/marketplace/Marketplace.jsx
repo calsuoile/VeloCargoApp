@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     },
     titlesort: {
         display: 'flex',
-        
+
     },
     column: {
         display: 'flex',
