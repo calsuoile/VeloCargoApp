@@ -7,6 +7,10 @@ import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    alignItems: 'flex-end',
+  },
   button: {
     display: 'block',
     marginTop: theme.spacing(2),
@@ -35,9 +39,9 @@ export default function ControlledOpenSelect() {
   };
 
   return (
-    <div>
+    <div className={classes.root}>
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-controlled-open-select-label">Catégorie</InputLabel>
+        <InputLabel id="demo-controlled-open-select-label">TRIER PAR</InputLabel>
         <Select
           labelId="demo-controlled-open-select-label"
           id="demo-controlled-open-select"
@@ -50,14 +54,13 @@ export default function ControlledOpenSelect() {
           <MenuItem value="">
             
           </MenuItem>
-          <MenuItem value={10}>Pertinence</MenuItem>
+          <MenuItem value={10}>Nouveautés</MenuItem>
           <MenuItem value={20}>Prix croissant</MenuItem>
           <MenuItem value={30}>Prix décroissant</MenuItem>
-          <MenuItem value={40}>Longtail</MenuItem>
-          <MenuItem value={50}>Remorque</MenuItem>
-         <MenuItem value={60}> Accessoires</MenuItem>
+
         </Select>
       </FormControl>
     </div>
+    
   );
 }

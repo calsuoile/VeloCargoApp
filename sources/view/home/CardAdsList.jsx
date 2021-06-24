@@ -1,11 +1,12 @@
 import React from "react";
 import CardAds from "./CardAds";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography } from "@material-ui/core";
-import Button from "@material-ui/core/Button";
+
+
 
 const useStyles = makeStyles((theme) => ({
     marketplace: {
+      marginTop: "30px",
      display : "grid",
      gridTemplateColumns : "300px 300px 300px",
      gridTemplateRows : "400px 400px",
@@ -24,13 +25,6 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "20px",
   },
 
-    button:{
-        display: "flex", 
-        marginLeft:"90%",
-        marginBottom:"30px",
-        borderRadius : "15px",
-        color : "black"
-    }
 }));
 
 const adsCard = [
@@ -82,18 +76,14 @@ function CardAdsList() {
 
   return (
     <div>
-      <Typography className={classes.title} variant="h5">
-       ACHETER UN VELO CARGO
-      </Typography>
+
       <div className={classes.marketplace}>
         {adsCard.map((card, index) => (
           <CardAds {...card} key={index} />
         ))}
       </div>
       ;
-      <Button variant="contained" color="secondary" className={classes.button}>
-        Voir Plus
-      </Button>
+
     </div>
   );
 }

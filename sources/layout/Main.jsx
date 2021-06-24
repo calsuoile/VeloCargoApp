@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
@@ -16,3 +17,5 @@ const Main = props => {
 };
 
 export default Main;
+=======
+>>>>>>> origin/dev

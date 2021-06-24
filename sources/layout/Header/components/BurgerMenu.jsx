@@ -121,9 +121,9 @@ const useStyles = makeStyles({
     marginLeft: "10px",
     marginRight: "10px",
     "&:hover": {
-        color: "white",
+      color: "white",
+    },
   },
-},
   homeicon: {
     color: "#F2B869",
     fontSize: "30px",
