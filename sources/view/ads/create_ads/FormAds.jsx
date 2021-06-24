@@ -30,10 +30,9 @@ const validate = {
   },
 };
 function FormAds(props) {
- const state = {
+  const state = {
     formValues: {
-      titre : "",
-      
+      titre: "",
     },
     step: 1,
   };
@@ -44,7 +43,7 @@ function FormAds(props) {
       formValues,
     }));
 
-   const onSubmit = (values) => {
+  const onSubmit = (values) => {
     alert(JSON.stringify(values, null, 2));
   };
 
