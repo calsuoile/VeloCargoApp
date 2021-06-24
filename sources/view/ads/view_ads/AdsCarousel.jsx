@@ -22,7 +22,7 @@ const AdsCarousel = ({ className }) => {
           <img src="https://placedog.net/994" />
         </div>
         <div>
-          <img src="https://placedog.net/995" />
+          <img src="https://placedog.net/990" />
         </div>
         <div>
           <img src="https://placedog.net/996" />

@@ -1,10 +1,10 @@
 import React from 'react';
 import Blog from './components/Blog';
 
-function About(props) {
+function About() {
     return (
         <div>
-            <Blog />
+            <Blog/>
         </div>
     );
 }

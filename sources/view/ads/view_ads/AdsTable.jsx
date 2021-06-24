@@ -42,7 +42,7 @@ const rows = [
   createData("Gingerbread", 356, 16.0, 49, 3.9),
 ];
 
-export default function AdsTable() {
+export default function AdsTable({ads}) {
   const classes = useStyles();
 
   return (
@@ -51,36 +51,36 @@ export default function AdsTable() {
         <TableHead>
           <TableRow>
             <TableCell className={classes.cell}>Prix</TableCell>
-            <TableCell align="right">2600 €</TableCell>
+            <TableCell align="right">{ads.price}€</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           <TableRow>
             <TableCell className={classes.cell}>Catégorie</TableCell>
-            <TableCell align="right">Triporteur</TableCell>
+            <TableCell align="right">{ads.category}</TableCell>
             <TableCell className={classes.cell}>Marque</TableCell>
-            <TableCell align="right">Peugeot</TableCell>
+            <TableCell align="right">{ads.brand}</TableCell>
           </TableRow>
 
           <TableRow>
             <TableCell className={classes.cell}>Modèle</TableCell>
-            <TableCell align="right">Nimbus 2000</TableCell>
+            <TableCell align="right">{ads.model}</TableCell>
             <TableCell className={classes.cell}>Localisation</TableCell>
-            <TableCell align="right">Bordeaux</TableCell>
+            <TableCell align="right">{ads.dep},{ads.country}</TableCell>
           </TableRow>
 
           <TableRow>
             <TableCell className={classes.cell}>Garantie</TableCell>
-            <TableCell align="right">Oui</TableCell>
+            <TableCell align="right">{ads.guarantee}</TableCell>
             <TableCell className={classes.cell}>Etat Général</TableCell>
-            <TableCell align="right">Bon état</TableCell>
+            <TableCell align="right">{ads.general_state}</TableCell>
           </TableRow>
 
           <TableRow>
             <TableCell className={classes.cell}>Numéro Bicicode</TableCell>
-            <TableCell align="right">Oui</TableCell>
-            <TableCell className={classes.cell}>Controle Technique</TableCell>
-            <TableCell align="right">XXX</TableCell>
+            <TableCell align="right">{ads.bicycode}</TableCell>
+            <TableCell className={classes.cell}>Eléctrique</TableCell>
+            <TableCell align="right">{ads.electric}</TableCell>
           </TableRow>
         </TableBody>
       </Table>

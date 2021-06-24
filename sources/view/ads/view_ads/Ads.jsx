@@ -47,13 +47,10 @@ const useStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    paddingTop: "10px",
+    // paddingTop: "10px",
   },
 
-  photo1: {
-    width: " 70%",
-    borderRadius: "5px",
-  },
+
 
   table: {
     display: "flex",
@@ -109,13 +106,44 @@ function Ads(props) {
     setEmail(!email);
   }
 
+  const [ads, setAds] = useState({
+    date:"25 mai 2021",
+    price:"2000",
+    category:"Triporteur",
+    model:"560x",
+    guarantee:"Oui",
+    bicycode:"2340",
+    brand:"Peugeot",
+    country: "France",
+    dep:"Gironde",
+    general_state:"Bon",
+    electric: "Oui",
+    frame_size:"50",
+    length:"200",
+    kms:"20",
+    volume_box:"100",
+    mecanic_state:"bon",
+    esthetic_state:"bon", 
+    engin_power:"25",
+    batterie_wolt:"50", 
+
+  });
+
+  const [user, setUser] = useState({
+    firstname: "Michel", 
+    lastname:"Dupont",
+    phone_number: "06 88 27 55 32",
+    email:"michel.dupont@gmail.com",
+
+  })
+
   return (
     <div className={classes.box}>
       <div className={classes.header}>
         <Typography variant="h1">VELO CARGO PEUGEOT</Typography>
 
         <div className={classes.vendeur}>
-          <Typography variant="body2">Michel Dupont </Typography>
+          <Typography variant="body2">{user.firstname} {user.lastname}</Typography>
           <Typography variant="body2" className={classes.contact}>
             {" "}
             Contact :{" "}
@@ -124,7 +152,7 @@ function Ads(props) {
                 <PhoneIcon />
               </IconButton>
             ) : (
-              <p className={classes.num}>06 88 27 55 32</p>
+              <p className={classes.num}>{user.phone_number}</p>
             )}{" "}
             {email ? (
               <IconButton color="secondary" onClick={handleEmail}>
@@ -132,17 +160,17 @@ function Ads(props) {
                 <MailOutlineIcon />{" "}
               </IconButton>
             ) : (
-              <p className={classes.num}>michel.dupont@gmail.com</p>
+              <p className={classes.num}>{user.email}</p>
             )}
           </Typography>
         </div>
 
         <Typography variant="body2" className={classes.where}>
           {" "}
-          <PlaceIcon /> Bordeaux
+          <PlaceIcon /> {ads.country},{ads.dep}
         </Typography>
         <Typography variant="body1" className={classes.when}>
-          Le 17 mai 2021
+         {ads.date}
         </Typography>
       </div>
 
@@ -151,13 +179,13 @@ function Ads(props) {
       </div>
       <div className={classes.table}>
         {" "}
-        <AdsTable />
+        <AdsTable ads={ads}/>
       </div>
       <div className={classes.technique}>
         <Typography variant="h3" className={classes.title}>
           Fiche technique
         </Typography>
-        <AdsTechnique />
+        <AdsTechnique ads={ads}/>
       </div>
       <div className={classes.accessory}>
         <Typography variant="h3" className={classes.title}>

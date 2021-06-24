@@ -1,29 +1,26 @@
 import React from "react";
 import CardAds from "./CardAds";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography } from "@material-ui/core";
-import Button from "@material-ui/core/Button";
+
+
 
 const useStyles = makeStyles((theme) => ({
-  marketplace: {
-    display: "grid",
-    gridTemplateColumns: "300px 300px 300px",
-    gridTemplateRows: "400px 400px",
-    gridGap: "60px",
-    justifyContent: "center",
-  },
-  [theme.breakpoints.down("sm")]: {
-    display: "flex",
-    flexDirection: "column",
-  },
-
+    marketplace: {
+      marginTop: "30px",
+     display : "grid",
+     gridTemplateColumns : "300px 300px 300px",
+     gridTemplateRows : "400px 400px",
+     gridGap : "60px", 
+     justifyContent : "center",
+     display : "flex",
+     flexWrap :"wrap"
+    },
   title: {
     display: "flex",
     justifyContent: "center",
     paddingBottom: "20px",
     paddingTop: "20px",
   },
-
   button: {
     display: "flex",
     marginLeft: "90%",
@@ -46,10 +43,6 @@ function CardAdsList({ adsCard }) {
           <CardAds {...card} key={index} />
         ))}
       </div>
-      ;
-      <Button variant="contained" color="secondary" className={classes.button}>
-        Voir Plus
-      </Button>
     </div>
   );
 }

@@ -87,7 +87,7 @@ export default function SearchBar() {
           <Hidden smDown>
             <SplitButtonType />
           </Hidden>
-          <Hidden mdDown>
+          <Hidden smDown>
             <ArticlesTipsButton />
           </Hidden>
           <div style={{ flexGrow: 1 }}></div>
