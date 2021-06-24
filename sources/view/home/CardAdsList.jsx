@@ -10,14 +10,12 @@ const useStyles = makeStyles((theme) => ({
      gridTemplateColumns : "300px 300px 300px",
      gridTemplateRows : "400px 400px",
      gridGap : "60px", 
-     justifyContent : "center"
+     justifyContent : "center",
+     display : "flex",
+     flexWrap :"wrap"
 
     },
-    [theme.breakpoints.down("sm")]: {
-       
-        display: "flex",
-        flexDirection: "column"
-      },
+
 
   title: {
     display: "flex",

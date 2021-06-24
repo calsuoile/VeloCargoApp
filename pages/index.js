@@ -17,15 +17,15 @@ function index(props) {
     <div>
       <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Header/>
+      {/* <Header/>
       <Home />
       <Footer />
       <Login />
-      <Marketplace />
+      <Marketplace /> */}
       <Ads />
       <CreateAds />
-      <ListArticles />
-      <ViewArticle />
+      {/* <ListArticles />
+      <ViewArticle /> */}
       </ThemeProvider>
     </div>
   );
