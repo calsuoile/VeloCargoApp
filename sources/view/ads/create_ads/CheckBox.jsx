@@ -9,13 +9,13 @@ export default function CheckBox({label}) {
       
     });
   
-    const handleChange = (event) => {
+    const handleCheck = (event) => {
       setState({ ...state, [event.target.name]: event.target.checked });
     };
 
     return (
         <FormControlLabel
-        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
+        control={<Checkbox checked={state.checkedA} onChange={handleCheck} name="checkedA" />}
         label={label}
       />
     )}
