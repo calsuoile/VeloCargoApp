@@ -16,14 +16,11 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         
     },
-
     column: {
         display: 'flex',
         flexDirection: 'column',
     },
-
 }));
-
 
 function Marketplace(props) {
     const classes = useStyles();
