@@ -119,26 +119,7 @@ function Footer(props) {
       </div>
 
       <div className={classes.logoform}>
-        <div className={classes.abonnement}>
-          <h3>S'inscrire à la Newsletter</h3>
-          <p>Recoit les nouveautés et autres informations</p>
-          <Paper component="form" className={classes.root}>
-            <InputBase
-              className={classes.input}
-              placeholder="Adresse e-mail"
-              inputProps={{ "aria-label": "search google maps" }}
-            />
-            <Divider className={classes.divider} orientation="vertical" />
-            <IconButton
-              color="primary"
-              className={classes.iconButton}
-              aria-label="directions"
-            >
-              <SendIcon />
-            </IconButton>
-          </Paper>
         </div>
-        <img className={classes.img} src="/assets/logoVC.png" />
         <div className={classes.contactform}>
           <Grid item xs={12} data-aos="fade-up" className={classes.contact}>
             <h3>Nous contactez</h3>
@@ -212,7 +193,7 @@ function Footer(props) {
         <Logo />
       </div>
     </div>
-    </div>
+  
   );
 };
 

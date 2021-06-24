@@ -1,10 +1,10 @@
 import React from "react";
 import ListArticlesHomePage from "./ListArticlesHomePage";
-import Buysell from "./Buysell";
 import Button from "@material-ui/core/Button";
 import CardAdsList from "./CardAdsList";
 import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import ButtonBase from "./ButtonBase";
 
 const useStyles = makeStyles((theme) => ({
 button:{
@@ -25,7 +25,7 @@ function Home(props) {
 
   return (
     <div>
-      <Buysell />
+      <ButtonBase />
       <Typography className={classes.title} variant="h5">
           ACHETER UN VELO CARGO
       </Typography>

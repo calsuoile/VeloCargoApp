@@ -1,6 +1,7 @@
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -30,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     width: '100%',
     height: '100vh',
-    
     // backgroundColor: "#EDA274",
 
   },
@@ -44,52 +44,88 @@ const useStyles = makeStyles((theme) => ({
         opacity: 1,
       },
   },
-  paper: {
+
+  paper2: {
     margin: theme.spacing(10, 20),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
   },
-  
   avatar: {
-    margin: "20px",
+    margin: theme.spacing(1),
     backgroundColor: "rgba(237, 162, 116, 1)",
   },
   form: {
     width: '100%', // Fix IE 11 issue.
-    marginTop: "50px",
+    marginTop: theme.spacing(1),
   },
   submit: {
-    width: '50%',
-    margin: "100px"
+    margin: theme.spacing(3, 0, 2),
   },
-
+  name: {
+      display: 'flex',
+  }
 }));
 
-export default function Login() {
+export default function Registration() {
   const classes = useStyles();
 
+
+  const [lastName, setLastName] = React.useState("");
+  const [firstName, setFirstName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
   const display = (e) => {
     e.preventDefault();
-    console.log({ email }, { password });
+    console.log({ lastName }, { firstName }, { email }, { password });
   };
+
 
   return (
     <div className={classes.root}>
+
       <Grid item component={Paper} elevation={6} square className={classes.contain}>
-        <div className={classes.paper}>
+        <div className={classes.paper2}>
           <Avatar className={classes.avatar}>
             <DirectionsBikeIcon />
           </Avatar>
           <Typography variant="h5">
-            CONNEXION
+            INSCRIPTION
           </Typography>
           <form className={classes.form} noValidate>
+          <div className={classes.name}>
+         
+          <TextField
+              value={lastName}
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="lastName"
+              label="Nom"
+              type="lastName"
+              id="lastName"
+              autoComplete="current-password"
+              onChange={(e) => setLastName(e.target.value)}
+              />
+                 <TextField
+              value={firstName}
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="firstName"
+              label="Prenom"
+              type="firstName"
+              id="firstName"
+              autoComplete="current-password"
+              onChange={(e) => setFirstName(e.target.value)}
+              />
+              </div>
+
             <TextField
-              value={email}
+            value={email}
               variant="outlined"
               margin="normal"
               required
@@ -102,13 +138,26 @@ export default function Login() {
               onChange={(e) => setEmail(e.target.value)}
             />
             <TextField
+              value={password}
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Mot de passe"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <TextField
             value={password}
               variant="outlined"
               margin="normal"
               required
               fullWidth
               name="Mot de passe"
-              label="Mot de passe"
+              label="Confirme ton mot de passe"
               type="password"
               id="password"
               autoComplete="current-password"
@@ -126,27 +175,14 @@ export default function Login() {
               className={classes.submit}
               onClick={display}
             >
-              CONNEXION
+              Connexion
             </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Mot de passe oublié?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Créer un compte"}
-                </Link>
-              </Grid>
-            </Grid>
             <Box mt={5}>
               <Copyright />
             </Box>
           </form>
         </div>
       </Grid>
-
     </div>
   );
 }
