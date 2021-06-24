@@ -41,19 +41,19 @@ export default function VeloCargo({ Component, pageProps }) {
 
   return (
     <ThemeProvider theme={theme}>
-      {/* <UserContext.Provider value={{ connectedUser, setConnectedUser }}> /}
+      {/* <UserContext.Provider value={{ connectedUser, setConnectedUser }}> */}
       <CssBaseline />
-      {/ <Header /> /}
-      {/ <Home /> /}
-      {/ <CreationArticle /> /}
-      {/ <Loading /> /}
-      {/ <ButtonBase /> /}
-      {/ <Connection /> /}
-      {/ <Registration /> /}
-      {/ <Marketplace /> /}
-      {/ <Footer /> /}
+      <Header />
+      {/* <Home /> */}
+      {/* <CreationArticle /> */}
+      {/* <Loading /> */}
+      {/* <ButtonBase /> */}
+      {/* <Connection /> */}
+      {/* <Registration /> */}
+      {/* <Marketplace /> */}
+      {/* <Footer /> */}
       <Component {...pageProps} />
-      {/ </UserContext.Provider> */}
+      {/* </UserContext.Provider> */}
     </ThemeProvider>
   );
 }
