@@ -11,4 +11,3 @@ export async function getStaticProps(props) {
         revalidate: 60,
       };
     }
-

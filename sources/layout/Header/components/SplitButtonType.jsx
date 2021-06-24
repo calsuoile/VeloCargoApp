@@ -8,7 +8,7 @@ import Paper from "@material-ui/core/Paper";
 import Popper from "@material-ui/core/Popper";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
-import { makeStyles } from "@material-ui/core";
+import { Link, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   splitButtonType: {
@@ -67,7 +67,9 @@ export default function SplitButtonType() {
         ref={anchorRef}
         aria-label="split button"
       >
-        <Button onClick={handleClick}>{options[selectedIndex]}</Button>
+        <Link href="annonces" style={{ textDecoration: "none" }}>
+          <Button onClick={handleClick}>{options[selectedIndex]}</Button>
+        </Link>
         <Button
           size="small"
           aria-controls={open ? "split-button-menu" : undefined}
@@ -79,6 +81,7 @@ export default function SplitButtonType() {
           <ArrowDropDownIcon />
         </Button>
       </ButtonGroup>
+
       <Popper
         open={open}
         anchorEl={anchorRef.current}

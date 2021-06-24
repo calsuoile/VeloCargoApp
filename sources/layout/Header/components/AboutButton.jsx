@@ -17,7 +17,7 @@ export default function AboutButton() {
 
   return (
     <div className={classes.root}>
-      <Link href="a-propos">
+      <Link href="a-propos" style={{ textDecoration: "none" }}>
         <Button variant="contained" color="primary">
           À PROPOS
         </Button>

@@ -22,17 +22,26 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
+<<<<<<< HEAD
+
+function Marketplace({adsCard}) {
+=======
 function Marketplace(props) {
+>>>>>>> origin/dev
     const classes = useStyles();
     return (
         <div className={classes.Marketplace}>
           <Filter /> 
+<<<<<<< HEAD
+          <CardAdsList adsCard={adsCard}/> 
+=======
           <div className={classes.column}>
           <TitleAds />
           <SortBy />
           <CardAdsList /> 
           <Page />
           </div>
+>>>>>>> origin/dev
         </div>
     );
 }

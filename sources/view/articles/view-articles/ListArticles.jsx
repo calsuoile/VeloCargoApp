@@ -41,8 +41,8 @@ const ListArticles = ({ articles }) => {
       <div className={classes.cards}>
         {articles
           .filter((article) => article.title.includes(searchValue))
-          .map((article) => (
-            <ArticleCard {...article} />
+          .map((article, index) => (
+            <ArticleCard key={index.id} {...article} />
           ))}
       </div>
     </>

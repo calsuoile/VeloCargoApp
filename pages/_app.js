@@ -4,6 +4,10 @@ import { ThemeProvider } from "@material-ui/styles";
 import { CssBaseline } from "@material-ui/core";
 import theme from "../sources/theme";
 import Header from "../sources/layout/Header/Header";
+import Home from "../sources/view/home/Home";
+import Footer from "../sources/layout/Header/Header";
+import CreationArticle from "../sources/view/articles/create-article/CreateArticle"
+import Loading from "../sources/common/components/Loading";
 import axios from "axios";
 import Home from "../sources/view/home/Home";
 import Footer from "../sources/layout/Footer";
@@ -47,6 +51,10 @@ export default function VeloCargo({ Component, pageProps }) {
       {/* </UserContext.Provider> */}
       <CssBaseline />
       <Header />
+      {/* <Home /> */}
+      {/* <CreationArticle /> */}
+      <Loading />
+      {/* <Footer /> */}
       {/* <ButtonBase />
       <Connection /> */}
       {/* <Connection />

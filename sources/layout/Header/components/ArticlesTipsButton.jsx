@@ -16,7 +16,7 @@ export default function ArticlesTipsButton() {
 
   return (
     <div className={classes.root}>
-      <Link href="articles">
+      <Link href="articles" style={{ textDecoration: "none" }}>
         <Button variant="contained" color="primary">
           ARTICLES & ASTUCES
         </Button>

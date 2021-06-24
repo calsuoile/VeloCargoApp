@@ -34,7 +34,6 @@ function Home(props) {
         Voir Plus
       </Button>
       <ListArticlesHomePage />
-
     </div>
   );
 }
