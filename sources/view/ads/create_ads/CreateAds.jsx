@@ -83,73 +83,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-<<<<<<< HEAD
 export default function CreateAds({ match }) {
-    const classes = useStyles();
-  
-    const [form, setForm] = React.useState({
-      titre: "",
-      description: "",
-      departement: "",
-      type: "",
-      brand: "",
-      model: "",
-      furnished: "",
-      price: "",
-      // image: []
-    });
-  
-    useEffect(() => {
-      if (match?.params?.id) {
-        axios
-          // .get(` https://toctoc-api.herokuapp.com/flat/${match.params.id} `)
-          .then((response) => setForm(response.data));
-      }
-    }, [match.params.id]);
-  
-    const handleChange = (e) => {
-      setForm({ ...form, [e.target.name]: e.target.value });
-    };
-  
-    const handleUploadImage = (imageUrl) => {
-      const newImages = [...form.images, imageUrl];
-      setForm({ ...form, images: newImages });
-      console.log(newImages);
-    };
-  
-    const history = useHistory();
-  
-    const postForm = () => {
-      const token = localStorage.getItem("userToken");
-      const config = {
-        headers: { Authorization: `Bearer ${token}` },
-      };
-      if (match?.params?.id) {
-        axios
-          .patch(
-            // `https://toctoc-api.herokuapp.com/flat/${match.params.id}`,
-            form,
-            config
-          )
-          .then(() => {
-            history.push("/");
-          });
-      } else {
-        axios
-          // .post("https://toctoc-api.herokuapp.com/flat", form, config)
-          .then((res) => {
-            console.log(res.data);
-            history.push("/");
-          });
-      }
-    };
-  
-    const handleClick = () => {
-      postForm();
-    };
-=======
-export default function CreateAds({}) {
->>>>>>> origin/dev
   const classes = useStyles();
   const [form, setForm] = React.useState({
     title: "",
@@ -176,21 +110,63 @@ export default function CreateAds({}) {
     engin_power:"",
     batterie_wolt:"", 
   });
-  // const [check, setCheck] = React.useState(true);
+
+    // useEffect(() => {
+    //   if (match?.params?.id) {
+    //     axios
+    //       // .get(` https://toctoc-api.herokuapp.com/flat/${match.params.id} `)
+    //       .then((response) => setForm(response.data));
+    //   }
+    // }, [match.params.id]);
+
+    // const postForm = () => {
+    //   const token = localStorage.getItem("userToken");
+    //   const config = {
+    //     headers: { Authorization: `Bearer ${token}` },
+    //   };
+    //   if (match?.params?.id) {
+    //     axios
+    //       .patch(
+    //         // `https://toctoc-api.herokuapp.com/flat/${match.params.id}`,
+    //         form,
+    //         config
+    //       )
+    //       .then(() => {
+    //         history.push("/");
+    //       });
+    //   } else {
+    //     axios
+    //       // .post("https://toctoc-api.herokuapp.com/flat", form, config)
+    //       .then((res) => {
+    //         console.log(res.data);
+    //         history.push("/");
+    //       });
+    //   }
+    // };
+  
+    const handleChange = (e) => {
+      setForm({ ...form, [e.target.name]: e.target.value });
+    };
+
+    const handleChecked = (e) => {
+      setForm({ ...form, [e.target.name]: e.target.checked });
+    }
+    const handleClick = () => {
+      console.log(form); //postForm();
+    };
+  
+    const handleUploadImage = (imageUrl) => {
+      const newImages = [...form.images, imageUrl];
+      setForm({ ...form, images: newImages });
+      console.log(newImages);
+    };
+
+      // const [check, setCheck] = React.useState(true);
   // function handleCheck() {
   //   setCheck(!check);
   // }
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleChecked = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.checked });
-  }
-  const handleClick = () => {
-    console.log(form); //postForm();
-  };
+  
+    // const history = useHistory();
 
   return (
     <div className={classes.root}>
