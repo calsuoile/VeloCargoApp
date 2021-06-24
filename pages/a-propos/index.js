@@ -1,13 +1,13 @@
-import About from '../sources/view/about/About';
+import About from "../../sources/view/about/About";
 
 export default function AProposPage() {
-    return <About/>;
-};
+  return <About />;
+}
 
 export async function getStaticProps(props) {
-      //faire la requête axios
-    return {
-        props: {},
-        revalidate: 60,
-      };
-    }
+  //faire la requête axios
+  return {
+    props: {},
+    revalidate: 60,
+  };
+}

@@ -6,11 +6,8 @@ import theme from "../sources/theme";
 import Header from "../sources/layout/Header/Header";
 import Home from "../sources/view/home/Home";
 import Footer from "../sources/layout/Header/Header";
-import CreationArticle from "../sources/view/articles/create-article/CreateArticle"
+import CreationArticle from "../sources/view/articles/create-article/CreateArticle";
 import Loading from "../sources/common/components/Loading";
-import axios from "axios";
-import Home from "../sources/view/home/Home";
-import Footer from "../sources/layout/Footer";
 import Marketplace from "../sources/view/marketplace/Marketplace";
 import ButtonBase from "../sources/view/home/ButtonBase";
 import Login from "../sources/view/connexion/Connection";
@@ -45,24 +42,18 @@ export default function VeloCargo({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       {/* <UserContext.Provider value={{ connectedUser, setConnectedUser }}> */}
-        <CssBaseline />
-        <Header />
-        <Component {...pageProps} />
-      {/* </UserContext.Provider> */}
       <CssBaseline />
       <Header />
       {/* <Home /> */}
       {/* <CreationArticle /> */}
-      <Loading />
-      {/* <Footer /> */}
-      {/* <ButtonBase />
-      <Connection /> */}
-      {/* <Connection />
-      <Registration /> */}
-      <Home />
+      {/* <Loading /> */}
+      {/* <ButtonBase /> */}
+      {/* <Connection /> */}
+      {/* <Registration /> */}
       {/* <Marketplace /> */}
-      <Footer />
+      {/* <Footer /> */}
       <Component {...pageProps} />
+      {/* </UserContext.Provider> */}
     </ThemeProvider>
   );
 }
