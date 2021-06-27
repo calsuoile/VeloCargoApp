@@ -67,7 +67,7 @@ export default function SplitButtonType() {
         ref={anchorRef}
         aria-label="split button"
       >
-        <Link href="annonces" style={{ textDecoration: "none" }}>
+        <Link href="acheter-un-velo-cargo" style={{ textDecoration: "none" }}>
           <Button onClick={handleClick}>{options[selectedIndex]}</Button>
         </Link>
         <Button

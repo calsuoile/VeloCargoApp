@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik } from "formik";
 import TextField from "@material-ui/core/TextField";
-import DatePickers from "../../../common/components/DatePickers";
+import DatePickers from "../../../../common/components/DatePickers";
 
 const Step1 = ({ values, erros, handleChange, handleBlur }) => (
   <div>

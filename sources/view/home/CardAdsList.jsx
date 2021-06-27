@@ -1,21 +1,18 @@
 import React from "react";
 import CardAds from "./CardAds";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography } from "@material-ui/core";
-
-
 
 const useStyles = makeStyles((theme) => ({
-    marketplace: {
-      marginTop: "30px",
-     display : "grid",
-     gridTemplateColumns : "300px 300px 300px",
-     gridTemplateRows : "400px 400px",
-     gridGap : "60px", 
-     justifyContent : "center",
-     display : "flex",
-     flexWrap :"wrap"
-    },
+  marketplace: {
+    marginTop: "30px",
+    display: "grid",
+    gridTemplateColumns: "300px 300px 300px",
+    gridTemplateRows: "400px 400px",
+    gridGap: "60px",
+    justifyContent: "center",
+    display: "flex",
+    flexWrap: "wrap",
+  },
   title: {
     display: "flex",
     justifyContent: "center",
@@ -36,9 +33,6 @@ function CardAdsList({ adsCard }) {
 
   return (
     <div>
-      <Typography className={classes.title} variant="h5">
-        ACHETER UN VELO CARGO
-      </Typography>
       <div className={classes.marketplace}>
         {adsCard.map((card, index) => (
           <CardAds {...card} key={index} />

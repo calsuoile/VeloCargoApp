@@ -1,21 +1,16 @@
-<<<<<<< HEAD
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { useMediaQuery, Divider } from '@material-ui/core';
-import { Topbar, Footer, Sidebar } from './components';
+import React from "react";
+import Footer from "./Footer/Footer";
+import Header from "./Header/Header";
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    height: '100%',
-  },
-}));
 
-const Main = props => {
- return 
-};
-
+function Main(props) {
+  const { children } = props;
+  return (
+    <div>
+      <Header />
+      {children}
+      <Footer />
+    </div>
+  );
+}
 export default Main;
-=======
->>>>>>> origin/dev

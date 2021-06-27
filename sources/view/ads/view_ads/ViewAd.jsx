@@ -5,9 +5,9 @@ import PlaceIcon from "@material-ui/icons/Place";
 import PhoneIcon from "@material-ui/icons/Phone";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import IconButton from "@material-ui/core/IconButton";
-import AdsTable from "./AdsTable";
-import AdsTechnique from "./AdsTechnique";
-import AdsCarousel from "./AdsCarousel";
+import AdsTable from "./components/AdsTable";
+import AdsTechnique from "./components/AdsTechnique";
+import AdsCarousel from "./components/AdsCarousel";
 
 const useStyles = makeStyles({
   box: {
@@ -50,8 +50,6 @@ const useStyles = makeStyles({
     // paddingTop: "10px",
   },
 
-
-
   table: {
     display: "flex",
     justifyContent: "center",
@@ -90,11 +88,11 @@ const useStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     marginRight: "10px",
-    color: "rgba(255, 196, 0, 1)"
+    color: "rgba(255, 196, 0, 1)",
   },
 });
 
-function Ads(props) {
+function ViewAd({ ads, user }) {
   const classes = useStyles();
   const [phoneNumber, setPhoneNumber] = useState(true);
   function handlePhone() {
@@ -106,44 +104,15 @@ function Ads(props) {
     setEmail(!email);
   }
 
-  const [ads, setAds] = useState({
-    date:"25 mai 2021",
-    price:"2000",
-    category:"Triporteur",
-    model:"560x",
-    guarantee:"Oui",
-    bicycode:"2340",
-    brand:"Peugeot",
-    country: "France",
-    dep:"Gironde",
-    general_state:"Bon",
-    electric: "Oui",
-    frame_size:"50",
-    length:"200",
-    kms:"20",
-    volume_box:"100",
-    mecanic_state:"bon",
-    esthetic_state:"bon", 
-    engin_power:"25",
-    batterie_wolt:"50", 
-
-  });
-
-  const [user, setUser] = useState({
-    firstname: "Michel", 
-    lastname:"Dupont",
-    phone_number: "06 88 27 55 32",
-    email:"michel.dupont@gmail.com",
-
-  })
-
   return (
     <div className={classes.box}>
       <div className={classes.header}>
         <Typography variant="h1">VELO CARGO PEUGEOT</Typography>
 
         <div className={classes.vendeur}>
-          <Typography variant="body2">{user.firstname} {user.lastname}</Typography>
+          <Typography variant="body2">
+            {user.firstname} {user.lastname}
+          </Typography>
           <Typography variant="body2" className={classes.contact}>
             {" "}
             Contact :{" "}
@@ -167,10 +136,10 @@ function Ads(props) {
 
         <Typography variant="body2" className={classes.where}>
           {" "}
-          <PlaceIcon /> {ads.country},{ads.dep}
+          <PlaceIcon /> {ads.country}, {ads.dep}
         </Typography>
         <Typography variant="body1" className={classes.when}>
-         {ads.date}
+          {ads.date}
         </Typography>
       </div>
 
@@ -179,26 +148,35 @@ function Ads(props) {
       </div>
       <div className={classes.table}>
         {" "}
-        <AdsTable ads={ads}/>
+        <AdsTable ads={ads} />
       </div>
       <div className={classes.technique}>
         <Typography variant="h3" className={classes.title}>
           Fiche technique
         </Typography>
-        <AdsTechnique ads={ads}/>
+        <AdsTechnique ads={ads} />
       </div>
       <div className={classes.accessory}>
         <Typography variant="h3" className={classes.title}>
           Accessoires Complémentaire
         </Typography>
         <div className={classes.accessoryImg}>
-          <img src="https://placedog.net/991" width="200"></img>
-          <img src="https://placedog.net/992" width="200"></img>
-          <img src="https://placedog.net/993" width="200"></img>
+          <img
+            src="https://source.unsplash.com/random?bike/1"
+            width="200"
+          ></img>
+          <img
+            src="https://source.unsplash.com/random?bike/2"
+            width="200"
+          ></img>
+          <img
+            src="https://source.unsplash.com/random?bike/3"
+            width="200"
+          ></img>
         </div>
       </div>
     </div>
   );
 }
 
-export default Ads;
+export default ViewAd;
