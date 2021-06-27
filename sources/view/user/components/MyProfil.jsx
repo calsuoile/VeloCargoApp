@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Myprofil(props) {
+function MyProfil(props) {
   const classes = useStyles();
   const { connectedUser } = useContext(UserContext);
 

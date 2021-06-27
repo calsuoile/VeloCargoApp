@@ -85,26 +85,24 @@ function ButtonBases(props) {
 
   return (
     <div className={classes.root}>
-        
-      
-        <ButtonBase
-          focusRipple
-          key="Acheter un vélo cargo"
-          className={classes.image}
-          focusVisibleClassName={classes.focusVisible}
+      <ButtonBase
+        focusRipple
+        key="Acheter un vélo cargo"
+        className={classes.image}
+        focusVisibleClassName={classes.focusVisible}
+        style={{
+          width: "50%",
+        }}
+      >
+        <span
+          className={classes.imageSrc}
           style={{
-            width: "50%",
+            backgroundImage: "url('/assets/cargo3.jpg')",
           }}
-        >
-          <span
-            className={classes.imageSrc}
-            style={{
-              backgroundImage: "url('/assets/cargo3.jpg')",
-            }}
-          />
-          <span className={classes.imageBackdrop} />
-          <span className={classes.imageButton}>
-          <Link href="acheter-un-velo-cargo">
+        />
+        <span className={classes.imageBackdrop} />
+        <span className={classes.imageButton}>
+          <Link href="acheter-un-velo-cargo" style={{ textDecoration: "none" }}>
             <Typography
               component="span"
               variant="subtitle1"
@@ -114,11 +112,9 @@ function ButtonBases(props) {
               ACHETER UN VELO CARGO
               <span className={classes.imageMarked} />
             </Typography>
-            </Link>
-          </span>
-         
-        </ButtonBase>
-      
+          </Link>
+        </span>
+      </ButtonBase>
 
       <ButtonBase
         focusRipple

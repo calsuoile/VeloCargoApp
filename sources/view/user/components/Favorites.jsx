@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Favoris(props) {
+function Favorites(props) {
   const classes = useStyles();
 
   const [favorites, setFavorites] = useState([]);
@@ -35,9 +35,10 @@ function Favoris(props) {
     if (Object.keys(connectedUser).length > 0) {
       Promise.all(
         connectedUser.favorites.map((item) => {
-          const req = axios.get(
+          const req = axios
+            .get
             // `https://toctoc-api.herokuapp.com/flat/${item}`
-          );
+            ();
           return req;
         })
       ).then((response) => setFavorites(response));

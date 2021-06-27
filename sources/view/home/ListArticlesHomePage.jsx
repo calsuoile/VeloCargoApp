@@ -1,4 +1,4 @@
-import { Button, Typography } from "@material-ui/core";
+import { Button, Link, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import ArticleCard from "../articles/view-articles/components/ArticleCard";
@@ -70,13 +70,15 @@ const ListArticlesHomePage = () => {
         ))}
       </div>
       <div>
-        <Button
-          variant="contained"
-          color="secondary"
-          className={classes.button}
-        >
-          Voir Plus
-        </Button>
+        <Link href="articles" style={{ textDecoration: "none" }}>
+          <Button
+            variant="contained"
+            color="secondary"
+            className={classes.button}
+          >
+            Voir Plus
+          </Button>
+        </Link>
       </div>
     </>
   );

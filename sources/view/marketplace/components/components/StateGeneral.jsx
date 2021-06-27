@@ -1,14 +1,13 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import Button from '@material-ui/core/Button';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    display: 'block',
+    display: "block",
     marginTop: theme.spacing(2),
   },
   formControl: {
@@ -17,9 +16,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ControlledOpenSelect() {
+export default function StateGeneral() {
   const classes = useStyles();
-  const [etat, setAge] = React.useState('');
+  const [etat, setAge] = React.useState("");
   const [open, setOpen] = React.useState(false);
 
   const handleChange = (event) => {
@@ -37,7 +36,9 @@ export default function ControlledOpenSelect() {
   return (
     <div>
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-controlled-open-select-label">Etat du produit</InputLabel>
+        <InputLabel id="demo-controlled-open-select-label">
+          Etat du produit
+        </InputLabel>
         <Select
           labelId="demo-controlled-open-select-label"
           id="demo-controlled-open-select"
@@ -47,9 +48,7 @@ export default function ControlledOpenSelect() {
           value={etat}
           onChange={handleChange}
         >
-          <MenuItem value="">
-            
-          </MenuItem>
+          <MenuItem value=""></MenuItem>
           <MenuItem value={10}>Neuf</MenuItem>
           <MenuItem value={20}>Révisé</MenuItem>
           <MenuItem value={30}>Comme neuf</MenuItem>
@@ -60,4 +59,3 @@ export default function ControlledOpenSelect() {
     </div>
   );
 }
-        

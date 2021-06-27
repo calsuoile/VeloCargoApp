@@ -1,40 +1,37 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import styles from "react-responsive-carousel/lib/styles/carousel.min.css";
-
 
 const AdsCarousel = ({ className }) => {
   return (
     <div className={className}>
-      <Carousel >
+      <Carousel>
         <div>
-          <img src="https://placedog.net/991"  />
+          <img src="https://source.unsplash.com/random?bike/1" />
         </div>
         <div>
-          <img src="https://placedog.net/992" />
+          <img src="https://source.unsplash.com/random?bike/2" />
         </div>
         <div>
-          <img src="https://placedog.net/993" />
+          <img src="https://source.unsplash.com/random?bike/3" />
         </div>
         <div>
-          <img src="https://placedog.net/994" />
+          <img src="https://source.unsplash.com/random?bike/4" />
         </div>
         <div>
-          <img src="https://placedog.net/990" />
+          <img src="https://source.unsplash.com/random?bike/5" />
         </div>
         <div>
-          <img src="https://placedog.net/996" />
+          <img src="https://source.unsplash.com/random?bike/6" />
         </div>
         <div>
-          <img src="https://placedog.net/997" />
+          <img src="https://source.unsplash.com/random?bike/7" />
         </div>
         <div>
-          <img src="https://placedog.net/998"  />
+          <img src="https://source.unsplash.com/random?bike/8" />
         </div>
         <div>
-          <img src="https://placedog.net/999"  />
+          <img src="https://source.unsplash.com/random?bike/9" />
         </div>
       </Carousel>
     </div>

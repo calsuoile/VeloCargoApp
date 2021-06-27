@@ -38,7 +38,6 @@ export default function AdsTechnique({ ads }) {
         <AccordionDetails>
           <Typography>
             Le vélo mesure {ads.length} cm. Le cadre est de {ads.frame_size} cm.
-           
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -54,8 +53,8 @@ export default function AdsTechnique({ ads }) {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Puissance du moteur : {ads.engin_power} Watt.
-            Batterie : {ads.batterie_wolt} Volt.
+            Puissance du moteur : {ads.engin_power} Watt. Batterie :{" "}
+            {ads.batterie_wolt} Volt.
           </Typography>
         </AccordionDetails>
       </Accordion>
