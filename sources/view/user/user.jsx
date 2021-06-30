@@ -1,7 +1,7 @@
 import React from "react";
 import Favoris from "./Favoris";
 import MyProfil from "./Myprofil";
-import MesBiens from "./MesBiens";
+import MyAds from "./MyAds";
 
 
 
@@ -10,7 +10,7 @@ function User(props) {
     <div>
       <MyProfil />
 
-      <MesBiens />
+      <MyAds />
 
       <Favoris />
     </div>
