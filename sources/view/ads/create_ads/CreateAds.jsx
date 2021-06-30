@@ -7,11 +7,10 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import DatePickers from "../../../common/components/DatePickers";
 import { TextField } from "@material-ui/core";
-import CheckBox from "./CheckBox";
+import CheckBox from "./components/CheckBox";
 import CountrySelector from "../../../common/components/CountrySelector";
 import Button from "@material-ui/core/Button";
 import SwitchForm from "../../../common/components/SwitchForm";
-import { TrafficRounded } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -83,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CreateAds({}) {
+export default function CreateAds({ match }) {
   const classes = useStyles();
   const [form, setForm] = React.useState({
     title: "",
@@ -110,21 +109,63 @@ export default function CreateAds({}) {
     engin_power:"",
     batterie_wolt:"", 
   });
-  // const [check, setCheck] = React.useState(true);
+
+    // useEffect(() => {
+    //   if (match?.params?.id) {
+    //     axios
+    //       // .get(` https://toctoc-api.herokuapp.com/flat/${match.params.id} `)
+    //       .then((response) => setForm(response.data));
+    //   }
+    // }, [match.params.id]);
+
+    // const postForm = () => {
+    //   const token = localStorage.getItem("userToken");
+    //   const config = {
+    //     headers: { Authorization: `Bearer ${token}` },
+    //   };
+    //   if (match?.params?.id) {
+    //     axios
+    //       .patch(
+    //         // `https://toctoc-api.herokuapp.com/flat/${match.params.id}`,
+    //         form,
+    //         config
+    //       )
+    //       .then(() => {
+    //         history.push("/");
+    //       });
+    //   } else {
+    //     axios
+    //       // .post("https://toctoc-api.herokuapp.com/flat", form, config)
+    //       .then((res) => {
+    //         console.log(res.data);
+    //         history.push("/");
+    //       });
+    //   }
+    // };
+  
+    const handleChange = (e) => {
+      setForm({ ...form, [e.target.name]: e.target.value });
+    };
+
+    const handleChecked = (e) => {
+      setForm({ ...form, [e.target.name]: e.target.checked });
+    }
+    const handleClick = () => {
+      console.log(form); //postForm();
+    };
+  
+    const handleUploadImage = (imageUrl) => {
+      const newImages = [...form.images, imageUrl];
+      setForm({ ...form, images: newImages });
+      console.log(newImages);
+    };
+
+      // const [check, setCheck] = React.useState(true);
   // function handleCheck() {
   //   setCheck(!check);
   // }
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleChecked = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.checked });
-  }
-  const handleClick = () => {
-    console.log(form); //postForm();
-  };
+  
+    // const history = useHistory();
 
   return (
     <div className={classes.root}>

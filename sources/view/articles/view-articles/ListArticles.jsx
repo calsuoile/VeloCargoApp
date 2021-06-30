@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 const ListArticles = ({ articles }) => {
   const classes = useStyles();
 
-  //variable useState pour définir valeur par défault et valeur saisie par le user:
+  //hook pour définir valeur par défault et valeur saisie par le user:
   const [searchValue, setSearchValue] = useState("");
   //fonction de récupération de la valeur saisie par le user:
   const handleSearchValueChange = (e) => setSearchValue(e.target.value);
@@ -41,8 +41,8 @@ const ListArticles = ({ articles }) => {
       <div className={classes.cards}>
         {articles
           .filter((article) => article.title.includes(searchValue))
-          .map((article) => (
-            <ArticleCard {...article} />
+          .map((article, index) => (
+            <ArticleCard key={index.id} {...article} />
           ))}
       </div>
     </>
