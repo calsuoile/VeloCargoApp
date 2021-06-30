@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 const useStyles = makeStyles((theme) => ({
   div: {
@@ -41,6 +42,13 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     fontSize: "35px",
   },
+  button4: {
+    background: "none",
+    border: "none",
+    "&:hover": {
+      color: "#115293",
+    },
+  },
 }));
 
 function Logo(props) {
@@ -49,15 +57,26 @@ function Logo(props) {
     <div className={classes.div}>
       <img className={classes.img} src="/assets/logoVC.png" />
     <div className={classes.buttongroup}>
-      <button className={classes.button}>
-        <InstagramIcon className={classes.icon} />
-      </button>
+    <a href="https://instagram.com/CargoBikeTrade">
+    <button className={classes.button}>
+    <InstagramIcon className={classes.icon} />
+    </button>
+    </a>
+    <a href="https://facebook.com/CargoBikeTrade">
       <button className={classes.button2}>
         <FacebookIcon className={classes.icon} />
       </button>
+      </a>
+      <a href="https://twitter.com/CargoBikeTrade">
       <button className={classes.button3}>
         <TwitterIcon className={classes.icon} />
       </button>
+      </a>
+      <a href="https://linkedin.com/company/cargobiketrade">
+      <button className={classes.button4}>
+        <LinkedInIcon className={classes.icon} />
+      </button>
+      </a>
     </div>
     </div>
   );

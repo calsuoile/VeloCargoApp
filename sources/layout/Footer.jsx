@@ -92,6 +92,15 @@ const useStyles = makeStyles((theme) => ({
 function Footer(props) {
   const classes = useStyles();
 
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [message, setMessage] = React.useState("");
+
+  const display = (e) => {
+    e.preventDefault();
+    console.log({ name }, { email }, { message });
+  };
+
   return (
     <div className={classes.container}>
       <div className={classes.list}>
@@ -122,8 +131,7 @@ function Footer(props) {
         </div>
         <div className={classes.contactform}>
           <Grid item xs={12} data-aos="fade-up" className={classes.contact}>
-            <h3>Nous contactez</h3>
-            <p>On vous réponds dans les plus brefs délais</p>
+            <h3>NOUS CONTACTER</h3>
             <Typography
               variant="subtitle1"
               color="textPrimary"
@@ -132,6 +140,7 @@ function Footer(props) {
               Nom
             </Typography>
             <TextField
+              value={name}
               className={classes.textfield}
               placeholder="Nom"
               variant="outlined"
@@ -139,6 +148,8 @@ function Footer(props) {
               name="fullname"
               fullWidth
               type="text"
+              onChange={(e) => setName(e.target.value)}
+
             />
           </Grid>
           <Grid item xs={12} data-aos="fade-up">
@@ -150,6 +161,7 @@ function Footer(props) {
               E-mail
             </Typography>
             <TextField
+              value={email}
               className={classes.textfield}
               placeholder="Email"
               variant="outlined"
@@ -157,6 +169,7 @@ function Footer(props) {
               name="email"
               fullWidth
               type="email"
+              onChange={(e) => setEmail(e.target.value)}
             />
           </Grid>
           <Grid item xs={12} data-aos="fade-up">
@@ -168,6 +181,7 @@ function Footer(props) {
               Message
             </Typography>
             <TextField
+             value={message}
               className={classes.textfield}
               placeholder="Quelle est ta question?"
               variant="outlined"
@@ -175,6 +189,7 @@ function Footer(props) {
               fullWidth
               multiline
               rows={4}
+              onChange={(e) => setMessage(e.target.value)}
             />
           </Grid>
           <Grid item container justify="center" xs={12}>
@@ -184,8 +199,9 @@ function Footer(props) {
               type="submit"
               color="primary"
               size="large"
+              onClick={display}
             >
-              Envoyez
+              ENVOYER
             </Button>
           </Grid>
         </div>

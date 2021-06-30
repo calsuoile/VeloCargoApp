@@ -19,8 +19,8 @@ export default function VeloCargo({ Component, pageProps }) {
       <Connection /> */}
       {/* <Connection />
       <Registration /> */}
-      <Home />
-      {/* <Marketplace /> */}
+      {/* <Home /> */}
+      <Marketplace />
       <Footer />
       <Component {...pageProps} />
     </ThemeProvider>

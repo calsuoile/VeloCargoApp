@@ -30,7 +30,7 @@ function Filter(props) {
       <Flash />
       <Garant />
       <Button variant="contained" color="primary" className={classes.button}>
-      Rechercher
+      RECHERCHER
       <SearchIcon />
       </Button>
     </div>
