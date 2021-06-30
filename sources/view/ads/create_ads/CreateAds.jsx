@@ -7,11 +7,10 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import DatePickers from "../../../common/components/DatePickers";
 import { TextField } from "@material-ui/core";
-import CheckBox from "./CheckBox";
+import CheckBox from "./components/CheckBox";
 import CountrySelector from "../../../common/components/CountrySelector";
 import Button from "@material-ui/core/Button";
 import SwitchForm from "../../../common/components/SwitchForm";
-import { TrafficRounded } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   root: {

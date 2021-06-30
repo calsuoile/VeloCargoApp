@@ -1,13 +1,13 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import SelectCategory from "/sources/view/marketplace/components/SelectCategory";
-import Slide from "/sources/view/marketplace/components/Slide";
-import Garant from "/sources/view/marketplace/components/Garant";
-import Flash from "/sources/view/marketplace/components/Flash";
-import StateGeneral from "/sources/view/marketplace/components/StateGeneral";
-import Brand from "/sources/view/marketplace/components/Brand";
+import Slide from "./components/components/Slide";
+import Garant from "./components/components/Garantee";
+import Flash from "./components/components/Flash";
+import StateGeneral from "./components/components/StateGeneral";
+import Brand from "./components/components/Brand";
 import Button from "@material-ui/core/Button";
 import SearchIcon from "@material-ui/icons/Search";
+import SelectCategory from "./components/components/SelectCategory";
 
 const useStyles = makeStyles((theme) => ({
   filter: {
@@ -30,8 +30,8 @@ function Filter(props) {
       <Flash />
       <Garant />
       <Button variant="contained" color="primary" className={classes.button}>
-      Rechercher
-      <SearchIcon />
+        Rechercher
+        <SearchIcon />
       </Button>
     </div>
   );

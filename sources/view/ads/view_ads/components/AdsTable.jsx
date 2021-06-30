@@ -8,26 +8,23 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
-
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
-    
-    
   },
 
   container: {
     width: "70%",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
 
   cell: {
-      fontFamily : "Open Sans Condensed",
-      fontWeight: "bold",
-      color: "rgba(104, 219, 150, 1)"
-  }
+    fontFamily: "Open Sans Condensed",
+    fontWeight: "bold",
+    color: "rgba(104, 219, 150, 1)",
+  },
 });
 
 function createData(name, calories, fat, carbs, protein) {
@@ -42,7 +39,7 @@ const rows = [
   createData("Gingerbread", 356, 16.0, 49, 3.9),
 ];
 
-export default function AdsTable({ads}) {
+export default function AdsTable({ ads }) {
   const classes = useStyles();
 
   return (
@@ -66,7 +63,9 @@ export default function AdsTable({ads}) {
             <TableCell className={classes.cell}>Modèle</TableCell>
             <TableCell align="right">{ads.model}</TableCell>
             <TableCell className={classes.cell}>Localisation</TableCell>
-            <TableCell align="right">{ads.dep},{ads.country}</TableCell>
+            <TableCell align="right">
+              {ads.dep}, {ads.country}
+            </TableCell>
           </TableRow>
 
           <TableRow>

@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function BasicPagination() {
+export default function PaginationPage() {
   const classes = useStyles();
   return (
     <div className={classes.root}>

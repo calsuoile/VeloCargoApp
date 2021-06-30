@@ -12,12 +12,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function InputCity() {
+export default function Brand() {
   const classes = useStyles();
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="outlined-basic" label="Ville" variant="outlined" />
+      <TextField id="outlined-basic" label="La marque" variant="outlined" />
     </form>
   );
 }
