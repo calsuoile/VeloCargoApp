@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function Title(props) {
+function TitleAds(props) {
     const classes = useStyles();
     return (
         <div>
@@ -21,4 +21,4 @@ function Title(props) {
     );
 }
 
-export default Title;
+export default TitleAds;
