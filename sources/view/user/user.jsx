@@ -1,5 +1,5 @@
 import React from "react";
-import Favorites from "./Favoris";
+import Favorites from "./Favorites";
 import MyProfil from "./Myprofil";
 import MyAds from "./MyAds";
 
