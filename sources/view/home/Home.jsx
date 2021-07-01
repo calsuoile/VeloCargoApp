@@ -2,7 +2,7 @@ import React from "react";
 import ListArticlesHomePage from "./ListArticlesHomePage";
 import Button from "@material-ui/core/Button";
 import CardAdsList from "./CardAdsList";
-import { Typography } from "@material-ui/core";
+import { Link, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ButtonBase from "./ButtonBases";
 
@@ -31,9 +31,15 @@ function Home(props) {
         ACHETER UN VELO CARGO
       </Typography>
       {/* <CardAdsList /> */}
-      <Button variant="contained" color="secondary" className={classes.button}>
-        Voir Plus
-      </Button>
+      <Link href="acheter-un-velo-cargo" style={{ textDecoration: "none" }}>
+        <Button
+          variant="contained"
+          color="secondary"
+          className={classes.button}
+        >
+          Voir Plus
+        </Button>
+      </Link>
       <ListArticlesHomePage />
     </div>
   );
