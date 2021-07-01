@@ -1,8 +1,13 @@
 import React from "react";
-import About from "../sources/view/about/About";
+import Home from "../sources/view/home/Home";
+
 
 function index(props) {
-  return <div></div>;
+  return (
+    <div>
+      <Home />
+    </div>
+  );
 }
 
 export default index;

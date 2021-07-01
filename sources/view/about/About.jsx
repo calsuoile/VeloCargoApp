@@ -133,20 +133,14 @@ export default function About() {
                 pour l’homme.
               </p>
             </div>
-            <div className={classes.press}>
-              <h3 className={classes.subtitle}>Dossier de presse</h3>
-              <p className={classes.paragraph}></p>
-            </div>
             <h3 className={classes.subtitle}>Ils parlent de nous</h3>
             <div className={classes.talkAbout}>
-              {/* <p className={classes.paragraph}>Pause vélo</p> */}
               <img
                 className={classes.img_talkAbout}
                 src="/assets/logo_a_propos/pause_velo.jpg"
                 alt="Pause vélo"
                 href="https://youtu.be/UBvMiqYDE_8?t=732"
               />
-              {/* <p className={classes.paragraph}>Serial Blogueuse</p> */}
               <img
                 className={classes.img_talkAbout}
                 src="/assets/logo_a_propos/serial_blogueuse.jpg"
@@ -156,19 +150,16 @@ export default function About() {
             </div>
             <h3 className={classes.subtitle}>Partenaires</h3>
             <div id="partnaires" className={classes.partnaires}>
-              {/* <p className={classes.paragraph}>Cyclofix</p> */}
               <img
                 className={classes.img_partnaires}
                 src="/assets/logo_a_propos/cyclofix.png"
                 alt="Cyclofix"
               />
-              {/* <p className={classes.paragraph}>Velhome</p> */}
               <img
                 className={classes.img_partnaires}
                 src="/assets/logo_a_propos/velhome.png"
                 alt="Velhome"
               />
-              {/* <p className={classes.paragraph}>Cylantro</p> */}
               <img
                 className={classes.img_partnaires}
                 src="/assets/logo_a_propos/cylantro.png"

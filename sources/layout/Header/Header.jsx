@@ -9,7 +9,7 @@ import IconsHeader from "./components/IconsHeader";
 import ArticlesTipsButton from "./components/ArticlesTipsButton";
 import CreateAdsButton from "./components/CreateAdsButton";
 import AboutButton from "./components/AboutButton";
-import { Hidden } from "@material-ui/core";
+import { Hidden, Link } from "@material-ui/core";
 import BurgerMenu from "./components/BurgerMenu";
 
 const useStyles = makeStyles((theme) => ({
@@ -80,7 +80,9 @@ export default function Header() {
     <div className={classes.root}>
       <AppBar position="static" color="inherit">
         <Toolbar>
-          <img className={classes.img} src="/assets/logo.jpg" />
+          <Link href="accueil">
+            <img className={classes.img} src="/assets/logo.jpg" />
+          </Link>
           <Hidden mdUp>
             <BurgerMenu className={classes.menuButton} />
           </Hidden>
