@@ -133,15 +133,17 @@ function ButtonBases(props) {
         />
         <span className={classes.imageBackdrop} />
         <span className={classes.imageButton}>
-          <Typography
-            component="span"
-            variant="subtitle1"
-            color="inherit"
-            className={classes.imageTitle}
-          >
-            VENDRE UN VELO CARGO
-            <span className={classes.imageMarked} />
-          </Typography>
+          <Link href="vendre-un-velo-cargo" style={{ textDecoration: "none" }}>
+            <Typography
+              component="span"
+              variant="subtitle1"
+              color="inherit"
+              className={classes.imageTitle}
+            >
+              VENDRE UN VELO CARGO
+              <span className={classes.imageMarked} />
+            </Typography>
+          </Link>
         </span>
       </ButtonBase>
     </div>
