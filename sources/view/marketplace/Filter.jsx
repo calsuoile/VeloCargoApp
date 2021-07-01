@@ -8,6 +8,8 @@ import Brand from "./components/components/Brand";
 import Button from "@material-ui/core/Button";
 import SearchIcon from "@material-ui/icons/Search";
 import SelectCategory from "./components/components/SelectCategory";
+import CountrySelector from "../../common/components/CountrySelector";
+
 
 const useStyles = makeStyles((theme) => ({
   filter: {
@@ -20,16 +22,32 @@ const useStyles = makeStyles((theme) => ({
 
 function Filter(props) {
   const classes = useStyles();
+  const [filter, setFilter] = React.useState({ 
+    brand: "",
+  })
+  
+  const handleChange = (e) => {
+   setFilter ({...filter, [e.target.name]:e.target.value})
+  }; 
+  
+  const handleClick = () => {
+      console.log(filter);
+
+  }
+
+
+
   return (
     <div className={classes.filter}>
       <h1>FILTRES</h1>
       <SelectCategory />
+      <CountrySelector />
       <Slide />
       <StateGeneral />
-      <Brand />
+      <Brand onChange={handleChange} value={filter.brand} name={"brand"}/>
       <Flash />
       <Garant />
-      <Button variant="contained" color="primary" className={classes.button}>
+      <Button onClick={handleClick} variant="contained" color="primary" className={classes.button}>
         Rechercher
         <SearchIcon />
       </Button>

@@ -12,12 +12,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Brand() {
+export default function Brand({ value, onChange, name }) {
   const classes = useStyles();
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="outlined-basic" label="La marque" variant="outlined" />
+      <TextField value={value} onChange={onChange} name={name} id="outlined-basic" label="La marque" variant="outlined" />
     </form>
   );
 }

@@ -51,7 +51,7 @@ export default function VeloCargo({ Component, pageProps }) {
         {/* <ButtonBase /> */}
         {/* <CardAdsList /> */}
         {/* <FormAds /> */}
-        <Home />
+        {/* <Home /> */}
         {/* <CreationArticle /> */}
         {/* <Loading /> */}
         {/* <ButtonBase /> */}
