@@ -1,8 +1,7 @@
-import Home from "../../sources/view/home/Home";
-
+import Connection from "../../sources/view/connexion/Connection";
 
 export default function AProposPage() {
-  return <Home />;
+  return <Connection />;
 }
 
 export async function getStaticProps(props) {
