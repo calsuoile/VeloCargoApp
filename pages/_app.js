@@ -19,7 +19,7 @@ import FormAds from "../sources/view/ads/create_ads/components/FormAds";
 import Main from "../sources/layout/Main";
 
 export default function VeloCargo({ Component, pageProps }) {
-  // const [connectedUser, setConnectedUser] = useState({});
+  const [connectedUser, setConnectedUser] = useState({});
 
   // useEffect(() => {
   //   const connectUser = async () => {
