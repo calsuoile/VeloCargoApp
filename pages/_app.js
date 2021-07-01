@@ -48,10 +48,11 @@ export default function VeloCargo({ Component, pageProps }) {
       {/* <UserContext.Provider value={{ connectedUser, setConnectedUser }}> */}
       <Main>
         <CssBaseline />
+        <Component {...pageProps} />
         {/* <ButtonBase /> */}
         {/* <CardAdsList /> */}
         {/* <FormAds /> */}
-        <Home />
+        {/* <Home /> */}
         {/* <CreationArticle /> */}
         {/* <Loading /> */}
         {/* <ButtonBase /> */}
@@ -61,7 +62,7 @@ export default function VeloCargo({ Component, pageProps }) {
         {/* <Marketplace /> */}
         {/* <CreationArticle /> */}
       </Main>
-      <Component {...pageProps} />
+      
       {/* </UserContext.Provider> */}
     </ThemeProvider>
   );
