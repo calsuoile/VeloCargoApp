@@ -4,22 +4,24 @@ import TextField from "@material-ui/core/TextField";
 import { Typography } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
+import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles((theme) => ({
   title: {
     textAlign: "center",
     margin: "5vh",
+    fontSize : "50px"
   },
   titleInput: {
     "& > *": {
       margin: theme.spacing(5),
-      width: "50%",
+      width: "80%",
     },
   },
   text: {
     "& .MuiTextField-root": {
       margin: theme.spacing(5),
-      width: "50%",
+      width: "80%",
     },
   },
   inputImage: {
@@ -42,6 +44,17 @@ const useStyles = makeStyles((theme) => ({
     bottom: "0",
     opacity: 0.33,
   },
+
+ container : {
+   width : "90%",
+   margin : "20px", 
+   justifySelf : "center"
+
+ },
+
+ littletitle : {
+   marginLeft : "15px"
+ }
 }));
 
 const CreateArticle = () => {
@@ -66,9 +79,11 @@ const CreateArticle = () => {
 
   return (
     <>
-      <Typography variant="h2">
+      <Typography variant="h1">
         <div className={classes.title}>Créer un article</div>
       </Typography>
+     <Paper className={classes.container} variant="elevation" elevation="3" color="primary">
+       <Typography variant= "h2" className={classes.littletitle}>Titre</Typography>
       <form className={classes.titleInput} noValidate autoComplete="off">
         <TextField
           id="outlined-basic"
@@ -78,6 +93,7 @@ const CreateArticle = () => {
           onChange={handleTitleChange}
         />
       </form>
+      <Typography variant= "h2" className={classes.littletitle}>Contenu</Typography>
       <form className={classes.text} noValidate autoComplete="off">
         <div>
           <TextField
@@ -91,6 +107,7 @@ const CreateArticle = () => {
           />
         </div>
       </form>
+      <Typography variant= "h2" className={classes.littletitle}>Photo</Typography>
       <div className={classes.uploadImage}>
         <input
           accept="image/*"
@@ -108,6 +125,7 @@ const CreateArticle = () => {
           </label>
         </div>
         <div className={classes.saveButton}>
+        </div>
           <Button
             variant="outlined"
             color="primary"
@@ -115,8 +133,9 @@ const CreateArticle = () => {
           >
             Enregistrer
           </Button>
-        </div>
+       
       </div>
+      </Paper>
     </>
   );
 };
