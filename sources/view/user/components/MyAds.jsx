@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "50px",
     width: "300px",
     margin: "auto",
-  },
+  }, 
   flat: {
     display: "flex",
     justifyContent: "space-around",

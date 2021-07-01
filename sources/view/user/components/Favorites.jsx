@@ -62,4 +62,4 @@ function Favorites(props) {
   );
 }
 
-export default Favoris;
+export default Favorites;
