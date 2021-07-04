@@ -74,8 +74,8 @@ const ViewArticle = ({ articleView, otherArticles }) => {
         </Typography>
         <div className={classes.containerOtherArticles}>
           <Typography variant="h6">Derniers articles</Typography>
-          {otherArticles.map((otherArticle, index) => (
-            <OtherArticlesWindow key={index.id} {...otherArticle} />
+          {otherArticles.map((otherArticle) => (
+              <OtherArticlesWindow key={otherArticle.id} {...otherArticle} />
           ))}
         </div>
       </div>

@@ -9,8 +9,10 @@ import IconsHeader from "./components/IconsHeader";
 import ArticlesTipsButton from "./components/ArticlesTipsButton";
 import CreateAdsButton from "./components/CreateAdsButton";
 import AboutButton from "./components/AboutButton";
-import { Hidden, Link } from "@material-ui/core";
+import { Hidden } from "@material-ui/core";
 import BurgerMenu from "./components/BurgerMenu";
+import Link from "next/link";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
