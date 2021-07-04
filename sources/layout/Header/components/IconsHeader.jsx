@@ -3,7 +3,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
-import { Link } from "@material-ui/core";
+import Link from "next/link";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,9 +23,11 @@ export default function IconsHeader() {
 
   return (
     <div className={classes.root}>
+      <Link href="mon-profil">
       <IconButton className={classes.favorite} aria-label="like">
         <FavoriteBorderIcon />
       </IconButton>
+      </Link>
       <Link href="connexion">
         <IconButton aria-label="account">
           <AccountCircleIcon />
