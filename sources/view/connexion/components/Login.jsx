@@ -149,10 +149,10 @@ export default function Login() {
               autoComplete="current-password"
               onChange={(e) => setPassword(e.target.value)}
             />
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Se souvenir de moi"
-            />
+            /> */}
             <Button
               type="submit"
               fullWidth
@@ -163,7 +163,7 @@ export default function Login() {
             >
               CONNEXION
             </Button>
-            <Grid container>
+            {/* <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
                   Mot de passe oublié?
@@ -174,7 +174,7 @@ export default function Login() {
                   {"Créer un compte"}
                 </Link>
               </Grid>
-            </Grid>
+            </Grid> */}
             <Box mt={5}>
               <Copyright />
             </Box>
