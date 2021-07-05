@@ -41,4 +41,4 @@ function MyProfil(props) {
   );
 }
 
-export default Myprofil;
+export default MyProfil;

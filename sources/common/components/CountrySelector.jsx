@@ -14,17 +14,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function CountrySelector({ name }) {
+function CountrySelector({ name, value, onChange }) {
   const classes = useStyles();
-  const [state, setState] = React.useState({ name: "" });
 
-  const handleChange = (event) => {
-    const name = event.target.name;
-    setState({
-      ...state,
-      [name]: event.target.value,
-    });
-  };
   return (
     <div>
       <FormControl variant="outlined" className={classes.formControl}>
@@ -32,8 +24,9 @@ function CountrySelector({ name }) {
         <Select
           required={true}
           native
-          value={state.country}
-          onChange={handleChange}
+          value={value}
+          name={name}
+          onChange={onChange}
           label="Pays"
           inputProps={{
             name: "country",
@@ -41,33 +34,33 @@ function CountrySelector({ name }) {
           }}
         >
           <option aria-label="None" value="" />
-          <option>FRANCE</option>
-          <option>ALLEMAGNE</option>
-          <option>AUTRICHE</option>
-          <option>BELGIQUE</option>
-          <option>BULGARIE</option>
-          <option>CHYPRE</option>
-          <option>CROATIE</option>
-          <option>DANEMARK</option>
-          <option>ESPAGNE</option>
-          <option>ESTONIE</option>
-          <option>FINLANDE</option>
-          <option>GRÈCE</option>
-          <option>HONGRIE</option>
-          <option>IRELANDE</option>
-          <option>ITALIE</option>
-          <option>LETTONIE</option>
-          <option>LITUANIE</option>
-          <option>LUXEMBOURG</option>
-          <option>MALTE</option>
-          <option>PAYS-BAS</option>
-          <option>POLOGNE</option>
-          <option>PORTUGAL</option>
-          <option>RÉPUBLIQUE TCHÈQUE</option>
-          <option>ROUMANIE</option>
-          <option>SLOVAQUIE</option>
-          <option>SLOVÉNIE</option>
-          <option>SUÈDE</option>
+          <option value="FRA">FRANCE</option>
+          <option value="DEU">ALLEMAGNE</option>
+          <option value="AUT">AUTRICHE</option>
+          <option value="BEL">BELGIQUE</option>
+          <option value="BGR">BULGARIE</option>
+          <option value="CYP">CHYPRE</option>
+          <option value="HRV">CROATIE</option>
+          <option value="DNK">DANEMARK</option>
+          <option value="ESP">ESPAGNE</option>
+          <option value="EST">ESTONIE</option>
+          <option value="FIN">FINLANDE</option>
+          <option value="GRC">GRÈCE</option>
+          <option value="HUN">HONGRIE</option>
+          <option value="IRL">IRELANDE</option>
+          <option value="ITA">ITALIE</option>
+          <option value="LVA">LETTONIE</option>
+          <option value="LTU">LITUANIE</option>
+          <option value="LUX">LUXEMBOURG</option>
+          <option value="MLT">MALTE</option>
+          <option value="NLD">PAYS-BAS</option>
+          <option value="PL">POLOGNE</option>
+          <option value="PT">PORTUGAL</option>
+          <option value="RPT">RÉPUBLIQUE TCHÈQUE</option>
+          <option value="RO">ROUMANIE</option>
+          <option value="SVK">SLOVAQUIE</option>
+          <option value="SVN">SLOVÉNIE</option>
+          <option value="SWE">SUÈDE</option>
         </Select>
       </FormControl>
     </div>

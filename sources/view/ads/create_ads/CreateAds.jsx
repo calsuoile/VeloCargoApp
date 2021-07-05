@@ -11,6 +11,7 @@ import CheckBox from "./components/CheckBox";
 import CountrySelector from "../../../common/components/CountrySelector";
 import Button from "@material-ui/core/Button";
 import SwitchForm from "../../../common/components/SwitchForm";
+import RadioButtonsGroup from "../../../common/RadioButtonsGroup";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -104,8 +105,8 @@ export default function CreateAds({ match }) {
     mecanic_state: "",
     esthetic_state: "",
     info_guarantee: "",
-    guarantee: "",
-    electric: "",
+    guarantee: false,
+    electric: false,
     engin_power: "",
     batterie_wolt: "",
   });
@@ -160,11 +161,6 @@ export default function CreateAds({ match }) {
     console.log(newImages);
   };
 
-  // const [check, setCheck] = React.useState(true);
-  // function handleCheck() {
-  //   setCheck(!check);
-  // }
-
   // const history = useHistory();
 
   return (
@@ -193,7 +189,12 @@ export default function CreateAds({ match }) {
                 form={form.title}
                 onChange={handleChange}
               ></TextField>
-              <DatePickers form={form.date} className={classes.date} />
+              <DatePickers
+                value={form.date}
+                className={classes.date}
+                name={"date"}
+                onChange={handleChange}
+              />
             </div>
             <TextField
               className={classes.description}
@@ -223,7 +224,11 @@ export default function CreateAds({ match }) {
         <AccordionDetails>
           <Typography variant="h5" width="100%">
             <div className={classes.localisation}>
-              <CountrySelector form={form.country} />
+              <CountrySelector
+                value={form.country}
+                onChange={handleChange}
+                name={"country"}
+              />
               <TextField
                 className={classes.velo}
                 required={true}
@@ -251,21 +256,10 @@ export default function CreateAds({ match }) {
         <AccordionDetails>
           <Typography>
             <div>
-              Catégorie *:{" "}
-              <CheckBox
-                onChange={handleChecked}
-                form={form.category}
-                label={"Biporteur"}
-              />
-              <CheckBox
-                onChange={handleChecked}
-                form={form.category}
-                label={"Triporteur"}
-              />
-              <CheckBox
-                onChange={handleChecked}
-                form={form.category}
-                label={"Longtail"}
+              <RadioButtonsGroup
+                value={form.category}
+                onChange={handleChange}
+                name={"category"}
               />
             </div>
             <div>
@@ -475,8 +469,9 @@ export default function CreateAds({ match }) {
               <Typography className={classes.contain}>
                 <SwitchForm
                   label={"Garantie"}
-                  form={form.guarantee}
+                  checked={form.guarantee}
                   onChange={handleChecked}
+                  name={"guarantee"}
                 />
                 <TextField
                   className={classes.velo}
@@ -506,7 +501,12 @@ export default function CreateAds({ match }) {
           <Typography>
             <div className={classes.margin}>
               <Typography className={classes.contain}>
-                <SwitchForm form={form.electric} label={"Electrique *"} />
+                <SwitchForm
+                  name={"electric"}
+                  checked={form.electric}
+                  onChange={handleChecked}
+                  label={"Electrique *"}
+                />
                 <div className={classes.margin}>
                   <TextField
                     className={classes.velo}

@@ -1,7 +1,9 @@
-import { Button, Link, Typography } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import ArticleCard from "../articles/view-articles/components/ArticleCard";
+import Link from "next/link";
+
 
 const useStyles = makeStyles((theme) => ({
   button: {

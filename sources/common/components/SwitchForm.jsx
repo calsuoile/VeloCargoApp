@@ -2,22 +2,14 @@ import React from "react";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 
-export default function SwitchForm({ label }) {
-  const [state, setState] = React.useState({
-    checkedB: false,
-  });
-
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
-
+export default function SwitchForm({ label, onChange, checked, name }) {
   return (
     <FormControlLabel
       control={
         <Switch
-          checked={state.checkedB}
-          onChange={handleChange}
-          name="checkedB"
+          checked={checked}
+          onChange={onChange}
+          name={name}
           color="primary"
           // inputProps={{required : false}}
         />
