@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core";
 import HomeIcon from "@material-ui/icons/Home";
 import axios from "axios";
 import UserContext from "../../../context/user";
-import CardAds from "../../home/components/CardAds";
+import CardAds from "../../home/CardAds";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -28,39 +28,56 @@ const useStyles = makeStyles((theme) => ({
 function MyAds(props) {
   const classes = useStyles();
 
-  const { connectedUser } = useContext(UserContext);
-  const [flats, setFlats] = useState([]);
+  // const { connectedUser } = useContext(UserContext);
+  const [myAds, setMyAds] = useState([
+    {
+      id: "1",
+      photo: "https://source.unsplash.com/random?bike/4",
+      title: "Vélo Cargo",
+      price: "1230 €",
+      city: "Bordeaux",
+    },
+    {
+      id: "2",
+      photo: "https://source.unsplash.com/random?bike/5",
+      title: "Vélo Cargo",
+      price: "1380 €",
+      city: "Bordeaux",
+    },
+    {
+      id: "3",
+      photo: "https://source.unsplash.com/random?bike/6",
+      title: "Vélo Cargo",
+      price: "1560 €",
+      city: "Bordeaux",
+    },
+  ]);
 
-  useEffect(() => {
-    console.log(connectedUser);
+  // useEffect(() => {
+  //   console.log(connectedUser);
 
-    if (Object.keys(connectedUser).length > 0) {
-      const accessToken = localStorage.getItem("userToken");
-      const config = {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      };
-      axios
-        // .get(`https://toctoc-api.herokuapp.com/flat/my-flat`, config)
-        .then((response) => {
-          setFlats(response.data);
-          console.log(response.data);
-        });
-    }
-  }, [connectedUser]);
+  //   if (Object.keys(connectedUser).length > 0) {
+  //     const accessToken = localStorage.getItem("userToken");
+  //     const config = {
+  //       headers: {
+  //         Authorization: `Bearer ${accessToken}`,
+  //       },
+  //     };
+  //     axios
+  //       // .get(`https://toctoc-api.herokuapp.com/flat/my-flat`, config)
+  //       .then((response) => {
+  //         setFlats(response.data);
+  //         console.log(response.data);
+  //       });
+  //   }
+  // }, [connectedUser]);
 
   return (
     <div>
-      <div className={classes.title}>
-        <h1>
-          <HomeIcon className={classes.icon} />
-          Mes Annonces
-        </h1>
-      </div>
+      
       <div className={classes.flat}>
-        {flats.map((flat) => (
-          <CardAds {...flat} />
+        {myAds.map((ads) => (
+          <CardAds {...ads} />
         ))}
       </div>
     </div>

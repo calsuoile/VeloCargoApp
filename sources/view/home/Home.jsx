@@ -10,19 +10,9 @@ function Home(props) {
     <div>
       <ButtonBase />
       
-      <Typography className={classes.title} variant="h5">
-        ACHETER UN VELO CARGO
-      </Typography>
+     
       <ListAdsHomePage />
-      <Link href="acheter-un-velo-cargo" style={{ textDecoration: "none" }}>
-        <Button
-          variant="contained"
-          color="secondary"
-          className={classes.button}
-        >
-          Voir Plus
-        </Button>
-      </Link>
+     
       <ListArticlesHomePage />
     </div>
   );

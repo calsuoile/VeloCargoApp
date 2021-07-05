@@ -52,9 +52,7 @@ export default function CardAds({ photo, title, price, city }) {
           <Typography gutterBottom variant="body2" component="h2">
             {title}
           </Typography>
-          <Typography variant="body1" component="p">
-            Ce vélo est en parfait état !
-          </Typography>
+          
           <Typography variant="h6" color="textSecondary" component="p">
             {price}
           </Typography>
