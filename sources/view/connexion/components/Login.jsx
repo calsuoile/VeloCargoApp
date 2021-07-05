@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -11,6 +11,8 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
+import UserContext from "../../../context/user";
+import axios from "axios";
 
 function Copyright() {
   return (
@@ -69,10 +71,41 @@ export default function Login() {
 
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const history = useHistory();
+  const { setConnectedUser } = useContext(UserContext);
 
-  const display = (e) => {
+  const handleClick = (e) => {
     e.preventDefault();
-    console.log({ email }, { password });
+    const userId = {
+      email: email,
+      password: password,
+    };
+    // try {
+    //   const token = await axios.post(
+    //     "http://velo-cargo-app.vercel.app/users/login",
+    //     userID
+    //   )
+
+    //   console.log(token.data);
+    //   localStorage.setItem("userToken", token.data.access_token);
+
+    //   const config = {
+    //     headers: {
+    //       Authorization: `Bearer ${token.data.access_token}`
+    //     }
+    //   };
+
+    //   const userProfile = await axios.get(
+    //     "http://velo-cargo-app.vercel.app/users/profile",
+    //     config
+    //   )
+
+    //   setConnectedUser(userProfile.data);
+
+    //   history.push("/");
+    // } catch (error) {
+    //   "identifiants incorrectes"
+    // }
   };
 
   return (
@@ -126,7 +159,7 @@ export default function Login() {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={display}
+              onClick={handleClick}
             >
               CONNEXION
             </Button>

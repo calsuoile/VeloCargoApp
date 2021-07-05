@@ -60,7 +60,6 @@ const useStyles = makeStyles((theme) => ({
   description: {
     marginTop: 20,
     width: 600,
-    
   },
 
   contain: {
@@ -84,9 +83,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CreateAds({ match }) {
   const classes = useStyles();
+
   const [form, setForm] = React.useState({
     title: "",
-    date:"",
+    date: "",
     description: "",
     country: "",
     department: "",
@@ -105,67 +105,67 @@ export default function CreateAds({ match }) {
     esthetic_state: "",
     info_guarantee: "",
     guarantee: "",
-    electric:"",
-    engin_power:"",
-    batterie_wolt:"", 
+    electric: "",
+    engin_power: "",
+    batterie_wolt: "",
   });
 
-    // useEffect(() => {
-    //   if (match?.params?.id) {
-    //     axios
-    //       // .get(` https://toctoc-api.herokuapp.com/flat/${match.params.id} `)
-    //       .then((response) => setForm(response.data));
-    //   }
-    // }, [match.params.id]);
+  // useEffect(() => {
+  //   if (match?.params?.id) {
+  //     axios
+  //       // .get(` https://velo-cargo-app.vercel.app/ads/${match.params.id} `)
+  //       .then((response) => setForm(response.data));
+  //   }
+  // }, [match.params.id]);
 
-    // const postForm = () => {
-    //   const token = localStorage.getItem("userToken");
-    //   const config = {
-    //     headers: { Authorization: `Bearer ${token}` },
-    //   };
-    //   if (match?.params?.id) {
-    //     axios
-    //       .patch(
-    //         // `https://toctoc-api.herokuapp.com/flat/${match.params.id}`,
-    //         form,
-    //         config
-    //       )
-    //       .then(() => {
-    //         history.push("/");
-    //       });
-    //   } else {
-    //     axios
-    //       // .post("https://toctoc-api.herokuapp.com/flat", form, config)
-    //       .then((res) => {
-    //         console.log(res.data);
-    //         history.push("/");
-    //       });
-    //   }
-    // };
-  
-    const handleChange = (e) => {
-      setForm({ ...form, [e.target.name]: e.target.value });
-    };
+  // const postForm = () => {
+  //   const token = localStorage.getItem("userToken");
+  //   const config = {
+  //     headers: { Authorization: `Bearer ${token}` },
+  //   };
+  //   if (match?.params?.id) {
+  //     axios
+  //       .patch(
+  //         // `https://velo-cargo-app.vercel.app/ads/${match.params.id}`,
+  //         form,
+  //         config
+  //       )
+  //       .then(() => {
+  //         history.push("/");
+  //       });
+  //   } else {
+  //     axios
+  //       // .post("https://velo-cargo-app.vercel.app/ads", form, config)
+  //       .then((res) => {
+  //         console.log(res.data);
+  //         history.push("/");
+  //       });
+  //   }
+  // };
 
-    const handleChecked = (e) => {
-      setForm({ ...form, [e.target.name]: e.target.checked });
-    }
-    const handleClick = () => {
-      console.log(form); //postForm();
-    };
-  
-    const handleUploadImage = (imageUrl) => {
-      const newImages = [...form.images, imageUrl];
-      setForm({ ...form, images: newImages });
-      console.log(newImages);
-    };
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
-      // const [check, setCheck] = React.useState(true);
+  const handleChecked = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.checked });
+  };
+  const handleClick = () => {
+    console.log(form); //postForm();
+  };
+
+  const handleUploadImage = (imageUrl) => {
+    const newImages = [...form.images, imageUrl];
+    setForm({ ...form, images: newImages });
+    console.log(newImages);
+  };
+
+  // const [check, setCheck] = React.useState(true);
   // function handleCheck() {
   //   setCheck(!check);
   // }
-  
-    // const history = useHistory();
+
+  // const history = useHistory();
 
   return (
     <div className={classes.root}>
@@ -251,10 +251,22 @@ export default function CreateAds({ match }) {
         <AccordionDetails>
           <Typography>
             <div>
-              Catégorie *: {" "}
-              <CheckBox onChange={handleChecked} form={form.category} label={"Biporteur"} />
-              <CheckBox onChange={handleChecked} form={form.category} label={"Triporteur"} />
-              <CheckBox onChange={handleChecked} form={form.category} label={"Longtail"} />
+              Catégorie *:{" "}
+              <CheckBox
+                onChange={handleChecked}
+                form={form.category}
+                label={"Biporteur"}
+              />
+              <CheckBox
+                onChange={handleChecked}
+                form={form.category}
+                label={"Triporteur"}
+              />
+              <CheckBox
+                onChange={handleChecked}
+                form={form.category}
+                label={"Longtail"}
+              />
             </div>
             <div>
               <TextField
@@ -314,7 +326,6 @@ export default function CreateAds({ match }) {
                   form={form.frame_size}
                   onChange={handleChange}
                 ></TextField>
-                
               </Typography>
             </div>
             <div className={classes.margin}>
@@ -462,7 +473,11 @@ export default function CreateAds({ match }) {
             <div className={classes.margin}>
               {" "}
               <Typography className={classes.contain}>
-                <SwitchForm label={"Garantie"} form={form.guarantee} onChange={handleChecked}/>
+                <SwitchForm
+                  label={"Garantie"}
+                  form={form.guarantee}
+                  onChange={handleChecked}
+                />
                 <TextField
                   className={classes.velo}
                   id="outlined-basic"
@@ -491,20 +506,20 @@ export default function CreateAds({ match }) {
           <Typography>
             <div className={classes.margin}>
               <Typography className={classes.contain}>
-                <SwitchForm form={form.electric} label={"Electrique *"} /> 
+                <SwitchForm form={form.electric} label={"Electrique *"} />
                 <div className={classes.margin}>
-                 <TextField
-                  className={classes.velo}
-                  required={true}
-                  id="outlined-basic"
-                  label="Puissance Moteur"
-                  variant="outlined"
-                  name="enginPower"
-                  form={form.engin_power}
-                  onChange={handleChange}
-                ></TextField>
+                  <TextField
+                    className={classes.velo}
+                    required={true}
+                    id="outlined-basic"
+                    label="Puissance Moteur"
+                    variant="outlined"
+                    name="enginPower"
+                    form={form.engin_power}
+                    onChange={handleChange}
+                  ></TextField>
                 </div>
-                 <TextField
+                <TextField
                   className={classes.velo}
                   required={true}
                   id="outlined-basic"
@@ -514,7 +529,6 @@ export default function CreateAds({ match }) {
                   form={form.batterie_wolt}
                   onChange={handleChange}
                 ></TextField>
-              
               </Typography>
             </div>
           </Typography>
@@ -533,9 +547,7 @@ export default function CreateAds({ match }) {
         <AccordionDetails>
           <Typography>
             <div className={classes.margin}>
-              <Typography className={classes.contain}>
-            
-              </Typography>
+              <Typography className={classes.contain}></Typography>
             </div>
           </Typography>
         </AccordionDetails>
