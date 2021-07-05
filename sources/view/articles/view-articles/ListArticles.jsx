@@ -2,6 +2,8 @@ import { makeStyles, Typography } from "@material-ui/core";
 import React, { useState } from "react";
 import ArticleCard from "./components/ArticleCard";
 import Search from "./components/Search";
+import PaginationPage from "../../marketplace/components/PaginationPage";
+import Link from "next/link";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -27,6 +29,8 @@ const ListArticles = ({ articles }) => {
   //fonction de récupération de la valeur saisie par le user:
   const handleSearchValueChange = (e) => setSearchValue(e.target.value);
 
+  
+
   return (
     <>
       <Typography className={classes.title} variant="h5">
@@ -41,10 +45,13 @@ const ListArticles = ({ articles }) => {
       <div className={classes.cards}>
         {articles
           .filter((article) => article.title.includes(searchValue))
-          .map((article, index) => (
-            <ArticleCard key={index.id} {...article} />
+          .map((article) => (
+            <Link href="article/[id]">
+              <ArticleCard key={article.id} {...article} />
+            </Link>
           ))}
       </div>
+      <PaginationPage />
     </>
   );
 };

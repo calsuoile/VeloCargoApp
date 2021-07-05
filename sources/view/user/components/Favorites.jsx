@@ -37,7 +37,7 @@ function Favorites(props) {
         connectedUser.favorites.map((item) => {
           const req = axios
             .get
-            // `https://toctoc-api.herokuapp.com/flat/${item}`
+            // `https://velo-cargo-app.vercel.app/ads/${item}`
             ();
           return req;
         })

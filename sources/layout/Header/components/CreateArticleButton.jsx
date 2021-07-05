@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import Link from "next/link";
+import { Link } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,14 +12,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AboutButton() {
+export default function CreateArticleButton() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <Link href="a-propos" style={{ textDecoration: "none" }}>
+      <Link href="creer-un-article" style={{ textDecoration: "none" }}>
         <Button variant="contained" color="primary">
-          À PROPOS
+          Créer un Article
         </Button>
       </Link>
     </div>

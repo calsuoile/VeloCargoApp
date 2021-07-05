@@ -27,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
 
     width: "92%",
   },
-
   name: {
     display: "flex",
     justifyContent: "center",
@@ -79,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
 
 function MyProfil(props) {
   const classes = useStyles();
-  const [edition, setEdition] = React.useState(true); 
+  const [edition, setEdition] = React.useState(true);
   const handleEdition = () => {
     setEdition(!edition);
   };
@@ -100,7 +99,7 @@ function MyProfil(props) {
     console.log(form);
   };
 
-  //code du WildBook pour l'update d'info profil : 
+  //code du WildBook pour l'update d'info profil :
 
   // const { connectedUser } = useContext(UserContext);
 

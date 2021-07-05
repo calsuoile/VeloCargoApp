@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import { Typography, Grid, Button } from "@material-ui/core";
 import Logo from "./components/Logo";
+import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -88,7 +89,12 @@ function Footer(props) {
       <div className={classes.list}>
         <div>
           <ul className={classes.title}>
-            <li>LES VELOS CARGO</li>
+            <Link
+              href="acheter-un-velo-cargo"
+              style={{ textDecoration: "none" }}
+            >
+              <li>LES VELOS CARGO</li>
+            </Link>
             <li>Triporteur</li>
             <li>Biporteur</li>
             <li>Tricycle</li>
@@ -99,12 +105,19 @@ function Footer(props) {
         </div>
         <div>
           <ul className={classes.title}>
-            <li>VENDRE UN VELO</li>
+            <Link
+              href="vendre-un-velo-cargo"
+              style={{ textDecoration: "none" }}
+            >
+              <li>VENDRE UN VELO</li>
+            </Link>
           </ul>
         </div>
         <div>
           <ul className={classes.title}>
-            <li>ARTICLES</li>
+            <Link href="articles" style={{ textDecoration: "none" }}>
+              <li>ARTICLES</li>
+            </Link>
           </ul>
         </div>
       </div>

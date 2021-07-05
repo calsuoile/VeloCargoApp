@@ -3,7 +3,8 @@ import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import CardAds from "./CardAds";
-import { Link } from "@material-ui/core";
+import Link from "next/link";
+
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -88,9 +89,12 @@ function ListAdsHomePage(props) {
           <CardAds {...card} key={index} />
         ))}
       </div>
-
       <Link href="acheter-un-velo-cargo" style={{ textDecoration: "none" }}>
-        <Button variant="contained" color="secondary" className={classes.button}>
+        <Button
+          variant="contained"
+          color="secondary"
+          className={classes.button}
+        >
           Voir Plus
         </Button>
       </Link>

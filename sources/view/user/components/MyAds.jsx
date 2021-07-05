@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "50px",
     width: "300px",
     margin: "auto",
-  }, 
+  },
   flat: {
     display: "flex",
     justifyContent: "space-around",
@@ -52,6 +52,8 @@ function MyAds(props) {
       city: "Bordeaux",
     },
   ]);
+  // const { connectedUser } = useContext(UserContext);
+  // const [ads, setAds] = useState([]);
 
   // useEffect(() => {
   //   console.log(connectedUser);
@@ -64,9 +66,9 @@ function MyAds(props) {
   //       },
   //     };
   //     axios
-  //       // .get(`https://toctoc-api.herokuapp.com/flat/my-flat`, config)
+  //       // .get(`http://velo-cargo-app.vercel.app/ads/my-ads`, config)
   //       .then((response) => {
-  //         setFlats(response.data);
+  //         setAds(response.data);
   //         console.log(response.data);
   //       });
   //   }
@@ -78,6 +80,8 @@ function MyAds(props) {
       <div className={classes.flat}>
         {myAds.map((ads) => (
           <CardAds {...ads} />
+        // {ads.map((ad) => (
+        //   <CardAds {...ad} />
         ))}
       </div>
     </div>
