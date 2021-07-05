@@ -15,7 +15,8 @@ import RadioButtonsGroup from "../../../common/RadioButtonsGroup";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "100%",
+    width: "80%",
+    marginLeft : "50px"
   },
   heading: {
     fontSize: theme.typography.pxToRem(18),
