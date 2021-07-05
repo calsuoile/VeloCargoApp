@@ -27,9 +27,6 @@ const useStyles = makeStyles({
     width: "100%",
     height: 250,
   },
-  // city: {
-  //   paddingLeft: "12px",
-  // },
 
   cityandicon: {
     height: "50px",
@@ -41,19 +38,22 @@ const useStyles = makeStyles({
   },
 });
 
-export default function CardAds({ photo, title, price, city }) {
-  const classes = useStyles();
+export default function CardAds({ photo, title, price, city, isFavorite }) {
+  // function CardAds ({ card }) {
+  // const [isFavorite, setIsFavorite] = useState(isFavorite);
 
+  // const handleClickFavorite = () => {
+  //   setIsFavorite(!isFavorite);
+  // };
+
+  const classes = useStyles();
   return (
     <Card className={classes.root}>
       <CardActionArea>
         <img className={classes.image} src={photo} />
         <CardContent className={classes.content}>
-          <Typography gutterBottom variant="body2" component="h2">
+          <Typography gutterBottom variant="h3" component="h1">
             {title}
-          </Typography>
-          <Typography variant="body1" component="p">
-            Ce vélo est en parfait état !
           </Typography>
           <Typography variant="h6" color="textSecondary" component="p">
             {price}
@@ -65,6 +65,11 @@ export default function CardAds({ photo, title, price, city }) {
         <Typography variant="body2" color="secondary" className={classes.city}>
           {city}
         </Typography>
+        {/* <div
+          id="favorite"
+          onClick={handleClickFavorite}
+          className={isFavorite ? "isFavorite" : "notFavorite"}
+        ></div> */}
         <IconButton color="secondary" className={classes.icon}>
           {" "}
           <FavoriteIcon />{" "}
