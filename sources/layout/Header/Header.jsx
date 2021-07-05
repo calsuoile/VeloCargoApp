@@ -11,12 +11,9 @@ import CreateAdsButton from "./components/CreateAdsButton";
 import AboutButton from "./components/AboutButton";
 import { Hidden } from "@material-ui/core";
 import BurgerMenu from "./components/BurgerMenu";
-<<<<<<< HEAD
 import CreateArticleButton from "./components/CreateArticleButton";
-=======
 import Link from "next/link";
 
->>>>>>> origin/dev
 
 const useStyles = makeStyles((theme) => ({
   root: {
