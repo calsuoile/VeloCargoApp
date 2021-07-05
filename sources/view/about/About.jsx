@@ -42,12 +42,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const sections = [
-  { title: "Notre histoire", url: "#" },
-  { title: "Nos ojectifs", url: "#" },
-  { title: "Notre vision", url: "#" },
-  { title: "Dossier de presse", url: "#" },
-  { title: "Ils parlent de nous", url: "#" },
-  { title: "Partenaires", ahref: "#" },
+  { title: "Notre histoire", url: "http://localhost:3000/a-propos#Histoire" },
+  { title: "Nos ojectifs", url: "http://localhost:3000/a-propos#Objectifs" },
+  { title: "Notre vision", url: "http://localhost:3000/a-propos#NotreVision" },
+  { title: "Ils parlent de nous", url: "http://localhost:3000/a-propos#IlsEnPArlent" },
+  { title: "Partenaires", url: "http://localhost:3000/a-propos#Partenaires" },
 ];
 
 export default function About() {
@@ -73,7 +72,7 @@ export default function About() {
           </div>
           <div className={classes.main}>
             <div className={classes.history}>
-              <h3 className={classes.subtitle}>Notre histoire</h3>
+              <h3 className={classes.subtitle} id="Histoire">Notre histoire</h3>
               <p className={classes.paragraph}>
                 Lorsque j’étais étudiant à Bordeaux, j'avais pour habitude
                 d'acheter et revendre des vélos d'occasion sur mon temps libre
@@ -92,7 +91,7 @@ export default function About() {
               </p>
             </div>
             <div className={classes.goals}>
-              <h3 className={classes.subtitle}>Nos objectifs</h3>
+              <h3 className={classes.subtitle} id="Objectifs">Nos objectifs</h3>
               <p className={classes.paragraph}>
                 <strong>Vous aider dans la vente de votre vélo cargo,</strong>{" "}
                 via une annonce détaillée, et des services additionnels pour
@@ -112,7 +111,7 @@ export default function About() {
               </p>
             </div>
             <div className={classes.vision}>
-              <h3 className={classes.subtitle}>Notre vision</h3>
+              <h3 className={classes.subtitle} id="NotreVision">Notre vision</h3>
               <p className={classes.paragraph}>
                 <strong>
                   « Un vélo cargo triporteur possédant une caisse de 1 500 L
@@ -133,7 +132,7 @@ export default function About() {
                 pour l’homme.
               </p>
             </div>
-            <h3 className={classes.subtitle}>Ils parlent de nous</h3>
+            <h3 className={classes.subtitle} id="IlsEnPArlent">Ils parlent de nous</h3>
             <div className={classes.talkAbout}>
               <img
                 className={classes.img_talkAbout}
@@ -148,7 +147,7 @@ export default function About() {
                 href="https://www.serialblogueuse.com/2021/06/02/10-bonnes-raisons-pour-se-deplacer-a-velo-cargo-en-ville/"
               />
             </div>
-            <h3 className={classes.subtitle}>Partenaires</h3>
+            <h3 className={classes.subtitle} id="Partenaires">Partenaires</h3>
             <div id="partnaires" className={classes.partnaires}>
               <img
                 className={classes.img_partnaires}

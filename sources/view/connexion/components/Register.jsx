@@ -11,6 +11,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
+import axios from "axios";
 
 function Copyright() {
   return (
@@ -73,9 +74,14 @@ export default function Register() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
-  const display = (e) => {
-    e.preventDefault();
-    console.log({ lastName }, { firstName }, { email }, { password });
+  const handleClick = async () => {
+    const userInscription = {
+      lastName: lastName,
+      firstName: firstName,
+      email: email,
+      plainPassword: password,
+    };
+    // await axios.post("http://velo-cargo-app.vercel.app/users", userInscription);
   };
 
   return (
@@ -171,7 +177,7 @@ export default function Register() {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={display}
+              onClick={handleClick}
             >
               Connexion
             </Button>
