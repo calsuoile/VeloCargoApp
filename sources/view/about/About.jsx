@@ -2,7 +2,8 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
-import TopBar from "./components/TopBar";
+// import TopBar from "./components/TopBar";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   //   mainGrid: {
@@ -17,37 +18,56 @@ const useStyles = makeStyles((theme) => ({
   partnaires: {
     display: "flex",
     justifyContent: "space-around",
+    alignItems: "center",
+    marginBottom:"10%",
   },
   talkAbout: {
     display: "flex",
     justifyContent: "space-around",
+    alignItems: "center",
   },
   title: {
     display: "flex",
     justifyContent: "space-around",
+    matrginTop:"30px",
   },
   img_partnaires: {
     maxWidth: "200px",
-    maxHeight: "200px",
+    maxHeight: "100px",
   },
   img_title: {
     maxWidth: "300px",
     maxHeight: "500px",
     merginTop: theme.spacing(10),
+    borderRadius: "30px",
+    margin: "30px",
   },
   img_talkAbout: {
-    maxWidth: "100px",
+    maxWidth: "200px",
     maxHeight: "100px",
   },
+  paragraph: {
+    width: "60%",
+    textAlign: "justify",
+
+  },
+
+  undertitle: {
+    margin: "40px",
+  },
+  main: {
+    display: "flex",
+    flexDirection: "column",
+  
+  }
 }));
 
 const sections = [
-  { title: "Notre histoire", url: "#" },
-  { title: "Nos ojectifs", url: "#" },
-  { title: "Notre vision", url: "#" },
-  { title: "Dossier de presse", url: "#" },
-  { title: "Ils parlent de nous", url: "#" },
-  { title: "Partenaires", ahref: "#" },
+  { title: "Notre histoire", url: "http://localhost:3000/a-propos#Histoire" },
+  { title: "Nos ojectifs", url: "http://localhost:3000/a-propos#Objectifs" },
+  { title: "Notre vision", url: "http://localhost:3000/a-propos#NotreVision" },
+  { title: "Ils parlent de nous", url: "http://localhost:3000/a-propos#IlsEnPArlent" },
+  { title: "Partenaires", url: "http://localhost:3000/a-propos#Partenaires" },
 ];
 
 export default function About() {
@@ -61,19 +81,18 @@ export default function About() {
         <div className={classes.root}>
           <div className={classes.title}>
             <div className={classes.head}>
-              <h1>Clément Fouillet</h1>
-              <h3 className={classes.description_title}>
-                Fondateur de Cargo Bike Trade
-              </h3>
-            </div>
+            <Typography gutterBottom variant="h1" component="h1">Clément Fouillet</Typography>
+            <Typography gutterBottom variant="h3" component="h1">Fondateur de Cargo Bike Trade</Typography>
+            
             <img
               className={classes.img_title}
               src="/assets/Clément_F_Fondateur.jpg"
             />
+            </div>
           </div>
           <div className={classes.main}>
             <div className={classes.history}>
-              <h3 className={classes.subtitle}>Notre histoire</h3>
+            <Typography className={classes.undertitle} gutterBottom variant="h2" component="h1" id="Histoire">Notre histoire</Typography>
               <p className={classes.paragraph}>
                 Lorsque j’étais étudiant à Bordeaux, j'avais pour habitude
                 d'acheter et revendre des vélos d'occasion sur mon temps libre
@@ -92,7 +111,7 @@ export default function About() {
               </p>
             </div>
             <div className={classes.goals}>
-              <h3 className={classes.subtitle}>Nos objectifs</h3>
+            <Typography className={classes.undertitle} gutterBottom variant="h2" component="h1" id="Objectifs">Nos objectifs</Typography>
               <p className={classes.paragraph}>
                 <strong>Vous aider dans la vente de votre vélo cargo,</strong>{" "}
                 via une annonce détaillée, et des services additionnels pour
@@ -112,7 +131,7 @@ export default function About() {
               </p>
             </div>
             <div className={classes.vision}>
-              <h3 className={classes.subtitle}>Notre vision</h3>
+            <Typography className={classes.undertitle} gutterBottom variant="h2" component="h1" id="NotreVision">Notre vision</Typography>
               <p className={classes.paragraph}>
                 <strong>
                   « Un vélo cargo triporteur possédant une caisse de 1 500 L
@@ -124,7 +143,7 @@ export default function About() {
                 Source :
                 https://www.ecologie.gouv.fr/plan-national-developpement-cyclologistique
               </p>
-              <p>
+              <p className={classes.paragraph}>
                 Parce que la pollution de l’air est directement responsable
                 chaque année de nombreux décès, nous souhaitons encourager
                 l’essor du vélo cargo dans notre quotidien, car il s’agit d’une
@@ -133,40 +152,50 @@ export default function About() {
                 pour l’homme.
               </p>
             </div>
-            <h3 className={classes.subtitle}>Ils parlent de nous</h3>
+            </div>
+            <Typography className={classes.undertitle} gutterBottom variant="h2" component="h1" id="IlsEnPArlent">Ils parlent de nous</Typography>
             <div className={classes.talkAbout}>
+            <a href="https://youtu.be/UBvMiqYDE_8?t=732">
               <img
                 className={classes.img_talkAbout}
                 src="/assets/logo_a_propos/pause_velo.jpg"
                 alt="Pause vélo"
                 href="https://youtu.be/UBvMiqYDE_8?t=732"
               />
+            </a>
+            <a href="https://www.serialblogueuse.com/2021/06/02/10-bonnes-raisons-pour-se-deplacer-a-velo-cargo-en-ville/">
               <img
                 className={classes.img_talkAbout}
                 src="/assets/logo_a_propos/serial_blogueuse.jpg"
                 alt="Serial Blogueuse"
                 href="https://www.serialblogueuse.com/2021/06/02/10-bonnes-raisons-pour-se-deplacer-a-velo-cargo-en-ville/"
               />
+              </a>
             </div>
-            <h3 className={classes.subtitle}>Partenaires</h3>
+            <Typography className={classes.undertitle} gutterBottom variant="h2" component="h1" id="Partenaires">Partenaires</Typography>
             <div id="partnaires" className={classes.partnaires}>
+            <a href="https://www.cyclofix.com/?utm_term=cyclofix&utm_campaign=ACQ+-+Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=9490984877&hsa_cam=1075025205&hsa_grp=55328601283&hsa_ad=298926109639&hsa_src=g&hsa_tgt=kwd-333483140602&hsa_kw=cyclofix&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQjw8vqGBhC_ARIsADMSd1DlvqcSYYdQkPFgcFNnP76KV2ANpaZF8LOKYUM_43qGhkuwdYSubxIaAoWREALw_wcB">
               <img
                 className={classes.img_partnaires}
                 src="/assets/logo_a_propos/cyclofix.png"
                 alt="Cyclofix"
               />
+            </a>
+            <a href="https://www.velhome.co/">
               <img
                 className={classes.img_partnaires}
                 src="/assets/logo_a_propos/velhome.png"
                 alt="Velhome"
               />
+              </a>
+              <a href="https://cylantro.eu/">
               <img
                 className={classes.img_partnaires}
                 src="/assets/logo_a_propos/cylantro.png"
                 alt="Cylantro"
               />
+              </a>
             </div>
-          </div>
         </div>
       </Container>
     </React.Fragment>

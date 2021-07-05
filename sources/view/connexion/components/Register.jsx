@@ -11,6 +11,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
+import axios from "axios";
 
 function Copyright() {
   return (
@@ -73,9 +74,14 @@ export default function Register() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
-  const display = (e) => {
-    e.preventDefault();
-    console.log({ lastName }, { firstName }, { email }, { password });
+  const handleClick = async () => {
+    const userInscription = {
+      lastName: lastName,
+      firstName: firstName,
+      email: email,
+      plainPassword: password,
+    };
+    // await axios.post("http://velo-cargo-app.vercel.app/users", userInscription);
   };
 
   return (
@@ -148,7 +154,7 @@ export default function Register() {
               autoComplete="current-password"
               onChange={(e) => setPassword(e.target.value)}
             />
-            <TextField
+            {/* <TextField
               value={password}
               variant="outlined"
               margin="normal"
@@ -164,14 +170,14 @@ export default function Register() {
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Se souvenir de moi"
-            />
+            /> */}
             <Button
               type="submit"
               fullWidth
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={display}
+              onClick={handleClick}
             >
               Connexion
             </Button>
