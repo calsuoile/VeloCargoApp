@@ -3,6 +3,7 @@ import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import CardAds from "./CardAds";
+import { Link } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -37,6 +38,7 @@ const adsCard = [
       title: "Vélo Cargo",
       price: "1230 €",
       city: "Bordeaux",
+      isFavorite: false
     },
     {
       id: "2",
@@ -44,6 +46,7 @@ const adsCard = [
       title: "Vélo Cargo",
       price: "1380 €",
       city: "Bordeaux",
+      isFavorite: false
     },
     {
       id: "3",
@@ -51,6 +54,7 @@ const adsCard = [
       title: "Vélo Cargo",
       price: "1560 €",
       city: "Bordeaux",
+      isFavorite: false
     },
     {
       id: "4",
@@ -58,6 +62,7 @@ const adsCard = [
       title: "Vélo Cargo",
       price: "1800 €",
       city: "Bordeaux",
+      isFavorite: false
     },
     {
       id: "5",
@@ -65,6 +70,7 @@ const adsCard = [
       title: "Vélo Cargo",
       price: "2300 €",
       city: "Bordeaux",
+      isFavorite: false
     },
     {
       id: "6",
@@ -72,6 +78,7 @@ const adsCard = [
       title: "Vélo Cargo",
       price: "2580 €",
       city: "Bordeaux",
+      isFavorite: false
     },
   ];
 
@@ -88,11 +95,14 @@ function ListAdsHomePage(props) {
         {adsCard.map((card, index) => (
           <CardAds {...card} key={index} />
         ))}
-      </div>
 
+      {/* <CardAdsList cards={adsCards} /> */}
+      </div>
+      <Link href="acheter-un-velo-cargo" style={{ textDecoration: "none"}}>
       <Button variant="contained" color="secondary" className={classes.button}>
         Voir Plus
       </Button>
+      </Link>
     </div>
   );
 }

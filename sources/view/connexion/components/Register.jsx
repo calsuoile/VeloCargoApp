@@ -148,7 +148,7 @@ export default function Register() {
               autoComplete="current-password"
               onChange={(e) => setPassword(e.target.value)}
             />
-            <TextField
+            {/* <TextField
               value={password}
               variant="outlined"
               margin="normal"
@@ -164,7 +164,7 @@ export default function Register() {
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Se souvenir de moi"
-            />
+            /> */}
             <Button
               type="submit"
               fullWidth
