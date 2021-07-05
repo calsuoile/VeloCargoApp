@@ -84,6 +84,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CreateAds({ match }) {
   const classes = useStyles();
+
   const [form, setForm] = React.useState({
     title: "",
     date: "",
@@ -113,7 +114,7 @@ export default function CreateAds({ match }) {
   // useEffect(() => {
   //   if (match?.params?.id) {
   //     axios
-  //       // .get(` https://toctoc-api.herokuapp.com/flat/${match.params.id} `)
+  //       // .get(` https://velo-cargo-app.vercel.app/ads/${match.params.id} `)
   //       .then((response) => setForm(response.data));
   //   }
   // }, [match.params.id]);
@@ -126,7 +127,7 @@ export default function CreateAds({ match }) {
   //   if (match?.params?.id) {
   //     axios
   //       .patch(
-  //         // `https://toctoc-api.herokuapp.com/flat/${match.params.id}`,
+  //         // `https://velo-cargo-app.vercel.app/ads/${match.params.id}`,
   //         form,
   //         config
   //       )
@@ -135,7 +136,7 @@ export default function CreateAds({ match }) {
   //       });
   //   } else {
   //     axios
-  //       // .post("https://toctoc-api.herokuapp.com/flat", form, config)
+  //       // .post("https://velo-cargo-app.vercel.app/ads", form, config)
   //       .then((res) => {
   //         console.log(res.data);
   //         history.push("/");
@@ -145,7 +146,6 @@ export default function CreateAds({ match }) {
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-    console.log(e.target.name, e.target.value);
   };
 
   const handleChecked = (e) => {
@@ -160,6 +160,8 @@ export default function CreateAds({ match }) {
     setForm({ ...form, images: newImages });
     console.log(newImages);
   };
+
+  // const history = useHistory();
 
   return (
     <div className={classes.root}>

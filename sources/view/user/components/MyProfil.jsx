@@ -18,15 +18,11 @@ const useStyles = makeStyles((theme) => ({
     height: 200,
     width: 200,
   },
-
   name: {
     textAlign: "center",
     margin: "30px",
     fontFamily: "'Caveat', cursive",
     fontSize: "15px",
-  },
-  containerprofil: {
-    display: "flex",
   },
 }));
 
@@ -41,13 +37,8 @@ function MyProfil(props) {
         <h2>{connectedUser.lastName}</h2>
         <p>{connectedUser.email}</p>
       </div>
-      <div className={classes.containerprofil}>
-        <div>
-          <Avatar className={classes.image} alt="avatar" src={profilImg} />
-        </div>
-      </div>
     </div>
   );
 }
 
-export default Myprofil;
+export default MyProfil;

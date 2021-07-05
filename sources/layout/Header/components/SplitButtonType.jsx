@@ -8,7 +8,9 @@ import Paper from "@material-ui/core/Paper";
 import Popper from "@material-ui/core/Popper";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
-import { Link, makeStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
+import Link from "next/link";
+
 
 const useStyles = makeStyles((theme) => ({
   splitButtonType: {
@@ -103,7 +105,7 @@ export default function SplitButtonType() {
                   {options.map((option, index) => (
                     <MenuItem
                       key={option}
-                      disabled={index === 0}
+                      // disabled={index === 0}
                       selected={index === selectedIndex}
                       onClick={(event) => handleMenuItemClick(event, index)}
                     >

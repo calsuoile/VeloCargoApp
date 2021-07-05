@@ -62,14 +62,13 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-// const sections = [
-//   { title: "Notre histoire", url: "#" },
-//   { title: "Nos ojectifs", url: "#" },
-//   { title: "Notre vision", url: "#" },
-//   { title: "Dossier de presse", url: "#" },
-//   { title: "Ils parlent de nous", url: "#" },
-//   { title: "Partenaires", ahref: "#" },
-// ];
+const sections = [
+  { title: "Notre histoire", url: "http://localhost:3000/a-propos#Histoire" },
+  { title: "Nos ojectifs", url: "http://localhost:3000/a-propos#Objectifs" },
+  { title: "Notre vision", url: "http://localhost:3000/a-propos#NotreVision" },
+  { title: "Ils parlent de nous", url: "http://localhost:3000/a-propos#IlsEnPArlent" },
+  { title: "Partenaires", url: "http://localhost:3000/a-propos#Partenaires" },
+];
 
 export default function About() {
   const classes = useStyles();
@@ -78,7 +77,7 @@ export default function About() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        {/* <TopBar title="A propos" sections={sections} /> */}
+        <TopBar title="A propos" sections={sections} />
         <div className={classes.root}>
           <div className={classes.title}>
             <div className={classes.head}>
@@ -93,7 +92,7 @@ export default function About() {
           </div>
           <div className={classes.main}>
             <div className={classes.history}>
-            <Typography className={classes.undertitle} gutterBottom variant="h2" component="h1">Notre histoire</Typography>
+            <Typography className={classes.undertitle} gutterBottom variant="h2" component="h1" id="Histoire">Notre histoire</Typography>
               <p className={classes.paragraph}>
                 Lorsque j’étais étudiant à Bordeaux, j'avais pour habitude
                 d'acheter et revendre des vélos d'occasion sur mon temps libre
@@ -112,7 +111,7 @@ export default function About() {
               </p>
             </div>
             <div className={classes.goals}>
-            <Typography className={classes.undertitle} gutterBottom variant="h2" component="h1">Nos objectifs</Typography>
+            <Typography className={classes.undertitle} gutterBottom variant="h2" component="h1" id="Objectifs">Nos objectifs</Typography>
               <p className={classes.paragraph}>
                 <strong>Vous aider dans la vente de votre vélo cargo,</strong>{" "}
                 via une annonce détaillée, et des services additionnels pour
@@ -132,7 +131,7 @@ export default function About() {
               </p>
             </div>
             <div className={classes.vision}>
-            <Typography className={classes.undertitle} gutterBottom variant="h2" component="h1">Notre vision</Typography>
+            <Typography className={classes.undertitle} gutterBottom variant="h2" component="h1" id="NotreVision">Notre vision</Typography>
               <p className={classes.paragraph}>
                 <strong>
                   « Un vélo cargo triporteur possédant une caisse de 1 500 L
@@ -154,7 +153,7 @@ export default function About() {
               </p>
             </div>
             </div>
-            <Typography className={classes.undertitle} gutterBottom variant="h2" component="h1">Ils parlent de nous</Typography>
+            <Typography className={classes.undertitle} gutterBottom variant="h2" component="h1" id="IlsEnPArlent">Ils parlent de nous</Typography>
             <div className={classes.talkAbout}>
             <a href="https://youtu.be/UBvMiqYDE_8?t=732">
               <img
@@ -173,7 +172,7 @@ export default function About() {
               />
               </a>
             </div>
-            <Typography className={classes.undertitle} gutterBottom variant="h2" component="h1">Partenaires</Typography>
+            <Typography className={classes.undertitle} gutterBottom variant="h2" component="h1" id="Partenaires">Partenaires</Typography>
             <div id="partnaires" className={classes.partnaires}>
             <a href="https://www.cyclofix.com/?utm_term=cyclofix&utm_campaign=ACQ+-+Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=9490984877&hsa_cam=1075025205&hsa_grp=55328601283&hsa_ad=298926109639&hsa_src=g&hsa_tgt=kwd-333483140602&hsa_kw=cyclofix&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQjw8vqGBhC_ARIsADMSd1DlvqcSYYdQkPFgcFNnP76KV2ANpaZF8LOKYUM_43qGhkuwdYSubxIaAoWREALw_wcB">
               <img
