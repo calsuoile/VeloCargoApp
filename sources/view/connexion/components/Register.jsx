@@ -2,8 +2,6 @@ import React from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
 import Link from "next/link";
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
@@ -11,13 +9,13 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
-import axios from "axios";
+// import axios from "axios";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" href="accueil">
         VéloCargo
       </Link>{" "}
       {new Date().getFullYear()}
@@ -154,23 +152,6 @@ export default function Register() {
               autoComplete="current-password"
               onChange={(e) => setPassword(e.target.value)}
             />
-            {/* <TextField
-              value={password}
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="Mot de passe"
-              label="Confirme ton mot de passe"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Se souvenir de moi"
-            /> */}
             <Button
               type="submit"
               fullWidth

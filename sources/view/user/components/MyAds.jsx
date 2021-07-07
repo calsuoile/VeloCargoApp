@@ -1,27 +1,31 @@
 import React, { useContext, useEffect, useState } from "react";
-import { makeStyles } from "@material-ui/core";
-import HomeIcon from "@material-ui/icons/Home";
-import axios from "axios";
+import { makeStyles, Typography } from "@material-ui/core";
+// import axios from "axios";
 import UserContext from "../../../context/user";
 import CardAds from "../../home/CardAds";
 
 const useStyles = makeStyles((theme) => ({
+  contain: {
+    marginLeft: "50px",
+    marginRight: "50px",
+    marginTop: "30px",
+    marginBottom: "30px"
+  },
   title: {
-    textAlign: "center",
-    fontFamily: "Lato, sans-serif, Black italic",
-    backgroundColor: "white",
-    padding: 50,
-    marginBottom: "50px",
-    width: "300px",
-    margin: "auto",
+    marginLeft: "50px",
+    marginRight: "50px",
+    borderBottom: "1px solid",
+    marginBottom: "20px",
   },
-  flat: {
+  ads: {
+    marginTop: "30px",
+    display: "grid",
+    gridTemplateColumns: "300px 300px 300px",
+    gridTemplateRows: "400px 400px",
+    gridGap: "60px",
+    justifyContent: "center",
     display: "flex",
-    justifyContent: "space-around",
-  },
-  icon: {
-    width: "50px",
-    color: "#4E96AF",
+    flexWrap: "wrap",
   },
 }));
 
@@ -76,13 +80,17 @@ function MyAds(props) {
 
   return (
     <div>
-      
-      <div className={classes.flat}>
-        {myAds.map((ads) => (
-          <CardAds {...ads} />
-        // {ads.map((ad) => (
-        //   <CardAds {...ad} />
-        ))}
+      <div className={classes.contain}>
+        <Typography variant="h3" className={classes.title}>
+          Mes Annonces :{" "}
+        </Typography>
+        <div className={classes.ads}>
+          {myAds.map((ads, index) => (
+            <CardAds {...ads} key={index} />
+            // {ads.map((ad) => (
+            //   <CardAds {...ad} />
+          ))}
+        </div>
       </div>
     </div>
   );

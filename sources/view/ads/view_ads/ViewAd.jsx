@@ -136,10 +136,10 @@ function ViewAd({ ads, user }) {
 
         <Typography variant="body2" className={classes.where}>
           {" "}
-          <PlaceIcon /> {ads.country}, {ads.dep}
+          <PlaceIcon /> {ads.country}, {ads.department}
         </Typography>
         <Typography variant="body1" className={classes.when}>
-          {ads.date}
+          {ads.created_at}
         </Typography>
       </div>
 

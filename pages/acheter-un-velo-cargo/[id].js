@@ -19,15 +19,15 @@ export async function getStaticPaths() {
 export async function getStaticProps(props) {
   const ads = {
     id: 1,
-    date: "25 mai 2021",
-    price: "2000",
+    created_at: "25 mai 2021", // table ads
+    price: "2000", // table ads 
     category: "Triporteur",
     model: "560x",
     guarantee: "Oui",
     bicycode: "2340",
     brand: "Peugeot",
     country: "France",
-    dep: "Gironde",
+    department: "Gironde",
     general_state: "Bon",
     electric: "Oui",
     frame_size: "50",
@@ -36,8 +36,8 @@ export async function getStaticProps(props) {
     volume_box: "100",
     mecanic_state: "bon",
     esthetic_state: "bon",
-    engin_power: "25",
-    batterie_wolt: "50",
+    engine_power: "25",
+    battery_wolt: "50",
   };
 
   const user = {
