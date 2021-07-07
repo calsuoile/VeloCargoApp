@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "50px",
     marginRight: "50px",
     marginTop: "30px",
-    marginBottom: "30px"
+    marginBottom: "30px",
   },
   title: {
     marginLeft: "50px",
@@ -32,7 +32,9 @@ const useStyles = makeStyles((theme) => ({
 function MyAds(props) {
   const classes = useStyles();
 
-  // const { connectedUser } = useContext(UserContext);
+  const { connectedUser } = useContext(UserContext);
+  const [ads, setAds] = useState([]);
+
   const [myAds, setMyAds] = useState([
     {
       id: "1",
@@ -56,8 +58,6 @@ function MyAds(props) {
       city: "Bordeaux",
     },
   ]);
-  // const { connectedUser } = useContext(UserContext);
-  // const [ads, setAds] = useState([]);
 
   // useEffect(() => {
   //   console.log(connectedUser);
@@ -69,12 +69,10 @@ function MyAds(props) {
   //         Authorization: `Bearer ${accessToken}`,
   //       },
   //     };
-  //     axios
-  //       // .get(`http://velo-cargo-app.vercel.app/ads/my-ads`, config)
-  //       .then((response) => {
-  //         setAds(response.data);
-  //         console.log(response.data);
-  //       });
+  //     axios.get(`http://localhost:3030/ads/my-ads`, config).then((response) => {
+  //       setAds(response.data);
+  //       console.log(response.data);
+  //     });
   //   }
   // }, [connectedUser]);
 
@@ -87,8 +85,6 @@ function MyAds(props) {
         <div className={classes.ads}>
           {myAds.map((ads, index) => (
             <CardAds {...ads} key={index} />
-            // {ads.map((ad) => (
-            //   <CardAds {...ad} />
           ))}
         </div>
       </div>
