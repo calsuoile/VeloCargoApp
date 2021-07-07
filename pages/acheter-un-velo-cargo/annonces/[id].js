@@ -1,4 +1,4 @@
-import ViewAd from "../../sources/view/ads/view_ads/ViewAd";
+import ViewAd from "../../../sources/view/ads/view_ads/ViewAd";
 import { useRouter } from "next/router";
 
 const AdPage = ({ ads, user }) => {
@@ -12,7 +12,7 @@ const AdPage = ({ ads, user }) => {
 export async function getStaticPaths() {
   return {
     paths: [],
-    fallback: true,
+    fallback: "blocking"
   };
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Logo from "./components/Logo";
-import Formulaire from "./components/Formulaire";
+import Form from "./components/Form";
 import Link from "next/link";
 
 const useStyles = makeStyles((theme) => ({
@@ -72,7 +72,7 @@ function Footer(props) {
         </div>
       </div>
       <div>
-        <Formulaire />
+        <Form />
       </div>
       <div className={classes.logoform}>
         <Logo />

@@ -7,7 +7,7 @@ function index(props) {
   return (
     <div>
       <Home />
-      {/* <MyProfil /> */}
+      <MyProfil />
     </div>
   );
 }
