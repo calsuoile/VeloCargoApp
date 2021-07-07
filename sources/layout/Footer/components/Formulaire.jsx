@@ -70,7 +70,7 @@ export default function SignUp() {
     console.log(userComment);
   };
 
-  const [open, setOpen] = React.useState();
+  const [open, setOpen] = React.useState(false);
 
 
   return (
