@@ -28,7 +28,9 @@ const useStyles = makeStyles((theme) => ({
 function MyAds(props) {
   const classes = useStyles();
 
-  // const { connectedUser } = useContext(UserContext);
+  const { connectedUser } = useContext(UserContext);
+  const [ads, setAds] = useState([]);
+
   const [myAds, setMyAds] = useState([
     {
       id: "1",
@@ -52,36 +54,31 @@ function MyAds(props) {
       city: "Bordeaux",
     },
   ]);
-  // const { connectedUser } = useContext(UserContext);
-  // const [ads, setAds] = useState([]);
 
-  // useEffect(() => {
-  //   console.log(connectedUser);
+  useEffect(() => {
+    console.log(connectedUser);
 
-  //   if (Object.keys(connectedUser).length > 0) {
-  //     const accessToken = localStorage.getItem("userToken");
-  //     const config = {
-  //       headers: {
-  //         Authorization: `Bearer ${accessToken}`,
-  //       },
-  //     };
-  //     axios
-  //       // .get(`http://velo-cargo-app.vercel.app/ads/my-ads`, config)
-  //       .then((response) => {
-  //         setAds(response.data);
-  //         console.log(response.data);
-  //       });
-  //   }
-  // }, [connectedUser]);
+    if (Object.keys(connectedUser).length > 0) {
+      const accessToken = localStorage.getItem("userToken");
+      const config = {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      };
+      axios.get(`http://localhost:3030/ads/my-ads`, config).then((response) => {
+        setAds(response.data);
+        console.log(response.data);
+      });
+    }
+  }, [connectedUser]);
 
   return (
     <div>
-      
       <div className={classes.flat}>
         {myAds.map((ads) => (
           <CardAds {...ads} />
-        // {ads.map((ad) => (
-        //   <CardAds {...ad} />
+          // {ads.map((ad) => (
+          //   <CardAds {...ad} />
         ))}
       </div>
     </div>

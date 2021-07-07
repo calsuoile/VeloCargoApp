@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
@@ -7,16 +7,17 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import DatePickers from "../../../common/components/DatePickers";
 import { TextField } from "@material-ui/core";
-import CheckBox from "./components/CheckBox";
 import CountrySelector from "../../../common/components/CountrySelector";
 import Button from "@material-ui/core/Button";
 import SwitchForm from "../../../common/components/SwitchForm";
 import RadioButtonsGroup from "../../../common/RadioButtonsGroup";
+import { useRouter } from "next/router";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "80%",
-    marginLeft : "50px"
+    marginLeft: "50px",
   },
   heading: {
     fontSize: theme.typography.pxToRem(18),
@@ -86,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
 export default function CreateAds({ match }) {
   const classes = useStyles();
 
-  const [form, setForm] = React.useState({
+  const [form, setForm] = useState({
     title: "",
     date: "",
     description: "",
@@ -112,39 +113,6 @@ export default function CreateAds({ match }) {
     batterie_wolt: "",
   });
 
-  // useEffect(() => {
-  //   if (match?.params?.id) {
-  //     axios
-  //       // .get(` https://velo-cargo-app.vercel.app/ads/${match.params.id} `)
-  //       .then((response) => setForm(response.data));
-  //   }
-  // }, [match.params.id]);
-
-  // const postForm = () => {
-  //   const token = localStorage.getItem("userToken");
-  //   const config = {
-  //     headers: { Authorization: `Bearer ${token}` },
-  //   };
-  //   if (match?.params?.id) {
-  //     axios
-  //       .patch(
-  //         // `https://velo-cargo-app.vercel.app/ads/${match.params.id}`,
-  //         form,
-  //         config
-  //       )
-  //       .then(() => {
-  //         history.push("/");
-  //       });
-  //   } else {
-  //     axios
-  //       // .post("https://velo-cargo-app.vercel.app/ads", form, config)
-  //       .then((res) => {
-  //         console.log(res.data);
-  //         history.push("/");
-  //       });
-  //   }
-  // };
-
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -153,7 +121,8 @@ export default function CreateAds({ match }) {
     setForm({ ...form, [e.target.name]: e.target.checked });
   };
   const handleClick = () => {
-    console.log(form); //postForm();
+    console.log(form);
+    postForm();
   };
 
   const handleUploadImage = (imageUrl) => {
@@ -161,8 +130,23 @@ export default function CreateAds({ match }) {
     setForm({ ...form, images: newImages });
     console.log(newImages);
   };
+  const router = useRouter();
 
-  // const history = useHistory();
+  const postForm = () => {
+    const token = localStorage.getItem("userToken");
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+    axios.post(`http://localhost:3030/cargobike`, form, config).then(() => {
+      router.push("/");
+    });
+    axios.post(`http://localhost:3030/accessories`, form, config).then(() => {
+      router.push("/");
+    });
+    axios.post(`http://localhost:3030/trailer`, form, config).then(() => {
+      router.push("/");
+    });
+  };
 
   return (
     <div className={classes.root}>
