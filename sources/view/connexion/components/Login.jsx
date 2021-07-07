@@ -10,7 +10,12 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
 import UserContext from "../../../context/user";
+<<<<<<< HEAD
 // import axios from "axios";
+=======
+import axios from "axios";
+import { useRouter } from "next/router";
+>>>>>>> origin/dev
 
 function Copyright() {
   return (
@@ -69,41 +74,46 @@ export default function Login() {
 
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+<<<<<<< HEAD
   // const history = useHistory();
   // const { setConnectedUser } = useContext(UserContext);
+=======
+  const router = useRouter();
+  const { setConnectedUser } = useContext(UserContext);
+>>>>>>> origin/dev
 
-  const handleClick = (e) => {
+  const handleClick = async (e) => {
     e.preventDefault();
     const userId = {
       email: email,
       password: password,
     };
-    // try {
-    //   const token = await axios.post(
-    //     "http://velo-cargo-app.vercel.app/users/login",
-    //     userID
-    //   )
+    try {
+      const token = await axios.post(
+        "http://localhost:3030/users/login",
+        userId
+      );
 
-    //   console.log(token.data);
-    //   localStorage.setItem("userToken", token.data.access_token);
+      console.log(token.data);
+      localStorage.setItem("userToken", token.data.access_token);
 
-    //   const config = {
-    //     headers: {
-    //       Authorization: `Bearer ${token.data.access_token}`
-    //     }
-    //   };
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token.data.access_token}`,
+        },
+      };
 
-    //   const userProfile = await axios.get(
-    //     "http://velo-cargo-app.vercel.app/users/profile",
-    //     config
-    //   )
+      const userProfile = await axios.get(
+        "http://localhost:3030/users/profile",
+        config
+      );
 
-    //   setConnectedUser(userProfile.data);
+      setConnectedUser(userProfile.data);
 
-    //   history.push("/");
-    // } catch (error) {
-    //   "identifiants incorrectes"
-    // }
+      router.push("/");
+    } catch (error) {
+      ("identifiants incorrectes");
+    }
   };
 
   return (

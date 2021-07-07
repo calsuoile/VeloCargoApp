@@ -9,7 +9,12 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
+<<<<<<< HEAD
 // import axios from "axios";
+=======
+import axios from "axios";
+import { useRouter } from "next/router";
+>>>>>>> origin/dev
 
 function Copyright() {
   return (
@@ -67,19 +72,22 @@ const useStyles = makeStyles((theme) => ({
 export default function Register() {
   const classes = useStyles();
 
-  const [lastName, setLastName] = React.useState("");
-  const [firstName, setFirstName] = React.useState("");
+  const [lastname, setLastName] = React.useState("");
+  const [firstname, setFirstName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const router = useRouter();
 
-  const handleClick = async () => {
+  const handleClick = async (e) => {
+    e.preventDefault();
     const userInscription = {
-      lastName: lastName,
-      firstName: firstName,
+      lastname: lastname,
+      firstname: firstname,
       email: email,
       password: password,
     };
-    // await axios.post("http://velo-cargo-app.vercel.app/users", userInscription);
+    await axios.post("http://localhost:3030/users", userInscription);
+    router.push("/");
   };
 
   return (
@@ -96,31 +104,31 @@ export default function Register() {
             <DirectionsBikeIcon />
           </Avatar>
           <Typography variant="h5">INSCRIPTION</Typography>
-          <form className={classes.form} noValidate>
+          <form className={classes.form} onSubmit={handleClick} noValidate>
             <div className={classes.name}>
               <TextField
-                value={lastName}
+                value={lastname}
                 variant="outlined"
                 margin="normal"
                 required
                 fullWidth
-                name="lastName"
+                name="lastname"
                 label="Nom"
-                type="lastName"
-                id="lastName"
+                type="lastname"
+                id="lastname"
                 autoComplete="current-password"
                 onChange={(e) => setLastName(e.target.value)}
               />
               <TextField
-                value={firstName}
+                value={firstname}
                 variant="outlined"
                 margin="normal"
                 required
                 fullWidth
-                name="firstName"
+                name="firstname"
                 label="Prenom"
-                type="firstName"
-                id="firstName"
+                type="firstname"
+                id="firstname"
                 autoComplete="current-password"
                 onChange={(e) => setFirstName(e.target.value)}
               />
@@ -158,9 +166,9 @@ export default function Register() {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={handleClick}
+              // onClick={handleClick}
             >
-              Connexion
+              Inscription
             </Button>
             <Box mt={5}>
               <Copyright />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
@@ -7,16 +7,17 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import DatePickers from "../../../common/components/DatePickers";
 import { TextField } from "@material-ui/core";
-import CheckBox from "./components/CheckBox";
 import CountrySelector from "../../../common/components/CountrySelector";
 import Button from "@material-ui/core/Button";
 import SwitchForm from "../../../common/components/SwitchForm";
 import RadioButtonsGroup from "../../../common/RadioButtonsGroup";
+import { useRouter } from "next/router";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "80%",
-    marginLeft : "50px"
+    marginLeft: "50px",
   },
   heading: {
     fontSize: theme.typography.pxToRem(18),
@@ -86,64 +87,31 @@ const useStyles = makeStyles((theme) => ({
 export default function CreateAds({ match }) {
   const classes = useStyles();
 
-  const [form, setForm] = React.useState({
+  const [form, setForm] = useState({
     title: "",
     date: "",
     description: "",
     country: "",
     department: "",
-    category: "",
+    type: "",
     brand: "",
     model: "",
     price: "",
-    frameSize: "",
+    frame_size: "",
     build_year: "",
     bicycode: "",
     kms: "",
     length: "",
-    volumeBox: "",
+    volume_box: "",
     general_state: "",
     mecanic_state: "",
     esthetic_state: "",
     info_guarantee: "",
     guarantee: false,
     electric: false,
-    engin_power: "",
-    batterie_wolt: "",
+    engine_power: "",
+    battery_wolt: "",
   });
-
-  // useEffect(() => {
-  //   if (match?.params?.id) {
-  //     axios
-  //       // .get(` https://velo-cargo-app.vercel.app/ads/${match.params.id} `)
-  //       .then((response) => setForm(response.data));
-  //   }
-  // }, [match.params.id]);
-
-  // const postForm = () => {
-  //   const token = localStorage.getItem("userToken");
-  //   const config = {
-  //     headers: { Authorization: `Bearer ${token}` },
-  //   };
-  //   if (match?.params?.id) {
-  //     axios
-  //       .patch(
-  //         // `https://velo-cargo-app.vercel.app/ads/${match.params.id}`,
-  //         form,
-  //         config
-  //       )
-  //       .then(() => {
-  //         history.push("/");
-  //       });
-  //   } else {
-  //     axios
-  //       // .post("https://velo-cargo-app.vercel.app/ads", form, config)
-  //       .then((res) => {
-  //         console.log(res.data);
-  //         history.push("/");
-  //       });
-  //   }
-  // };
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -153,7 +121,8 @@ export default function CreateAds({ match }) {
     setForm({ ...form, [e.target.name]: e.target.checked });
   };
   const handleClick = () => {
-    console.log(form); //postForm();
+    console.log(form);
+    postForm();
   };
 
   const handleUploadImage = (imageUrl) => {
@@ -161,8 +130,23 @@ export default function CreateAds({ match }) {
     setForm({ ...form, images: newImages });
     console.log(newImages);
   };
+  const router = useRouter();
 
-  // const history = useHistory();
+  const postForm = () => {
+    const token = localStorage.getItem("userToken");
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+    axios.post(`http://localhost:3030/cargobike`, form, config).then(() => {
+      router.push("/");
+    });
+    axios.post(`http://localhost:3030/accessories`, form, config).then(() => {
+      router.push("/");
+    });
+    axios.post(`http://localhost:3030/trailer`, form, config).then(() => {
+      router.push("/");
+    });
+  };
 
   return (
     <div className={classes.root}>
@@ -186,7 +170,7 @@ export default function CreateAds({ match }) {
                 id="outlined-basic"
                 label="Titre de l'annonce"
                 variant="outlined"
-                name="titre"
+                name="title"
                 form={form.title}
                 onChange={handleChange}
               ></TextField>
@@ -236,7 +220,7 @@ export default function CreateAds({ match }) {
                 id="outlined-basic"
                 label="Département"
                 variant="outlined"
-                name="departement"
+                name="department"
                 form={form.department}
                 onChange={handleChange}
               ></TextField>
@@ -258,9 +242,9 @@ export default function CreateAds({ match }) {
           <Typography>
             <div>
               <RadioButtonsGroup
-                value={form.category}
+                value={form.type}
                 onChange={handleChange}
-                name={"category"}
+                name={"type"}
               />
             </div>
             <div>
@@ -315,9 +299,9 @@ export default function CreateAds({ match }) {
                 <TextField
                   className={classes.velo}
                   id="outlined-basic"
-                  label="Taille du Cadre"
+                  label="Taille du Cadre (cm)"
                   variant="outlined"
-                  name="frameSize"
+                  name="frame_size"
                   form={form.frame_size}
                   onChange={handleChange}
                 ></TextField>
@@ -330,7 +314,7 @@ export default function CreateAds({ match }) {
                   id="outlined-basic"
                   label="Année de construction"
                   variant="outlined"
-                  name="buildYear"
+                  name="build_year"
                   form={form.build_year}
                   onChange={handleChange}
                 ></TextField>
@@ -369,7 +353,7 @@ export default function CreateAds({ match }) {
                 <TextField
                   className={classes.velo}
                   id="outlined-basic"
-                  label="Longueur"
+                  label="Longueur (cm)"
                   variant="outlined"
                   name="length"
                   form={form.length}
@@ -383,9 +367,9 @@ export default function CreateAds({ match }) {
                 <TextField
                   className={classes.velo}
                   id="outlined-basic"
-                  label="Volume Caisse"
+                  label="Volume Caisse (L)"
                   variant="outlined"
-                  name="volumeBox"
+                  name="volume_box"
                   form={form.volume_box}
                   onChange={handleChange}
                 ></TextField>
@@ -415,8 +399,8 @@ export default function CreateAds({ match }) {
                   id="outlined-basic"
                   label="Etat Général"
                   variant="outlined"
-                  name="genralState"
-                  form={form.generalState}
+                  name="general_state"
+                  form={form.general_state}
                   onChange={handleChange}
                 ></TextField>
               </Typography>
@@ -429,8 +413,8 @@ export default function CreateAds({ match }) {
                   id="outlined-basic"
                   label="Etat Mécanic"
                   variant="outlined"
-                  name="mecanicState"
-                  form={form.mecanicState}
+                  name="mecanic_state"
+                  form={form.mecanic_state}
                   onChange={handleChange}
                 ></TextField>
               </Typography>
@@ -443,8 +427,8 @@ export default function CreateAds({ match }) {
                   id="outlined-basic"
                   label="Etat Esthétique"
                   variant="outlined"
-                  name="estheticState"
-                  form={form.estheticState}
+                  name="esthetic_state"
+                  form={form.esthetic_state}
                   onChange={handleChange}
                 ></TextField>
               </Typography>
@@ -479,8 +463,8 @@ export default function CreateAds({ match }) {
                   id="outlined-basic"
                   label="Informations"
                   variant="outlined"
-                  name="infoGuarantee"
-                  form={form.infoGuarantee}
+                  name="info_guarantee"
+                  form={form.info_guarantee}
                   onChange={handleChange}
                 ></TextField>
               </Typography>
@@ -511,23 +495,21 @@ export default function CreateAds({ match }) {
                 <div className={classes.margin}>
                   <TextField
                     className={classes.velo}
-                    required={true}
                     id="outlined-basic"
-                    label="Puissance Moteur"
+                    label="Puissance Moteur en Watt"
                     variant="outlined"
-                    name="enginPower"
-                    form={form.engin_power}
+                    name="engine_power"
+                    form={form.engine_power}
                     onChange={handleChange}
                   ></TextField>
                 </div>
                 <TextField
                   className={classes.velo}
-                  required={true}
                   id="outlined-basic"
                   label="Voltage Batterie"
                   variant="outlined"
-                  name="batterieWolt"
-                  form={form.batterie_wolt}
+                  name="battery_wolt"
+                  form={form.battery_wolt}
                   onChange={handleChange}
                 ></TextField>
               </Typography>

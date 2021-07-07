@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core";
-import Avatar from "@material-ui/core/Avatar";
-import UserContext from "../../../context/user";
+// import UserContext from "../../../context/user";
 import {
   Typography,
   CardContent,
@@ -9,7 +8,6 @@ import {
   Button,
   Input,
 } from "@material-ui/core";
-import MyAds from "./MyAds";
 
 const useStyles = makeStyles((theme) => ({
   h1: {
@@ -40,19 +38,6 @@ const useStyles = makeStyles((theme) => ({
     margin: "30px",
   },
 
-  title: {
-    marginLeft: "50px",
-    marginRight: "50px",
-    borderBottom: "1px solid",
-    marginBottom: "20px",
-  },
-
-  contain: {
-    marginLeft: "50px",
-    marginRight: "50px",
-    marginTop: "30px",
-  },
-
   button: {
     width: "100px",
     display: "flex",
@@ -76,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function MyProfil(props) {
+function MyProfil({ userProfil }) {
   const classes = useStyles();
   const [edition, setEdition] = React.useState(true);
   const handleEdition = () => {
@@ -136,17 +121,17 @@ function MyProfil(props) {
         {edition ? (
           <div>
             <div className={classes.name}>
-              <Typography variant="h2">firstName </Typography>{" "}
-              {/* {connectedUser.firstName} */}
-              <Typography variant="h2">lastName</Typography>{" "}
-              {/* {connectedUser.lastName} */}
+              <Typography variant="h2">{userProfil.firstname} </Typography>{" "}
+              {/* {connectedUser.firstname} */}
+              <Typography variant="h2">{userProfil.lastname}</Typography>{" "}
+              {/* {connectedUser.lastname} */}
             </div>
             <div className={classes.contact}>
-              <Typography variant="h2">email</Typography>{" "}
+              <Typography variant="h2">{userProfil.email}</Typography>{" "}
               {/* {connectedUser.email} */}
-              <Typography variant="h2">phone number</Typography>{" "}
+              <Typography variant="h2">{userProfil.phone_number}</Typography>{" "}
               {/*{connectedUser.phone_number} */}
-              <Typography variant="h2">city</Typography>{" "}
+              <Typography variant="h2">{userProfil.city}</Typography>{" "}
             </div>{" "}
           </div>
         ) : (
@@ -210,18 +195,6 @@ function MyProfil(props) {
         >
           Modifier
         </Button>
-      </div>
-      <div className={classes.contain}>
-        <Typography variant="h3" className={classes.title}>
-          Mes Annonces :{" "}
-        </Typography>
-        <MyAds /> //annonces mise en ligne par l'utilisateur
-      </div>
-      <div className={classes.contain}>
-        <Typography variant="h3" className={classes.title}>
-          Mes Favoris :{" "}
-        </Typography>
-        <MyAds /> //annonces favorites de l'utilisateur
       </div>
     </div>
   );
