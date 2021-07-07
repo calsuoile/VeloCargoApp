@@ -6,8 +6,8 @@ import MyProfil from "../sources/view/user/components/MyProfil";
 function index(props) {
   return (
     <div>
-      <Home />
-      {/* <MyProfil /> */}
+      {/* <Home /> */}
+      <MyProfil />
     </div>
   );
 }

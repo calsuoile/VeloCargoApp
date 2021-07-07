@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core";
 import HomeIcon from "@material-ui/icons/Home";
-import axios from "axios";
+// import axios from "axios";
 import UserContext from "../../../context/user";
 import CardAds from "../../home/CardAds";
 

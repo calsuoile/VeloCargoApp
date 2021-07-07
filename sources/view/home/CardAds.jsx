@@ -5,6 +5,7 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import IconButton from "@material-ui/core/IconButton";
 
 const useStyles = makeStyles({
@@ -35,16 +36,17 @@ const useStyles = makeStyles({
     alignItems: "center",
     paddingLeft: "20px",
     paddingRight: "20px",
+    paddingBottom: "20px",
   },
 });
 
-export default function CardAds({ photo, title, price, city, isFavorite }) {
+export default function CardAds({ photo, title, price, city}) {
   // function CardAds ({ card }) {
-  // const [isFavorite, setIsFavorite] = useState(isFavorite);
+  const [isFavorite, setIsFavorite] = React.useState(true);
 
-  // const handleClickFavorite = () => {
-  //   setIsFavorite(!isFavorite);
-  // };
+  const handleClickFavorite = () => {
+    setIsFavorite(!isFavorite);
+  };
 
   const classes = useStyles();
   return (
@@ -65,14 +67,9 @@ export default function CardAds({ photo, title, price, city, isFavorite }) {
         <Typography variant="body2" color="secondary" className={classes.city}>
           {city}
         </Typography>
-        {/* <div
-          id="favorite"
-          onClick={handleClickFavorite}
-          className={isFavorite ? "isFavorite" : "notFavorite"}
-        ></div> */}
+
         <IconButton color="secondary" className={classes.icon}>
-          {" "}
-          <FavoriteIcon />{" "}
+        {isFavorite ? <FavoriteBorderIcon onClick={handleClickFavorite}/> :  <FavoriteIcon onClick={handleClickFavorite} /> }
         </IconButton>
       </div>
     </Card>
