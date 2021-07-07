@@ -13,10 +13,9 @@ import {
   DialogContentText,
   DialogTitle,
 } from "@material-ui/core";
-import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
+import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 
 const useStyles = makeStyles((theme) => ({
-
   form: {
     width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(3),
@@ -46,12 +45,12 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "10px",
   },
   button: {
-      display: "flex",
-      justifyContent: "center",
-  }
+    display: "flex",
+    justifyContent: "center",
+  },
 }));
 
-export default function SignUp() {
+export default function Form() {
   const classes = useStyles();
 
   const [userComment, setUserComment] = React.useState({
@@ -71,7 +70,6 @@ export default function SignUp() {
   };
 
   const [open, setOpen] = React.useState(false);
-
 
   return (
     <Container component="main" maxWidth="xs">
@@ -143,16 +141,16 @@ export default function SignUp() {
             </Grid>
           </Grid>
           <div className={classes.button}>
-          <Button
-            type="submit"
-            onClick={() => setOpen(true)}
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            ENVOYER
-          </Button>
+            <Button
+              type="submit"
+              onClick={() => setOpen(true)}
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              ENVOYER
+            </Button>
           </div>
           <Dialog
             open={open}
@@ -164,13 +162,13 @@ export default function SignUp() {
             </DialogTitle>
             <DialogContent>
               <DialogContentText id="alert-dialog-description">
-              Vélo Cargo Trade se fera un plaisir de vous répondre dans les plus brefs délais! <InsertEmoticonIcon />
+                Vélo Cargo Trade se fera un plaisir de vous répondre dans les
+                plus brefs délais! <InsertEmoticonIcon />
               </DialogContentText>
             </DialogContent>
             <DialogActions>
               <Button onClick={() => setOpen(false)} color="primary" autoFocus>
                 Retour
-                
               </Button>
             </DialogActions>
           </Dialog>

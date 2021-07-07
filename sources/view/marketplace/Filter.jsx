@@ -12,7 +12,6 @@ import RangeSlider from "./components/components/RangeSlider";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
-
   filter: {
     margin: "30px",
     display: "flex",
@@ -25,8 +24,6 @@ const useStyles = makeStyles((theme) => ({
   diff: {
     color: "black",
   },
-
-
 }));
 
 function valuetext(value) {
@@ -63,7 +60,9 @@ function Filter(props) {
 
   return (
     <div className={classes.filter}>
-     <Typography gutterBottom variant="h1" component="h1">FILTRES</Typography>
+      <Typography gutterBottom variant="h1" component="h1">
+        FILTRES
+      </Typography>
       <SelectCategory
         value={filter.category}
         onChange={handleChange}
@@ -85,19 +84,16 @@ function Filter(props) {
         onChange={handleChange}
       ></TextField>
 
+      <h5>Prix maximum</h5>
 
-<h5>Prix maximum</h5>
-
-            <RangeSlider
-              
-              value={filter.price}
-              step={100}
-              onChange={handlePrice}
-              min={0}
-              max={4000}
-              name="price"
-            />
-         
+      <RangeSlider
+        value={filter.price}
+        step={100}
+        onChange={handlePrice}
+        min={0}
+        max={4000}
+        name="price"
+      />
 
       <StateGeneral
         value={filter.general_state}

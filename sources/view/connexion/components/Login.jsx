@@ -9,7 +9,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
-// import UserContext from "../../../context/user";
+import UserContext from "../../../context/user";
 // import axios from "axios";
 
 function Copyright() {
@@ -147,7 +147,6 @@ export default function Login() {
               autoComplete="current-password"
               onChange={(e) => setPassword(e.target.value)}
             />
-
             <Button
               type="submit"
               fullWidth
@@ -158,7 +157,6 @@ export default function Login() {
             >
               CONNEXION
             </Button>
-
             <Box mt={5}>
               <Copyright />
             </Box>
