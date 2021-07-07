@@ -4,7 +4,12 @@ export default function AdsPage({ adsCard }) {
   return <MarketPlace adsCard={adsCard} />;
 }
 
-
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: "blocking",
+  };
+}
 export async function getStaticProps(props) {
   //faire la requête axios
   const adsCard = [

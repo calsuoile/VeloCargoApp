@@ -53,8 +53,8 @@ export default function AdsTechnique({ ads }) {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Puissance du moteur : {ads.engin_power} Watt. Batterie :{" "}
-            {ads.batterie_wolt} Volt.
+            Puissance du moteur : {ads.engine_power} Watt. Batterie :{" "}
+            {ads.battery_wolt} Volt.
           </Typography>
         </AccordionDetails>
       </Accordion>

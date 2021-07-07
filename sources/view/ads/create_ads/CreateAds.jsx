@@ -93,24 +93,24 @@ export default function CreateAds({ match }) {
     description: "",
     country: "",
     department: "",
-    category: "",
+    type: "",
     brand: "",
     model: "",
     price: "",
-    frameSize: "",
+    frame_size: "",
     build_year: "",
     bicycode: "",
     kms: "",
     length: "",
-    volumeBox: "",
+    volume_box: "",
     general_state: "",
     mecanic_state: "",
     esthetic_state: "",
     info_guarantee: "",
     guarantee: false,
     electric: false,
-    engin_power: "",
-    batterie_wolt: "",
+    engine_power: "",
+    battery_wolt: "",
   });
 
   const handleChange = (e) => {
@@ -170,7 +170,7 @@ export default function CreateAds({ match }) {
                 id="outlined-basic"
                 label="Titre de l'annonce"
                 variant="outlined"
-                name="titre"
+                name="title"
                 form={form.title}
                 onChange={handleChange}
               ></TextField>
@@ -220,7 +220,7 @@ export default function CreateAds({ match }) {
                 id="outlined-basic"
                 label="Département"
                 variant="outlined"
-                name="departement"
+                name="department"
                 form={form.department}
                 onChange={handleChange}
               ></TextField>
@@ -242,9 +242,9 @@ export default function CreateAds({ match }) {
           <Typography>
             <div>
               <RadioButtonsGroup
-                value={form.category}
+                value={form.type}
                 onChange={handleChange}
-                name={"category"}
+                name={"type"}
               />
             </div>
             <div>
@@ -299,9 +299,9 @@ export default function CreateAds({ match }) {
                 <TextField
                   className={classes.velo}
                   id="outlined-basic"
-                  label="Taille du Cadre"
+                  label="Taille du Cadre (cm)"
                   variant="outlined"
-                  name="frameSize"
+                  name="frame_size"
                   form={form.frame_size}
                   onChange={handleChange}
                 ></TextField>
@@ -314,7 +314,7 @@ export default function CreateAds({ match }) {
                   id="outlined-basic"
                   label="Année de construction"
                   variant="outlined"
-                  name="buildYear"
+                  name="build_year"
                   form={form.build_year}
                   onChange={handleChange}
                 ></TextField>
@@ -353,7 +353,7 @@ export default function CreateAds({ match }) {
                 <TextField
                   className={classes.velo}
                   id="outlined-basic"
-                  label="Longueur"
+                  label="Longueur (cm)"
                   variant="outlined"
                   name="length"
                   form={form.length}
@@ -367,9 +367,9 @@ export default function CreateAds({ match }) {
                 <TextField
                   className={classes.velo}
                   id="outlined-basic"
-                  label="Volume Caisse"
+                  label="Volume Caisse (L)"
                   variant="outlined"
-                  name="volumeBox"
+                  name="volume_box"
                   form={form.volume_box}
                   onChange={handleChange}
                 ></TextField>
@@ -399,8 +399,8 @@ export default function CreateAds({ match }) {
                   id="outlined-basic"
                   label="Etat Général"
                   variant="outlined"
-                  name="genralState"
-                  form={form.generalState}
+                  name="general_state"
+                  form={form.general_state}
                   onChange={handleChange}
                 ></TextField>
               </Typography>
@@ -413,8 +413,8 @@ export default function CreateAds({ match }) {
                   id="outlined-basic"
                   label="Etat Mécanic"
                   variant="outlined"
-                  name="mecanicState"
-                  form={form.mecanicState}
+                  name="mecanic_state"
+                  form={form.mecanic_state}
                   onChange={handleChange}
                 ></TextField>
               </Typography>
@@ -427,8 +427,8 @@ export default function CreateAds({ match }) {
                   id="outlined-basic"
                   label="Etat Esthétique"
                   variant="outlined"
-                  name="estheticState"
-                  form={form.estheticState}
+                  name="esthetic_state"
+                  form={form.esthetic_state}
                   onChange={handleChange}
                 ></TextField>
               </Typography>
@@ -463,8 +463,8 @@ export default function CreateAds({ match }) {
                   id="outlined-basic"
                   label="Informations"
                   variant="outlined"
-                  name="infoGuarantee"
-                  form={form.infoGuarantee}
+                  name="info_guarantee"
+                  form={form.info_guarantee}
                   onChange={handleChange}
                 ></TextField>
               </Typography>
@@ -495,23 +495,21 @@ export default function CreateAds({ match }) {
                 <div className={classes.margin}>
                   <TextField
                     className={classes.velo}
-                    required={true}
                     id="outlined-basic"
-                    label="Puissance Moteur"
+                    label="Puissance Moteur en Watt"
                     variant="outlined"
-                    name="enginPower"
-                    form={form.engin_power}
+                    name="engine_power"
+                    form={form.engine_power}
                     onChange={handleChange}
                   ></TextField>
                 </div>
                 <TextField
                   className={classes.velo}
-                  required={true}
                   id="outlined-basic"
                   label="Voltage Batterie"
                   variant="outlined"
-                  name="batterieWolt"
-                  form={form.batterie_wolt}
+                  name="battery_wolt"
+                  form={form.battery_wolt}
                   onChange={handleChange}
                 ></TextField>
               </Typography>
