@@ -37,13 +37,12 @@ const useStyles = makeStyles({
     alignItems: "center",
     paddingLeft: "20px",
     paddingRight: "20px",
-   
-    paddingBottom: "20px"
+    paddingBottom: "20px",
   },
 });
 
-export default function CardAds({ photo, title, price, city,  }) {
-  
+export default function CardAds({ photo, title, price, city}) {
+  // function CardAds ({ card }) {
   const [isFavorite, setIsFavorite] = React.useState(true);
 
   const handleClickFavorite = () => {
@@ -69,12 +68,9 @@ export default function CardAds({ photo, title, price, city,  }) {
         <Typography variant="body2" color="secondary" className={classes.city}>
           {city}
         </Typography>
-        
+
         <IconButton color="secondary" className={classes.icon}>
-          {" "}
-          {isFavorite ? <FavoriteBorderIcon onClick={handleClickFavorite}/> :  <FavoriteIcon onClick={handleClickFavorite} /> }
-         {" "}
-          
+        {isFavorite ? <FavoriteBorderIcon onClick={handleClickFavorite}/> :  <FavoriteIcon onClick={handleClickFavorite} /> }
         </IconButton>
       </div>
     </Card>
