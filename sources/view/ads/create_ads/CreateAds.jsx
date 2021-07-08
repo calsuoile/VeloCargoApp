@@ -13,6 +13,7 @@ import SwitchForm from "../../../common/components/SwitchForm";
 import RadioButtonsGroup from "../../../common/RadioButtonsGroup";
 import { useRouter } from "next/router";
 import axios from "axios";
+import Upload from "../../../common/components/Upload";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -125,11 +126,17 @@ export default function CreateAds({ match }) {
     postForm();
   };
 
-  const handleUploadImage = (imageUrl) => {
-    const newImages = [...form.images, imageUrl];
-    setForm({ ...form, images: newImages });
-    console.log(newImages);
-  };
+  // const handlePicture = (imageUrl) => {
+  //   const newImages = [...form.images, imageUrl];
+  //   setForm({ ...form, images: newImages });
+  //   console.log(newImages);
+  // };
+
+  function handlePicture(url) {
+    console.log({ form });
+    console.log(url);
+    setForm({ pictureUrl: url });
+  }
   const router = useRouter();
 
   const postForm = () => {
@@ -530,7 +537,9 @@ export default function CreateAds({ match }) {
         <AccordionDetails>
           <Typography>
             <div className={classes.margin}>
-              <Typography className={classes.contain}></Typography>
+              <Typography className={classes.contain}>
+                <Upload handlePicture={handlePicture}/>
+              </Typography>
             </div>
           </Typography>
         </AccordionDetails>
