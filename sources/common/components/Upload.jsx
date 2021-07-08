@@ -2,8 +2,8 @@ import React, { createRef, useState } from "react";
 import axios from "axios";
 
 function Upload({ handlePicture }) {
-  const publicKey = process.env.REACT_APP_PUBLIC_KEY;
-  const authEndpoint = process.env.REACT_APP_AUTHENTICATION_ENDPOINT;
+  const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY;
+  const authEndpoint = process.env.NEXT_PUBLIC_AUTHENTICATION_ENDPOINT;
   const uploadRef = createRef();
 
   const triggerUpload = () => {
@@ -14,7 +14,7 @@ function Upload({ handlePicture }) {
     console.log(authEndpoint);
     const token = await axios.get(authEndpoint);
     console.log(
-      ":rocket: ~ file: Upload.jsx ~ line 17 ~ handleUpload ~ token",
+      "🚀 ~ file: Upload.jsx ~ line 17 ~ handleUpload ~ token",
       token
     );
 

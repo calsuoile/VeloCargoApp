@@ -126,6 +126,12 @@ export default function CreateAds({ match }) {
     postForm();
   };
 
+  // const handlePicture = (imageUrl) => {
+  //   const newImages = [...form.images, imageUrl];
+  //   setForm({ ...form, images: newImages });
+  //   console.log(newImages);
+  // };
+
   function handlePicture(url) {
     console.log({ form });
     console.log(url);
