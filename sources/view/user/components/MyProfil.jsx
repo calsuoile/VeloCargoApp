@@ -1,15 +1,12 @@
 import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core";
-import Avatar from "@material-ui/core/Avatar";
 import UserContext from "../../../context/user";
+import axios from "axios";
 import {
   Typography,
-  CardContent,
-  Card,
   Button,
   Input,
 } from "@material-ui/core";
-import MyAds from "./MyAds";
 
 const useStyles = makeStyles((theme) => ({
   h1: {
@@ -38,19 +35,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     margin: "30px",
-  },
-
-  title: {
-    marginLeft: "50px",
-    marginRight: "50px",
-    borderBottom: "1px solid",
-    marginBottom: "20px",
-  },
-
-  contain: {
-    marginLeft: "50px",
-    marginRight: "50px",
-    marginTop: "30px",
   },
 
   button: {
@@ -95,37 +79,35 @@ function MyProfil(props) {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = () => {
-    console.log(form);
-  };
-
-  //code du WildBook pour l'update d'info profil :
-
-  // const { connectedUser } = useContext(UserContext);
-
-  // const handleClick = async () => {
-  //   if (editionMode) {
-  //     try {
-  //       const accessToken = localStorage.getItem("userToken");
-  //       if (accessToken) {
-  //         const config = {
-  //           headers: {
-  //             Authorization: `Bearer ${accessToken}`,
-  //           },
-  //         };
-  //         const updatedUser = await axios.patch(
-  //           `https://wildbook-api.herokuapp.com/users/${form._id}`,
-  //           form,
-  //           config
-  //         );
-  //         setForm(updatedUser.data);
-  //         setConnectedUser(updatedUser.data);
-  //       }
-  //     } catch (e) {}
-  //   }
-
-  //   setEditionMode(!editionMode);
+  // const handleSubmit = () => {
+  //   console.log(form);
   // };
+
+  const { connectedUser } = useContext(UserContext);
+
+  const handleClick = async () => {
+    if (editionMode) {
+      try {
+        const accessToken = localStorage.getItem("userToken");
+        if (accessToken) {
+          const config = {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          };
+          const updatedUser = await axios.patch(
+            `${process.env.NEXT_PUBLIC_API_URL}/user/${form._id}`,
+            form,
+            config
+          );
+          setForm(updatedUser.data);
+          setConnectedUser(updatedUser.data);
+        }
+      } catch (e) {}
+    }
+
+    setEditionMode(!editionMode);
+  };
 
   return (
     <div>
@@ -136,17 +118,13 @@ function MyProfil(props) {
         {edition ? (
           <div>
             <div className={classes.name}>
-              <Typography variant="h2">firstName </Typography>{" "}
-              {/* {connectedUser.firstName} */}
-              <Typography variant="h2">lastName</Typography>{" "}
-              {/* {connectedUser.lastName} */}
+              <Typography variant="h2"> {connectedUser.firstname}</Typography>{" "}
+              <Typography variant="h2">{connectedUser.lastname}</Typography>{" "}
             </div>
             <div className={classes.contact}>
-              <Typography variant="h2">email</Typography>{" "}
-              {/* {connectedUser.email} */}
-              <Typography variant="h2">phone number</Typography>{" "}
-              {/*{connectedUser.phone_number} */}
-              <Typography variant="h2">city</Typography>{" "}
+              <Typography variant="h2">{connectedUser.email}</Typography>{" "}
+              <Typography variant="h2">{connectedUser.phone_number}</Typography>{" "}
+              <Typography variant="h2">{connectedUser.city}</Typography>{" "}
             </div>{" "}
           </div>
         ) : (
@@ -194,7 +172,7 @@ function MyProfil(props) {
                   variant="contained"
                   color="secondary"
                   className={classes.button2}
-                  onClick={handleSubmit}
+                  onClick={handleClick}
                 >
                   Valider
                 </Button>
@@ -210,18 +188,6 @@ function MyProfil(props) {
         >
           Modifier
         </Button>
-      </div>
-      <div className={classes.contain}>
-        <Typography variant="h3" className={classes.title}>
-          Mes Annonces :{" "}
-        </Typography>
-        <MyAds /> //annonces mise en ligne par l'utilisateur
-      </div>
-      <div className={classes.contain}>
-        <Typography variant="h3" className={classes.title}>
-          Mes Favoris :{" "}
-        </Typography>
-        <MyAds /> //annonces favorites de l'utilisateur
       </div>
     </div>
   );

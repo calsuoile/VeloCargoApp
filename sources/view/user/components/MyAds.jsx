@@ -1,34 +1,38 @@
 import React, { useContext, useEffect, useState } from "react";
-import { makeStyles } from "@material-ui/core";
-import HomeIcon from "@material-ui/icons/Home";
-import axios from "axios";
-import UserContext from "../../../context/user";
+import { makeStyles, Typography } from "@material-ui/core";
+// import axios from "axios";
+// import UserContext from "../../../context/user";
 import CardAds from "../../home/CardAds";
 
 const useStyles = makeStyles((theme) => ({
+  contain: {
+    marginLeft: "50px",
+    marginRight: "50px",
+    marginTop: "30px",
+    marginBottom: "30px",
+  },
   title: {
-    textAlign: "center",
-    fontFamily: "Lato, sans-serif, Black italic",
-    backgroundColor: "white",
-    padding: 50,
-    marginBottom: "50px",
-    width: "300px",
-    margin: "auto",
+    marginLeft: "50px",
+    marginRight: "50px",
+    borderBottom: "1px solid",
+    marginBottom: "20px",
   },
-  flat: {
+  ads: {
+    marginTop: "30px",
+    display: "grid",
+    gridTemplateColumns: "300px 300px 300px",
+    gridTemplateRows: "400px 400px",
+    gridGap: "60px",
+    justifyContent: "center",
     display: "flex",
-    justifyContent: "space-around",
-  },
-  icon: {
-    width: "50px",
-    color: "#4E96AF",
+    flexWrap: "wrap",
   },
 }));
 
 function MyAds(props) {
   const classes = useStyles();
 
-  // const { connectedUser } = useContext(UserContext);
+  const [ads, setAds] = useState([]);
   const [myAds, setMyAds] = useState([
     {
       id: "1",
@@ -52,9 +56,8 @@ function MyAds(props) {
       city: "Bordeaux",
     },
   ]);
-  // const { connectedUser } = useContext(UserContext);
-  // const [ads, setAds] = useState([]);
 
+  // const { connectedUser } = useContext(UserContext);
   // useEffect(() => {
   //   console.log(connectedUser);
 
@@ -65,24 +68,24 @@ function MyAds(props) {
   //         Authorization: `Bearer ${accessToken}`,
   //       },
   //     };
-  //     axios
-  //       // .get(`http://velo-cargo-app.vercel.app/ads/my-ads`, config)
-  //       .then((response) => {
-  //         setAds(response.data);
-  //         console.log(response.data);
-  //       });
+  //     axios.get(`${process.env.NEXT_PUBLIC_API_URL}/ads`, config).then((response) => {
+  //       setAds(response.data);
+  //       console.log(response.data);
+  //     });
   //   }
   // }, [connectedUser]);
 
   return (
     <div>
-      
-      <div className={classes.flat}>
-        {myAds.map((ads) => (
-          <CardAds {...ads} />
-        // {ads.map((ad) => (
-        //   <CardAds {...ad} />
-        ))}
+      <div className={classes.contain}>
+        <Typography variant="h3" className={classes.title}>
+          Mes Annonces :{" "}
+        </Typography>
+        <div className={classes.ads}>
+          {myAds.map((ads, index) => (
+            <CardAds {...ads} key={index} />
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -1,13 +1,14 @@
 import React from "react";
+import AdsTrailer from "../sources/view/ads/create_ads/components/AdsTrailer";
+import AdsAccessorie from "../sources/view/ads/create_ads/components/AdsAccessorie"
 import Home from "../sources/view/home/Home";
-import MyProfil from "../sources/view/user/components/MyProfil";
-
 
 function index(props) {
   return (
     <div>
-      <Home />
-      {/* <MyProfil /> */}
+      {/* <Home />  */}
+      <AdsTrailer />
+      <AdsAccessorie />
     </div>
   );
 }

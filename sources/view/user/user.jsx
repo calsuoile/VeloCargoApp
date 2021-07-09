@@ -1,12 +1,12 @@
 import React from "react";
-import Favorites from "./Favorites";
-import MyProfil from "./Myprofil";
-import MyAds from "./MyAds";
+import Favorites from "./components/Favorites";
+import MyProfil from "./components/MyProfil";
+import MyAds from "./components/MyAds";
 
-function User(props) {
+function User({userProfil}) {
   return (
     <div>
-      <MyProfil />
+      <MyProfil userProfil={userProfil} />
       <MyAds />
       <Favorites />
     </div>

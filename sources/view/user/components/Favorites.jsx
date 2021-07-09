@@ -1,62 +1,87 @@
 import React, { useContext, useEffect, useState } from "react";
-import { makeStyles } from "@material-ui/core";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import UserContext from "../../../context/user";
-import axios from "axios";
+import { makeStyles, Typography } from "@material-ui/core";
+// import UserContext from "../../../context/user";
+// import axios from "axios";
 import CardAds from "../../home/CardAds";
 
 const useStyles = makeStyles((theme) => ({
+  contain: {
+    marginLeft: "50px",
+    marginRight: "50px",
+    marginTop: "30px",
+    marginBottom: "30px",
+  },
   title: {
-    textAlign: "center",
-    fontFamily: "Lato, sans-serif, Black italic",
-    backgroundColor: "white",
-    padding: 50,
-    marginBottom: "50px",
-    width: "500px",
-    margin: "auto",
+    marginLeft: "50px",
+    marginRight: "50px",
+    borderBottom: "1px solid",
+    marginBottom: "20px",
   },
-  flat: {
+
+  favorite: {
+    marginTop: "30px",
+    display: "grid",
+    gridTemplateColumns: "300px 300px 300px",
+    gridTemplateRows: "400px 400px",
+    gridGap: "60px",
+    justifyContent: "center",
     display: "flex",
-    justifyContent: "space-around",
-  },
-  icon: {
-    width: "50px",
-    color: "#4E96AF",
+    flexWrap: "wrap",
   },
 }));
 
 function Favorites(props) {
   const classes = useStyles();
 
-  const [favorites, setFavorites] = useState([]);
-  const { connectedUser } = useContext(UserContext);
+  const [favorites, setFavorites] = useState([
+    {
+      id: "1",
+      photo: "https://source.unsplash.com/random?bike/4",
+      title: "Vélo Cargo",
+      price: "1230 €",
+      city: "Bordeaux",
+    },
+    {
+      id: "2",
+      photo: "https://source.unsplash.com/random?bike/5",
+      title: "Vélo Cargo",
+      price: "1380 €",
+      city: "Bordeaux",
+    },
+    {
+      id: "3",
+      photo: "https://source.unsplash.com/random?bike/6",
+      title: "Vélo Cargo",
+      price: "1560 €",
+      city: "Bordeaux",
+    },
+  ]);
+  
+  // const { connectedUser } = useContext(UserContext);
 
-  useEffect(() => {
-    if (Object.keys(connectedUser).length > 0) {
-      Promise.all(
-        connectedUser.favorites.map((item) => {
-          const req = axios
-            .get
-            // `https://velo-cargo-app.vercel.app/ads/${item}`
-            ();
-          return req;
-        })
-      ).then((response) => setFavorites(response));
-    }
-  }, [connectedUser]);
+  // useEffect(() => {
+  //   if (Object.keys(connectedUser).length > 0) {
+  //     Promise.all(
+  //       connectedUser.favorites.map((item) => {
+  //         const req = axios.get(`${process.env.NEXT_PUBLIC_API_URL}/ads/${item}`);
+  //         return req;
+  //       })
+  //     ).then((response) => setFavorites(response));
+  //   }
+  // }, [connectedUser]);
 
   return (
     <div>
-      <div className={classes.title}>
-        <h1>
-          <FavoriteIcon className={classes.icon} />
-          Mes Favoris
-        </h1>
-      </div>
-      <div className={classes.flat}>
-        {favorites.map((favorite, index) => (
-          <CardAds {...favorite.data} key={index} />
-        ))}
+      <div className={classes.contain}>
+        <Typography variant="h3" className={classes.title}>
+          Mes Favoris :{" "}
+        </Typography>
+
+        <div className={classes.favorite}>
+          {favorites.map((favorite, index) => (
+            <CardAds {...favorite} key={index} />
+          ))}
+        </div>
       </div>
     </div>
   );

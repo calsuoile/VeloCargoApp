@@ -2,8 +2,6 @@ import React from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
 import Link from "next/link";
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
@@ -12,12 +10,13 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" href="accueil">
         VéloCargo
       </Link>{" "}
       {new Date().getFullYear()}
@@ -69,19 +68,22 @@ const useStyles = makeStyles((theme) => ({
 export default function Register() {
   const classes = useStyles();
 
-  const [lastName, setLastName] = React.useState("");
-  const [firstName, setFirstName] = React.useState("");
+  const [lastname, setLastName] = React.useState("");
+  const [firstname, setFirstName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const router = useRouter();
 
-  const handleClick = async () => {
+  const handleClick = async (e) => {
+    e.preventDefault();
     const userInscription = {
-      lastName: lastName,
-      firstName: firstName,
+      lastname: lastname,
+      firstname: firstname,
       email: email,
-      plainPassword: password,
+      password: password,
     };
-    // await axios.post("http://velo-cargo-app.vercel.app/users", userInscription);
+    await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/users`, userInscription);
+    router.push("/");
   };
 
   return (
@@ -98,31 +100,31 @@ export default function Register() {
             <DirectionsBikeIcon />
           </Avatar>
           <Typography variant="h5">INSCRIPTION</Typography>
-          <form className={classes.form} noValidate>
+          <form className={classes.form} onSubmit={handleClick} noValidate>
             <div className={classes.name}>
               <TextField
-                value={lastName}
+                value={lastname}
                 variant="outlined"
                 margin="normal"
                 required
                 fullWidth
-                name="lastName"
+                name="lastname"
                 label="Nom"
-                type="lastName"
-                id="lastName"
+                type="lastname"
+                id="lastname"
                 autoComplete="current-password"
                 onChange={(e) => setLastName(e.target.value)}
               />
               <TextField
-                value={firstName}
+                value={firstname}
                 variant="outlined"
                 margin="normal"
                 required
                 fullWidth
-                name="firstName"
+                name="firstname"
                 label="Prenom"
-                type="firstName"
-                id="firstName"
+                type="firstname"
+                id="firstname"
                 autoComplete="current-password"
                 onChange={(e) => setFirstName(e.target.value)}
               />
@@ -154,32 +156,15 @@ export default function Register() {
               autoComplete="current-password"
               onChange={(e) => setPassword(e.target.value)}
             />
-            {/* <TextField
-              value={password}
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="Mot de passe"
-              label="Confirme ton mot de passe"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Se souvenir de moi"
-            /> */}
             <Button
               type="submit"
               fullWidth
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={handleClick}
+              // onClick={handleClick}
             >
-              Connexion
+              Inscription
             </Button>
             <Box mt={5}>
               <Copyright />
