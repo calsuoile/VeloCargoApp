@@ -55,7 +55,7 @@ function Logo(props) {
   const classes = useStyles();
   return (
     <div className={classes.div}>
-      <img className={classes.img} src="/assets/CargoBikeTrade.jpg" />
+      <img className={classes.img} src="/assets/CargoBikeTrade.png" />
     <div className={classes.buttongroup}>
     <a href="https://instagram.com/CargoBikeTrade">
     <button className={classes.button}>
