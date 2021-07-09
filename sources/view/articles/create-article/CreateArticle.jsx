@@ -62,6 +62,7 @@ const CreateArticle = () => {
   const [form, setForm] = useState({
     title: "",
     text: "",
+    photo : []
   });
 
   const handleTitleChange = (e) => {
@@ -76,7 +77,7 @@ const CreateArticle = () => {
     e.preventDefault();
     console.log(form);
   };
-
+  
   return (
     <>
       <Typography variant="h1">
@@ -118,10 +119,10 @@ const CreateArticle = () => {
         />
         <div>
           <label htmlFor="contained-button-file">
-            <Button variant="outlined" color="primary" component="span">
-              Insérer une image
-              <AddAPhotoIcon style={{ marginLeft: "5px" }} />
-            </Button>
+          {form.photo.map((image, index) => {
+        return <img src={image} alt="" key={index} width="150px" />;
+      })}
+           <Upload handlePicture={handlePicture}/>
           </label>
         </div>
         <div className={classes.saveButton}>

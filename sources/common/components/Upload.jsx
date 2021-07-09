@@ -1,5 +1,7 @@
 import React, { createRef, useState } from "react";
 import axios from "axios";
+import Button from "@material-ui/core/Button";
+import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
 
 function Upload({ handlePicture}) {
   const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY;
@@ -38,15 +40,18 @@ function Upload({ handlePicture}) {
       formData,
       config
     );
-
+    console.log(response.data)
    handlePicture(response.data.url);
   };
 
   return (
     <div>
         <div>
-      <button onClick={triggerUpload}>Select a file...</button>
-
+      
+      <Button variant="outlined" color="primary" component="span" onClick={triggerUpload}>
+              Insérer une image
+              <AddAPhotoIcon style={{ marginLeft: "5px" }} />
+            </Button>
       <input
         style={{ display: "none" }}
         ref={uploadRef}
