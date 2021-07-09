@@ -4,6 +4,7 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
+import DeleteButton from "../../../../common/DeleteButton";
 
 const useStyles = makeStyles((theme) => ({
   cardContainer: {
@@ -21,7 +22,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ArticleCard({ photo, title, date, handleClickArticle, selectedArticle }) {
+export default function ArticleCard({
+  photo,
+  title,
+  date,
+  handleClickArticle,
+  selectedArticle,
+}) {
   const classes = useStyles();
 
   return (
@@ -37,6 +44,7 @@ export default function ArticleCard({ photo, title, date, handleClickArticle, se
           </Typography>
         </CardContent>
       </CardActionArea>
+      <DeleteButton />
     </Card>
   );
 }

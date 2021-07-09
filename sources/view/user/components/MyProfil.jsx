@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core";
-// import UserContext from "../../../context/user";
+import UserContext from "../../../context/user";
+import axios from "axios";
 import {
   Typography,
-  CardContent,
-  Card,
   Button,
   Input,
 } from "@material-ui/core";
@@ -61,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function MyProfil({ userProfil }) {
+function MyProfil(props) {
   const classes = useStyles();
   const [edition, setEdition] = React.useState(true);
   const handleEdition = () => {
@@ -80,37 +79,35 @@ function MyProfil({ userProfil }) {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = () => {
-    console.log(form);
-  };
-
-  //code du WildBook pour l'update d'info profil :
-
-  // const { connectedUser } = useContext(UserContext);
-
-  // const handleClick = async () => {
-  //   if (editionMode) {
-  //     try {
-  //       const accessToken = localStorage.getItem("userToken");
-  //       if (accessToken) {
-  //         const config = {
-  //           headers: {
-  //             Authorization: `Bearer ${accessToken}`,
-  //           },
-  //         };
-  //         const updatedUser = await axios.patch(
-  //           `https://wildbook-api.herokuapp.com/users/${form._id}`,
-  //           form,
-  //           config
-  //         );
-  //         setForm(updatedUser.data);
-  //         setConnectedUser(updatedUser.data);
-  //       }
-  //     } catch (e) {}
-  //   }
-
-  //   setEditionMode(!editionMode);
+  // const handleSubmit = () => {
+  //   console.log(form);
   // };
+
+  const { connectedUser } = useContext(UserContext);
+
+  const handleClick = async () => {
+    if (editionMode) {
+      try {
+        const accessToken = localStorage.getItem("userToken");
+        if (accessToken) {
+          const config = {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          };
+          const updatedUser = await axios.patch(
+            `${process.env.NEXT_PUBLIC_API_URL}/user/${form._id}`,
+            form,
+            config
+          );
+          setForm(updatedUser.data);
+          setConnectedUser(updatedUser.data);
+        }
+      } catch (e) {}
+    }
+
+    setEditionMode(!editionMode);
+  };
 
   return (
     <div>
@@ -121,17 +118,13 @@ function MyProfil({ userProfil }) {
         {edition ? (
           <div>
             <div className={classes.name}>
-              <Typography variant="h2">{userProfil.firstname} </Typography>{" "}
-              {/* {connectedUser.firstname} */}
-              <Typography variant="h2">{userProfil.lastname}</Typography>{" "}
-              {/* {connectedUser.lastname} */}
+              <Typography variant="h2"> {connectedUser.firstname}</Typography>{" "}
+              <Typography variant="h2">{connectedUser.lastname}</Typography>{" "}
             </div>
             <div className={classes.contact}>
-              <Typography variant="h2">{userProfil.email}</Typography>{" "}
-              {/* {connectedUser.email} */}
-              <Typography variant="h2">{userProfil.phone_number}</Typography>{" "}
-              {/*{connectedUser.phone_number} */}
-              <Typography variant="h2">{userProfil.city}</Typography>{" "}
+              <Typography variant="h2">{connectedUser.email}</Typography>{" "}
+              <Typography variant="h2">{connectedUser.phone_number}</Typography>{" "}
+              <Typography variant="h2">{connectedUser.city}</Typography>{" "}
             </div>{" "}
           </div>
         ) : (
@@ -179,7 +172,7 @@ function MyProfil({ userProfil }) {
                   variant="contained"
                   color="secondary"
                   className={classes.button2}
-                  onClick={handleSubmit}
+                  onClick={handleClick}
                 >
                   Valider
                 </Button>

@@ -10,7 +10,6 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
 import UserContext from "../../../context/user";
-// import axios from "axios";
 import axios from "axios";
 import { useRouter } from "next/router";
 
@@ -82,7 +81,7 @@ export default function Login() {
     };
     try {
       const token = await axios.post(
-        "http://localhost:3030/users/login",
+        `${process.env.NEXT_PUBLIC_API_URL}/users/login`,
         userId
       );
 
@@ -96,7 +95,7 @@ export default function Login() {
       };
 
       const userProfile = await axios.get(
-        "http://localhost:3030/users/profile",
+        `${process.env.NEXT_PUBLIC_API_URL}/users/${id}`,
         config
       );
 
