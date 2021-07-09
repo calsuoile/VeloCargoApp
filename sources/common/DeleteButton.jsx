@@ -33,11 +33,12 @@ function DeleteButton() {
 
   return (
     <div>
-      <Button 
-      className={classes.button}
-      variant="contained"
-      color="secondary"
-      onClick={handleDelete}>
+      <Button
+        className={classes.button}
+        variant="contained"
+        color="secondary"
+        onClick={handleDelete}
+      >
         Supprimer
       </Button>
       <Dialog open={open}>
