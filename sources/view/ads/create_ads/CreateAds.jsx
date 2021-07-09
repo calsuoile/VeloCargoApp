@@ -112,7 +112,10 @@ export default function CreateAds({ match }) {
     electric: false,
     engine_power: "",
     battery_wolt: "",
+    photo: [],
   });
+
+  
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -125,6 +128,44 @@ export default function CreateAds({ match }) {
     console.log(form);
     postForm();
   };
+  // function handlePicture(url) {
+  //   console.log({ form });
+  //   console.log(url);
+  //   setForm({ photo: url });
+  // }
+
+  const handlePicture = (imageUrl) => {
+    const newImages = [...form.photo, imageUrl];
+    setForm({ ...form, photo: newImages });
+    console.log(newImages);
+  };
+
+  // const handlePicture = (url) => {
+  //   setPicture({ ...picture, avatarUrl: url });
+  //   try {
+  //     const accessToken = localStorage.getItem("userToken");
+  //     if (accessToken) {
+  //       const config = {
+  //         headers: {
+  //           Authorization: `Bearer ${accessToken}`,
+  //         },
+  //       };
+  //       axios
+  //         .patch(
+  //           `http://localhost:3008/auth/${form._id}`,
+  //           { avatarUrl: url },
+  //           config
+  //         )
+  //         .then((response) => {
+  //           console.log(response.data);
+  //           setConnectedUser(response.data);
+  //         });
+  //     }
+  //   } catch (e) {
+  //     //ici afficher un message d'erreur  à l'utilisateur
+  //   }
+  // };
+
 
   // const handlePicture = (imageUrl) => {
   //   const newImages = [...form.images, imageUrl];
@@ -132,11 +173,11 @@ export default function CreateAds({ match }) {
   //   console.log(newImages);
   // };
 
-  function handlePicture(url) {
-    console.log({ form });
-    console.log(url);
-    setForm({ pictureUrl: url });
-  }
+  // function handlePicture(url) {
+  //   console.log({ form });
+  //   console.log(url);
+  //   setForm({ pictureUrl: url });
+  // }
   const router = useRouter();
 
   const postForm = () => {
@@ -538,7 +579,7 @@ export default function CreateAds({ match }) {
           <Typography>
             <div className={classes.margin}>
               <Typography className={classes.contain}>
-                <Upload handlePicture={handlePicture}/>
+                <Upload handlePicture={handlePicture} />
               </Typography>
             </div>
           </Typography>

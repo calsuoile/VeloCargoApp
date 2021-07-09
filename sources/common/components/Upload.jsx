@@ -1,7 +1,7 @@
 import React, { createRef, useState } from "react";
 import axios from "axios";
 
-function Upload({ handlePicture }) {
+function Upload({ handlePicture}) {
   const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY;
   const authEndpoint = process.env.NEXT_PUBLIC_AUTHENTICATION_ENDPOINT;
   const uploadRef = createRef();
@@ -39,11 +39,12 @@ function Upload({ handlePicture }) {
       config
     );
 
-    handlePicture(response.data.url);
+   handlePicture(response.data.url);
   };
 
   return (
     <div>
+        <div>
       <button onClick={triggerUpload}>Select a file...</button>
 
       <input
@@ -52,6 +53,9 @@ function Upload({ handlePicture }) {
         type="file"
         onChange={handleUpload}
       />
+      </div>
+      
+      
     </div>
   );
 }
