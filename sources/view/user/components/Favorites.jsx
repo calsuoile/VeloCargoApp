@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { makeStyles, Typography } from "@material-ui/core";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import UserContext from "../../../context/user";
-import axios from "axios";
+// import UserContext from "../../../context/user";
+// import axios from "axios";
 import CardAds from "../../home/CardAds";
 
 const useStyles = makeStyles((theme) => ({
@@ -10,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "50px",
     marginRight: "50px",
     marginTop: "30px",
-    marginBottom: "30px"
+    marginBottom: "30px",
   },
   title: {
     marginLeft: "50px",
@@ -57,16 +56,14 @@ function Favorites(props) {
       city: "Bordeaux",
     },
   ]);
+  
   // const { connectedUser } = useContext(UserContext);
 
   // useEffect(() => {
   //   if (Object.keys(connectedUser).length > 0) {
   //     Promise.all(
   //       connectedUser.favorites.map((item) => {
-  //         const req = axios
-  //           .get
-  //           // `https://velo-cargo-app.vercel.app/ads/${item}`
-  //           ();
+  //         const req = axios.get(`${process.env.NEXT_PUBLIC_API_URL}/ads/${item}`);
   //         return req;
   //       })
   //     ).then((response) => setFavorites(response));

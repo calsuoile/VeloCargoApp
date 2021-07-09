@@ -14,6 +14,7 @@ export default function RadioButtonsGroup({ name, value, onChange }) {
         name={name}
         value={value}
         onChange={onChange}
+        required={true}
       >
         <FormControlLabel
           value={"Biporteur"}
