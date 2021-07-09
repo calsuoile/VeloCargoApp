@@ -84,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CreateAds({ match }) {
+export default function CreateAds() {
   const classes = useStyles();
 
   const [form, setForm] = useState({
@@ -137,13 +137,13 @@ export default function CreateAds({ match }) {
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
-    axios.post(`http://localhost:3030/cargobike`, form, config).then(() => {
+    axios.post(`${process.env.NEXT_PUBLIC_API_URL}/cargobike`, form, config).then(() => {
       router.push("/");
     });
-    axios.post(`http://localhost:3030/accessories`, form, config).then(() => {
+    axios.post(`${process.env.NEXT_PUBLIC_API_URL}/accessories`, form, config).then(() => {
       router.push("/");
     });
-    axios.post(`http://localhost:3030/trailer`, form, config).then(() => {
+    axios.post(`${process.env.NEXT_PUBLIC_API_URL}/trailer`, form, config).then(() => {
       router.push("/");
     });
   };

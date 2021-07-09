@@ -10,12 +10,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
 import UserContext from "../../../context/user";
-<<<<<<< HEAD
-// import axios from "axios";
-=======
 import axios from "axios";
 import { useRouter } from "next/router";
->>>>>>> origin/dev
 
 function Copyright() {
   return (
@@ -74,13 +70,8 @@ export default function Login() {
 
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-<<<<<<< HEAD
-  // const history = useHistory();
-  // const { setConnectedUser } = useContext(UserContext);
-=======
   const router = useRouter();
   const { setConnectedUser } = useContext(UserContext);
->>>>>>> origin/dev
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -90,7 +81,7 @@ export default function Login() {
     };
     try {
       const token = await axios.post(
-        "http://localhost:3030/users/login",
+        `${process.env.NEXT_PUBLIC_API_URL}/users/login`,
         userId
       );
 
@@ -104,7 +95,7 @@ export default function Login() {
       };
 
       const userProfile = await axios.get(
-        "http://localhost:3030/users/profile",
+        `${process.env.NEXT_PUBLIC_API_URL}/users/${id}`,
         config
       );
 

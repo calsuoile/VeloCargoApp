@@ -1,6 +1,7 @@
 import React from "react";
 import { Avatar, makeStyles, Typography } from "@material-ui/core";
 import OtherArticlesWindow from "./components/OtherArticlesWindow";
+import DeleteButton from "../../../common/DeleteButton";
 
 const useStyles = makeStyles((theme) => ({
   image: {
@@ -72,6 +73,7 @@ const ViewArticle = ({ articleView, otherArticles }) => {
           {articleView.text}
           <img src={articleView.photo2} className={classes.otherImages} />
         </Typography>
+        <DeleteButton />
         <div className={classes.containerOtherArticles}>
           <Typography variant="h6">Derniers articles</Typography>
           {otherArticles.map((otherArticle) => (

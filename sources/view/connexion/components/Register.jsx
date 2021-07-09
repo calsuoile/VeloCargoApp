@@ -9,12 +9,8 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
-<<<<<<< HEAD
-// import axios from "axios";
-=======
 import axios from "axios";
 import { useRouter } from "next/router";
->>>>>>> origin/dev
 
 function Copyright() {
   return (
@@ -86,7 +82,7 @@ export default function Register() {
       email: email,
       password: password,
     };
-    await axios.post("http://localhost:3030/users", userInscription);
+    await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/users`, userInscription);
     router.push("/");
   };
 
