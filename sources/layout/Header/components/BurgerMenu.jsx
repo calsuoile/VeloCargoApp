@@ -15,7 +15,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import AddLocationIcon from "@material-ui/icons/AddLocation";
 import AssignmentIcon from "@material-ui/icons/Assignment";
-import DirectionsBikeIcon from '@material-ui/icons/DirectionsBike';
+import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
 
 const useStyles = makeStyles({
   list: {
@@ -244,14 +244,6 @@ export default function BurgerMenu() {
                   <AddBoxIcon className={classes.inscri} />
                 </ListItemIcon>
                 <strong>A PROPOS</strong>
-              </Button>
-            </li>
-            <li>
-              <Button className={classes.contact} to="/contact">
-                <ListItemIcon>
-                  <ContactSupportIcon className={classes.question} />
-                </ListItemIcon>
-                <strong>CONTACTEZ-NOUS</strong>
               </Button>
             </li>
           </ul>
