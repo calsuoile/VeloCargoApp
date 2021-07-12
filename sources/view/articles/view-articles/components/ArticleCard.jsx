@@ -6,6 +6,10 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import DeleteButtonAds from "../../../../common/DeleteButtonAds";
 
+
+const moment = require('moment');
+moment.locale('fr');
+
 const useStyles = makeStyles((theme) => ({
   cardContainer: {
     maxWidth: 345,
@@ -25,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function ArticleCard({ photo, title, date }) {
+export default function ArticleCard({ photo, title, created_at }) {
   const classes = useStyles();
 
   return (
@@ -37,7 +41,7 @@ export default function ArticleCard({ photo, title, date }) {
             {title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {date}
+            {moment(created_at).format("LLL")}
           </Typography>
         </CardContent>
       </CardActionArea>

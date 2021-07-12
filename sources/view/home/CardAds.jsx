@@ -58,11 +58,11 @@ export default function CardAds({ photo, title, price, city }) {
       <CardActionArea>
         <img className={classes.image} src={photo} />
         <CardContent className={classes.content}>
-          <Typography gutterBottom variant="h3" component="h1" className={classes.title}>
+          <Typography gutterBottom variant="h6" component="h1" className={classes.title}>
             {title}
           </Typography>
           <Typography variant="h6" color="textSecondary" component="p">
-            {price}
+            {price}€
           </Typography>
         </CardContent>
       </CardActionArea>

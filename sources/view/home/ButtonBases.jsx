@@ -70,6 +70,7 @@ const styles = (theme) => ({
     padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(
       2
     )}px`,
+    fontSize: "30px",
   },
   imageMarked: {
     height: 3,
@@ -107,7 +108,7 @@ function ButtonBases(props) {
           <Link href="acheter-un-velo-cargo" style={{ textDecoration: "none" }}>
             <Typography
               component="span"
-              variant="subtitle1"
+              variant="h5"
               color="inherit"
               className={classes.imageTitle}
             >
@@ -138,7 +139,7 @@ function ButtonBases(props) {
           <Link href="vendre-un-produit" style={{ textDecoration: "none" }}>
             <Typography
               component="span"
-              variant="subtitle1"
+              variant="h5"
               color="inherit"
               className={classes.imageTitle}
             >

@@ -2,6 +2,8 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Link from "next/link";
+import { Typography } from "@material-ui/core";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -9,6 +11,10 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
       
     },
+  },
+  typo: {
+    color: "white",
+    fontSize:"20px"
   },
 }));
 
@@ -18,7 +24,7 @@ export default function CreateAdsButton() {
   return (
     <div className={classes.root}>
       <Link href="vendre-un-produit" style={{ textDecoration: "none" }}>
-        <Button variant="contained" color="primary">DÉPOSER UNE ANNONCE</Button>
+      <Typography variant="h5" className={classes.typo}>DÉPOSER UNE ANNONCE</Typography>
       </Link>
     </div>
   );

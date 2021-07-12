@@ -14,7 +14,7 @@ const ArticlePage = ({ articleView, otherArticles }) => {
 export async function getStaticPaths() {
   return {
     paths: [],
-    fallback: true,
+    fallback: "blocking"
   };
 }
 
