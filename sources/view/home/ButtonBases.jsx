@@ -65,9 +65,9 @@ const styles = (theme) => ({
   },
   imageTitle: {
     position: "relative",
-    padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 4}px ${
-      theme.spacing.unit + 6
-    }px`,
+    padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(
+      2
+    )}px`,
   },
   imageMarked: {
     height: 3,
@@ -133,7 +133,7 @@ function ButtonBases(props) {
         />
         <span className={classes.imageBackdrop} />
         <span className={classes.imageButton}>
-          <Link href="vendre-un-velo-cargo" style={{ textDecoration: "none" }}>
+          <Link href="vendre-un-produit" style={{ textDecoration: "none" }}>
             <Typography
               component="span"
               variant="subtitle1"
