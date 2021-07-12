@@ -28,7 +28,7 @@ function DeleteButton() {
 
   const handleDeleteTrue = () => {
     setOpen(false);
-    // axios.delete(`http://localhost:3030/article/${id});
+    axios.delete(`http://localhost:3030/articles/${id}`);
   };
 
   return (
