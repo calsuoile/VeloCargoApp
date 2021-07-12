@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     width: "40%",
     backgroundColor: "#B4B8D4",
     "&:hover": {
-      background: "#F27A06",
+      background: "#FCDCB2",
       fontSize: "15px",
     },
   },

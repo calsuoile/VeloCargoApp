@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Link from "next/link";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -10,6 +11,13 @@ const useStyles = makeStyles((theme) => ({
     },
     border: "none",
   },
+  typo: {
+    color: "white",
+    fontSize:"20px",
+    "&:hover": {
+      color:"blue",
+    }
+  }
 }));
 
 export default function AboutButton() {
@@ -18,9 +26,9 @@ export default function AboutButton() {
   return (
     <div className={classes.root}>
       <Link href="a-propos" style={{ textDecoration: "none" }}>
-        <Button variant="contained" color="primary">
+        <Typography variant="h5" className={classes.typo}>
           À PROPOS
-        </Button>
+        </Typography>
       </Link>
     </div>
   );

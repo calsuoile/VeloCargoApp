@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     color: "#5E77EB",
+    fontSize: "40px"
     // color : "white",
     // backgroundColor: "#5E77EB",
     // padding: "15px",
@@ -86,8 +87,8 @@ function ListAdsHomePage(props) {
   const classes = useStyles();
   return (
     <div>
-      <Typography className={classes.title} variant="h5">
-        ACHETER UN VELO CARGO
+      <Typography className={classes.title} variant="h3">
+        ACHETER UN VÉLO CARGO
       </Typography>
 
       <div className={classes.marketplace}>

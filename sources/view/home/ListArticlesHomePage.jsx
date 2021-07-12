@@ -20,12 +20,15 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "20px",
     paddingTop: "20px",
     marginBottom: "20px",
+    color: "#5E77EB",
+    fontSize: "40px"
   },
 
   cards: {
     display: "flex",
     justifyContent: "space-around",
     flexWrap: "wrap",
+    color: "#B4B8D4"
   },
 }));
 
@@ -62,7 +65,7 @@ const ListArticlesHomePage = () => {
 
   return (
     <>
-      <Typography className={classes.title} variant="h5">
+      <Typography className={classes.title} variant="h3">
         ARTICLES & ASTUCES
       </Typography>
       <div className={classes.cards}>
