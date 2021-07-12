@@ -85,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AdsVelo({ match }) {
+export default function AdsBike({ match }) {
   const classes = useStyles();
 
   const [form, setForm] = useState({

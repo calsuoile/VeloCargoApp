@@ -22,13 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ArticleCard({
-  photo,
-  title,
-  date,
-  handleClickArticle,
-  selectedArticle,
-}) {
+export default function ArticleCard({ photo, title, date }) {
   const classes = useStyles();
 
   return (

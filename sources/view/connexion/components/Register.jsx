@@ -82,7 +82,7 @@ export default function Register() {
       email: email,
       password: password,
     };
-    await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/users`, userInscription);
+    await axios.post(`http://localhost:3030/users`, userInscription);
     router.push("/");
   };
 
