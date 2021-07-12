@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import IconButton from "@material-ui/core/IconButton";
-import DeleteButton from "../../common/DeleteButton";
+import DeleteButtonAds from "../../common/DeleteButtonAds";
 
 const useStyles = makeStyles({
   root: {
@@ -76,7 +76,7 @@ export default function CardAds({ photo, title, price, city }) {
             <FavoriteIcon onClick={handleClickFavorite} />
           )}
         </IconButton>
-        <DeleteButton />
+        <DeleteButtonAds color="secondary" />
       </div>
     </Card>
   );

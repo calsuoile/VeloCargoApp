@@ -1,7 +1,7 @@
-import Home from "../../sources/view/home/Home";
+import Footer from "../../sources/layout/footer/Footer";
 
-export default function AcceuilPage() {
-  return <Home />;
+export default function Contact() {
+  return <Footer />;
 }
 
 export async function getStaticProps(props) {

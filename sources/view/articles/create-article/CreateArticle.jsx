@@ -5,6 +5,8 @@ import { Typography } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
 import Paper from '@material-ui/core/Paper';
+import Upload from "../../../common/components/Upload";
+
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -76,6 +78,13 @@ const CreateArticle = () => {
   const handleSaveArticle = (e) => {
     e.preventDefault();
     console.log(form);
+  };
+
+  const handlePicture = (imageUrl) => {
+    console.log(imageUrl);
+    const newImages = [...form.photo, imageUrl];
+    setForm({ ...form, photo: newImages });
+    console.log(newImages);
   };
   
   return (

@@ -14,6 +14,8 @@ import ContactSupportIcon from "@material-ui/icons/ContactSupport";
 import MenuIcon from "@material-ui/icons/Menu";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import AddLocationIcon from "@material-ui/icons/AddLocation";
+import AssignmentIcon from "@material-ui/icons/Assignment";
+import DirectionsBikeIcon from '@material-ui/icons/DirectionsBike';
 
 const useStyles = makeStyles({
   list: {
@@ -136,6 +138,10 @@ const useStyles = makeStyles({
     color: "#F2B869",
     fontSize: "30px",
   },
+  article: {
+    color: "#F2B869",
+    fontSize: "30px",
+  },
   loupe: {
     color: "#F2B869",
     fontSize: "30px",
@@ -192,7 +198,15 @@ export default function BurgerMenu() {
               </Button>
             </li>
             <li>
-              <Button className={classes.profil} to="/profil">
+              <Button className={classes.ajout} to="/creer-un-article">
+                <ListItemIcon>
+                  <AssignmentIcon className={classes.article} />
+                </ListItemIcon>
+                <strong>CREER UN ARTICLE</strong>
+              </Button>
+            </li>
+            <li>
+              <Button className={classes.profil} to="/me">
                 <ListItemIcon>
                   <AccountCircleIcon className={classes.circle} />
                 </ListItemIcon>
@@ -200,45 +214,32 @@ export default function BurgerMenu() {
               </Button>
             </li>
             <li>
-              <Button className={classes.ajout} to="/flat">
+              <Button className={classes.ajout} to="/vendre-un-velo-cargo">
                 <ListItemIcon>
                   <AddLocationIcon className={classes.plus} />
                 </ListItemIcon>
                 <strong>DEPOSER UNE ANNONCE</strong>
               </Button>
             </li>
-            <li></li>
             <li>
-              <Button
-                className={classes.articles}
-                to="/marketplace"
-                // component={Link}
-              >
+              <Button className={classes.connexion} to="/annonces">
+                <ListItemIcon>
+                  <DirectionsBikeIcon className={classes.cadenas} />
+                </ListItemIcon>
+                <strong>Marketplace</strong>
+              </Button>
+            </li>
+            <Divider />
+            <li>
+              <Button className={classes.articles} to="/articles">
                 <ListItemIcon>
                   <SearchIcon className={classes.loupe} />
                 </ListItemIcon>
                 <strong>ARTICLES ET ASTUCES</strong>
               </Button>
             </li>
-            <Divider />
             <li>
-              <Button
-                className={classes.connexion}
-                to="/connexion"
-                // component={Link}
-              >
-                <ListItemIcon>
-                  <LockOpenIcon className={classes.cadenas} />
-                </ListItemIcon>
-                <strong>CONNEXION</strong>
-              </Button>
-            </li>
-            <li>
-              <Button
-                className={classes.propos}
-                to="/inscription"
-                // component={Link}
-              >
+              <Button className={classes.propos} to="/a-propos">
                 <ListItemIcon>
                   <AddBoxIcon className={classes.inscri} />
                 </ListItemIcon>
@@ -246,11 +247,7 @@ export default function BurgerMenu() {
               </Button>
             </li>
             <li>
-              <Button
-                className={classes.contact}
-                to="/contact"
-                // component={Link}
-              >
+              <Button className={classes.contact} to="/contact">
                 <ListItemIcon>
                   <ContactSupportIcon className={classes.question} />
                 </ListItemIcon>
