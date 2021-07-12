@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     textAlign: "center",
     margin: "5vh",
-    fontSize : "50px"
+    fontSize: "50px",
   },
   titleInput: {
     "& > *": {
@@ -47,16 +47,15 @@ const useStyles = makeStyles((theme) => ({
     opacity: 0.33,
   },
 
- container : {
-   width : "90%",
-   margin : "20px", 
-   justifySelf : "center"
+  container: {
+    width: "90%",
+    margin: "20px",
+    justifySelf: "center",
+  },
 
- },
-
- littletitle : {
-   marginLeft : "15px"
- }
+  littletitle: {
+    marginLeft: "15px",
+  },
 }));
 
 const CreateArticle = () => {
@@ -64,7 +63,7 @@ const CreateArticle = () => {
   const [form, setForm] = useState({
     title: "",
     text: "",
-    photo : []
+    photo: [],
   });
 
   const handleTitleChange = (e) => {
@@ -92,50 +91,60 @@ const CreateArticle = () => {
       <Typography variant="h1">
         <div className={classes.title}>Créer un article</div>
       </Typography>
-     <Paper className={classes.container} variant="elevation" elevation="3" color="primary">
-       <Typography variant= "h2" className={classes.littletitle}>Titre</Typography>
-      <form className={classes.titleInput} noValidate autoComplete="off">
-        <TextField
-          id="outlined-basic"
-          label="Titre de l'article"
-          variant="outlined"
-          value={form.title}
-          onChange={handleTitleChange}
-        />
-      </form>
-      <Typography variant= "h2" className={classes.littletitle}>Contenu</Typography>
-      <form className={classes.text} noValidate autoComplete="off">
-        <div>
+      <Paper
+        className={classes.container}
+        variant="elevation"
+        elevation="3"
+        color="primary"
+      >
+        <Typography variant="h2" className={classes.littletitle}>
+          Titre
+        </Typography>
+        <form className={classes.titleInput} noValidate autoComplete="off">
           <TextField
-            id="outlined-multiline-static"
-            label="Contenu de l'article"
-            multiline
-            rows={30}
+            id="outlined-basic"
+            label="Titre de l'article"
             variant="outlined"
-            value={form.text}
-            onChange={handleTextChange}
+            value={form.title}
+            onChange={handleTitleChange}
           />
-        </div>
-      </form>
-      <Typography variant= "h2" className={classes.littletitle}>Photo</Typography>
-      <div className={classes.uploadImage}>
-        <input
-          accept="image/*"
-          className={classes.inputImage}
-          id="contained-button-file"
-          multiple
-          type="file"
-        />
-        <div>
-          <label htmlFor="contained-button-file">
-          {form.photo.map((image, index) => {
-        return <img src={image} alt="" key={index} width="150px" />;
-      })}
-           <Upload handlePicture={handlePicture}/>
-          </label>
-        </div>
-        <div className={classes.saveButton}>
-        </div>
+        </form>
+        <Typography variant="h2" className={classes.littletitle}>
+          Contenu
+        </Typography>
+        <form className={classes.text} noValidate autoComplete="off">
+          <div>
+            <TextField
+              id="outlined-multiline-static"
+              label="Contenu de l'article"
+              multiline
+              rows={30}
+              variant="outlined"
+              value={form.text}
+              onChange={handleTextChange}
+            />
+          </div>
+        </form>
+        <Typography variant="h2" className={classes.littletitle}>
+          Photo
+        </Typography>
+        <div className={classes.uploadImage}>
+          <input
+            accept="image/*"
+            className={classes.inputImage}
+            id="contained-button-file"
+            multiple
+            type="file"
+          />
+          <div>
+            <label htmlFor="contained-button-file">
+              {form.photo.map((image, index) => {
+                return <img src={image} alt="" key={index} width="150px" />;
+              })}
+              <Upload handlePicture={handlePicture} />
+            </label>
+          </div>
+          <div className={classes.saveButton}></div>
           <Button
             variant="outlined"
             color="primary"
@@ -143,8 +152,7 @@ const CreateArticle = () => {
           >
             Enregistrer
           </Button>
-       
-      </div>
+        </div>
       </Paper>
     </>
   );
