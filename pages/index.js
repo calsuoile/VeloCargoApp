@@ -5,7 +5,6 @@ function index(props) {
   return (
     <div>
       <Home /> 
-      
     </div>
   );
 }

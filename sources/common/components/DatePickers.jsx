@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function DatePickers({name, onChange, label, value}) {
+export default function DatePickers({ name, onChange, label, value }) {
   const classes = useStyles();
 
   return (
@@ -29,7 +29,6 @@ export default function DatePickers({name, onChange, label, value}) {
         className={classes.textField}
         InputLabelProps={{
           shrink: true,
-        
         }}
       />
     </form>
