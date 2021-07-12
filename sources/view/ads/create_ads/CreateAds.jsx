@@ -29,7 +29,7 @@ function CreateAds(props) {
         Que souhaitez vous vendre ?{" "}
       </Typography>
       <div className={classes.buttons}>
-        <Link href="velos-cargo">
+        <Link href="vendre-un-velo-cargo">
           <Button
             className={classes.button}
             variant="contained"
@@ -38,13 +38,17 @@ function CreateAds(props) {
             Vendre un Velo
           </Button>
         </Link>
+        <Link href="vendre-un-accessoire">
         <Button className={classes.button} variant="contained" color="primary">
           Vendre un Accessoire
         </Button>
+        </Link>
+        <Link href="vendre-une-remorque">
         <Button className={classes.button} variant="contained" color="primary">
-          {" "}
           Vendre une Remorque
         </Button>
+        </Link>
+       
       </div>
     </div>
   );
