@@ -13,22 +13,31 @@ import CreateArticleButton from "./components/CreateArticleButton";
 import Link from "next/link";
 import UserContext from "../../context/user";
 
+
 const useStyles = makeStyles((theme) => ({
+  nav: {
+
+  },
   root: {
     flexGrow: 1,
+    display: 'flex',
+    height: '100px',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: "#5E77EB",
+    
   },
   menuButton: {
-    display: "flex",
-    marginRight: theme.spacing(2),
+    // display: "flex",
     [theme.breakpoints.up("sm")]: {
       display: "none",
     },
   },
   logo: {
-    display: "flex",
-    width: "130px",
-    height: "80%",
-    marginRight: theme.spacing(2),
+    // display: "flex",
+    width: "150px",
+    marginLeft: "20px",
+    marginRight: "20px"
   },
 }));
 
@@ -42,8 +51,6 @@ export default function Header() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="inherit">
-        <Toolbar>
           <Link href="accueil">
             <img className={classes.logo} src="/assets/CargoBikeTrade.png" />
           </Link>
@@ -61,8 +68,7 @@ export default function Header() {
             <AboutButton />
           </Hidden>
           <IconsHeader />
-        </Toolbar>
-      </AppBar>
+
     </div>
   );
 }
