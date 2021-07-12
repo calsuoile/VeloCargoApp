@@ -7,7 +7,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
       margin: theme.spacing(1),
-      backgroundColor: "#f4c15b",
     },
   },
 }));
@@ -17,8 +16,8 @@ export default function CreateAdsButton() {
 
   return (
     <div className={classes.root}>
-      <Link href="vendre-un-produit" style={{ textDecoration: "none" }}>
-        <Button variant="contained">DÉPOSER UNE ANNONCE</Button>
+      <Link href="vendre-un-velo-cargo" style={{ textDecoration: "none" }}>
+        <Button variant="contained" color="secondary">DÉPOSER UNE ANNONCE</Button>
       </Link>
     </div>
   );

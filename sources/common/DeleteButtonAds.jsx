@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import ModalDelete from "./components/ModalDelete";
+import ModalDeleteAds from "./components/ModalDeleteAds";
 import Dialog from "@material-ui/core/Dialog";
 import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
+import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
+import IconButton from "@material-ui/core/IconButton";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -13,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function DeleteButton() {
+function DeleteButtonAds() {
   const classes = useStyles();
 
   const [open, setOpen] = useState(false);
@@ -28,22 +29,17 @@ function DeleteButton() {
 
   const handleDeleteTrue = () => {
     setOpen(false);
-    // axios.delete(`http://localhost:3030/article/${id});
+    // axios.delete(`http://localhost:3030/ads/${id});
   };
 
   return (
     <div>
-      <Button
-        className={classes.button}
-        variant="contained"
-        color="secondary"
-        onClick={handleDelete}
-      >
-        Supprimer
-      </Button>
+      <IconButton className={classes.button} variant="contained" color="secondary">
+        <DeleteOutlinedIcon onClick={handleDelete} />
+      </IconButton>
       <Dialog open={open}>
         {
-          <ModalDelete
+          <ModalDeleteAds
             handleDeleteTrue={handleDeleteTrue}
             handleReturn={handleReturn}
           />
@@ -53,4 +49,4 @@ function DeleteButton() {
   );
 }
 
-export default DeleteButton;
+export default DeleteButtonAds;
