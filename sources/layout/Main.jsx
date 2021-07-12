@@ -1,6 +1,6 @@
 import React from "react";
-import Footer from "./Footer/Footer";
-import Header from "./Header/Header";
+import Footer from "./footer/Footer";
+import Header from "./header/Header";
 
 
 function Main(props) {

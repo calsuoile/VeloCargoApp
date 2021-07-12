@@ -1,7 +1,6 @@
 import Home from "../../sources/view/home/Home";
 
-
-export default function AProposPage() {
+export default function AcceuilPage() {
   return <Home />;
 }
 

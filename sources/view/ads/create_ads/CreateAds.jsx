@@ -3,7 +3,6 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Link from "next/link";
-
 const useStyles = makeStyles((theme) => ({
   buttons: {
     display: "flex",
@@ -39,13 +38,17 @@ function CreateAds(props) {
             Vendre un Velo
           </Button>
         </Link>
+        <Link href="vendre-un-accessoire">
         <Button className={classes.button} variant="contained" color="primary">
           Vendre un Accessoire
         </Button>
+        </Link>
+        <Link href="vendre-une-remorque">
         <Button className={classes.button} variant="contained" color="primary">
-          {" "}
           Vendre une Remorque
         </Button>
+        </Link>
+       
       </div>
     </div>
   );

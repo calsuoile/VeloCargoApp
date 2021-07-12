@@ -14,6 +14,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import Upload from "../../../../common/components/Upload";
 import SwitchForm from "../../../../common/components/SwitchForm";
+
 const useStyles = makeStyles((theme) => ({
     root: {
       width: "80%",

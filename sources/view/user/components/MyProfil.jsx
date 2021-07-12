@@ -62,6 +62,9 @@ const useStyles = makeStyles((theme) => ({
 
 function MyProfil(props) {
   const classes = useStyles();
+
+  const { connectedUser } = useContext(UserContext);
+
   const [edition, setEdition] = React.useState(true);
   const handleEdition = () => {
     setEdition(!edition);
@@ -83,8 +86,6 @@ function MyProfil(props) {
   //   console.log(form);
   // };
 
-  const { connectedUser } = useContext(UserContext);
-
   const handleClick = async () => {
     if (editionMode) {
       try {
@@ -96,7 +97,7 @@ function MyProfil(props) {
             },
           };
           const updatedUser = await axios.patch(
-            `${process.env.NEXT_PUBLIC_API_URL}/user/${form._id}`,
+            `http://localhost:3030/users/${form._id}`,
             form,
             config
           );

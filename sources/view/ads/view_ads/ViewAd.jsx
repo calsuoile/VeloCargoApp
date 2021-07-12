@@ -8,7 +8,7 @@ import IconButton from "@material-ui/core/IconButton";
 import AdsTable from "./components/AdsTable";
 import AdsTechnique from "./components/AdsTechnique";
 import AdsCarousel from "./components/AdsCarousel";
-import DeleteButton from "../../../common/DeleteButton";
+import DeleteButtonAds from "../../../common/DeleteButtonAds";
 
 const useStyles = makeStyles({
   box: {
@@ -109,7 +109,6 @@ function ViewAd({ ads, user }) {
     <div className={classes.box}>
       <div className={classes.header}>
         <Typography variant="h1">VELO CARGO PEUGEOT</Typography>
-
         <div className={classes.vendeur}>
           <Typography variant="body2">
             {user.firstname} {user.lastname}
@@ -132,7 +131,6 @@ function ViewAd({ ads, user }) {
             ) : (
               <p className={classes.num}>{user.email}</p>
             )}
-            <DeleteButton />
           </Typography>
         </div>
         <Typography variant="body2" className={classes.where}>
@@ -142,6 +140,7 @@ function ViewAd({ ads, user }) {
         <Typography variant="body1" className={classes.when}>
           {ads.created_at}
         </Typography>
+        <DeleteButtonAds color="secondary" />
       </div>
 
       <div className={classes.photo}>
