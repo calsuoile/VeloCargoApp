@@ -6,9 +6,9 @@ import Home from "../sources/view/home/Home";
 function index(props) {
   return (
     <div>
-      {/* <Home />  */}
-      <AdsTrailer />
-      <AdsAccessorie />
+      <Home /> 
+      {/* <AdsTrailer />
+      <AdsAccessorie /> */}
     </div>
   );
 }
