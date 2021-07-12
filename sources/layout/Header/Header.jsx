@@ -68,7 +68,6 @@ export default function Header() {
             <AboutButton />
           </Hidden>
           <IconsHeader />
-
     </div>
   );
 }

@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     marginBottom: "30px",
     borderRadius: "15px",
-    color: "black",
+    color: "white",
     justifyContent: "space-around",
   },
   radioGroup: {
@@ -16,6 +16,14 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-around",
     marginBottom: "20px",
   },
+  container: {
+    margin : "20px",
+    borderRadius : "20px",
+  }, 
+
+  buttonCancel : {
+    backgourndColor : "#B4B8D4"
+  }
 }));
 
 function ModalDeleteAds({ handleDeleteTrue, handleReturn }) {
@@ -31,7 +39,7 @@ function ModalDeleteAds({ handleDeleteTrue, handleReturn }) {
 
   return (
     <div>
-      <div>
+      <div className={classes.container}>
         <p>Votre article a-t-il trouvé preneur sur notre site?</p>
         <RadioGroup name="sell" value={form.sell} onChange={handleChange}>
           <div className={classes.radioGroup}>
@@ -43,7 +51,6 @@ function ModalDeleteAds({ handleDeleteTrue, handleReturn }) {
       <div className={classes.button}>
         <Button
           variant="contained"
-          color="secondary"
           onClick={handleReturn}
           className={classes.buttonCancel}
         >
