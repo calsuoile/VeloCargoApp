@@ -7,15 +7,14 @@ import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import HomeIcon from "@material-ui/icons/Home";
-import LockOpenIcon from "@material-ui/icons/LockOpen";
 import AddBoxIcon from "@material-ui/icons/AddBox";
 import SearchIcon from "@material-ui/icons/Search";
-import ContactSupportIcon from "@material-ui/icons/ContactSupport";
 import MenuIcon from "@material-ui/icons/Menu";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import AddLocationIcon from "@material-ui/icons/AddLocation";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
+import Link from "next/link";
 
 const useStyles = makeStyles({
   list: {
@@ -190,61 +189,78 @@ export default function BurgerMenu() {
         <div className={classes.menuburgerlist}>
           <ul className={classes.puces}>
             <li>
-              <Button className={classes.accueil} to="/">
-                <ListItemIcon>
-                  <HomeIcon className={classes.homeicon} />
-                </ListItemIcon>
-                <strong>ACCUEIL</strong>
-              </Button>
+              <Link href="accueil" style={{ textDecoration: "none" }}>
+                <Button className={classes.accueil}>
+                  <ListItemIcon>
+                    <HomeIcon className={classes.homeicon} />
+                  </ListItemIcon>
+                  <strong>ACCUEIL</strong>
+                </Button>
+              </Link>
             </li>
             <li>
-              <Button className={classes.ajout} to="/creer-un-article">
-                <ListItemIcon>
-                  <AssignmentIcon className={classes.article} />
-                </ListItemIcon>
-                <strong>CREER UN ARTICLE</strong>
-              </Button>
+              <Link href="creer-un-article" style={{ textDecoration: "none" }}>
+                <Button className={classes.ajout}>
+                  <ListItemIcon>
+                    <AssignmentIcon className={classes.article} />
+                  </ListItemIcon>
+                  <strong>CREER UN ARTICLE</strong>
+                </Button>
+              </Link>
             </li>
             <li>
-              <Button className={classes.profil} to="/me">
-                <ListItemIcon>
-                  <AccountCircleIcon className={classes.circle} />
-                </ListItemIcon>
-                <strong>MON PROFIL</strong>
-              </Button>
+              <Link href="mon-profil" style={{ textDecoration: "none" }}>
+                <Button className={classes.profil}>
+                  <ListItemIcon>
+                    <AccountCircleIcon className={classes.circle} />
+                  </ListItemIcon>
+                  <strong>MON PROFIL</strong>
+                </Button>
+              </Link>
             </li>
             <li>
-              <Button className={classes.ajout} to="/vendre-un-velo-cargo">
-                <ListItemIcon>
-                  <AddLocationIcon className={classes.plus} />
-                </ListItemIcon>
-                <strong>DEPOSER UNE ANNONCE</strong>
-              </Button>
+              <Link href="vendre-un-produit" style={{ textDecoration: "none" }}>
+                <Button className={classes.ajout}>
+                  <ListItemIcon>
+                    <AddLocationIcon className={classes.plus} />
+                  </ListItemIcon>
+                  <strong>DEPOSER UNE ANNONCE</strong>
+                </Button>
+              </Link>
             </li>
             <li>
-              <Button className={classes.connexion} to="/annonces">
-                <ListItemIcon>
-                  <DirectionsBikeIcon className={classes.cadenas} />
-                </ListItemIcon>
-                <strong>Marketplace</strong>
-              </Button>
+              <Link
+                href="acheter-un-velo-cargo"
+                style={{ textDecoration: "none" }}
+              >
+                <Button className={classes.connexion}>
+                  <ListItemIcon>
+                    <DirectionsBikeIcon className={classes.cadenas} />
+                  </ListItemIcon>
+                  <strong>ANNONCES</strong>
+                </Button>
+              </Link>
             </li>
             <Divider />
             <li>
-              <Button className={classes.articles} to="/articles">
-                <ListItemIcon>
-                  <SearchIcon className={classes.loupe} />
-                </ListItemIcon>
-                <strong>ARTICLES ET ASTUCES</strong>
-              </Button>
+              <Link href="articles" style={{ textDecoration: "none" }}>
+                <Button className={classes.articles}>
+                  <ListItemIcon>
+                    <SearchIcon className={classes.loupe} />
+                  </ListItemIcon>
+                  <strong>ARTICLES ET ASTUCES</strong>
+                </Button>
+              </Link>
             </li>
             <li>
-              <Button className={classes.propos} to="/a-propos">
-                <ListItemIcon>
-                  <AddBoxIcon className={classes.inscri} />
-                </ListItemIcon>
-                <strong>A PROPOS</strong>
-              </Button>
+              <Link href="a-propos" style={{ textDecoration: "none" }}>
+                <Button className={classes.propos}>
+                  <ListItemIcon>
+                    <AddBoxIcon className={classes.inscri} />
+                  </ListItemIcon>
+                  <strong>A PROPOS</strong>
+                </Button>
+              </Link>
             </li>
           </ul>
         </div>
