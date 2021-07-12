@@ -105,7 +105,7 @@ function Filter(props) {
         name={"electric"}
         checked={filter.electric}
         onChange={handleChecked}
-        label={"Electrique "}
+        label={"Electrique"}
       />
       <SwitchForm
         label={"Garantie"}
