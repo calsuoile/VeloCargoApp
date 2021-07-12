@@ -6,6 +6,9 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 const useStyles = makeStyles((theme) => ({
+  buttongroup: {
+    marginTop: "30px"
+  },
   div: {
     display: 'flex',
     flexDirection: 'column',
@@ -13,28 +16,28 @@ const useStyles = makeStyles((theme) => ({
 
   },
   img: {
-    width: "20%",
-    height: "20%",
+    width: "40%",
+    height: "40%",
   },
   button: {
     background: "none",
     border: "none",
     "&:hover": {
-      color: "#cb1f91",
+      color: "#B4B8D4",
     },
   },
   button2: {
     background: "none",
     border: "none",
     "&:hover": {
-      color: "#3b5796",
+      color: "#B4B8D4",
     },
   },
   button3: {
     background: "none",
     border: "none",
     "&:hover": {
-      color: "#00aee6",
+      color: "#B4B8D4",
     },
   marginBottom: "30px",
 
@@ -46,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
     background: "none",
     border: "none",
     "&:hover": {
-      color: "#115293",
+      color: "#B4B8D4",
     },
   },
 }));

@@ -4,6 +4,7 @@ import Pagination from '@material-ui/lab/Pagination';
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    color: "red",
     display: 'flex',
     justifyContent: "center",
     '& > *': {

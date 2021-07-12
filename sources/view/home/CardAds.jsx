@@ -39,6 +39,9 @@ const useStyles = makeStyles({
     paddingRight: "20px",
     paddingBottom: "20px",
   },
+  title: {
+    color: "#5E77EB",
+  }
 });
 
 export default function CardAds({ photo, title, price, city }) {
@@ -55,7 +58,7 @@ export default function CardAds({ photo, title, price, city }) {
       <CardActionArea>
         <img className={classes.image} src={photo} />
         <CardContent className={classes.content}>
-          <Typography gutterBottom variant="h3" component="h1">
+          <Typography gutterBottom variant="h3" component="h1" className={classes.title}>
             {title}
           </Typography>
           <Typography variant="h6" color="textSecondary" component="p">

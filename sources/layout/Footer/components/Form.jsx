@@ -16,6 +16,10 @@ import {
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 
 const useStyles = makeStyles((theme) => ({
+  container: {
+  //  backgroundColor: "#FFA1B0",
+  //  borderRadius: "30px",
+  },
   form: {
     width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(3),
@@ -24,8 +28,9 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
     color: "white",
     width: "40%",
+    backgroundColor: "#B4B8D4",
     "&:hover": {
-      background: "rgba(237, 162, 116, 1)",
+      background: "#F27A06",
       fontSize: "15px",
     },
   },
@@ -39,14 +44,17 @@ const useStyles = makeStyles((theme) => ({
   connexion: {
     margin: "20px",
     color: "white",
+    textAlign: "center",
   },
   input: {
     backgroundColor: "white",
-    borderRadius: "10px",
+    borderRadius: "5px",
+   
   },
   button: {
     display: "flex",
     justifyContent: "center",
+   
   },
 }));
 
@@ -72,10 +80,10 @@ export default function Form() {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" className={classes.container}>
       <CssBaseline />
       <div>
-        <Typography component="h1" variant="h1" className={classes.connexion}>
+        <Typography component="h1" variant="h5" className={classes.connexion}>
           CONTACTEZ-NOUS
         </Typography>
         <form className={classes.form} noValidate onSubmit={handleSubmit}>
@@ -83,9 +91,9 @@ export default function Form() {
             <Grid item xs={12} sm={6}>
               <TextField
                 className={classes.input}
-                autoComplete="fname"
+                autoComplete="firstname"
                 name={"firstname"}
-                variant="outlined"
+                // variant="outlined"
                 required
                 fullWidth
                 id="firstname"
