@@ -30,7 +30,7 @@ function CreateAds(props) {
         Que souhaitez vous vendre ?{" "}
       </Typography>
       <div className={classes.buttons}>
-        <Link href="velos-cargo">
+        <Link href="vendre-un-velo-cargo">
           <Button
             className={classes.button}
             variant="contained"

@@ -59,7 +59,7 @@ export default function CardAds({ photo, title, price, city }) {
             {title}
           </Typography>
           <Typography variant="h6" color="textSecondary" component="p">
-            {price}
+            {price}€
           </Typography>
         </CardContent>
       </CardActionArea>
