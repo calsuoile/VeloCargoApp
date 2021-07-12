@@ -143,13 +143,13 @@ export default function AdsBike({ match }) {
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
-    axios.post(`http://localhost:3030/cargobike`, form, config).then(() => {
+    axios.post(`http://localhost:3030/cargobikes`, form, config).then(() => {
       router.push("/");
     });
     axios.post(`http://localhost:3030/accessories`, form, config).then(() => {
       router.push("/");
     });
-    axios.post(`http://localhost:3030/trailer`, form, config).then(() => {
+    axios.post(`http://localhost:3030/trailers`, form, config).then(() => {
       router.push("/");
     });
   };

@@ -83,7 +83,6 @@ const CreateArticle = () => {
     setForm({ ...form, photo: newImages });
     console.log(newImages);
   };
-
   return (
     <>
       <Typography variant="h1">
