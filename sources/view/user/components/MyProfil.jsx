@@ -97,7 +97,7 @@ function MyProfil(props) {
             },
           };
           const updatedUser = await axios.patch(
-            `http://localhost:3030/user/${form._id}`,
+            `http://localhost:3030/users/${form._id}`,
             form,
             config
           );

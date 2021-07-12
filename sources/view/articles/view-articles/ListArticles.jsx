@@ -25,9 +25,9 @@ const ListArticles = ({ articles }) => {
   const classes = useStyles();
 
   //hook pour définir valeur par défault et valeur saisie par le user:
-  const [searchValue, setSearchValue] = useState("");
+  // const [searchValue, setSearchValue] = useState("");
   //fonction de récupération de la valeur saisie par le user:
-  const handleSearchValueChange = (e) => setSearchValue(e.target.value);
+  // const handleSearchValueChange = (e) => setSearchValue(e.target.value);
 
   
 
@@ -37,14 +37,14 @@ const ListArticles = ({ articles }) => {
         ARTICLES & ASTUCES
       </Typography>
       <Search
-        searchValue={searchValue}
-        handleSearchValueChange={handleSearchValueChange}
+        // searchValue={searchValue}
+        // handleSearchValueChange={handleSearchValueChange}
       />
       {/* map pour affichage de tous les éléments de l'objet articles 
       & filtre par mot clé*/}
       <div className={classes.cards}>
         {articles
-          .filter((article) => article.title.includes(searchValue))
+          // .filter((article) => article.title.includes(searchValue))
           .map((article) => (
             <Link href="article/[id]">
               <ArticleCard key={article.id} {...article} />
