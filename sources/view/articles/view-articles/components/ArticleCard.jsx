@@ -4,7 +4,7 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import DeleteButton from "../../../../common/DeleteButton";
+import DeleteButtonAds from "../../../../common/DeleteButtonAds";
 
 const useStyles = makeStyles((theme) => ({
   cardContainer: {
@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: 300,
   },
+  deleteButton: {
+    justifyContent: "flex-end"
+  }
 }));
 
 export default function ArticleCard({ photo, title, date }) {
@@ -38,7 +41,7 @@ export default function ArticleCard({ photo, title, date }) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <DeleteButton />
+      <DeleteButtonAds className={classes.deleteButton}/>
     </Card>
   );
 }

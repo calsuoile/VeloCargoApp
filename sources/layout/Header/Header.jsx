@@ -16,6 +16,10 @@ import UserContext from "../../context/user";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    display : "flex",
+    justifyContent : "center",
+    alignItems : "center",
+    backgroundColor : "#5E77EB"
   },
   menuButton: {
     display: "flex",
@@ -42,8 +46,8 @@ export default function Header() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="inherit">
-        <Toolbar>
+      {/* <AppBar position="static" color="inherit"> */}
+        {/* <Toolbar> */}
           <Link href="accueil">
             <img className={classes.logo} src="/assets/CargoBikeTrade.png" />
           </Link>
@@ -61,8 +65,8 @@ export default function Header() {
             <AboutButton />
           </Hidden>
           <IconsHeader />
-        </Toolbar>
-      </AppBar>
+        {/* </Toolbar>
+      </AppBar> */}
     </div>
   );
 }

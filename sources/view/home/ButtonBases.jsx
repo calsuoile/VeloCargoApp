@@ -11,6 +11,8 @@ const styles = (theme) => ({
     flexWrap: "wrap",
     minWidth: 300,
     width: "100%",
+    backgroudImage : "url('/assets/fond.jpeg')",
+    backgroundSize: "cover",
   },
   image: {
     position: "relative",

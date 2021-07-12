@@ -1,7 +1,7 @@
 import React from "react";
 import { Avatar, makeStyles, Typography } from "@material-ui/core";
 import OtherArticlesWindow from "./components/OtherArticlesWindow";
-import DeleteButton from "../../../common/DeleteButton";
+import DeleteButtonAds from "../../../common/DeleteButtonAds";
 
 const useStyles = makeStyles((theme) => ({
   image: {
@@ -43,6 +43,10 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     marginLeft: "30px",
   },
+  title: {
+    display: "flex",
+    margin : "20px"
+  },
 }));
 
 const ViewArticle = ({ articleView, otherArticles }) => {
@@ -57,9 +61,12 @@ const ViewArticle = ({ articleView, otherArticles }) => {
           className={classes.image}
         />
       </div>
-      <Typography variant="h1" style={{ margin: "20px" }}>
-        {articleView.title}
-      </Typography>
+      <div className={classes.title}>
+        <Typography variant="h1" >
+          {articleView.title}
+        </Typography>
+        <DeleteButtonAds />
+      </div>
       <div className={classes.authorImage}>
         <Avatar alt="Clément Fouillet" src="/assets/clement_fouillet.jpg" />
         <Typography
@@ -73,11 +80,11 @@ const ViewArticle = ({ articleView, otherArticles }) => {
           {articleView.text}
           <img src={articleView.photo2} className={classes.otherImages} />
         </Typography>
-        <DeleteButton />
+
         <div className={classes.containerOtherArticles}>
           <Typography variant="h6">Derniers articles</Typography>
           {otherArticles.map((otherArticle) => (
-              <OtherArticlesWindow key={otherArticle.id} {...otherArticle} />
+            <OtherArticlesWindow key={otherArticle.id} {...otherArticle} />
           ))}
         </div>
       </div>
