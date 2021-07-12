@@ -52,16 +52,12 @@ export default function Header() {
           </Hidden>
           <Hidden smDown>
             <SplitButtonType />
-          </Hidden>
-          <Hidden smDown>
             <ArticlesTipsButton />
           </Hidden>
           <div style={{ flexGrow: 1 }}></div>
-          <CreateArticleButton />
           <Hidden smDown>
+            <CreateArticleButton />
             <CreateAdsButton />
-          </Hidden>
-          <Hidden smDown>
             <AboutButton />
           </Hidden>
           <IconsHeader />

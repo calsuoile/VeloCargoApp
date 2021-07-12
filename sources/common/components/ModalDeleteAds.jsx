@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ModalDelete({ handleDeleteTrue, handleReturn }) {
+function ModalDeleteAds({ handleDeleteTrue, handleReturn }) {
   const classes = useStyles();
 
   const [form, setForm] = useState({
@@ -32,11 +32,11 @@ function ModalDelete({ handleDeleteTrue, handleReturn }) {
   return (
     <div>
       <div>
-        <p>Clément, es tu sûr de vouloir supprimer cet article?</p>
+        <p>Votre article a-t-il trouvé preneur sur notre site?</p>
         <RadioGroup name="sell" value={form.sell} onChange={handleChange}>
           <div className={classes.radioGroup}>
-            <FormControlLabel value="Oui" control={<Radio />} label="Biensûr" />
-            <FormControlLabel value="Non" control={<Radio />} label="Oh que non" />
+            <FormControlLabel value="Oui" control={<Radio />} label="Oui" />
+            <FormControlLabel value="Non" control={<Radio />} label="Non" />
           </div>
         </RadioGroup>
       </div>
@@ -62,4 +62,4 @@ function ModalDelete({ handleDeleteTrue, handleReturn }) {
   );
 }
 
-export default ModalDelete;
+export default ModalDeleteAds;

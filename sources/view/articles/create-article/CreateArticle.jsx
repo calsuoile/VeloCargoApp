@@ -3,7 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import { Typography } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
-import Paper from "@material-ui/core/Paper";
+import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
+import Paper from '@material-ui/core/Paper';
 import Upload from "../../../common/components/Upload";
 
 const useStyles = makeStyles((theme) => ({
@@ -56,6 +57,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const handlePicture = (imageUrl) => {
+  console.log(imageUrl);
+  const newImages = [...form.photo, imageUrl];
+  setForm({ ...form, photo: newImages });
+  console.log(newImages);
+};
+
 const CreateArticle = () => {
   const classes = useStyles();
   const [form, setForm] = useState({
@@ -83,6 +91,7 @@ const CreateArticle = () => {
     setForm({ ...form, photo: newImages });
     console.log(newImages);
   };
+  
   return (
     <>
       <Typography variant="h1">

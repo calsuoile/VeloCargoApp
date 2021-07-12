@@ -18,6 +18,12 @@ const useStyles = makeStyles((theme) => ({
     margin: "50px",
     display: "flex",
     justifyContent: "center",
+    color: "#5E77EB",
+    // color : "white",
+    // backgroundColor: "#5E77EB",
+    // padding: "15px",
+    // // width: "400px"
+    // borderBottom: `2px solid black`,
   },
   marketplace: {
     marginTop: "30px",
