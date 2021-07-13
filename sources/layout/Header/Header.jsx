@@ -48,7 +48,7 @@ export default function Header() {
   return (
     <div className={classes.root}>
           <Link href="accueil">
-            <img className={classes.logo} src="/assets/CargoBikeTrade.png" />
+            <a><img className={classes.logo} src="/assets/CargoBikeTrade.png" /></a>
           </Link>
           <Hidden mdUp>
             <BurgerMenu className={classes.menuButton} />
