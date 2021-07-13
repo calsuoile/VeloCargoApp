@@ -16,28 +16,32 @@ const useStyles = makeStyles((theme) => ({
 
   },
   img: {
-    width: "40%",
-    height: "40%",
+    width: "50%",
+    height: "50%",
+    marginBottom: "15px",
   },
   button: {
     background: "none",
     border: "none",
+    color: "#BFD9D9",
     "&:hover": {
-      color: "#B4B8D4",
+      color: "#F27C08",
     },
   },
   button2: {
     background: "none",
     border: "none",
+    color: "#BFD9D9",
     "&:hover": {
-      color: "#B4B8D4",
+      color: "#F27C08",
     },
   },
   button3: {
     background: "none",
     border: "none",
+    color: "#BFD9D9",
     "&:hover": {
-      color: "#B4B8D4",
+      color: "#F27C08",
     },
   marginBottom: "30px",
 
@@ -48,8 +52,9 @@ const useStyles = makeStyles((theme) => ({
   button4: {
     background: "none",
     border: "none",
+    color: "#BFD9D9",
     "&:hover": {
-      color: "#B4B8D4",
+      color: "#F27C08",
     },
   },
 }));

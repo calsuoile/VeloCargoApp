@@ -14,16 +14,49 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles((theme) => ({
   filter: {
     margin: "30px",
+    backgroundColor: "#5C9A9A",
+    borderRadius: "30px",
+    padding: "30px",
     display: "flex",
     flexDirection: "column",
-    // backgroundColor: "#FFF2C7",
   },
   button: {
     borderRadius: "30px",
+    backgroundColor:"#5C9A9A",
+    color: "white",
+    fontFamily: "Open Sans Condensed, sans-serif",
+    fontWeight: 600,
+    fontSize: "20px",
+    width: "80%",
+    margin:"30px",
+    "&:hover": {
+      backgroundColor:"#F29F24",
+    }
   },
   diff: {
     color: "black",
   },
+  icon: {
+    marginLeft: "10px",
+  },
+  title: {
+      color: "white",
+      fontFamily:"Staatliches, cursive",
+      textAlign: "center",
+      fontSize: "40px",
+  },
+  hr: {
+    width: "50%",
+    marginTop: "8%",
+    marginBottom: "10%"
+  },
+  dep: {
+  backgroundColor: "white",
+    borderRadius: "5px",
+    width: "180px",
+    margin:"10px"
+  },
+
 }));
 
 function valuetext(value) {
@@ -60,8 +93,9 @@ function Filter(props) {
 
   return (
     <div className={classes.filter}>
-      <Typography gutterBottom variant="h1" component="h1">
+      <Typography gutterBottom variant="h5" className={classes.title}>
         FILTRES
+        <hr className={classes.hr}></hr>
       </Typography>
       <SelectCategory
         value={filter.category}
@@ -74,7 +108,7 @@ function Filter(props) {
         name={"country"}
       />
       <TextField
-        className={classes.velo}
+        className={classes.dep}
         required={true}
         id="outlined-basic"
         label="Département"
@@ -106,12 +140,14 @@ function Filter(props) {
         checked={filter.electric}
         onChange={handleChecked}
         label={"Electrique"}
+        className={classes.check}
       />
       <SwitchForm
         label={"Garantie"}
         checked={filter.guarantee}
         onChange={handleChecked}
         name={"guarantee"}
+        className={classes.check}
       />
       <Button
         onClick={handleClick}
@@ -120,7 +156,7 @@ function Filter(props) {
         className={classes.button}
       >
         Rechercher
-        <SearchIcon />
+        <SearchIcon className={classes.icon}/>
       </Button>
     </div>
   );

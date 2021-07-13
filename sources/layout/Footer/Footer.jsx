@@ -6,6 +6,10 @@ import Link from "next/link";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
+  title: {
+    // textDecoration: "underline",
+    marginBottom: "15px",
+  },
   container: {
     backgroundImage: "url(/assets/backgr.png)",
     display: "flex",
@@ -41,8 +45,17 @@ const useStyles = makeStyles((theme) => ({
   },
   connexion: {
     marginBottom: "20px",
+    fontWeight: 500,
+    fontFamily: "Open Sans Condensed, sans-serif",
     color: "white",
-  },
+    fontSize:"25px",
+    borderBottom: "1px solid white",
+    paddingBottom: "20px",
+    width: "30%"
+  }, 
+  undertitle: {
+    marginBottom: "5px"
+  }
 }));
 
 function Footer(props) {
@@ -52,10 +65,10 @@ function Footer(props) {
     <div className={classes.container}>
       <div className={classes.list}>
         <ul className={classes.link}>
-          <Typography component="h1" variant="h5" className={classes.connexion}>
+          <Typography className={classes.connexion}>
             PLAN DU SITE
           </Typography>
-          <Link href="acheter-un-velo-cargo">
+          <Link href="/acheter-un-velo-cargo">
             <a style={{ textDecoration: "none", color: "inherit" }}>
               {" "}
               <li className={classes.title}>
@@ -65,37 +78,37 @@ function Footer(props) {
           </Link>
           <Link href="">
           <a style={{ textDecoration: "none", color: "inherit" }}>
-              <li>Triporteur</li>
+              <li className={classes.undertitle}>Triporteur</li>
             </a>
           </Link>
           <Link href="">
           <a style={{ textDecoration: "none", color: "inherit" }}>
-              <li>Biporteur</li>
+              <li className={classes.undertitle}>Biporteur</li>
             </a>
           </Link>
           <Link href="">
           <a style={{ textDecoration: "none", color: "inherit" }}>
-              <li>Tricycle</li>
+              <li className={classes.undertitle}>Tricycle</li>
             </a>
           </Link>
           <Link href="">
           <a style={{ textDecoration: "none", color: "inherit" }}>
-              <li>LongTrail</li>
+              <li className={classes.undertitle}>LongTrail</li>
             </a>
           </Link>
           <Link href="">
           <a style={{ textDecoration: "none", color: "inherit" }}>
-              <li>Remorques</li>
+              <li className={classes.undertitle}>Remorques</li>
             </a>
           </Link>
           <Link href="">
           <a style={{ textDecoration: "none", color: "inherit" }}>
-              <li>Accessoires</li>
+              <li className={classes.undertitle}>Accessoires</li>
             </a>
           </Link>
         </ul>
         <ul className={classes.link}>
-          <Link href="vendre-un-produit">
+          <Link href="/vendre-un-produit">
             <a style={{ textDecoration: "none", color: "inherit" }}>
               {" "}
               <li className={classes.title}>
@@ -103,27 +116,27 @@ function Footer(props) {
               </li>
             </a>
           </Link>
-          <Link href="vendre-un-velo-cargo">
+          <Link href="/vendre-un-velo-cargo">
             <a style={{ textDecoration: "none", color: "inherit" }}>
               {" "}
-              <li>Vendre un Vélo Cargo</li>
+              <li className={classes.undertitle}>Vendre un Vélo Cargo</li>
             </a>
           </Link>
-          <Link href="vendre-un-accessoire">
+          <Link href="/vendre-un-accessoire">
             <a style={{ textDecoration: "none", color: "inherit" }}>
-              <li>Vendre un accessoire</li>
+              <li className={classes.undertitle}>Vendre un accessoire</li>
             </a>
           </Link>
 
-          <Link href="vendre-une-remorque">
+          <Link href="/vendre-une-remorque">
             <a style={{ textDecoration: "none", color: "inherit" }}>
               {" "}
-              <li>Vendre une remorque</li>
+              <li className={classes.undertitle}>Vendre une remorque</li>
             </a>
           </Link>
         </ul>
         <ul className={classes.link}>
-          <Link href="articles">
+          <Link href="/articles">
             <a style={{ textDecoration: "none", color: "inherit" }}>
               {" "}
               <li className={classes.title}>
