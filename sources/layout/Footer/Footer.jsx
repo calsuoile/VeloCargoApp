@@ -55,7 +55,7 @@ function Footer(props) {
           <Typography component="h1" variant="h5" className={classes.connexion}>
             PLAN DU SITE
           </Typography>
-          <Link href="acheter-un-velo-cargo">
+          <Link href="/acheter-un-velo-cargo">
             <a style={{ textDecoration: "none", color: "inherit" }}>
               {" "}
               <li className={classes.title}>
@@ -63,39 +63,39 @@ function Footer(props) {
               </li>
             </a>
           </Link>
-          <Link href="">
+          <Link href="/">
           <a style={{ textDecoration: "none", color: "inherit" }}>
               <li>Triporteur</li>
             </a>
           </Link>
-          <Link href="">
+          <Link href="/">
           <a style={{ textDecoration: "none", color: "inherit" }}>
               <li>Biporteur</li>
             </a>
           </Link>
-          <Link href="">
+          <Link href="/">
           <a style={{ textDecoration: "none", color: "inherit" }}>
               <li>Tricycle</li>
             </a>
           </Link>
-          <Link href="">
+          <Link href="/">
           <a style={{ textDecoration: "none", color: "inherit" }}>
               <li>LongTrail</li>
             </a>
           </Link>
-          <Link href="">
+          <Link href="/">
           <a style={{ textDecoration: "none", color: "inherit" }}>
               <li>Remorques</li>
             </a>
           </Link>
-          <Link href="">
+          <Link href="/">
           <a style={{ textDecoration: "none", color: "inherit" }}>
               <li>Accessoires</li>
             </a>
           </Link>
         </ul>
         <ul className={classes.link}>
-          <Link href="vendre-un-produit">
+          <Link href="/vendre-un-produit">
             <a style={{ textDecoration: "none", color: "inherit" }}>
               {" "}
               <li className={classes.title}>
@@ -103,19 +103,19 @@ function Footer(props) {
               </li>
             </a>
           </Link>
-          <Link href="vendre-un-velo-cargo">
+          <Link href="/vendre-un-velo-cargo">
             <a style={{ textDecoration: "none", color: "inherit" }}>
               {" "}
               <li>Vendre un Vélo Cargo</li>
             </a>
           </Link>
-          <Link href="vendre-un-accessoire">
+          <Link href="/vendre-un-accessoire">
             <a style={{ textDecoration: "none", color: "inherit" }}>
               <li>Vendre un accessoire</li>
             </a>
           </Link>
 
-          <Link href="vendre-une-remorque">
+          <Link href="/vendre-une-remorque">
             <a style={{ textDecoration: "none", color: "inherit" }}>
               {" "}
               <li>Vendre une remorque</li>
@@ -123,7 +123,7 @@ function Footer(props) {
           </Link>
         </ul>
         <ul className={classes.link}>
-          <Link href="articles">
+          <Link href="/articles">
             <a style={{ textDecoration: "none", color: "inherit" }}>
               {" "}
               <li className={classes.title}>

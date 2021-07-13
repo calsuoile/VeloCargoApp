@@ -55,6 +55,7 @@ export default function Header() {
       </Hidden>
       <Hidden smDown>
         <SelectBike />
+        <SplitButtonType />
         <ArticlesTipsButton />
       </Hidden>
       <div style={{ flexGrow: 1 }}></div>
