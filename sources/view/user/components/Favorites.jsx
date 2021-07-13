@@ -32,34 +32,35 @@ const useStyles = makeStyles((theme) => ({
 function Favorites(props) {
   const classes = useStyles();
   const { connectedUser } = useContext(UserContext);
-  const [favorites, setFavorites] = useState([
-    {
-      id: "1",
-      photo: "https://source.unsplash.com/random?bike/4",
-      title: "Vélo Cargo",
-      price: "1230 €",
-      city: "Bordeaux",
-    },
-    {
-      id: "2",
-      photo: "https://source.unsplash.com/random?bike/5",
-      title: "Vélo Cargo",
-      price: "1380 €",
-      city: "Bordeaux",
-    },
-    {
-      id: "3",
-      photo: "https://source.unsplash.com/random?bike/6",
-      title: "Vélo Cargo",
-      price: "1560 €",
-      city: "Bordeaux",
-    },
-  ]);
+  const [favorites, setFavorites] = useState([]);
+  // const [favorites, setFavorites] = useState([
+  //   {
+  //     id: "1",
+  //     photo: "https://source.unsplash.com/random?bike/4",
+  //     title: "Vélo Cargo",
+  //     price: "1230 €",
+  //     city: "Bordeaux",
+  //   },
+  //   {
+  //     id: "2",
+  //     photo: "https://source.unsplash.com/random?bike/5",
+  //     title: "Vélo Cargo",
+  //     price: "1380 €",
+  //     city: "Bordeaux",
+  //   },
+  //   {
+  //     id: "3",
+  //     photo: "https://source.unsplash.com/random?bike/6",
+  //     title: "Vélo Cargo",
+  //     price: "1560 €",
+  //     city: "Bordeaux",
+  //   },
+  // ]);
 
   useEffect(() => {
-    if (Object.keys(connectedUser).length > 0) {
+    if (Object.keys(connectedUser).length > 0 && connectedUser.favorites?.length) {
       Promise.all(
-        connectedUser.favorites.map((item) => {
+        connectedUser?.favorites?.map((item) => {
           const req = axios.get(`http://localhost:3030/ads/${item}`);
           return req;
         })
@@ -74,7 +75,7 @@ function Favorites(props) {
           Mes Favoris :{" "}
         </Typography>
         <div className={classes.favorite}>
-          {favorites.map((favorite, index) => (
+          {favorites?.map((favorite, index) => (
             <CardAds {...favorite} key={index} />
           ))}
         </div>

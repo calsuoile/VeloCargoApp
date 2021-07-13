@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function IconsHeader() {
+export default function ConnectionButton() {
   const classes = useStyles();
   const {connectedUser, setConnectedUser} = useContext(UserContext);
   const router= useRouter();
