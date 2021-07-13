@@ -13,10 +13,12 @@ const useStyles = makeStyles((theme) => ({
   },
   typo: {
     color: "white",
-    fontSize:"20px",
+    fontSize:"22px",
     "&:hover": {
-      color:"blue",
-    }
+      cursor: "pointer"
+    },
+    marginRight:"20px",
+  
   }
 
 }));

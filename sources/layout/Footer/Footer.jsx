@@ -9,7 +9,7 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles((theme) => ({
   
   container: {
-    backgroundColor: "#5E77EB",
+    backgroundImage: "url(/assets/backgr.png)",
     display: "flex",
     alignItems: "center",
   },
@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
   list: {
     textDecoration: "none",
     display: "flex",
-    backgroundColor: "#5E77EB",
     flexDirection: "column",
     color: "white",
     width: "100%",
