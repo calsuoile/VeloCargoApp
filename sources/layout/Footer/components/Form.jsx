@@ -93,7 +93,7 @@ export default function Form() {
                 className={classes.input}
                 autoComplete="firstname"
                 name={"firstname"}
-                // variant="outlined"
+                variant="outlined"
                 required
                 fullWidth
                 id="firstname"

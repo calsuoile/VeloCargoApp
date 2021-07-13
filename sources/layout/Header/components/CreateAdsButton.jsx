@@ -13,9 +13,17 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   typo: {
+    fontWeight: 500,
+    fontFamily: "Open Sans Condensed, sans-serif",
     color: "white",
-    fontSize:"20px"
-  },
+    fontSize:"22px",
+    marginRight:"20px",
+    borderLeft: "1px solid",
+    paddingLeft:"20px",
+    "&:hover": {
+      cursor: "pointer"
+    },
+  }
 }));
 
 export default function CreateAdsButton() {
@@ -24,7 +32,7 @@ export default function CreateAdsButton() {
   return (
     <div className={classes.root}>
       <Link href="vendre-un-produit" style={{ textDecoration: "none" }}>
-      <Typography variant="h5" className={classes.typo}>DÉPOSER UNE ANNONCE</Typography>
+      <Typography className={classes.typo}><strong>DÉPOSER UNE ANNONCE</strong></Typography>
       </Link>
     </div>
   );

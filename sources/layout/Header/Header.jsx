@@ -1,6 +1,4 @@
 import React, { useContext } from "react";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import { makeStyles } from "@material-ui/core/styles";
 import SplitButtonType from "./components/SplitButtonType";
 import IconsHeader from "./components/IconsHeader";
@@ -15,16 +13,14 @@ import UserContext from "../../context/user";
 
 
 const useStyles = makeStyles((theme) => ({
-  nav: {
 
-  },
   root: {
     flexGrow: 1,
     display: 'flex',
     height: '100px',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: "#5E77EB",
+    backgroundImage: "url(/assets/backg.png)",
     
   },
   menuButton: {
