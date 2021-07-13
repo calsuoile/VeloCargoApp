@@ -1,5 +1,6 @@
 import ViewArticle from "../../sources/view/articles/view-articles/ViewArticle";
 import { useRouter } from "next/router";
+import axios from "axios";
 
 const ArticlePage = ({ articleView, otherArticles }) => {
   const router = useRouter();
@@ -29,36 +30,39 @@ export async function getStaticProps(props) {
     author: "Clément Fouillet",
   };
 
-  const otherArticles = [
-    {
-      id: "2",
-      title: "Quel Longtail Peut Transporter 3 Enfants ?",
-      photo: "https://source.unsplash.com/random?bike/2",
-      text: "Chez Douze-Cycles seul le « V2 » est démontable (pas le modèle « G4 ») ; Très simple à démonter, il vous faudra seulement 5 minutes muni d’une clé Allen n°14 :",
-      date: "11/03/2021",
-      author: "Clément Fouillet",
-    },
-    {
-      id: "3",
-      title: "Dois-Je Assurer Mon Vélo Cargo ?",
-      photo: "https://source.unsplash.com/random?bike/3",
-      text: "Chez Douze-Cycles seul le « V2 » est démontable (pas le modèle « G4 ») ; Très simple à démonter, il vous faudra seulement 5 minutes muni d’une clé Allen n°14 :",
-      date: "28/05/2021",
-      author: "Clément Fouillet",
-    },
-    {
-      id: "4",
-      title: "Comment Transformer Mon Vélo Classique En Vélo Cargo ?",
-      photo: "https://source.unsplash.com/random?bike/4",
-      text: "Chez Douze-Cycles seul le « V2 » est démontable (pas le modèle « G4 ») ; Très simple à démonter, il vous faudra seulement 5 minutes muni d’une clé Allen n°14 :",
-      date: "05/02/2021",
-      author: "Clément Fouillet",
-    },
-  ];
+
+  const otherArticles = await axios.get("http://localhost:3030/articles");
+
+  // const otherArticles = [
+  //   {
+  //     id: "2",
+  //     title: "Quel Longtail Peut Transporter 3 Enfants ?",
+  //     photo: "https://source.unsplash.com/random?bike/2",
+  //     text: "Chez Douze-Cycles seul le « V2 » est démontable (pas le modèle « G4 ») ; Très simple à démonter, il vous faudra seulement 5 minutes muni d’une clé Allen n°14 :",
+  //     date: "11/03/2021",
+  //     author: "Clément Fouillet",
+  //   },
+  //   {
+  //     id: "3",
+  //     title: "Dois-Je Assurer Mon Vélo Cargo ?",
+  //     photo: "https://source.unsplash.com/random?bike/3",
+  //     text: "Chez Douze-Cycles seul le « V2 » est démontable (pas le modèle « G4 ») ; Très simple à démonter, il vous faudra seulement 5 minutes muni d’une clé Allen n°14 :",
+  //     date: "28/05/2021",
+  //     author: "Clément Fouillet",
+  //   },
+  //   {
+  //     id: "4",
+  //     title: "Comment Transformer Mon Vélo Classique En Vélo Cargo ?",
+  //     photo: "https://source.unsplash.com/random?bike/4",
+  //     text: "Chez Douze-Cycles seul le « V2 » est démontable (pas le modèle « G4 ») ; Très simple à démonter, il vous faudra seulement 5 minutes muni d’une clé Allen n°14 :",
+  //     date: "05/02/2021",
+  //     author: "Clément Fouillet",
+  //   },
+  // ];
   return {
     props: {
       articleView: articleView,
-      otherArticles: otherArticles,
+      otherArticles: otherArticles.data,
     },
     revalidate: 60,
   };

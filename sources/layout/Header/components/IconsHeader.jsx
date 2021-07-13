@@ -16,6 +16,18 @@ const useStyles = makeStyles((theme) => ({
       display: "none",
     },
   },
+  button: {
+    backgroundColor: "#5C9A9A",
+    color: "white",
+    fontFamily: "Open Sans Condensed, sans-serif",
+    fontWeight: 400,
+    fontSize: "20px",
+  },
+  icon: {
+    fontSize: "25px",
+    color:"white",
+
+  },
 }));
 
 export default function IconsHeader() {
@@ -24,13 +36,13 @@ export default function IconsHeader() {
   return (
     <div className={classes.root}>
       <Link href="connexion">
-        <Button aria-label="connexion" variant="contained" color="secondary">
+        <Button aria-label="connexion" variant="contained" className={classes.button}>
           Connexion{" "}
         </Button>
       </Link>
       <Link href="mon-profil">
         <IconButton>
-          <AccountCircleIcon />
+          <AccountCircleIcon className={classes.icon}/>
         </IconButton>
       </Link>
     </div>
