@@ -189,7 +189,7 @@ export default function BurgerMenu() {
         <div className={classes.menuburgerlist}>
           <ul className={classes.puces}>
             <li>
-              <Link href="accueil" style={{ textDecoration: "none" }}>
+              <Link href="/accueil" style={{ textDecoration: "none" }}>
                 <Button className={classes.accueil}>
                   <ListItemIcon>
                     <HomeIcon className={classes.homeicon} />
@@ -199,7 +199,7 @@ export default function BurgerMenu() {
               </Link>
             </li>
             <li>
-              <Link href="creer-un-article" style={{ textDecoration: "none" }}>
+              <Link href="/creer-un-article" style={{ textDecoration: "none" }}>
                 <Button className={classes.ajout}>
                   <ListItemIcon>
                     <AssignmentIcon className={classes.article} />
@@ -209,7 +209,7 @@ export default function BurgerMenu() {
               </Link>
             </li>
             <li>
-              <Link href="mon-profil" style={{ textDecoration: "none" }}>
+              <Link href="/mon-profil" style={{ textDecoration: "none" }}>
                 <Button className={classes.profil}>
                   <ListItemIcon>
                     <AccountCircleIcon className={classes.circle} />
@@ -219,7 +219,7 @@ export default function BurgerMenu() {
               </Link>
             </li>
             <li>
-              <Link href="vendre-un-produit" style={{ textDecoration: "none" }}>
+              <Link href="/vendre-un-produit" style={{ textDecoration: "none" }}>
                 <Button className={classes.ajout}>
                   <ListItemIcon>
                     <AddLocationIcon className={classes.plus} />
@@ -230,7 +230,7 @@ export default function BurgerMenu() {
             </li>
             <li>
               <Link
-                href="acheter-un-velo-cargo"
+                href="/acheter-un-velo-cargo"
                 style={{ textDecoration: "none" }}
               >
                 <Button className={classes.connexion}>
@@ -243,7 +243,7 @@ export default function BurgerMenu() {
             </li>
             <Divider />
             <li>
-              <Link href="articles" style={{ textDecoration: "none" }}>
+              <Link href="/articles" style={{ textDecoration: "none" }}>
                 <Button className={classes.articles}>
                   <ListItemIcon>
                     <SearchIcon className={classes.loupe} />
@@ -253,7 +253,7 @@ export default function BurgerMenu() {
               </Link>
             </li>
             <li>
-              <Link href="a-propos" style={{ textDecoration: "none" }}>
+              <Link href="/a-propos" style={{ textDecoration: "none" }}>
                 <Button className={classes.propos}>
                   <ListItemIcon>
                     <AddBoxIcon className={classes.inscri} />

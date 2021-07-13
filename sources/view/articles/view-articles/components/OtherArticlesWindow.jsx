@@ -7,6 +7,9 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
 import { Typography } from "@material-ui/core";
 
+const moment = require("moment");
+moment.locale("fr");
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
@@ -19,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const OtherArticlesWindow = ({ title, photo, author, date }) => {
+const OtherArticlesWindow = ({ title, photo, created_at }) => {
   const classes = useStyles();
 
   return (
@@ -40,7 +43,9 @@ const OtherArticlesWindow = ({ title, photo, author, date }) => {
                     color="textPrimary"
                     style={{ fontSize: 10 }}
                   >
-                    <i>{`Rédigé le ${date} par ${author}`}</i>
+                    <i>{`Rédigé le ${moment(created_at).format(
+                      "LL à hh:mm:ss"
+                    )} par Clément Fouillet`}</i>
                   </Typography>
                 </React.Fragment>
               }

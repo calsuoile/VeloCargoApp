@@ -14,8 +14,9 @@ import Link from "next/link";
 
 const useStyles = makeStyles((theme) => ({
   splitButtonType: {
-    border: "1px solid #F27A06",
-    borderRadius: "10px",
+
+    // border: "1px solid white",
+    // borderRadius: "10px",
     // // backgroundColor: "white",
     // // color: "rgba(164, 222, 163, 1)",
     // "&:hover": {
@@ -70,8 +71,8 @@ export default function SplitButtonType() {
         aria-label="split button"
         color="secondary"
       >
-        <Link href="acheter-un-velo-cargo" style={{ textDecoration: "none" }}>
-          <Button color="secondary" onClick={handleClick}>{options[selectedIndex]}</Button>
+        <Link href="/acheter-un-velo-cargo" style={{ textDecoration: "none" }}>
+        <Button aria-label="connexion" variant="contained" color="primary"onClick={handleClick}>{options[selectedIndex]}</Button>
         </Link>
         <Button
           size="small"
@@ -80,7 +81,7 @@ export default function SplitButtonType() {
           aria-label="select merge strategy"
           aria-haspopup="menu"
           onClick={handleToggle}
-          color="secondary"
+          color="inherit"
         >
           <ArrowDropDownIcon />
         </Button>

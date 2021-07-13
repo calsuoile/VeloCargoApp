@@ -4,15 +4,15 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import DeleteButton from "../../../../common/DeleteButton";
+import DeleteButtonAds from "../../../../common/DeleteButtonAds";
 
-
-const moment = require('moment');
-moment.locale('fr');
+const moment = require("moment");
+moment.locale("fr");
 
 const useStyles = makeStyles((theme) => ({
   cardContainer: {
     maxWidth: 345,
+    maxHeight: 500,
     margin: "10px",
     borderRadius: "5px",
     display: "flex",
@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: 300,
   },
+  deleteButton: {
+    justifyContent: "flex-end"
+  }
 }));
 
 export default function ArticleCard({ photo, title, created_at }) {
@@ -38,11 +41,11 @@ export default function ArticleCard({ photo, title, created_at }) {
             {title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {moment(created_at).format("LLL")}
+            {moment(created_at).format("LL à hh:mm:ss")}
           </Typography>
         </CardContent>
       </CardActionArea>
-      <DeleteButton />
+      <DeleteButtonAds className={classes.deleteButton}/>
     </Card>
   );
 }

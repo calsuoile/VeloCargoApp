@@ -1,13 +1,24 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
 import Link from "next/link";
+import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
       margin: theme.spacing(1),
-      
+    },
+  },
+  typo: {
+    fontWeight: 500,
+    fontFamily: "Open Sans Condensed, sans-serif",
+    color: "white",
+    fontSize: "22px",
+    marginRight: "20px",
+    borderLeft: "1px solid",
+    paddingLeft: "20px",
+    "&:hover": {
+      cursor: "pointer",
     },
   },
 }));
@@ -17,8 +28,10 @@ export default function CreateAdsButton() {
 
   return (
     <div className={classes.root}>
-      <Link href="vendre-un-produit" style={{ textDecoration: "none" }}>
-        <Button variant="contained" color="primary">DÉPOSER UNE ANNONCE</Button>
+      <Link href="/vendre-un-produit">
+        <a style={{ textDecoration: "none", color: "inherit" }}>
+          <Typography className={classes.typo}>DÉPOSER UNE ANNONCE</Typography>
+        </a>
       </Link>
     </div>
   );

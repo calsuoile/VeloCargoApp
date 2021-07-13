@@ -29,16 +29,14 @@ const ListArticles = ({ articles }) => {
   //fonction de récupération de la valeur saisie par le user:
   // const handleSearchValueChange = (e) => setSearchValue(e.target.value);
 
-  
-
   return (
     <>
       <Typography className={classes.title} variant="h5">
         ARTICLES & ASTUCES
       </Typography>
       <Search
-        // searchValue={searchValue}
-        // handleSearchValueChange={handleSearchValueChange}
+      // searchValue={searchValue}
+      // handleSearchValueChange={handleSearchValueChange}
       />
       {/* map pour affichage de tous les éléments de l'objet articles 
       & filtre par mot clé*/}
@@ -46,8 +44,10 @@ const ListArticles = ({ articles }) => {
         {articles
           // .filter((article) => article.title.includes(searchValue))
           .map((article) => (
-            <Link href="article/[id]">
-              <ArticleCard key={article.id} {...article} />
+            <Link href={"/articles/" + article.id} key={article.id}>
+              <a style={{ textDecoration: "none", color: "inherit" }}>
+                <ArticleCard key={article.id} {...article} />
+              </a>
             </Link>
           ))}
       </div>

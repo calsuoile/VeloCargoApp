@@ -18,6 +18,17 @@ const useStyles = makeStyles((theme) => ({
       display: "none",
     },
   },
+  button: {
+    backgroundColor: "#5C9A9A",
+    color: "white",
+    fontFamily: "Open Sans Condensed, sans-serif",
+    fontWeight: 400,
+    fontSize: "20px",
+  },
+  icon: {
+    fontSize: "25px",
+    color: "white",
+  },
 }));
 
 export default function IconsHeader() {

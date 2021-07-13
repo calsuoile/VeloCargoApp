@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Link from "next/link";
+import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -9,6 +10,14 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
   },
+  typo: {
+    color: "white",
+    fontSize:"22px",
+   "&:hover" : {
+     cursor : "pointer"
+
+   }
+  }
 }));
 
 export default function ArticlesTipsButton() {
@@ -16,10 +25,12 @@ export default function ArticlesTipsButton() {
 
   return (
     <div className={classes.root}>
-      <Link href="articles" style={{ textDecoration: "none" }}>
-        <Button variant="contained" color="primary">
+      <Link href="/articles">
+        <a  style={{ textDecoration: "none", color: "inherit" }}>
+        <Typography variant="h5" className={classes.typo}>
           ARTICLES & ASTUCES
-        </Button>
+        </Typography>
+        </a>
       </Link>
     </div>
   );

@@ -5,19 +5,16 @@ import Form from "./components/Form";
 import Link from "next/link";
 import Typography from "@material-ui/core/Typography";
 
-
 const useStyles = makeStyles((theme) => ({
-  
   container: {
-    backgroundColor: "#5E77EB",
+    backgroundImage: "url(/assets/backgr.png)",
     display: "flex",
     alignItems: "center",
   },
-  
+
   list: {
     textDecoration: "none",
     display: "flex",
-    backgroundColor: "#5E77EB",
     flexDirection: "column",
     color: "white",
     width: "100%",
@@ -40,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
   form: {
-    width: "100%", 
+    width: "100%",
   },
   connexion: {
     marginBottom: "20px",
@@ -53,40 +50,86 @@ function Footer(props) {
 
   return (
     <div className={classes.container}>
-
       <div className={classes.list}>
-     
         <ul className={classes.link}>
-        <Typography component="h1" variant="h5" className={classes.connexion}>
-          PLAN DU SITE
-        </Typography>
-          <Link href="acheter-un-velo-cargo" style={{ textDecoration: "none" }}>
-            <li className={classes.title}>
-              <strong>LES VELOS CARGO</strong>
-            </li>
+          <Typography component="h1" variant="h5" className={classes.connexion}>
+            PLAN DU SITE
+          </Typography>
+          <Link href="acheter-un-velo-cargo">
+            <a style={{ textDecoration: "none", color: "inherit" }}>
+              {" "}
+              <li className={classes.title}>
+                <strong>LES VELOS CARGO</strong>
+              </li>
+            </a>
           </Link>
-          <li>Triporteur</li>
-          <li>Biporteur</li>
-          <li>Tricycle</li>
-          <li>LongTrail</li>
-          <li>Remorques</li>
-          <li>Accessoires</li>
+          <Link href="">
+          <a style={{ textDecoration: "none", color: "inherit" }}>
+              <li>Triporteur</li>
+            </a>
+          </Link>
+          <Link href="">
+          <a style={{ textDecoration: "none", color: "inherit" }}>
+              <li>Biporteur</li>
+            </a>
+          </Link>
+          <Link href="">
+          <a style={{ textDecoration: "none", color: "inherit" }}>
+              <li>Tricycle</li>
+            </a>
+          </Link>
+          <Link href="">
+          <a style={{ textDecoration: "none", color: "inherit" }}>
+              <li>LongTrail</li>
+            </a>
+          </Link>
+          <Link href="">
+          <a style={{ textDecoration: "none", color: "inherit" }}>
+              <li>Remorques</li>
+            </a>
+          </Link>
+          <Link href="">
+          <a style={{ textDecoration: "none", color: "inherit" }}>
+              <li>Accessoires</li>
+            </a>
+          </Link>
         </ul>
         <ul className={classes.link}>
-          <Link href="vendre-un-velo-cargo" style={{ textDecoration: "none" }}>
-            <li className={classes.title}>
-              <strong>VENDRE UN PRODUIT</strong>
-            </li>
+          <Link href="vendre-un-produit">
+            <a style={{ textDecoration: "none", color: "inherit" }}>
+              {" "}
+              <li className={classes.title}>
+                <strong>VENDRE UN PRODUIT</strong>
+              </li>
+            </a>
           </Link>
-          <li>Vendre un Vélo Cargo</li>
-          <li>Vendre un accessoire</li>
-          <li>Vendre une remorque</li>
+          <Link href="vendre-un-velo-cargo">
+            <a style={{ textDecoration: "none", color: "inherit" }}>
+              {" "}
+              <li>Vendre un Vélo Cargo</li>
+            </a>
+          </Link>
+          <Link href="vendre-un-accessoire">
+            <a style={{ textDecoration: "none", color: "inherit" }}>
+              <li>Vendre un accessoire</li>
+            </a>
+          </Link>
+
+          <Link href="vendre-une-remorque">
+            <a style={{ textDecoration: "none", color: "inherit" }}>
+              {" "}
+              <li>Vendre une remorque</li>
+            </a>
+          </Link>
         </ul>
         <ul className={classes.link}>
-          <Link href="articles" style={{ textDecoration: "none" }}>
-            <li className={classes.title}>
-              <strong>ARTICLES & ASTUCES</strong>
-            </li>
+          <Link href="articles">
+            <a style={{ textDecoration: "none", color: "inherit" }}>
+              {" "}
+              <li className={classes.title}>
+                <strong>ARTICLES & ASTUCES</strong>
+              </li>
+            </a>
           </Link>
         </ul>
       </div>
