@@ -18,20 +18,26 @@ import SwitchForm from "../../../../common/components/SwitchForm";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "80%",
-    marginLeft: "50px",
+    marginLeft: "100px",
+    paddingTop: "80px",
+    paddingBottom: "80px",
   },
   heading: {
     fontSize: theme.typography.pxToRem(18),
     fontWeight: theme.typography.fontWeightRegular,
   },
-
+  form: {
+    marginLeft: "100px",
+  },
   expandIcon: {
-    color: "rgba(104, 219, 150, 1)",
+    color: "#B4B8D4",
   },
 
   title: {
     width: 400,
-    marginBottom: 20,
+    marginBottom: 40,
+    display: "flex",
+    justifyContent: "center",
   },
 
   intro: {
@@ -40,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
 
   country: {
     width: 100,
-    color: "rgba(104, 219, 150, 1)",
+    color: "#B4B8D4",
     marginTop: 50,
   },
 
@@ -78,10 +84,10 @@ const useStyles = makeStyles((theme) => ({
   },
 
   button: {
-    marginTop: 10,
+    marginTop: 20,
     marginBottom: 10,
     display: "flex",
-    marginLeft: "90%",
+    marginLeft: "85%",
   },
 }));
 
@@ -108,7 +114,6 @@ function AdsTrailer(props) {
     guarantee: false,
     photo: [],
   });
-
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -116,7 +121,6 @@ function AdsTrailer(props) {
   const handleChecked = (e) => {
     setForm({ ...form, [e.target.name]: e.target.checked });
   };
-
   const handleClick = () => {
     console.log(form);
     postForm();
@@ -143,336 +147,338 @@ function AdsTrailer(props) {
   
   return (
     <div className={classes.root}>
-      <Typography variant="h5">DEPOSER UNE ANNONCE</Typography>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon className={classes.expandIcon} />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography variant="h5" className={classes.heading}>
-            1. INTRODUCTION
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            <div className={classes.intro}>
+      <Typography variant="h5" className={classes.title}>DEPOSER UNE ANNONCE</Typography>
+      <div className={classes.form}>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon className={classes.expandIcon} />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography variant="h5" className={classes.heading}>
+              1. INTRODUCTION
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              <div className={classes.intro}>
+                <TextField
+                  required={true}
+                  className={classes.title}
+                  id="outlined-basic"
+                  label="Titre de l'annonce"
+                  variant="outlined"
+                  name="title"
+                  form={form.title}
+                  onChange={handleChange}
+                ></TextField>
+                <DatePickers
+                  value={form.created_at}
+                  className={classes.date}
+                  name={"created_at"}
+                  onChange={handleChange}
+                />
+              </div>
               <TextField
+                className={classes.description}
                 required={true}
-                className={classes.title}
-                id="outlined-basic"
-                label="Titre de l'annonce"
+                multiline={true}
                 variant="outlined"
-                name="title"
-                form={form.title}
-                onChange={handleChange}
-              ></TextField>
-              <DatePickers
-                value={form.created_at}
-                className={classes.date}
-                name={"created_at"}
-                onChange={handleChange}
-              />
-            </div>
-            <TextField
-              className={classes.description}
-              required={true}
-              multiline={true}
-              variant="outlined"
-              id="outlined-basic"
-              label="Description"
-              name="description"
-              form={form.description}
-              onChange={handleChange}
-              placeholder="Ici n'hésitez pas à renseigner toutes informations qui pourraient intéresser l'acheteur : anecdotes, détails esthétiques, confort de l'assise, entretient du vélo..."
-            ></TextField>
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon className={classes.expandIcon} />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography variant="h5" className={classes.heading}>
-            2. LOCALISATION
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography variant="h5" width="100%">
-            <div className={classes.localisation}>
-              <CountrySelector
-                value={form.country}
-                onChange={handleChange}
-                name={"country"}
-              />
-              <TextField
-                className={classes.velo}
-                required={true}
                 id="outlined-basic"
-                label="Département"
-                variant="outlined"
-                name="department"
-                form={form.department}
+                label="Description"
+                name="description"
+                form={form.description}
                 onChange={handleChange}
+                placeholder="Ici n'hésitez pas à renseigner toutes informations qui pourraient intéresser l'acheteur : anecdotes, détails esthétiques, confort de l'assise, entretient du vélo..."
               ></TextField>
-            </div>
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon className={classes.expandIcon} />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography variant="h5" className={classes.heading}>
-            3. REMORQUE
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            <div>
-              <TextField
-                className={classes.velo}
-                id="outlined-basic"
-                label="Marque"
-                variant="outlined"
-                name="brand"
-                form={form.brand}
-                onChange={handleChange}
-              ></TextField>
-
-              <TextField
-                className={classes.velo}
-                id="outlined-basic"
-                label="Modèle"
-                variant="outlined"
-                name="model"
-                form={form.model}
-                onChange={handleChange}
-              ></TextField>
-
-              <TextField
-                className={classes.velo}
-                required={true}
-                id="outlined-basic"
-                label="Prix €"
-                variant="outlined"
-                name="price"
-                form={form.price}
-                onChange={handleChange}
-              ></TextField>
-            </div>
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon className={classes.expandIcon} />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography variant="h5" className={classes.heading}>
-            4. CARACTERISTIQUES
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <div className={classes.contain}>
-            <div className={classes.margin}>
-              <Typography>
-                <TextField
-                  className={classes.velo}
-                  id="outlined-basic"
-                  label="Charge maximale (Kg)"
-                  variant="outlined"
-                  name="max_load_kg"
-                  form={form.max_load_kg}
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon className={classes.expandIcon} />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography variant="h5" className={classes.heading}>
+              2. LOCALISATION
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography variant="h5" width="100%">
+              <div className={classes.localisation}>
+                <CountrySelector
+                  value={form.country}
                   onChange={handleChange}
-                ></TextField>
-              </Typography>
-            </div>
-            <div className={classes.margin}>
-              <Typography>
-                <TextField
-                  className={classes.velo}
-                  id="outlined-basic"
-                  label="Année de construction"
-                  variant="outlined"
-                  name="build_year"
-                  form={form.build_year}
-                  onChange={handleChange}
-                ></TextField>
-              </Typography>
-            </div>
-            <div className={classes.margin}>
-              <Typography>
-                <TextField
-                  className={classes.velo}
-                  id="outlined-basic"
-                  label="Bicycode"
-                  variant="outlined"
-                  name="bicycode"
-                  form={form.bicycode}
-                  onChange={handleChange}
-                ></TextField>
-              </Typography>
-            </div>
-          </div>
-          <div className={classes.contain}>
-            <div className={classes.margin}>
-              <Typography>
-                <TextField
-                  className={classes.velo}
-                  id="outlined-basic"
-                  label="Kilométrage"
-                  variant="outlined"
-                  name="kms"
-                  form={form.kms}
-                  onChange={handleChange}
-                ></TextField>
-              </Typography>
-            </div>
-            <div className={classes.margin}>
-              <Typography>
-                <TextField
-                  className={classes.velo}
-                  id="outlined-basic"
-                  label="Nombre de places enfants"
-                  variant="outlined"
-                  name="max_children"
-                  form={form.max_children}
-                  onChange={handleChange}
-                ></TextField>
-              </Typography>
-            </div>
-            <div className={classes.margin}>
-              {" "}
-              <Typography>
-                <TextField
-                  className={classes.velo}
-                  id="outlined-basic"
-                  label="Volume Remorque (L)"
-                  variant="outlined"
-                  name="volume_trail"
-                  form={form.volume_trail}
-                  onChange={handleChange}
-                ></TextField>
-              </Typography>
-            </div>
-          </div>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon className={classes.expandIcon} />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography variant="h5" className={classes.heading}>
-            5. ETAT
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            <div className={classes.margin}>
-              {" "}
-              <Typography>
+                  name={"country"}
+                />
                 <TextField
                   className={classes.velo}
                   required={true}
                   id="outlined-basic"
-                  label="Etat Général"
+                  label="Département"
                   variant="outlined"
-                  name="general_state"
-                  form={form.general_state}
+                  name="department"
+                  form={form.department}
                   onChange={handleChange}
                 ></TextField>
-              </Typography>
-            </div>
-            <div className={classes.margin}>
-              {" "}
-              <Typography>
+              </div>
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon className={classes.expandIcon} />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography variant="h5" className={classes.heading}>
+              3. REMORQUE
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              <div>
                 <TextField
                   className={classes.velo}
                   id="outlined-basic"
-                  label="Etat Mécanic"
+                  label="Marque"
                   variant="outlined"
-                  name="mecanic_state"
-                  form={form.mecanic_state}
+                  name="brand"
+                  form={form.brand}
                   onChange={handleChange}
                 ></TextField>
-              </Typography>
-            </div>
-            <div className={classes.margin}>
-              {" "}
-              <Typography>
-                <TextField
-                  className={classes.velo}
-                  id="outlined-basic"
-                  label="Etat Esthétique"
-                  variant="outlined"
-                  name="esthetic_state"
-                  form={form.esthetic_state}
-                  onChange={handleChange}
-                ></TextField>
-              </Typography>
-            </div>
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon className={classes.expandIcon} />}
-          aria-controls="panel3a-content"
-          id="panel3a-header"
-        >
-          <Typography variant="h5" className={classes.heading}>
-            6. GARANTIE
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            {" "}
-            <div className={classes.margin}>
-              {" "}
-              <Typography className={classes.contain}>
-                <SwitchForm
-                  label={"Garantie"}
-                  checked={form.guarantee}
-                  onChange={handleChecked}
-                  name={"guarantee"}
-                />
-              </Typography>
-            </div>
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
 
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon className={classes.expandIcon} />}
-          aria-controls="panel3a-content"
-          id="panel3a-header"
-        >
-          <Typography variant="h5" className={classes.heading}>
-            7. PHOTOS
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            <div className={classes.margin}>
-              {form.photo.map((image, index) => {
-                return <img src={image} alt="" key={index} width="150px" />;
-              })}
-              <Typography className={classes.contain}>
-                <Upload handlePicture={handlePicture} />
-              </Typography>
+                <TextField
+                  className={classes.velo}
+                  id="outlined-basic"
+                  label="Modèle"
+                  variant="outlined"
+                  name="model"
+                  form={form.model}
+                  onChange={handleChange}
+                ></TextField>
+
+                <TextField
+                  className={classes.velo}
+                  required={true}
+                  id="outlined-basic"
+                  label="Prix €"
+                  variant="outlined"
+                  name="price"
+                  form={form.price}
+                  onChange={handleChange}
+                ></TextField>
+              </div>
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon className={classes.expandIcon} />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography variant="h5" className={classes.heading}>
+              4. CARACTERISTIQUES
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <div className={classes.contain}>
+              <div className={classes.margin}>
+                <Typography>
+                  <TextField
+                    className={classes.velo}
+                    id="outlined-basic"
+                    label="Charge maximale (Kg)"
+                    variant="outlined"
+                    name="max_load_kg"
+                    form={form.max_load_kg}
+                    onChange={handleChange}
+                  ></TextField>
+                </Typography>
+              </div>
+              <div className={classes.margin}>
+                <Typography>
+                  <TextField
+                    className={classes.velo}
+                    id="outlined-basic"
+                    label="Année de construction"
+                    variant="outlined"
+                    name="build_year"
+                    form={form.build_year}
+                    onChange={handleChange}
+                  ></TextField>
+                </Typography>
+              </div>
+              <div className={classes.margin}>
+                <Typography>
+                  <TextField
+                    className={classes.velo}
+                    id="outlined-basic"
+                    label="Bicycode"
+                    variant="outlined"
+                    name="bicycode"
+                    form={form.bicycode}
+                    onChange={handleChange}
+                  ></TextField>
+                </Typography>
+              </div>
             </div>
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+            <div className={classes.contain}>
+              <div className={classes.margin}>
+                <Typography>
+                  <TextField
+                    className={classes.velo}
+                    id="outlined-basic"
+                    label="Kilométrage"
+                    variant="outlined"
+                    name="kms"
+                    form={form.kms}
+                    onChange={handleChange}
+                  ></TextField>
+                </Typography>
+              </div>
+              <div className={classes.margin}>
+                <Typography>
+                  <TextField
+                    className={classes.velo}
+                    id="outlined-basic"
+                    label="Nombre de places enfants"
+                    variant="outlined"
+                    name="max_children"
+                    form={form.max_children}
+                    onChange={handleChange}
+                  ></TextField>
+                </Typography>
+              </div>
+              <div className={classes.margin}>
+                {" "}
+                <Typography>
+                  <TextField
+                    className={classes.velo}
+                    id="outlined-basic"
+                    label="Volume Remorque (L)"
+                    variant="outlined"
+                    name="volume_trail"
+                    form={form.volume_trail}
+                    onChange={handleChange}
+                  ></TextField>
+                </Typography>
+              </div>
+            </div>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon className={classes.expandIcon} />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography variant="h5" className={classes.heading}>
+              5. ETAT
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              <div className={classes.margin}>
+                {" "}
+                <Typography>
+                  <TextField
+                    className={classes.velo}
+                    required={true}
+                    id="outlined-basic"
+                    label="Etat Général"
+                    variant="outlined"
+                    name="general_state"
+                    form={form.general_state}
+                    onChange={handleChange}
+                  ></TextField>
+                </Typography>
+              </div>
+              <div className={classes.margin}>
+                {" "}
+                <Typography>
+                  <TextField
+                    className={classes.velo}
+                    id="outlined-basic"
+                    label="Etat Mécanic"
+                    variant="outlined"
+                    name="mecanic_state"
+                    form={form.mecanic_state}
+                    onChange={handleChange}
+                  ></TextField>
+                </Typography>
+              </div>
+              <div className={classes.margin}>
+                {" "}
+                <Typography>
+                  <TextField
+                    className={classes.velo}
+                    id="outlined-basic"
+                    label="Etat Esthétique"
+                    variant="outlined"
+                    name="esthetic_state"
+                    form={form.esthetic_state}
+                    onChange={handleChange}
+                  ></TextField>
+                </Typography>
+              </div>
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon className={classes.expandIcon} />}
+            aria-controls="panel3a-content"
+            id="panel3a-header"
+          >
+            <Typography variant="h5" className={classes.heading}>
+              6. GARANTIE
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              {" "}
+              <div className={classes.margin}>
+                {" "}
+                <Typography className={classes.contain}>
+                  <SwitchForm
+                    label={"Garantie"}
+                    checked={form.guarantee}
+                    onChange={handleChecked}
+                    name={"guarantee"}
+                  />
+                </Typography>
+              </div>
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon className={classes.expandIcon} />}
+            aria-controls="panel3a-content"
+            id="panel3a-header"
+          >
+            <Typography variant="h5" className={classes.heading}>
+              7. PHOTOS
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              <div className={classes.margin}>
+                {form.photo.map((image, index) => {
+                  return <img src={image} alt="" key={index} width="150px" />;
+                })}
+                <Typography className={classes.contain}>
+                  <Upload handlePicture={handlePicture} />
+                </Typography>
+              </div>
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+      </div>
       <Button
         variant="contained"
         color="primary"

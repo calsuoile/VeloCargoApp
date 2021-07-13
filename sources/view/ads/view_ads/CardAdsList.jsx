@@ -1,6 +1,7 @@
 import React from "react";
-import CardAds from "./CardAds";
+import CardAds from "./components/CardAds";
 import { makeStyles } from "@material-ui/core/styles";
+import Link from "next/link";
 
 const useStyles = makeStyles((theme) => ({
   marketplace: {
@@ -19,13 +20,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "20px",
     paddingTop: "20px",
   },
-  button: {
-    display: "flex",
-    marginLeft: "90%",
-    marginBottom: "30px",
-    borderRadius: "15px",
-    color: "black",
-  },
+  
 }));
 
 function CardAdsList({ adsCard }) {
@@ -34,8 +29,15 @@ function CardAdsList({ adsCard }) {
   return (
     <div>
       <div className={classes.marketplace}>
-        {adsCard.map((card, index) => (
-          <CardAds {...card} key={index} />
+        {adsCard.map((card) => (
+          <Link
+            href={"/acheter-un-velo-cargo/annonces/" + card.id}
+            key={card.id}
+          >
+            <a style={{ textDecoration: "none", color: "inherit" }}>
+              <CardAds {...card} key={card.id} />
+            </a>
+          </Link>
         ))}
       </div>
     </div>

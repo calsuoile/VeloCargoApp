@@ -37,7 +37,7 @@ const typography = {
     // Titre lettre arrondie et jaune clair. 
   },
   h5: {
-    color: common.black, 
+    color: palette.primary.main, 
     fontWeight: 400,
     fontSize: "38px",
     lineHeight: 1.5,
