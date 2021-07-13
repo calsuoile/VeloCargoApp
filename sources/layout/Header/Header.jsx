@@ -45,7 +45,7 @@ export default function Header() {
       <AppBar position="static" color="inherit">
         <Toolbar>
           <Link href="accueil">
-            <img className={classes.logo} src="/assets/CargoBikeTrade.png" />
+            <a><img className={classes.logo} src="/assets/CargoBikeTrade.png" /></a>
           </Link>
           <Hidden mdUp>
             <BurgerMenu className={classes.menuButton} />

@@ -2,6 +2,7 @@ import React from "react";
 import { Avatar, makeStyles, Typography } from "@material-ui/core";
 import OtherArticlesWindow from "./components/OtherArticlesWindow";
 import DeleteButton from "../../../common/DeleteButton";
+import Link from "next/link";
 
 const useStyles = makeStyles((theme) => ({
   image: {
@@ -77,7 +78,11 @@ const ViewArticle = ({ articleView, otherArticles }) => {
         <div className={classes.containerOtherArticles}>
           <Typography variant="h6">Derniers articles</Typography>
           {otherArticles.map((otherArticle) => (
-              <OtherArticlesWindow key={otherArticle.id} {...otherArticle} />
+            <Link href={"articles/" + otherArticle.id} key={otherArticle.id}>
+              <a style={{ textDecoration: "none", color: "inherit" }}>
+                <OtherArticlesWindow key={otherArticle.id} {...otherArticle} />
+              </a>
+            </Link>
           ))}
         </div>
       </div>
