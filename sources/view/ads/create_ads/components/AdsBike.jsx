@@ -24,31 +24,25 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.typography.pxToRem(18),
     fontWeight: theme.typography.fontWeightRegular,
   },
-
   expandIcon: {
     color: "rgba(104, 219, 150, 1)",
   },
-
   title: {
     width: 400,
     marginBottom: 20,
   },
-
   intro: {
     display: "flex",
   },
-
   country: {
     width: 100,
     color: "rgba(104, 219, 150, 1)",
     marginTop: 50,
   },
-
   dep: {
     width: 200,
     marginLeft: 20,
   },
-
   localisation: {
     display: "flex",
     alignItems: "center",
@@ -56,7 +50,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     margin: 25,
   },
-
   velo: {
     marginRight: 40,
     width: 300,
@@ -65,7 +58,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 20,
     width: 600,
   },
-
   contain: {
     display: "flex",
     flexDirection: "column",
@@ -76,7 +68,6 @@ const useStyles = makeStyles((theme) => ({
   margin: {
     marginBottom: 15,
   },
-
   button: {
     marginTop: 10,
     marginBottom: 10,
@@ -85,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AdsBike({ match }) {
+export default function AdsBike(props) {
   const classes = useStyles();
 
   const [form, setForm] = useState({
@@ -111,8 +102,8 @@ export default function AdsBike({ match }) {
     guarantee: false,
     electric: false,
     engine_power: "",
-    battery_wolt: "",
-    photo: []
+    battery_volt: "",
+    photo: [],
   });
 
   const handleChange = (e) => {
@@ -122,11 +113,11 @@ export default function AdsBike({ match }) {
   const handleChecked = (e) => {
     setForm({ ...form, [e.target.name]: e.target.checked });
   };
+
   const handleClick = () => {
     console.log(form);
     postForm();
   };
-  
 
   const handlePicture = (imageUrl) => {
     console.log(imageUrl);
@@ -135,7 +126,6 @@ export default function AdsBike({ match }) {
     console.log(newImages);
   };
 
-  
   const router = useRouter();
 
   const postForm = () => {
@@ -144,12 +134,6 @@ export default function AdsBike({ match }) {
       headers: { Authorization: `Bearer ${token}` },
     };
     axios.post(`http://localhost:3030/cargobikes`, form, config).then(() => {
-      router.push("/");
-    });
-    axios.post(`http://localhost:3030/accessories`, form, config).then(() => {
-      router.push("/");
-    });
-    axios.post(`http://localhost:3030/trailers`, form, config).then(() => {
       router.push("/");
     });
   };
@@ -514,7 +498,7 @@ export default function AdsBike({ match }) {
                   id="outlined-basic"
                   label="Voltage Batterie"
                   variant="outlined"
-                  name="battery_wolt"
+                  name="battery_volt"
                   form={form.battery_wolt}
                   onChange={handleChange}
                 ></TextField>
@@ -536,9 +520,9 @@ export default function AdsBike({ match }) {
         <AccordionDetails>
           <Typography>
             <div className={classes.margin}>
-            {form.photo.map((image, index) => {
-        return <img src={image} alt="" key={index} width="150px" />;
-      })}
+              {form.photo.map((image, index) => {
+                return <img src={image} alt="" key={index} width="150px" />;
+              })}
               <Typography className={classes.contain}>
                 <Upload handlePicture={handlePicture} />
               </Typography>

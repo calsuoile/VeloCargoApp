@@ -16,137 +16,131 @@ import Upload from "../../../../common/components/Upload";
 import SwitchForm from "../../../../common/components/SwitchForm";
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-      width: "80%",
-      marginLeft: "50px",
-    },
-    heading: {
-      fontSize: theme.typography.pxToRem(18),
-      fontWeight: theme.typography.fontWeightRegular,
-    },
-  
-    expandIcon: {
-      color: "rgba(104, 219, 150, 1)",
-    },
-  
-    title: {
-      width: 400,
-      marginBottom: 20,
-    },
-  
-    intro: {
-      display: "flex",
-    },
-  
-    country: {
-      width: 100,
-      color: "rgba(104, 219, 150, 1)",
-      marginTop: 50,
-    },
-  
-    dep: {
-      width: 200,
-      marginLeft: 20,
-    },
-  
-    localisation: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "space-evenly",
-      flexDirection: "row",
-      margin: 25,
-    },
-  
-    velo: {
-      marginRight: 40,
-      width: 300,
-    },
-    description: {
-      marginTop: 20,
-      width: 600,
-    },
-  
-    contain: {
-      display: "flex",
-      flexDirection: "column",
-      padding: 10,
-      margin: 10,
-      justifyContent: "space-evenly",
-    },
-    margin: {
-      marginBottom: 15,
-    },
-  
-    button: {
-      marginTop: 10,
-      marginBottom: 10,
-      display: "flex",
-      marginLeft: "90%",
-    },
-  }));
+  root: {
+    width: "80%",
+    marginLeft: "50px",
+  },
+  heading: {
+    fontSize: theme.typography.pxToRem(18),
+    fontWeight: theme.typography.fontWeightRegular,
+  },
 
+  expandIcon: {
+    color: "rgba(104, 219, 150, 1)",
+  },
 
+  title: {
+    width: 400,
+    marginBottom: 20,
+  },
 
+  intro: {
+    display: "flex",
+  },
+
+  country: {
+    width: 100,
+    color: "rgba(104, 219, 150, 1)",
+    marginTop: 50,
+  },
+
+  dep: {
+    width: 200,
+    marginLeft: 20,
+  },
+
+  localisation: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    flexDirection: "row",
+    margin: 25,
+  },
+
+  velo: {
+    marginRight: 40,
+    width: 300,
+  },
+  description: {
+    marginTop: 20,
+    width: 600,
+  },
+
+  contain: {
+    display: "flex",
+    flexDirection: "column",
+    padding: 10,
+    margin: 10,
+    justifyContent: "space-evenly",
+  },
+  margin: {
+    marginBottom: 15,
+  },
+
+  button: {
+    marginTop: 10,
+    marginBottom: 10,
+    display: "flex",
+    marginLeft: "90%",
+  },
+}));
 
 function AdsTrailer(props) {
-    const classes = useStyles();
-    const [form, setForm] = React.useState({
-        title: "",
-        created_at: "",
-        description: "",
-        country: "",
-        department: "",
-        max_load_kg: "",
-        max_children: " ",
-        volume_trail: "",
-        brand: "",
-        model: "",
-        price: "",
-        build_year: "",
-        bicycode: "",
-        kms: "",
-        general_state: "",
-        mecanic_state: "",
-        esthetic_state: "",
-        guarantee: false,
-        photo : [],
-      });
-      const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
-      };
-      
-      const handleChecked = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.checked });
-      };
-      const handleClick = () => {
-        console.log(form);
-        postForm();
-      };
-      
-      const handlePicture = (imageUrl) => {
-        console.log(imageUrl);
-        const newImages = [...form.photo, imageUrl];
-        setForm({ ...form, photo: newImages });
-        console.log(newImages);
-      };
-      
-      const router = useRouter();
-      
-      const postForm = () => {
-        const token = localStorage.getItem("userToken");
-        const config = {
-          headers: { Authorization: `Bearer ${token}` },
-        };
-        axios.post(`http://localhost:3030/cargobike`, form, config).then(() => {
-          router.push("/");
-        });
-        axios.post(`http://localhost:3030/accessories`, form, config).then(() => {
-          router.push("/");
-        });
-        axios.post(`http://localhost:3030/trailer`, form, config).then(() => {
-          router.push("/");
-        });
-      };
+  const classes = useStyles();
+  const [form, setForm] = React.useState({
+    title: "",
+    created_at: "",
+    description: "",
+    country: "",
+    department: "",
+    max_load_kg: "",
+    max_children: " ",
+    volume_trail: "",
+    brand: "",
+    model: "",
+    price: "",
+    build_year: "",
+    bicycode: "",
+    kms: "",
+    general_state: "",
+    mecanic_state: "",
+    esthetic_state: "",
+    guarantee: false,
+    photo: [],
+  });
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleChecked = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.checked });
+  };
+
+  const handleClick = () => {
+    console.log(form);
+    postForm();
+  };
+
+  const handlePicture = (imageUrl) => {
+    console.log(imageUrl);
+    const newImages = [...form.photo, imageUrl];
+    setForm({ ...form, photo: newImages });
+    console.log(newImages);
+  };
+
+  const router = useRouter();
+
+  const postForm = () => {
+    const token = localStorage.getItem("userToken");
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+    axios.post(`http://localhost:3030/trailer`, form, config).then(() => {
+      router.push("/");
+    });
+  };
+  
   return (
     <div className={classes.root}>
       <Typography variant="h5">DEPOSER UNE ANNONCE</Typography>

@@ -68,7 +68,7 @@ function MyAds(props) {
         },
       };
       axios
-        .get(`http:localhost:3030/ads`, config)
+        .get(`http://localhost:3030/ads`, config)
         .then((response) => {
           setAds(response.data);
           console.log(response.data);

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import SplitButtonType from "./components/SplitButtonType";
 import SelectBike from "./components/SelectBike";
-import IconsHeader from "./components/IconsHeader";
+import ConnectionButton from "./components/ConnectionButton";
 import ArticlesTipsButton from "./components/ArticlesTipsButton";
 import CreateAdsButton from "./components/CreateAdsButton";
 import AboutButton from "./components/AboutButton";
@@ -55,6 +55,7 @@ export default function Header() {
       </Hidden>
       <Hidden smDown>
         <SelectBike />
+        {/* <SplitButtonType/> */}
         <ArticlesTipsButton />
       </Hidden>
       <div style={{ flexGrow: 1 }}></div>
@@ -63,7 +64,7 @@ export default function Header() {
         <CreateAdsButton />
         <AboutButton />
       </Hidden>
-      <IconsHeader />
+      <ConnectionButton />
     </div>
   );
 }
