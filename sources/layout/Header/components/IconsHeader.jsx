@@ -22,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Open Sans Condensed, sans-serif",
     fontWeight: 400,
     fontSize: "20px",
+    "&:hover": {
+      backgroundColor: "#F29F24",
+    }
   },
   icon: {
     fontSize: "25px",

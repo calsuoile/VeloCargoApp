@@ -163,7 +163,6 @@ export default function Register() {
               variant="contained"
               color="primary"
               className={classes.submit}
-              // onClick={handleClick}
             >
               Inscription
             </Button>

@@ -16,6 +16,20 @@ import {
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 
 const useStyles = makeStyles((theme) => ({
+  ok: {
+    fontFamily: "Open Sans Condensed, sans-serif",
+    fontWeight: 400,
+    fontSize: "20px",
+  },
+
+  dialog: {
+    backgroundColor: "#F29F24",
+    fontFamily: "Staatliches, cursive",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize:"40px",
+  },
   container: {
   //  backgroundColor: "#FFA1B0",
   //  borderRadius: "30px",
@@ -28,10 +42,13 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
     color: "white",
     width: "40%",
-    backgroundColor: "#B4B8D4",
+    backgroundColor: "#5C9A9A",
+    fontFamily: "Open Sans Condensed, sans-serif",
+    fontWeight: 400,
+    fontSize: "20px",
     "&:hover": {
-      background: "#FADF54",
-      fontSize: "15px",
+      background: "#F29F24",
+      
     },
   },
   root: {
@@ -41,10 +58,15 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  connexion: {
+  contact: {
     margin: "20px",
     color: "white",
     textAlign: "center",
+    fontWeight: 500,
+    fontSize:"30px",
+    // borderBottom: "1px solid",
+    // paddingBottom: "20px",
+  
   },
   input: {
     backgroundColor: "white",
@@ -56,6 +78,17 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
    
   },
+  hr: {
+    width: "50%",
+    marginTop: "8%",
+    marginBottom: "10%"
+  },
+
+    alert: {
+      fontFamily: "Open Sans Condensed, sans-serif",
+      fontSize:"15px",
+      marginTop: "20px"
+    }
 }));
 
 export default function Form() {
@@ -83,8 +116,10 @@ export default function Form() {
     <Container component="main" maxWidth="xs" className={classes.container}>
       <CssBaseline />
       <div>
-        <Typography component="h1" variant="h5" className={classes.connexion}>
-          CONTACTEZ-NOUS
+        <Typography className={classes.contact}>
+          <strong>CONTACTEZ-NOUS</strong>
+          <hr className={classes.hr}></hr>
+        
         </Typography>
         <form className={classes.form} noValidate onSubmit={handleSubmit}>
           <Grid container spacing={2}>
@@ -165,18 +200,18 @@ export default function Form() {
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
           >
-            <DialogTitle id="alert-dialog-title">
-              {"Merci de nous avoir contacter !"}
+            <DialogTitle id="alert-dialog-title" className={classes.dialog}>
+              {"MERCI POUR VOTRE MESSAGE !"} 
             </DialogTitle>
             <DialogContent>
-              <DialogContentText id="alert-dialog-description">
+              <DialogContentText id="alert-dialog-description" className={classes.alert}>
                 Vélo Cargo Trade se fera un plaisir de vous répondre dans les
-                plus brefs délais! <InsertEmoticonIcon />
+                plus brefs délais!
               </DialogContentText>
             </DialogContent>
             <DialogActions>
-              <Button onClick={() => setOpen(false)} color="primary" autoFocus>
-                Retour
+              <Button className={classes.ok} onClick={() => setOpen(false)} color="primary" autoFocus>
+               <strong>Ok</strong> 
               </Button>
             </DialogActions>
           </Dialog>

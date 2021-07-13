@@ -26,8 +26,8 @@ function DeleteButtonAds() {
 
   return (
     <div>
-      <IconButton  onClick={handleDelete} variant="contained" color="secondary">
-        <DeleteOutlinedIcon  color="secondary"/>
+      <IconButton  variant="contained" color="secondary" onClick={handleDelete} >
+        <DeleteOutlinedIcon color="secondary"/>
       </IconButton>
       <Dialog open={open}>
         {

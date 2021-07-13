@@ -30,36 +30,30 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.typography.pxToRem(18),
     fontWeight: theme.typography.fontWeightRegular,
   },
-
   form: {
     marginLeft: "100px",
   },
   expandIcon: {
     color: "#B4B8D4",
   },
-
   title: {
     width: 400,
     marginBottom: 40,
     display: "flex",
     justifyContent: "center",
   },
-
   intro: {
     display: "flex",
   },
-
   country: {
     width: 100,
     color: "rgba(104, 219, 150, 1)",
     marginTop: 50,
   },
-
   dep: {
     width: 200,
     marginLeft: 20,
   },
-
   localisation: {
     display: "flex",
     alignItems: "center",
@@ -67,7 +61,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     margin: 25,
   },
-
   velo: {
     marginRight: 40,
     width: 300,
@@ -76,7 +69,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 20,
     width: 600,
   },
-
   contain: {
     display: "flex",
     flexDirection: "column",
@@ -87,7 +79,6 @@ const useStyles = makeStyles((theme) => ({
   margin: {
     marginBottom: 15,
   },
-
   button: {
     marginTop: 20,
     marginBottom: 10,
@@ -141,13 +132,7 @@ function AdsAccessorie(props) {
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
-    axios.post(`http://localhost:3030/cargobike`, form, config).then(() => {
-      router.push("/");
-    });
     axios.post(`http://localhost:3030/accessories`, form, config).then(() => {
-      router.push("/");
-    });
-    axios.post(`http://localhost:3030/trailer`, form, config).then(() => {
       router.push("/");
     });
   };

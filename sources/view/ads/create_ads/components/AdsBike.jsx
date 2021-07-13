@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.typography.pxToRem(18),
     fontWeight: theme.typography.fontWeightRegular,
   },
+<<<<<<< HEAD
   form: {
     
     width : "70%",
@@ -34,10 +35,11 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
 
+=======
+>>>>>>> origin/dev
   expandIcon: {
     color: "#B4B8D4",
   },
-
   title: {
     fontFamily : "Staatliches",
     fontSize : "60px",
@@ -45,22 +47,18 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
   },
-
   intro: {
     display: "flex",
   },
-
   country: {
     width: 100,
     color: "rgba(104, 219, 150, 1)",
     marginTop: 50,
   },
-
   dep: {
     width: 200,
     marginLeft: 20,
   },
-
   localisation: {
     display: "flex",
     alignItems: "center",
@@ -68,7 +66,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     margin: 25,
   },
-
   velo: {
     marginRight: 40,
     width: 300,
@@ -77,7 +74,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 20,
     width: 600,
   },
-
   contain: {
     display: "flex",
     flexDirection: "column",
@@ -88,7 +84,6 @@ const useStyles = makeStyles((theme) => ({
   margin: {
     marginBottom: 15,
   },
-
   button: {
     marginTop: 20,
     marginBottom: 10,
@@ -97,7 +92,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AdsBike({ match }) {
+export default function AdsBike(props) {
   const classes = useStyles();
 
   const [form, setForm] = useState({
@@ -123,7 +118,7 @@ export default function AdsBike({ match }) {
     guarantee: false,
     electric: false,
     engine_power: "",
-    battery_wolt: "",
+    battery_volt: "",
     photo: [],
   });
 
@@ -134,6 +129,7 @@ export default function AdsBike({ match }) {
   const handleChecked = (e) => {
     setForm({ ...form, [e.target.name]: e.target.checked });
   };
+
   const handleClick = () => {
     console.log(form);
     postForm();
@@ -154,12 +150,6 @@ export default function AdsBike({ match }) {
       headers: { Authorization: `Bearer ${token}` },
     };
     axios.post(`http://localhost:3030/cargobikes`, form, config).then(() => {
-      router.push("/");
-    });
-    axios.post(`http://localhost:3030/accessories`, form, config).then(() => {
-      router.push("/");
-    });
-    axios.post(`http://localhost:3030/trailers`, form, config).then(() => {
       router.push("/");
     });
   };
@@ -526,7 +516,7 @@ export default function AdsBike({ match }) {
                     label="Voltage Batterie"
                     variant="outlined"
                     name="battery_wolt"
-                    form={form.battery_wolt}
+                    form={form.battery_volt}
                     onChange={handleChange}
                   ></TextField>
                 </Typography>

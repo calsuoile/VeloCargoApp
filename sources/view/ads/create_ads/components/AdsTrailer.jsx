@@ -140,16 +140,11 @@ function AdsTrailer(props) {
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
-    axios.post(`http://localhost:3030/cargobike`, form, config).then(() => {
-      router.push("/");
-    });
-    axios.post(`http://localhost:3030/accessories`, form, config).then(() => {
-      router.push("/");
-    });
     axios.post(`http://localhost:3030/trailer`, form, config).then(() => {
       router.push("/");
     });
   };
+  
   return (
     <div className={classes.root}>
       <Typography variant="h5" className={classes.title}>DEPOSER UNE ANNONCE</Typography>

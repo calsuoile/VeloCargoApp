@@ -75,13 +75,13 @@ export default function CardAds({ photo, title, price, city }) {
           {city}
         </Typography>
 
-        <IconButton color="secondary" className={classes.icon} onClick={handleClickFavorite}>
+        <div color="secondary" className={classes.icon} onClick={handleClickFavorite}>
           {isFavorite ? (
             <FavoriteBorderIcon  />
           ) : (
-            <FavoriteIcon />
+            <FavoriteIcon  />
           )}
-        </IconButton>
+        </div>
         <DeleteButtonAds color="secondary" />
       </div>
     </Card>
