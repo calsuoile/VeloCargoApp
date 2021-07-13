@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "20px",
     paddingTop: "20px",
     marginBottom: "20px",
-    color: "#5E77EB",
+    color: "#006969",
     fontSize: "40px"
   },
 

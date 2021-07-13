@@ -3,6 +3,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import { makeStyles } from "@material-ui/core/styles";
 import SplitButtonType from "./components/SplitButtonType";
+import SelectBike from "./components/SelectBike";
 import IconsHeader from "./components/IconsHeader";
 import ArticlesTipsButton from "./components/ArticlesTipsButton";
 import CreateAdsButton from "./components/CreateAdsButton";
@@ -24,7 +25,8 @@ const useStyles = makeStyles((theme) => ({
     height: '100px',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: "#5E77EB",
+    backgroundColor: "#006969",
+  
     
   },
   menuButton: {
@@ -58,7 +60,8 @@ export default function Header() {
             <BurgerMenu className={classes.menuButton} />
           </Hidden>
           <Hidden smDown>
-            <SplitButtonType />
+            {/* <SplitButtonType /> */}
+            <SelectBike />
             <ArticlesTipsButton />
           </Hidden>
           <div style={{ flexGrow: 1 }}></div>

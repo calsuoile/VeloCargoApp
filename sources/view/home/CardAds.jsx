@@ -40,7 +40,7 @@ const useStyles = makeStyles({
     paddingBottom: "20px",
   },
   title: {
-    color: "#5E77EB",
+    color: "#006969",
   }
 });
 
