@@ -12,14 +12,15 @@ const palette = {
     contrastText: "rgba(255, 255, 255, 1)", // blanc
   },
   secondary: {
-    light: "#FCDCB2", //orange terra cota
-    main: "#F27A06", // orange
+    light: "#FADF54", //orange terra cota
+    main: "#FADF54", // orange
     dark: "#FADF54", // jaune clair doux
     contrastText: "rgba(252, 248, 247, 1)", // blanc
   },
+  
   error: {
     light: "rgba(237, 162, 116, 1)", // orange terra cota
-    main: "rgba(237, 162, 116, 1)", // orange terra cota
+    main: "#B4B8D4", //
     dark: "rgba(237, 162, 116, 1)", // orange terra cota
     contrastText: "#fff", // blanc
   },

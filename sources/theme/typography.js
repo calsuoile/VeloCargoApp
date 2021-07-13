@@ -4,7 +4,7 @@ import palette from "./palette";
 // A utiliser dans des balises <Typrography> avec variant="...". 
 const typography = {
   h1: {
-    color: palette.primary.dark,
+    color: palette.primary.light,
     fontWeight: 900,
     fontSize: "40px",
     lineHeight: 1.1,
@@ -12,7 +12,7 @@ const typography = {
     // Gros titre épais et vert clair. 
   },
   h2: {
-    color: palette.primary.main, 
+    color: palette.primary.light, 
     fontWeight: 400,
     fontSize: "38px",
     lineHeight: 1.5,
@@ -21,7 +21,7 @@ const typography = {
     // Sous titre fin et vert en majuscule. 
   },
   h3: {
-    color: palette.secondary.main,
+    color: palette.primary.light,
     fontWeight: 400,
     fontSize: "32px",
     lineHeight: 1.25,
@@ -46,7 +46,7 @@ const typography = {
     // Même titre que h2 en Noir. 
   },
   h6: {
-    color: palette.secondary.light,
+    color: common.white,
     fontWeight: 900,
     fontSize: "18px",
     lineHeight: 1.45,
