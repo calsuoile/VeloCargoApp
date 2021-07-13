@@ -76,32 +76,32 @@ function Footer(props) {
               </li>
             </a>
           </Link>
-          <Link href="">
+          <Link href="/">
           <a style={{ textDecoration: "none", color: "inherit" }}>
               <li className={classes.undertitle}>Triporteur</li>
             </a>
           </Link>
-          <Link href="">
+          <Link href="/">
           <a style={{ textDecoration: "none", color: "inherit" }}>
               <li className={classes.undertitle}>Biporteur</li>
             </a>
           </Link>
-          <Link href="">
+          <Link href="/">
           <a style={{ textDecoration: "none", color: "inherit" }}>
               <li className={classes.undertitle}>Tricycle</li>
             </a>
           </Link>
-          <Link href="">
+          <Link href="/">
           <a style={{ textDecoration: "none", color: "inherit" }}>
               <li className={classes.undertitle}>LongTrail</li>
             </a>
           </Link>
-          <Link href="">
+          <Link href="/">
           <a style={{ textDecoration: "none", color: "inherit" }}>
               <li className={classes.undertitle}>Remorques</li>
             </a>
           </Link>
-          <Link href="">
+          <Link href="/">
           <a style={{ textDecoration: "none", color: "inherit" }}>
               <li className={classes.undertitle}>Accessoires</li>
             </a>

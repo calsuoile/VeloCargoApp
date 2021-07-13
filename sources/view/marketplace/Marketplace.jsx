@@ -1,5 +1,5 @@
 import React from "react";
-import CardAdsList from "/sources/view/home/CardAdsList";
+import CardAdsList from "../ads/view_ads/CardAdsList";
 import SortBy from "/sources/view/marketplace/components/SortBy";
 import TitleAds from "/sources/view/marketplace/components/TitleAds";
 import { makeStyles } from "@material-ui/core/styles";
