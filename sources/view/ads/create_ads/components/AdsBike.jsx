@@ -26,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.typography.pxToRem(18),
     fontWeight: theme.typography.fontWeightRegular,
   },
-<<<<<<< HEAD
   form: {
     
     width : "70%",
@@ -35,8 +34,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
 
-=======
->>>>>>> origin/dev
   expandIcon: {
     color: "#B4B8D4",
   },

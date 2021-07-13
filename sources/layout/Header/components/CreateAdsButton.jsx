@@ -30,7 +30,7 @@ export default function CreateAdsButton() {
     <div className={classes.root}>
       <Link href="/vendre-un-produit">
         <a style={{ textDecoration: "none", color: "inherit" }}>
-          <Typography className={classes.typo}>DÉPOSER UNE ANNONCE</Typography>
+          <Typography className={classes.typo}><strong>DÉPOSER UNE ANNONCE</strong></Typography>
         </a>
       </Link>
     </div>
