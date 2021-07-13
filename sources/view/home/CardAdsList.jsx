@@ -19,13 +19,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "20px",
     paddingTop: "20px",
   },
-  button: {
-    display: "flex",
-    marginLeft: "90%",
-    marginBottom: "30px",
-    borderRadius: "15px",
-    color: "black",
-  },
+  
 }));
 
 function CardAdsList({ adsCard }) {

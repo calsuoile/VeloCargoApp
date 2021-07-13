@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "80px",
   },
   container: {
-    border: "3px solid rgba(255, 196, 0, 1) ",
+    border: "3px solid #006969 ",
     margin: "50px 50px 50px 50px",
     padding: "10px",
     borderRadius: "10px",
