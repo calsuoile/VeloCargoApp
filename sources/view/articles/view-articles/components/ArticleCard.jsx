@@ -26,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
   },
   deleteButton: {
     justifyContent: "flex-end"
+  }, 
+  date : {
+    color : "#006969"
   }
 }));
 
@@ -40,7 +43,7 @@ export default function ArticleCard({ photo, title, created_at }) {
           <Typography gutterBottom variant="h3" component="h2">
             {title}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body2"  className={classes.date}>
             {moment(created_at).format("LL à hh:mm:ss")}
           </Typography>
         </CardContent>
