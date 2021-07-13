@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { makeStyles, Typography } from "@material-ui/core";
-// import UserContext from "../../../context/user";
-// import axios from "axios";
+import UserContext from "../../../context/user";
+import axios from "axios";
 import CardAds from "../../home/CardAds";
 
 const useStyles = makeStyles((theme) => ({
@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
     borderBottom: "1px solid",
     marginBottom: "20px",
   },
-
   favorite: {
     marginTop: "30px",
     display: "grid",
@@ -32,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Favorites(props) {
   const classes = useStyles();
-
+  const { connectedUser } = useContext(UserContext);
   const [favorites, setFavorites] = useState([
     {
       id: "1",
@@ -56,19 +55,17 @@ function Favorites(props) {
       city: "Bordeaux",
     },
   ]);
-  
-  // const { connectedUser } = useContext(UserContext);
 
-  // useEffect(() => {
-  //   if (Object.keys(connectedUser).length > 0) {
-  //     Promise.all(
-  //       connectedUser.favorites.map((item) => {
-  //         const req = axios.get(`${process.env.NEXT_PUBLIC_API_URL}/ads/${item}`);
-  //         return req;
-  //       })
-  //     ).then((response) => setFavorites(response));
-  //   }
-  // }, [connectedUser]);
+  useEffect(() => {
+    if (Object.keys(connectedUser).length > 0) {
+      Promise.all(
+        connectedUser.favorites.map((item) => {
+          const req = axios.get(`http://localhost:3030/ads/${item}`);
+          return req;
+        })
+      ).then((response) => setFavorites(response));
+    }
+  }, [connectedUser]);
 
   return (
     <div>
@@ -76,7 +73,6 @@ function Favorites(props) {
         <Typography variant="h3" className={classes.title}>
           Mes Favoris :{" "}
         </Typography>
-
         <div className={classes.favorite}>
           {favorites.map((favorite, index) => (
             <CardAds {...favorite} key={index} />
