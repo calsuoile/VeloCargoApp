@@ -81,7 +81,7 @@ export default function Login() {
     };
     try {
       const token = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/users/login`,
+        `http://localhost:3030/users/login`,
         userId
       );
 
@@ -95,12 +95,10 @@ export default function Login() {
       };
 
       const userProfile = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/users/${id}`,
+        `http://localhost:3030/users/me`,
         config
       );
-
       setConnectedUser(userProfile.data);
-
       router.push("/");
     } catch (error) {
       ("identifiants incorrectes");

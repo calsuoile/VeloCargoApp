@@ -84,7 +84,7 @@ export default function Register() {
       password: password,
     };
     await axios.post(`http://localhost:3030/users`, userInscription);
-    router.push("/");
+    router.push("/connexion");
   };
 
   return (
@@ -163,7 +163,6 @@ export default function Register() {
               variant="contained"
               color="primary"
               className={classes.submit}
-              // onClick={handleClick}
             >
               Inscription
             </Button>
