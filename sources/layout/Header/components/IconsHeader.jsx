@@ -25,8 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
   icon: {
     fontSize: "25px",
-    color:"white",
-
+    color: "white",
   },
 }));
 
@@ -35,14 +34,18 @@ export default function IconsHeader() {
 
   return (
     <div className={classes.root}>
-      <Link href="connexion">
-        <Button aria-label="connexion" variant="contained" className={classes.button}>
+      <Link href="/connexion">
+        <Button
+          aria-label="connexion"
+          variant="contained"
+          className={classes.button}
+        >
           Connexion{" "}
         </Button>
       </Link>
-      <Link href="mon-profil">
+      <Link href="/mon-profil">
         <IconButton>
-          <AccountCircleIcon className={classes.icon}/>
+          <AccountCircleIcon className={classes.icon} />
         </IconButton>
       </Link>
     </div>

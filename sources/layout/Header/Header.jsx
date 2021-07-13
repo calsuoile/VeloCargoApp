@@ -12,17 +12,14 @@ import CreateArticleButton from "./components/CreateArticleButton";
 import Link from "next/link";
 import UserContext from "../../context/user";
 
-
 const useStyles = makeStyles((theme) => ({
-
   root: {
     flexGrow: 1,
-    display: 'flex',
-    height: '100px',
-    alignItems: 'center',
-    justifyContent: 'center',
+    display: "flex",
+    height: "100px",
+    alignItems: "center",
+    justifyContent: "center",
     backgroundImage: "url(/assets/backg.png)",
-    
   },
   menuButton: {
     // display: "flex",
@@ -34,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     // display: "flex",
     width: "150px",
     marginLeft: "20px",
-    marginRight: "20px"
+    marginRight: "20px",
   },
 }));
 
@@ -48,24 +45,25 @@ export default function Header() {
 
   return (
     <div className={classes.root}>
-          <Link href="accueil">
-            <a><img className={classes.logo} src="/assets/CargoBikeTrade.png" /></a>
-          </Link>
-          <Hidden mdUp>
-            <BurgerMenu className={classes.menuButton} />
-          </Hidden>
-          <Hidden smDown>
-            {/* <SplitButtonType /> */}
-            <SelectBike />
-            <ArticlesTipsButton />
-          </Hidden>
-          <div style={{ flexGrow: 1 }}></div>
-          <Hidden smDown>
-            <CreateArticleButton />
-            <CreateAdsButton />
-            <AboutButton />
-          </Hidden>
-          <IconsHeader />
+      <Link href="/accueil">
+        <a>
+          <img className={classes.logo} src="/assets/CargoBikeTrade.png" />
+        </a>
+      </Link>
+      <Hidden mdUp>
+        <BurgerMenu className={classes.menuButton} />
+      </Hidden>
+      <Hidden smDown>
+        <SelectBike />
+        <ArticlesTipsButton />
+      </Hidden>
+      <div style={{ flexGrow: 1 }}></div>
+      <Hidden smDown>
+        <CreateArticleButton />
+        <CreateAdsButton />
+        <AboutButton />
+      </Hidden>
+      <IconsHeader />
     </div>
   );
 }

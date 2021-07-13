@@ -1,12 +1,8 @@
 import React from "react";
 import { Avatar, makeStyles, Typography } from "@material-ui/core";
 import OtherArticlesWindow from "./components/OtherArticlesWindow";
-<<<<<<< HEAD
 import DeleteButton from "../../../common/DeleteButton";
 import Link from "next/link";
-=======
-import DeleteButtonAds from "../../../common/DeleteButtonAds";
->>>>>>> origin/dev
 
 const useStyles = makeStyles((theme) => ({
   image: {
@@ -50,11 +46,11 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     display: "flex",
-    margin : "20px"
+    margin: "20px",
   },
 }));
 
-const ViewArticle = ({ articleView, otherArticles }) => {
+const ViewArticle = ({ articleView: [articleView], otherArticles }) => {
   const classes = useStyles();
 
   return (
@@ -67,29 +63,27 @@ const ViewArticle = ({ articleView, otherArticles }) => {
         />
       </div>
       <div className={classes.title}>
-        <Typography variant="h1" >
-          {articleView.title}
-        </Typography>
-        <DeleteButtonAds />
+        <Typography variant="h1">{articleView.title}</Typography>
+        <DeleteButton />
       </div>
       <div className={classes.authorImage}>
         <Avatar alt="Clément Fouillet" src="/assets/clement_fouillet.jpg" />
         <Typography
           style={{ marginLeft: "10px", marginTop: "10px", fontStyle: "italic" }}
         >
-          Le {articleView.date} par {articleView.author}{" "}
+          Le {articleView.created_at} par {articleView.author_id}{" "}
         </Typography>
       </div>
       <div className={classes.container}>
         <Typography variant="body1" className={classes.containerText}>
           {articleView.text}
-          <img src={articleView.photo2} className={classes.otherImages} />
+          <img src={articleView.photo} className={classes.otherImages} />
         </Typography>
 
         <div className={classes.containerOtherArticles}>
-          <Typography variant="h6">Derniers articles</Typography>
+          <Typography variant="h3">Derniers articles</Typography>
           {otherArticles.map((otherArticle) => (
-            <Link href={"articles/" + otherArticle.id} key={otherArticle.id}>
+            <Link href={"/articles/" + otherArticle.id} key={otherArticle.id}>
               <a style={{ textDecoration: "none", color: "inherit" }}>
                 <OtherArticlesWindow key={otherArticle.id} {...otherArticle} />
               </a>
