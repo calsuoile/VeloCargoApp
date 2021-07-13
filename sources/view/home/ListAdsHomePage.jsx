@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "50px",
     display: "flex",
     justifyContent: "center",
-    color: "#5E77EB",
+    color: "#006969",
     fontSize: "40px"
     // color : "white",
     // backgroundColor: "#5E77EB",

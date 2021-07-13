@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import { Link } from "@material-ui/core";
+import Link from "next/link";
 import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -13,10 +12,11 @@ const useStyles = makeStyles((theme) => ({
   },
   typo: {
     color: "white",
-    fontSize: "20px",
+    fontSize: "22px",
     "&:hover": {
-      color: "blue",
+      cursor: "pointer",
     },
+    marginRight: "20px",
   },
 }));
 
