@@ -22,10 +22,14 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Open Sans Condensed, sans-serif",
     fontWeight: 400,
     fontSize: "20px",
+    "&:hover": {
+      backgroundColor: "#F29F24",
+    }
   },
   icon: {
     fontSize: "25px",
-    color: "white",
+    color:"white",
+
   },
 }));
 
@@ -34,18 +38,14 @@ export default function IconsHeader() {
 
   return (
     <div className={classes.root}>
-      <Link href="/connexion">
-        <Button
-          aria-label="connexion"
-          variant="contained"
-          className={classes.button}
-        >
+      <Link href="connexion">
+        <Button aria-label="connexion" variant="contained" className={classes.button}>
           Connexion{" "}
         </Button>
       </Link>
-      <Link href="/mon-profil">
+      <Link href="mon-profil">
         <IconButton>
-          <AccountCircleIcon className={classes.icon} />
+          <AccountCircleIcon className={classes.icon}/>
         </IconButton>
       </Link>
     </div>

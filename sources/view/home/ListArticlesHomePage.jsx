@@ -8,11 +8,14 @@ import Link from "next/link";
 const useStyles = makeStyles((theme) => ({
   button: {
     display: "flex",
-    marginLeft: "90%",
+    marginLeft: "85%",
     marginBottom: "30px",
+    marginTop: "30px",
     borderRadius: "15px",
-    color: "black",
-    marginTop: "20px",
+    color: "white",
+    "&:hover": {
+      backgroundColor: " #F29F24 ",
+    },
   },
   title: {
     display: "flex",

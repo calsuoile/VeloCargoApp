@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { makeStyles, Typography } from "@material-ui/core";
-// import UserContext from "../../../context/user";
-// import axios from "axios";
+import UserContext from "../../../context/user";
+import axios from "axios";
 import CardAds from "../../home/CardAds";
 
 const useStyles = makeStyles((theme) => ({
@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
     borderBottom: "1px solid",
     marginBottom: "20px",
   },
-
   favorite: {
     marginTop: "30px",
     display: "grid",
@@ -32,43 +31,42 @@ const useStyles = makeStyles((theme) => ({
 
 function Favorites(props) {
   const classes = useStyles();
+  const { connectedUser } = useContext(UserContext);
+  const [favorites, setFavorites] = useState([]);
+  // const [favorites, setFavorites] = useState([
+  //   {
+  //     id: "1",
+  //     photo: "https://source.unsplash.com/random?bike/4",
+  //     title: "Vélo Cargo",
+  //     price: "1230 €",
+  //     city: "Bordeaux",
+  //   },
+  //   {
+  //     id: "2",
+  //     photo: "https://source.unsplash.com/random?bike/5",
+  //     title: "Vélo Cargo",
+  //     price: "1380 €",
+  //     city: "Bordeaux",
+  //   },
+  //   {
+  //     id: "3",
+  //     photo: "https://source.unsplash.com/random?bike/6",
+  //     title: "Vélo Cargo",
+  //     price: "1560 €",
+  //     city: "Bordeaux",
+  //   },
+  // ]);
 
-  const [favorites, setFavorites] = useState([
-    {
-      id: "1",
-      photo: "https://source.unsplash.com/random?bike/4",
-      title: "Vélo Cargo",
-      price: "1230 €",
-      city: "Bordeaux",
-    },
-    {
-      id: "2",
-      photo: "https://source.unsplash.com/random?bike/5",
-      title: "Vélo Cargo",
-      price: "1380 €",
-      city: "Bordeaux",
-    },
-    {
-      id: "3",
-      photo: "https://source.unsplash.com/random?bike/6",
-      title: "Vélo Cargo",
-      price: "1560 €",
-      city: "Bordeaux",
-    },
-  ]);
-  
-  // const { connectedUser } = useContext(UserContext);
-
-  // useEffect(() => {
-  //   if (Object.keys(connectedUser).length > 0) {
-  //     Promise.all(
-  //       connectedUser.favorites.map((item) => {
-  //         const req = axios.get(`${process.env.NEXT_PUBLIC_API_URL}/ads/${item}`);
-  //         return req;
-  //       })
-  //     ).then((response) => setFavorites(response));
-  //   }
-  // }, [connectedUser]);
+  useEffect(() => {
+    if (Object.keys(connectedUser).length > 0 && connectedUser.favorites?.length) {
+      Promise.all(
+        connectedUser?.favorites?.map((item) => {
+          const req = axios.get(`http://localhost:3030/ads/${item}`);
+          return req;
+        })
+      ).then((response) => setFavorites(response));
+    }
+  }, [connectedUser]);
 
   return (
     <div>
@@ -76,9 +74,8 @@ function Favorites(props) {
         <Typography variant="h3" className={classes.title}>
           Mes Favoris :{" "}
         </Typography>
-
         <div className={classes.favorite}>
-          {favorites.map((favorite, index) => (
+          {favorites?.map((favorite, index) => (
             <CardAds {...favorite} key={index} />
           ))}
         </div>

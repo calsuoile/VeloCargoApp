@@ -41,6 +41,9 @@ const useStyles = makeStyles({
   },
   title: {
     color: "#006969",
+  }, 
+  price :{
+    color : "#B4B8D4"
   }
 });
 
@@ -58,11 +61,11 @@ export default function CardAds({ photo, title, price, city }) {
       <CardActionArea>
         <img className={classes.image} src={photo} />
         <CardContent className={classes.content}>
-          <Typography gutterBottom variant="h6" component="h1" className={classes.title}>
+          <Typography variant="h6" component="h1" className={classes.title}>
             {title}
           </Typography>
-          <Typography variant="h6" color="textSecondary" component="p">
-            {price}€
+          <Typography variant="h6" className={classes.price}>
+            {price}
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -72,13 +75,13 @@ export default function CardAds({ photo, title, price, city }) {
           {city}
         </Typography>
 
-        <IconButton color="secondary" className={classes.icon}>
+        <div color="secondary" className={classes.icon} onClick={handleClickFavorite}>
           {isFavorite ? (
-            <FavoriteBorderIcon onClick={handleClickFavorite} />
+            <FavoriteBorderIcon  />
           ) : (
-            <FavoriteIcon onClick={handleClickFavorite} />
+            <FavoriteIcon  />
           )}
-        </IconButton>
+        </div>
         <DeleteButtonAds color="secondary" />
       </div>
     </Card>

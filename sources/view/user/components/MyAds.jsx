@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { makeStyles, Typography } from "@material-ui/core";
-// import axios from "axios";
-// import UserContext from "../../../context/user";
+import axios from "axios";
+import UserContext from "../../../context/user";
 import CardAds from "../../home/CardAds";
 
 const useStyles = makeStyles((theme) => ({
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
 function MyAds(props) {
   const classes = useStyles();
-
+  const { connectedUser } = useContext(UserContext);
   const [ads, setAds] = useState([]);
   const [myAds, setMyAds] = useState([
     {
@@ -57,23 +57,24 @@ function MyAds(props) {
     },
   ]);
 
-  // const { connectedUser } = useContext(UserContext);
-  // useEffect(() => {
-  //   console.log(connectedUser);
+  useEffect(() => {
+    console.log(connectedUser);
 
-  //   if (Object.keys(connectedUser).length > 0) {
-  //     const accessToken = localStorage.getItem("userToken");
-  //     const config = {
-  //       headers: {
-  //         Authorization: `Bearer ${accessToken}`,
-  //       },
-  //     };
-  //     axios.get(`${process.env.NEXT_PUBLIC_API_URL}/ads`, config).then((response) => {
-  //       setAds(response.data);
-  //       console.log(response.data);
-  //     });
-  //   }
-  // }, [connectedUser]);
+    if (Object.keys(connectedUser).length > 0) {
+      const accessToken = localStorage.getItem("userToken");
+      const config = {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      };
+      axios
+        .get(`http://localhost:3030/ads`, config)
+        .then((response) => {
+          setAds(response.data);
+          console.log(response.data);
+        });
+    }
+  }, [connectedUser]);
 
   return (
     <div>

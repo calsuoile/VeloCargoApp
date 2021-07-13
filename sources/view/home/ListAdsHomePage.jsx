@@ -5,21 +5,24 @@ import Button from "@material-ui/core/Button";
 import CardAds from "../ads/view_ads/components/CardAds";
 import Link from "next/link";
 
-
 const useStyles = makeStyles((theme) => ({
   button: {
     display: "flex",
-    marginLeft: "90%",
+    marginLeft: "85%",
     marginBottom: "30px",
+    marginTop: "30px",
     borderRadius: "15px",
-    color: "black",
+    color: "white",
+    "&:hover": {
+      backgroundColor: " #F29F24 ",
+    },
   },
   title: {
     margin: "50px",
     display: "flex",
     justifyContent: "center",
     color: "#006969",
-    fontSize: "40px"
+    fontSize: "40px",
     // color : "white",
     // backgroundColor: "#5E77EB",
     // padding: "15px",

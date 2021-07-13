@@ -26,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
   },
   deleteButton: {
     justifyContent: "flex-end"
+  }, 
+  date : {
+    color : "#006969"
   }
 }));
 
