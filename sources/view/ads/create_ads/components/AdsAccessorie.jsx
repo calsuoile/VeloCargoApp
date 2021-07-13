@@ -116,7 +116,6 @@ const handleChange = (e) => {
   setForm({ ...form, [e.target.name]: e.target.value });
 };
 
-
 const handleClick = () => {
   console.log(form);
   postForm();
@@ -136,13 +135,7 @@ const postForm = () => {
   const config = {
     headers: { Authorization: `Bearer ${token}` },
   };
-  axios.post(`http://localhost:3030/cargobike`, form, config).then(() => {
-    router.push("/");
-  });
   axios.post(`http://localhost:3030/accessories`, form, config).then(() => {
-    router.push("/");
-  });
-  axios.post(`http://localhost:3030/trailer`, form, config).then(() => {
     router.push("/");
   });
 };

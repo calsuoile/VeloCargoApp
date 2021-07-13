@@ -71,7 +71,7 @@ export default function SplitButtonType() {
         aria-label="split button"
         color="secondary"
       >
-        <Link href="acheter-un-velo-cargo" style={{ textDecoration: "none" }}>
+        <Link href="/acheter-un-velo-cargo" style={{ textDecoration: "none" }}>
         <Button aria-label="connexion" variant="contained" color="primary"onClick={handleClick}>{options[selectedIndex]}</Button>
         </Link>
         <Button

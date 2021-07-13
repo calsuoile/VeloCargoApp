@@ -37,7 +37,7 @@ export async function getStaticProps(props) {
     mecanic_state: "bon",
     esthetic_state: "bon",
     engine_power: "25",
-    battery_wolt: "50",
+    battery_volt: "50",
   };
 
   const user = {
