@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import IconButton from "@material-ui/core/IconButton";
-import DeleteButtonAds from "../../common/DeleteButtonAds";
+import DeleteButtonAds from "../../../../common/DeleteButtonAds";
 
 const useStyles = makeStyles({
   root: {

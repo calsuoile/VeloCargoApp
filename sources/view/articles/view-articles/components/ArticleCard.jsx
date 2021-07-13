@@ -43,8 +43,8 @@ export default function ArticleCard({ photo, title, created_at }) {
           <Typography gutterBottom variant="h3" component="h2">
             {title}
           </Typography>
-          <Typography variant="body2"  className={classes.date}>
-            {moment(created_at).format("LL à hh:mm:ss")}
+          <Typography variant="body2" color="textSecondary" component="p">
+            {moment(created_at).format("LL à hh:mm")}
           </Typography>
         </CardContent>
       </CardActionArea>
