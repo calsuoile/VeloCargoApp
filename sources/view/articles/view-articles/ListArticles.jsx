@@ -44,7 +44,7 @@ const ListArticles = ({ articles }) => {
         {articles
           // .filter((article) => article.title.includes(searchValue))
           .map((article) => (
-            <Link href={"articles/" + article.id} key={article.id}>
+            <Link href={"/articles/" + article.id} key={article.id}>
               <a style={{ textDecoration: "none", color: "inherit" }}>
                 <ArticleCard key={article.id} {...article} />
               </a>

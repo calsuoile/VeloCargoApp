@@ -13,12 +13,11 @@ const useStyles = makeStyles((theme) => ({
   },
   typo: {
     color: "white",
-    fontSize:"20px",
+    fontSize: "20px",
     "&:hover": {
-      color:"blue",
-    }
-  }
-
+      color: "blue",
+    },
+  },
 }));
 
 export default function CreateArticleButton() {
@@ -26,10 +25,12 @@ export default function CreateArticleButton() {
 
   return (
     <div className={classes.root}>
-      <Link href="creer-un-article" style={{ textDecoration: "none" }}>
-        <Typography variant="h5" className={classes.typo}>
-          Créer un Article
-        </Typography>
+      <Link href="/creer-un-article">
+        <a style={{ textDecoration: "none", color: "inherit" }}>
+          <Typography variant="h5" className={classes.typo}>
+            Créer un Article
+          </Typography>
+        </a>
       </Link>
     </div>
   );

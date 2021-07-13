@@ -9,17 +9,16 @@ const useStyles = makeStyles((theme) => ({
     "& > *": {
       margin: theme.spacing(1),
     },
-    
+
     border: "none",
   },
   typo: {
     color: "white",
-    fontSize:"20px",
+    fontSize: "20px",
     "&:hover": {
-      color:"blue",
-      
-    }
-  }
+      color: "blue",
+    },
+  },
 }));
 
 export default function AboutButton() {
@@ -27,10 +26,12 @@ export default function AboutButton() {
 
   return (
     <div className={classes.root}>
-      <Link href="a-propos" style={{ textDecoration: "none" }}>
-        <Typography variant="h5" className={classes.typo}>
-          À PROPOS
-        </Typography>
+      <Link href="/a-propos">
+        <a style={{ textDecoration: "none", color: "inherit" }}>
+          <Typography variant="h5" className={classes.typo}>
+            À PROPOS
+          </Typography>
+        </a>
       </Link>
     </div>
   );

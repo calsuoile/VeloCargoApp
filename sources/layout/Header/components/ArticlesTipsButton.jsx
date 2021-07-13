@@ -21,10 +21,12 @@ export default function ArticlesTipsButton() {
 
   return (
     <div className={classes.root}>
-      <Link href="articles" style={{ textDecoration: "none" }}>
+      <Link href="/articles">
+        <a  style={{ textDecoration: "none", color: "inherit" }}>
         <Typography variant="h5" className={classes.typo}>
           ARTICLES & ASTUCES
         </Typography>
+        </a>
       </Link>
     </div>
   );
