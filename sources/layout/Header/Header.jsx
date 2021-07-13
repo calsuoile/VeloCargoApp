@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import SplitButtonType from "./components/SplitButtonType";
+import SelectBike from "./components/SelectBike";
 import IconsHeader from "./components/IconsHeader";
 import ArticlesTipsButton from "./components/ArticlesTipsButton";
 import CreateAdsButton from "./components/CreateAdsButton";
@@ -54,7 +55,8 @@ export default function Header() {
             <BurgerMenu className={classes.menuButton} />
           </Hidden>
           <Hidden smDown>
-            <SplitButtonType />
+            {/* <SplitButtonType /> */}
+            <SelectBike />
             <ArticlesTipsButton />
           </Hidden>
           <div style={{ flexGrow: 1 }}></div>
