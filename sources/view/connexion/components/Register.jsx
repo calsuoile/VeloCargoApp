@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -11,6 +11,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
 import axios from "axios";
 import { useRouter } from "next/router";
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from "@material-ui/core";
 
 function Copyright() {
   return (
@@ -61,15 +68,34 @@ const useStyles = makeStyles((theme) => ({
   name: {
     display: "flex",
   },
+  ok: {
+    fontFamily: "Open Sans Condensed, sans-serif",
+    fontWeight: 400,
+    fontSize: "20px",
+  },
+  dialog: {
+    backgroundColor: "#F29F24",
+    fontFamily: "Staatliches, cursive",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: "40px",
+  },
+  alert: {
+    fontFamily: "Open Sans Condensed, sans-serif",
+    fontSize: "15px",
+    marginTop: "20px",
+  },
 }));
 
 export default function Register() {
   const classes = useStyles();
-  const [lastname, setLastName] = React.useState("");
-  const [firstname, setFirstName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [lastname, setLastName] = useState("");
+  const [firstname, setFirstName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const router = useRouter();
+  const [open, setOpen] = useState(false);
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -80,7 +106,7 @@ export default function Register() {
       password: password,
     };
     await axios.post(`http://localhost:3030/users`, userInscription);
-    router.push("/");
+    router.push("/connexion");
   };
 
   return (
@@ -126,7 +152,6 @@ export default function Register() {
                 onChange={(e) => setFirstName(e.target.value)}
               />
             </div>
-
             <TextField
               value={email}
               variant="outlined"
@@ -159,9 +184,37 @@ export default function Register() {
               variant="contained"
               color="primary"
               className={classes.submit}
+              onClick={() => setOpen(true)}
             >
               Inscription
             </Button>
+            <Dialog
+              open={open}
+              aria-labelledby="alert-dialog-title"
+              aria-describedby="alert-dialog-description"
+            >
+              <DialogTitle id="alert-dialog-title" className={classes.dialog}>
+                {"INSCRIPTION RÉUSSIE"}
+              </DialogTitle>
+              <DialogContent>
+                <DialogContentText
+                  id="alert-dialog-description"
+                  className={classes.alert}
+                >
+                  Connectez vous pour continuer
+                </DialogContentText>
+              </DialogContent>
+              <DialogActions>
+                <Button
+                  className={classes.ok}
+                  onClick={() => setOpen(false)}
+                  color="primary"
+                  autoFocus
+                >
+                  <strong>Ok</strong>
+                </Button>
+              </DialogActions>
+            </Dialog>
             <Box mt={5}>
               <Copyright />
             </Box>

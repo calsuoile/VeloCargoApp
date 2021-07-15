@@ -13,7 +13,6 @@ import {
   DialogContentText,
   DialogTitle,
 } from "@material-ui/core";
-import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 
 const useStyles = makeStyles((theme) => ({
   ok: {
@@ -21,18 +20,17 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 400,
     fontSize: "20px",
   },
-
-  dialog: {
+  dialog: {
     backgroundColor: "#F29F24",
     fontFamily: "Staatliches, cursive",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    fontSize:"40px",
+    fontSize: "40px",
   },
   container: {
-  //  backgroundColor: "#FFA1B0",
-  //  borderRadius: "30px",
+    //  backgroundColor: "#FFA1B0",
+    //  borderRadius: "30px",
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -48,7 +46,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "20px",
     "&:hover": {
       background: "#F29F24",
-      
     },
   },
   root: {
@@ -57,38 +54,33 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
     },
   },
-
   contact: {
     margin: "20px",
     color: "white",
     textAlign: "center",
     fontWeight: 500,
-    fontSize:"30px",
+    fontSize: "30px",
     // borderBottom: "1px solid",
     // paddingBottom: "20px",
-  
   },
   input: {
     backgroundColor: "white",
     borderRadius: "5px",
-   
   },
   button: {
     display: "flex",
     justifyContent: "center",
-   
   },
   hr: {
     width: "50%",
     marginTop: "8%",
-    marginBottom: "10%"
+    marginBottom: "10%",
   },
-
-    alert: {
-      fontFamily: "Open Sans Condensed, sans-serif",
-      fontSize:"15px",
-      marginTop: "20px"
-    }
+  alert: {
+    fontFamily: "Open Sans Condensed, sans-serif",
+    fontSize: "15px",
+    marginTop: "20px",
+  },
 }));
 
 export default function Form() {
@@ -119,7 +111,6 @@ export default function Form() {
         <Typography className={classes.contact}>
           <strong>CONTACTEZ-NOUS</strong>
           <hr className={classes.hr}></hr>
-        
         </Typography>
         <form className={classes.form} noValidate onSubmit={handleSubmit}>
           <Grid container spacing={2}>
@@ -201,17 +192,25 @@ export default function Form() {
             aria-describedby="alert-dialog-description"
           >
             <DialogTitle id="alert-dialog-title" className={classes.dialog}>
-              {"MERCI POUR VOTRE MESSAGE !"} 
+              {"MERCI POUR VOTRE MESSAGE !"}
             </DialogTitle>
             <DialogContent>
-              <DialogContentText id="alert-dialog-description" className={classes.alert}>
+              <DialogContentText
+                id="alert-dialog-description"
+                className={classes.alert}
+              >
                 Vélo Cargo Trade se fera un plaisir de vous répondre dans les
                 plus brefs délais!
               </DialogContentText>
             </DialogContent>
             <DialogActions>
-              <Button className={classes.ok} onClick={() => setOpen(false)} color="primary" autoFocus>
-               <strong>Ok</strong> 
+              <Button
+                className={classes.ok}
+                onClick={() => setOpen(false)}
+                color="primary"
+                autoFocus
+              >
+                <strong>Ok</strong>
               </Button>
             </DialogActions>
           </Dialog>

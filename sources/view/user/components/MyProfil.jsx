@@ -19,7 +19,12 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "100px",
     width: "92%",
   },
-  name: {
+  firstname: {
+    display: "flex",
+    justifyContent: "center",
+    margin: "30px",
+  },
+  lastname: {
     display: "flex",
     justifyContent: "center",
     margin: "30px",
@@ -104,9 +109,9 @@ function MyProfil(props) {
         </Typography>
         {!edition ? (
           <div>
-            <div className={classes.name}>
-              <Typography variant="h2"> {connectedUser.firstname}</Typography>{" "}
-              <Typography variant="h2">{connectedUser.lastname}</Typography>{" "}
+            <div>
+              <Typography className={classes.firstname} variant="h2"> {connectedUser.firstname}</Typography>{" "}
+              <Typography className={classes.lastname}variant="h2">{connectedUser.lastname}</Typography>{" "}
             </div>
             <div className={classes.contact}>
               <Typography variant="h2">{connectedUser.email}</Typography>{" "}
