@@ -16,6 +16,11 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: " #F29F24 ",
     },
+    [theme.breakpoints.down("sm")]: {
+      width:"20px",
+      fontSize : "10px",
+      marginLeft : "80%"
+    },
   },
   title: {
     display: "flex",
@@ -24,7 +29,10 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "20px",
     marginBottom: "20px",
     color: "#006969",
-    fontSize: "40px"
+    fontSize: "40px",
+    [theme.breakpoints.down("sm")]: {
+      fontSize : "30px"
+       },
   },
 
   cards: {

@@ -8,6 +8,7 @@ import {
   Input,
 } from "@material-ui/core";
 
+
 const useStyles = makeStyles((theme) => ({
   h1: {
     display: "flex",
@@ -21,9 +22,12 @@ const useStyles = makeStyles((theme) => ({
     padding: "10px",
     borderRadius: "10px",
     marginBottom: "100px",
-
     width: "92%",
-  },
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(1),
+      
+
+  },},
   name: {
     display: "flex",
     justifyContent: "center",
