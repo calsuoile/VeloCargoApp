@@ -29,12 +29,23 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "25px",
     color: "white",
   },
+  buttonco: {
+    backgroundColor: "#5C9A9A",
+    color: "white",
+    fontFamily: "Open Sans Condensed, sans-serif",
+    fontWeight: 400,
+    fontSize: "20px",
+    marginRight: "40px",
+    "&:hover": {
+      backgroundColor: "#F29F24",
+    }
+  }
 }));
 
 export default function ConnectionButton() {
   const classes = useStyles();
-  const {connectedUser, setConnectedUser} = useContext(UserContext);
-  const router= useRouter();
+  const { connectedUser, setConnectedUser } = useContext(UserContext);
+  const router = useRouter();
 
   const handleClick = () => {
     setConnectedUser({});

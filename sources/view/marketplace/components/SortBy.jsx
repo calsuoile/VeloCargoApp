@@ -9,7 +9,8 @@ import axios from "axios";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    alignItems: "flex-end",
+    justifyContent: "flex-end",
+    marginRight: "80px",
   },
   button: {
     display: "block",
@@ -59,9 +60,10 @@ export default function SortBy() {
           onChange={handleChangeSort}
         >
           <MenuItem value=""></MenuItem>
-          <MenuItem value={10}>Nouveautés</MenuItem>
-          <MenuItem value={20}>Prix croissant</MenuItem>
-          <MenuItem value={30}>Prix décroissant</MenuItem>
+          <MenuItem value={10}>Plus récents</MenuItem>
+          <MenuItem value={20}>Plus anciens</MenuItem>
+          <MenuItem value={30}>Prix croissant</MenuItem>
+          <MenuItem value={40}>Prix décroissant</MenuItem>
         </Select>
       </FormControl>
     </div>

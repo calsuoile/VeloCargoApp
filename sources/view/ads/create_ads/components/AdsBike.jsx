@@ -27,13 +27,11 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: theme.typography.fontWeightRegular,
   },
   form: {
-    
     width : "70%",
     display : "flex",
     justifyContent: "center",
     flexDirection: "column",
   },
-
   expandIcon: {
     color: "#B4B8D4",
   },
@@ -141,6 +139,7 @@ export default function AdsBike(props) {
 
   const router = useRouter();
 
+  //donne l'accès seulement aux utilisateurs connectés de poster une annonce
   const postForm = () => {
     const token = localStorage.getItem("userToken");
     const config = {

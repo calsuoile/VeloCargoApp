@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { makeStyles, Typography } from "@material-ui/core";
 import axios from "axios";
 import UserContext from "../../../context/user";
-import CardAds from "../../ads/view_ads/components/CardAds"
+import CardAds from "../../ads/view_ads/components/CardAds";
 
 const useStyles = makeStyles((theme) => ({
   contain: {
@@ -57,9 +57,9 @@ function MyAds(props) {
     },
   ]);
 
+  //si l'utilisateur est connecté, cela renvoie les annonces qu'il a posté sur sa page user
   useEffect(() => {
     console.log(connectedUser);
-
     if (Object.keys(connectedUser).length > 0) {
       const accessToken = localStorage.getItem("userToken");
       const config = {

@@ -13,10 +13,11 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   filter: {
-    margin: "30px",
+    margin: "40px",
     backgroundColor: "#5C9A9A",
+    fontSize: "32px",
     borderRadius: "30px",
-    padding: "30px",
+    padding: "50px",
     display: "flex",
     flexDirection: "column",
   },
