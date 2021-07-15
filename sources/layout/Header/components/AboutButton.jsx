@@ -9,19 +9,18 @@ const useStyles = makeStyles((theme) => ({
     "& > *": {
       margin: theme.spacing(1),
     },
-
     border: "none",
   },
   typo: {
     color: "white",
-    fontSize:"22px",
+    fontSize: "22px",
     "&:hover": {
-      cursor: "pointer"
+      cursor: "pointer",
     },
-    marginRight:"20px",
+    marginRight: "20px",
     borderLeft: "1px solid",
-    paddingLeft:"20px",
-  }
+    paddingLeft: "20px",
+  },
 }));
 
 export default function AboutButton() {

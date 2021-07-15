@@ -1,12 +1,8 @@
-import React, { useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { makeStyles } from "@material-ui/core";
 import UserContext from "../../../context/user";
 import axios from "axios";
-import {
-  Typography,
-  Button,
-  Input,
-} from "@material-ui/core";
+import { Typography, Button, Input } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   h1: {
@@ -21,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
     padding: "10px",
     borderRadius: "10px",
     marginBottom: "100px",
-
     width: "92%",
   },
   name: {
@@ -36,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     margin: "30px",
   },
-
   button: {
     width: "100px",
     display: "flex",
@@ -53,7 +47,6 @@ const useStyles = makeStyles((theme) => ({
     width: "500px",
     fontSize: "50px",
   },
-
   button2: {
     marginTop: "10px",
     borderRadius: "15px",
@@ -62,32 +55,50 @@ const useStyles = makeStyles((theme) => ({
 
 function MyProfil(props) {
   const classes = useStyles();
+  const { connectedUser, setConnectedUser } = useContext(UserContext);
+  const [edition, setEdition] = useState(true);
+  const [form, setForm] = useState({
+    // firstname: "",
+    // lastname: "",
+    // email: "",
+    // phone_number: "",
+    // city: "",
+  });
 
-  const { connectedUser } = useContext(UserContext);
-
-  const [edition, setEdition] = React.useState(true);
   const handleEdition = () => {
     setEdition(!edition);
   };
 
-  const [form, setForm] = React.useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    phone_number: "",
-    city: "",
-  });
-
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setForm((oldValues) => ({ ...oldValues, [e.target.name]: e.target.value }));
   };
 
-  // const handleSubmit = () => {
-  //   console.log(form);
-  // };
+  useEffect(() => {
+    getUsersInfos();
+  }, [props.userId]);
+
+  const getUsersInfos = () => {
+    try {
+      const accessToken = localStorage.getItem("userToken");
+      if (accessToken) {
+        const config = {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        };
+        axios
+          .get(`https://localhost:3030/users/${props.userId}`, config)
+          .then((response) => response.data)
+          .then((data) => {
+            // console.log(data);
+            setForm(data);
+          });
+      }
+    } catch (e) {}
+  };
 
   const handleClick = async () => {
-    if (editionMode) {
+    if (edition) {
       try {
         const accessToken = localStorage.getItem("userToken");
         if (accessToken) {
@@ -97,7 +108,7 @@ function MyProfil(props) {
             },
           };
           const updatedUser = await axios.patch(
-            `http://localhost:3030/users/${form._id}`,
+            `http://localhost:3030/users/${form.id}`,
             form,
             config
           );
@@ -106,8 +117,7 @@ function MyProfil(props) {
         }
       } catch (e) {}
     }
-
-    setEditionMode(!editionMode);
+    setEdition(!edition);
   };
 
   return (
@@ -136,14 +146,15 @@ function MyProfil(props) {
                   fullWidth={true}
                   placeholder="Prénom"
                   name="firstname"
-                  form={form.firstname}
+                  value={form.firstname}
                   onChange={handleChange}
                 ></Input>
+                {" "}
                 <Input
                   fullWidth={true}
                   placeholder="Nom"
                   name="lastname"
-                  form={form.lastname}
+                  value={form.lastname}
                   onChange={handleChange}
                 ></Input>
               </div>
@@ -152,21 +163,21 @@ function MyProfil(props) {
                   fullWidth={true}
                   placeholder="Email"
                   name="email"
-                  form={form.email}
+                  value={form.email}
                   onChange={handleChange}
                 ></Input>
                 <Input
                   fullWidth={true}
                   placeholder="Numéro de téléphone"
                   name="phone_number"
-                  form={form.phone_number}
+                  value={form.phone_number}
                   onChange={handleChange}
                 ></Input>
                 <Input
                   fullWidth={true}
                   placeholder="Ville"
                   name="city"
-                  form={form.city}
+                  value={form.city}
                   onChange={handleChange}
                 ></Input>
                 <Button

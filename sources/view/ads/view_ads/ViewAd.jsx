@@ -22,17 +22,14 @@ const useStyles = makeStyles({
     borderBottomHeight: "10px",
     paddingBottom: "15px",
   },
-
   where: {
     paddingTop: "5px",
     display: "flex",
     alignItems: "center",
   },
-
   when: {
     marginLeft: "25px",
   },
-
   contact: {
     display: "flex",
     alignItems: "center",
@@ -43,48 +40,40 @@ const useStyles = makeStyles({
     alignItems: "center",
     justifyContent: "space-between",
   },
-
   photo: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     // paddingTop: "10px",
   },
-
   table: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     marginTop: "20px",
   },
-
   technique: {
     marginTop: "50px",
   },
-
   title: {
     marginLeft: "0px",
     marginBottom: "30px",
     borderBottom: "1px solid",
   },
-
   accessory: {
     marginTop: "50px",
   },
-
   accessoryImg: {
     display: "flex",
     justifyContent: "space-evenly",
     borderRadius: "5px",
   },
-
   carousel: {
     width: " 70%",
     display: "flex",
     justifyContent: "center",
     paddingTop: "30px",
   },
-
   num: {
     display: "flex",
     alignItems: "center",
@@ -142,7 +131,6 @@ function ViewAd({ ads, user }) {
         </Typography>
         <DeleteButtonAds color="secondary" />
       </div>
-
       <div className={classes.photo}>
         <AdsCarousel className={classes.carousel} />
       </div>

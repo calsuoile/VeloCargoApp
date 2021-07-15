@@ -6,7 +6,6 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
-import IconButton from "@material-ui/core/IconButton";
 import DeleteButtonAds from "../../../../common/DeleteButtonAds";
 
 const useStyles = makeStyles({
@@ -20,16 +19,13 @@ const useStyles = makeStyles({
   media: {
     height: 140,
   },
-
   content: {
     backgroundColor: "#fff",
   },
-
   image: {
     width: "100%",
     height: 250,
   },
-
   cityandicon: {
     height: "50px",
     display: "flex",
@@ -41,14 +37,13 @@ const useStyles = makeStyles({
   },
   title: {
     color: "#006969",
-  }, 
-  price :{
-    color : "#B4B8D4"
-  }
+  },
+  price: {
+    color: "#B4B8D4",
+  },
 });
 
 export default function CardAds({ photo, title, price, city }) {
-  // function CardAds ({ card }) {
   const [isFavorite, setIsFavorite] = React.useState(true);
 
   const handleClickFavorite = () => {
@@ -69,18 +64,16 @@ export default function CardAds({ photo, title, price, city }) {
           </Typography>
         </CardContent>
       </CardActionArea>
-
       <div className={classes.cityandicon}>
         <Typography variant="body2" color="secondary" className={classes.city}>
           {city}
         </Typography>
-
-        <div color="secondary" className={classes.icon} onClick={handleClickFavorite}>
-          {isFavorite ? (
-            <FavoriteBorderIcon  />
-          ) : (
-            <FavoriteIcon  />
-          )}
+        <div
+          color="secondary"
+          className={classes.icon}
+          onClick={handleClickFavorite}
+        >
+          {isFavorite ? <FavoriteBorderIcon /> : <FavoriteIcon />}
         </div>
         <DeleteButtonAds color="secondary" />
       </div>

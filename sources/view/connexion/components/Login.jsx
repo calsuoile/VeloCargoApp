@@ -31,12 +31,10 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     width: "100%",
     height: "100vh",
-
     // backgroundColor: "#EDA274",
   },
   contain: {
     opacity: 0.5,
-
     "&:hover": {
       //     background: "rgb(104,219,150)",
       //   background: "radial-gradient(circle, rgba(104,219,150,1) 0%, rgba(255,209,150,0.6713060224089635) 100%)",
@@ -50,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
   },
-
   avatar: {
     margin: "20px",
     backgroundColor: "rgba(237, 162, 116, 1)",
@@ -67,7 +64,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Login() {
   const classes = useStyles();
-
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const router = useRouter();
@@ -84,16 +80,13 @@ export default function Login() {
         `http://localhost:3030/users/login`,
         userId
       );
-
       console.log(token.data);
       localStorage.setItem("userToken", token.data.access_token);
-
       const config = {
         headers: {
           Authorization: `Bearer ${token.data.access_token}`,
         },
       };
-
       const userProfile = await axios.get(
         `http://localhost:3030/users/me`,
         config
