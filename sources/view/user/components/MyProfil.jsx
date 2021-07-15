@@ -23,11 +23,17 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     margin: "30px",
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(1),
+    },
   },
   lastname: {
     display: "flex",
     justifyContent: "center",
     margin: "30px",
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(1),
+    },
   },
   contact: {
     display: "flex",
@@ -72,7 +78,7 @@ function MyProfil(props) {
 
   const handleEdition = () => {
     setEdition(true);
-    console.log('edition');
+    console.log("edition");
   };
 
   const handleChange = (e) => {
@@ -80,24 +86,24 @@ function MyProfil(props) {
   };
 
   const handleClick = async () => {
-   console.log("handle1");
-      try {
-        const accessToken = localStorage.getItem("userToken");
-        if (accessToken) {
-          console.log("handle2");
-          const config = {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          };
-          const updatedUser = await axios.patch(
-            `http://localhost:3030/users/${connectedUser.id}`,
-            form,
-            config
-          );
-          setConnectedUser({ ...connectedUser, ...form });
-        }
-      } catch (e) {}
+    console.log("handle1");
+    try {
+      const accessToken = localStorage.getItem("userToken");
+      if (accessToken) {
+        console.log("handle2");
+        const config = {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        };
+        const updatedUser = await axios.patch(
+          `http://localhost:3030/users/${connectedUser.id}`,
+          form,
+          config
+        );
+        setConnectedUser({ ...connectedUser, ...form });
+      }
+    } catch (e) {}
     setEdition(false);
   };
 
@@ -110,8 +116,13 @@ function MyProfil(props) {
         {!edition ? (
           <div>
             <div>
-              <Typography className={classes.firstname} variant="h2"> {connectedUser.firstname}</Typography>{" "}
-              <Typography className={classes.lastname}variant="h2">{connectedUser.lastname}</Typography>{" "}
+              <Typography className={classes.firstname} variant="h2">
+                {" "}
+                {connectedUser.firstname}
+              </Typography>{" "}
+              <Typography className={classes.lastname} variant="h2">
+                {connectedUser.lastname}
+              </Typography>{" "}
             </div>
             <div className={classes.contact}>
               <Typography variant="h2">{connectedUser.email}</Typography>{" "}

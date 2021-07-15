@@ -4,17 +4,15 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     justifyContent: "flex-end",
-    marginRight: "80px",
+    // marginRight: "80px",
   },
-  button: {
-    display: "block",
-    marginTop: theme.spacing(2),
-  },
+
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
@@ -23,11 +21,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SortBy() {
   const classes = useStyles();
-  const [category, setCategory] = React.useState("");
+  const [sort, setSort] = React.useState("");
   const [open, setOpen] = React.useState(false);
 
-  const handleChange = (event) => {
-    setCategory(event.target.value);
+  const handleChangeSort = (event) => {
+    if (value === 20) {
+      axios.get("http://localhost:3030/ads")
+    }
+    setSort(event.target.value);
   };
 
   const handleClose = () => {
@@ -37,6 +38,8 @@ export default function SortBy() {
   const handleOpen = () => {
     setOpen(true);
   };
+
+
 
   return (
     <div className={classes.root}>
@@ -50,8 +53,8 @@ export default function SortBy() {
           open={open}
           onClose={handleClose}
           onOpen={handleOpen}
-          value={category}
-          onChange={handleChange}
+          value={sort}
+          onChange={handleChangeSort}
         >
           <MenuItem value=""></MenuItem>
           <MenuItem value={10}>Plus récents</MenuItem>

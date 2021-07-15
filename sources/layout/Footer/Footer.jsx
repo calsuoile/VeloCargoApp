@@ -14,6 +14,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: "url(/assets/backgr.png)",
     display: "flex",
     alignItems: "center",
+    [theme.breakpoints.down("sm")]: {
+      margin : "auto",
+      display: "block"
+    },
   },
 
   list: {
@@ -24,6 +28,9 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     marginLeft: "60px",
     marginBottom: "20px",
+    [theme.breakpoints.down("sm")]: {
+      margin : "auto",
+    },
   },
 
   logoform: {

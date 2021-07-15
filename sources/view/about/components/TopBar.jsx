@@ -9,16 +9,28 @@ const useStyles = makeStyles((theme) => ({
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
   },
-  toolbarTitle: {
+    toolbarTitle: {
     flex: 1,
+    marginTop: "50px",
+    color: "#006262",
+    textAlign: "center",
+    marginBottom: "20px",
+    fontFamily:"Staatliches, cursive",
+
   },
-  toolbarSecondary: {
+    toolbarSecondary: {
     justifyContent: "space-between",
-    overflowX: "auto",
+    fontSize: "20px",
+    fontFamily:"Open Sans Condensed, sans-serif",
+    marginTop: "10px",
+    textDecoration: "none", 
+    color: "inherit",
   },
   toolbarLink: {
     padding: theme.spacing(1),
     flexShrink: 0,
+    textDecoration: "none", 
+    color: "red",
   },
 }));
 

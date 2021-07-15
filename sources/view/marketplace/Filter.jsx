@@ -7,8 +7,8 @@ import SearchIcon from "@material-ui/icons/Search";
 import SelectCategory from "./components/components/SelectCategory";
 import CountrySelector from "../../common/components/CountrySelector";
 import SwitchForm from "../../common/components/SwitchForm";
-import { TextField } from "@material-ui/core";
 import RangeSlider from "./components/components/RangeSlider";
+import Department from "./components/components/Department";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     borderRadius: "30px",
-    backgroundColor:"#5C9A9A",
+    backgroundColor:"#006262",
     color: "white",
     fontFamily: "Open Sans Condensed, sans-serif",
     fontWeight: 600,
@@ -52,11 +52,17 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "10%"
   },
   dep: {
-  backgroundColor: "white",
+    backgroundColor: "white",
     borderRadius: "5px",
     width: "180px",
     margin:"10px"
   },
+  titleprice: {
+    marginTop: "30px",
+        color: "#006262",
+        fontFamily:"Staatliches, cursive",
+        fontSize: "20px",
+  }
 
 }));
 
@@ -70,7 +76,7 @@ function Filter(props) {
     country: "",
     department: "",
     brand: "",
-    price: "",
+    price: 4000,
     general_state: "",
     electric: false,
     guarantee: false,
@@ -95,9 +101,9 @@ function Filter(props) {
   return (
     <div className={classes.filter}>
       <Typography gutterBottom variant="h5" className={classes.title}>
-        FILTRES
-        <hr className={classes.hr}></hr>
+        FILTRES 
       </Typography>
+      <hr className={classes.hr}></hr>
       <SelectCategory
         value={filter.category}
         onChange={handleChange}
@@ -108,25 +114,19 @@ function Filter(props) {
         onChange={handleChange}
         name={"country"}
       />
-      <TextField
-        className={classes.dep}
-        required={true}
-        id="outlined-basic"
-        label="Département"
-        variant="outlined"
-        name="departement"
-        form={filter.department}
-        onChange={handleChange}
-      ></TextField>
+      <Department 
+      value={filter.department}
+      onChange={handleChange}
+      name={"department"}/>
 
-      <h5>Prix maximum</h5>
+      <h1 className={classes.titleprice}>Prix maximum :</h1>
 
       <RangeSlider
         value={filter.price}
         step={100}
         onChange={handlePrice}
         min={0}
-        max={4000}
+        max={10000}
         name="price"
       />
 

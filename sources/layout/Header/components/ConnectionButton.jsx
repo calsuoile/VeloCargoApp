@@ -24,6 +24,10 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Open Sans Condensed, sans-serif",
     fontWeight: 400,
     fontSize: "20px",
+    [theme.breakpoints.down("sm")]: {
+      width:"20px",
+      fontSize : "10px"
+    },
   },
   icon: {
     fontSize: "25px",
@@ -77,7 +81,7 @@ export default function ConnectionButton() {
       )}
       {Object.keys(connectedUser).length === 0 && (
         <Link href="connexion">
-          <Button aria-label="connexion" variant="contained" color="secondary">
+          <Button aria-label="connexion" variant="contained" color="secondary" className={classes.buttonco}>
             Connexion{" "}
           </Button>
         </Link>
