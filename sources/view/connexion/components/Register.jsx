@@ -34,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
   },
   contain: {
     opacity: 0.5,
-
     "&:hover": {
       //     background: "rgb(104,219,150)",
       //   background: "radial-gradient(circle, rgba(104,219,150,1) 0%, rgba(255,209,150,0.6713060224089635) 100%)",
@@ -42,7 +41,6 @@ const useStyles = makeStyles((theme) => ({
       opacity: 1,
     },
   },
-
   paper2: {
     margin: theme.spacing(10, 20),
     display: "flex",
@@ -67,12 +65,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Register() {
   const classes = useStyles();
-
   const [lastname, setLastName] = React.useState("");
   const [firstname, setFirstName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  
   const router = useRouter();
 
   const handleClick = async (e) => {

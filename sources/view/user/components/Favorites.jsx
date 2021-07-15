@@ -57,6 +57,8 @@ function Favorites(props) {
   //   },
   // ]);
 
+  //si l'utilisateur est connecté, et s'il a ajouté des annonces en favoris, alors, lui afficher
+  //ces annonces s'il y en a (ajout du "?" pour que cela fonctionne aussi s'il n'y en pas)
   useEffect(() => {
     if (Object.keys(connectedUser).length > 0 && connectedUser.favorites?.length) {
       Promise.all(

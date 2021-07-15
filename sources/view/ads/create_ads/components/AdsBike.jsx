@@ -177,6 +177,7 @@ export default function AdsBike(props) {
 
   const router = useRouter();
 
+  //donne l'accès seulement aux utilisateurs connectés de poster une annonce
   const postForm = () => {
     const token = localStorage.getItem("userToken");
     const config = {

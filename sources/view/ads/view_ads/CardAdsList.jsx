@@ -20,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "20px",
     paddingTop: "20px",
   },
-  
 }));
 
 function CardAdsList({ adsCard }) {
@@ -31,11 +30,11 @@ function CardAdsList({ adsCard }) {
       <div className={classes.marketplace}>
         {adsCard.map((card) => (
           <Link
-            href={"/acheter-un-velo-cargo/annonces/" + card.id}
-            key={card.id}
+            href={"/acheter-un-velo-cargo/annonces/" + card.ads_id}
+            key={card.ads_id}
           >
             <a style={{ textDecoration: "none", color: "inherit" }}>
-              <CardAds {...card} key={card.id} />
+              <CardAds {...card} key={card.ads_id} />
             </a>
           </Link>
         ))}
