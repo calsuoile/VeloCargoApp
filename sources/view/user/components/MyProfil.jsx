@@ -56,68 +56,44 @@ const useStyles = makeStyles((theme) => ({
 function MyProfil(props) {
   const classes = useStyles();
   const { connectedUser, setConnectedUser } = useContext(UserContext);
-  const [edition, setEdition] = useState(true);
+  const [edition, setEdition] = useState(false);
   const [form, setForm] = useState({
-    // firstname: "",
-    // lastname: "",
-    // email: "",
-    // phone_number: "",
-    // city: "",
+    firstname: connectedUser.firstname,
+    lastname: connectedUser.lastname,
+    email: connectedUser.email,
+    phone_number: connectedUser.phone_number,
+    city: connectedUser.city,
   });
 
   const handleEdition = () => {
-    setEdition(!edition);
+    setEdition(true);
+    console.log('edition');
   };
 
   const handleChange = (e) => {
     setForm((oldValues) => ({ ...oldValues, [e.target.name]: e.target.value }));
   };
 
-  useEffect(() => {
-    getUsersInfos();
-  }, [props.userId]);
-
-  const getUsersInfos = () => {
-    try {
-      const accessToken = localStorage.getItem("userToken");
-      if (accessToken) {
-        const config = {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        };
-        axios
-          .get(`https://localhost:3030/users/${props.userId}`, config)
-          .then((response) => response.data)
-          .then((data) => {
-            // console.log(data);
-            setForm(data);
-          });
-      }
-    } catch (e) {}
-  };
-
   const handleClick = async () => {
-    if (edition) {
+   console.log("handle1");
       try {
         const accessToken = localStorage.getItem("userToken");
         if (accessToken) {
+          console.log("handle2");
           const config = {
             headers: {
               Authorization: `Bearer ${accessToken}`,
             },
           };
           const updatedUser = await axios.patch(
-            `http://localhost:3030/users/${form.id}`,
+            `http://localhost:3030/users/${connectedUser.id}`,
             form,
             config
           );
-          setForm(updatedUser.data);
-          setConnectedUser(updatedUser.data);
+          setConnectedUser({ ...connectedUser, ...form });
         }
       } catch (e) {}
-    }
-    setEdition(!edition);
+    setEdition(false);
   };
 
   return (
@@ -126,7 +102,7 @@ function MyProfil(props) {
         <Typography variant="h1" className={classes.h1}>
           PROFIL
         </Typography>
-        {edition ? (
+        {!edition ? (
           <div>
             <div className={classes.name}>
               <Typography variant="h2"> {connectedUser.firstname}</Typography>{" "}
@@ -148,8 +124,7 @@ function MyProfil(props) {
                   name="firstname"
                   value={form.firstname}
                   onChange={handleChange}
-                ></Input>
-                {" "}
+                ></Input>{" "}
                 <Input
                   fullWidth={true}
                   placeholder="Nom"

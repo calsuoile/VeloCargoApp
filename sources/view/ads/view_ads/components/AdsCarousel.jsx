@@ -3,6 +3,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from "react-responsive-carousel";
 
 const AdsCarousel = ({ className }) => {
+  // const photo ak split(",");
   return (
     <div className={className}>
       <Carousel>
