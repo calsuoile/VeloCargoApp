@@ -45,7 +45,7 @@ export default function Header() {
 
   return (
     <div className={classes.root}>
-      <Link href="/accueil">
+      <Link href="/">
         <a>
           <img className={classes.logo} src="/assets/CargoBikeTrade.png" />
         </a>
@@ -55,7 +55,7 @@ export default function Header() {
       </Hidden>
       <Hidden smDown>
         <SelectBike />
-        {/* <SplitButtonType /> */}
+        <SplitButtonType />
         <ArticlesTipsButton />
       </Hidden>
       <div style={{ flexGrow: 1 }}></div>

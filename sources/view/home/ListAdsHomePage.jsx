@@ -16,6 +16,11 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: " #F29F24 ",
     },
+    [theme.breakpoints.down("sm")]: {
+      width:"20px",
+      fontSize : "10px",
+      marginLeft : "80%"
+    },
   },
   title: {
     margin: "50px",
@@ -23,11 +28,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     color: "#006969",
     fontSize: "40px",
-    // color : "white",
-    // backgroundColor: "#5E77EB",
-    // padding: "15px",
-    // // width: "400px"
-    // borderBottom: `2px solid black`,
+    [theme.breakpoints.down("sm")]: {
+   fontSize : "30px"
+    },
   },
   marketplace: {
     marginTop: "30px",
@@ -41,53 +44,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const adsCard = [
-  {
-    id: "1",
-    photo: "https://source.unsplash.com/random?bike/4",
-    title: "Vélo Cargo",
-    price: "1230 €",
-    city: "Bordeaux",
-  },
-  {
-    id: "2",
-    photo: "https://source.unsplash.com/random?bike/5",
-    title: "Vélo Cargo",
-    price: "1380 €",
-    city: "Bordeaux",
-  },
-  {
-    id: "3",
-    photo: "https://source.unsplash.com/random?bike/6",
-    title: "Vélo Cargo",
-    price: "1560 €",
-    city: "Bordeaux",
-  },
-  {
-    id: "4",
-    photo: "https://source.unsplash.com/random?bike/7",
-    title: "Vélo Cargo",
-    price: "1800 €",
-    city: "Bordeaux",
-  },
-  {
-    id: "5",
-    photo: "https://source.unsplash.com/random?bike/8",
-    title: "Vélo Cargo",
-    price: "2300 €",
-    city: "Bordeaux",
-  },
-  {
-    id: "6",
-    photo: "https://source.unsplash.com/random?bike/9",
-    title: "Vélo Cargo",
-    price: "2580 €",
-    city: "Bordeaux",
-  },
-];
-
-function ListAdsHomePage(props) {
+function ListAdsHomePage({ ads }) {
   const classes = useStyles();
+
   return (
     <div>
       <Typography className={classes.title} variant="h3">
@@ -95,8 +54,15 @@ function ListAdsHomePage(props) {
       </Typography>
 
       <div className={classes.marketplace}>
-        {adsCard.map((card, index) => (
-          <CardAds {...card} key={index} />
+        {ads?.map((card) => (
+          <Link
+            href={"/acheter-un-velo-cargo/annonces/" + card.ads_id}
+            key={card.ads_id}
+          >
+            <a style={{ textDecoration: "none", color: "inherit" }}>
+              <CardAds {...card} key={card.id} />
+            </a>
+          </Link>
         ))}
       </div>
       <Link href="acheter-un-velo-cargo" style={{ textDecoration: "none" }}>

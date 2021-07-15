@@ -5,11 +5,9 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import DatePickers from "../../../../common/components/DatePickers";
 import { TextField } from "@material-ui/core";
 import CountrySelector from "../../../../common/components/CountrySelector";
 import Button from "@material-ui/core/Button";
-import RadioButtonsGroup from "../../../../common/RadioButtonsGroup";
 import { useRouter } from "next/router";
 import axios from "axios";
 import Upload from "../../../../common/components/Upload";
@@ -25,6 +23,12 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "100px",
     paddingTop: "80px",
     paddingBottom: "80px",
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(1),
+      width: "100%",
+      marginLeft: "2px",
+      marginRight: "2px",
+    },
   },
   heading: {
     fontSize: theme.typography.pxToRem(18),
@@ -32,49 +36,74 @@ const useStyles = makeStyles((theme) => ({
   },
   form: {
     marginLeft: "100px",
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(1),
+      width: "100%",
+      marginLeft: "2px",
+    },
   },
   expandIcon: {
     color: "#B4B8D4",
   },
-  title: {
-    width: 400,
+  intro: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  title1: {
+    fontFamily: "Staatliches",
+    fontSize: "60px",
     marginBottom: 40,
     display: "flex",
     justifyContent: "center",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "30px",
+      marginTop: "20px",
+    },
   },
-  intro: {
+  description: {
+    width: 600,
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(1),
+      width: "100%",
+    },
+  },
+  title: {
+    width: 600,
+    marginBottom: 10,
     display: "flex",
+    justifyContent: "center",
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(1),
+      width: "100%",
+    },
   },
+
   country: {
     width: 100,
     color: "rgba(104, 219, 150, 1)",
     marginTop: 50,
   },
-  dep: {
-    width: 200,
-    marginLeft: 20,
-  },
+
   localisation: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-evenly",
+    justifyContent: "center",
     flexDirection: "row",
-    margin: 25,
+    // margin: 25,
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(1),
+      flexDirection: "column",
+      margin: 0,
+      alignItems: "flex-start",
+    },
   },
   velo: {
     marginRight: 40,
-    width: 300,
-  },
-  description: {
-    marginTop: 20,
-    width: 600,
-  },
-  contain: {
-    display: "flex",
-    flexDirection: "column",
-    padding: 10,
-    margin: 10,
-    justifyContent: "space-evenly",
+    width: 500,
+    padding: theme.spacing(1),
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
   },
   margin: {
     marginBottom: 15,
@@ -84,6 +113,13 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 10,
     display: "flex",
     marginLeft: "85%",
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(1),
+      marginLeft: "auto",
+    },
+  },
+  typo: {
+    width: "100%",
   },
 }));
 
@@ -139,7 +175,7 @@ function AdsAccessorie(props) {
   return (
     <div>
       <div className={classes.root}>
-        <Typography variant="h5" className={classes.title}>
+        <Typography variant="h5" className={classes.title1}>
           DEPOSER UNE ANNONCE
         </Typography>
         <div className={classes.form}>
@@ -154,38 +190,34 @@ function AdsAccessorie(props) {
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography>
-                <div className={classes.intro}>
-                  <TextField
-                    required={true}
-                    className={classes.title}
-                    id="outlined-basic"
-                    label="Titre de l'annonce"
-                    variant="outlined"
-                    name="title"
-                    form={form.title}
-                    onChange={handleChange}
-                  ></TextField>
-                  <DatePickers
-                    value={form.created_at}
-                    className={classes.date}
-                    name={"created_at"}
-                    onChange={handleChange}
-                  />
-                </div>
-                <TextField
-                  className={classes.description}
-                  required={true}
-                  multiline={true}
-                  variant="outlined"
-                  id="outlined-basic"
-                  label="Description"
-                  name="description"
-                  form={form.description}
-                  onChange={handleChange}
-                  placeholder="Ici n'hésitez pas à renseigner toutes informations qui pourraient intéresser l'acheteur : anecdotes, détails esthétiques, confort de l'assise, entretient du vélo..."
-                ></TextField>
-              </Typography>
+              <div className={classes.typo}>
+                <Typography>
+                  <div className={classes.intro}>
+                    <TextField
+                      required={true}
+                      className={classes.title}
+                      id="outlined-basic"
+                      label="Titre de l'annonce"
+                      variant="outlined"
+                      name="title"
+                      form={form.title}
+                      onChange={handleChange}
+                    ></TextField>
+                    <TextField
+                      className={classes.description}
+                      required={true}
+                      multiline={true}
+                      variant="outlined"
+                      id="outlined-basic"
+                      label="Description"
+                      name="description"
+                      form={form.description}
+                      onChange={handleChange}
+                      placeholder="Ici n'hésitez pas à renseigner toutes informations qui pourraient intéresser l'acheteur : anecdotes, détails esthétiques, confort de l'assise, entretient du vélo..."
+                    ></TextField>
+                  </div>
+                </Typography>
+              </div>
             </AccordionDetails>
           </Accordion>
           <Accordion>
@@ -202,6 +234,7 @@ function AdsAccessorie(props) {
               <Typography variant="h5" width="100%">
                 <div className={classes.localisation}>
                   <CountrySelector
+                    className={classes.country}
                     value={form.country}
                     onChange={handleChange}
                     name={"country"}
