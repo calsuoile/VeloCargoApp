@@ -57,9 +57,9 @@ function MyAds(props) {
     },
   ]);
 
+  //si l'utilisateur est connecté, cela renvoie les annonces qu'il a posté sur sa page user
   useEffect(() => {
     console.log(connectedUser);
-
     if (Object.keys(connectedUser).length > 0) {
       const accessToken = localStorage.getItem("userToken");
       const config = {

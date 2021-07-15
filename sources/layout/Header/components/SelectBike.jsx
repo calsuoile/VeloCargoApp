@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     color: "white",
   },
-
   container: {
     zIndex: 10,
     backgroundColor: "#006969",
@@ -28,14 +27,13 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     fontSize: "22px",
     fontWeight: "400",
-    borderRight : "1px solid",
-    borderRadius : 0,
-    marginRight : "20px",
-    paddingTop : "0",
-    paddingBottom : "0",
-    paddingRight : "20px"
+    borderRight: "1px solid",
+    borderRadius: 0,
+    marginRight: "20px",
+    paddingTop: "0",
+    paddingBottom: "0",
+    paddingRight: "20px",
   },
-
   item: {
     color: "white",
     fontSize: "22px",
@@ -57,7 +55,6 @@ function SelectBike(props) {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
       return;
     }
-
     setOpen(false);
   };
 
@@ -74,7 +71,6 @@ function SelectBike(props) {
     if (prevOpen.current === true && open === false) {
       anchorRef.current.focus();
     }
-
     prevOpen.current = open;
   }, [open]);
   return (
@@ -88,7 +84,6 @@ function SelectBike(props) {
       >
         VÉLO CARGO
       </Button>
-
       <Popper
         open={open}
         anchorEl={anchorRef.current}

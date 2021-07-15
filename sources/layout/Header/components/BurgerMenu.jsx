@@ -21,7 +21,6 @@ const useStyles = makeStyles({
     width: 350,
     color: "#f4c15b",
   },
-
   burgerbut: {
     backgroundColor: "#5C9A9A",
     width: "30px",
@@ -60,7 +59,6 @@ const useStyles = makeStyles({
       fontSize: "19px",
     },
   },
-
   ajout: {
     border: "none",
     color: "#5C9A9A",
@@ -72,7 +70,6 @@ const useStyles = makeStyles({
       fontSize: "19px",
     },
   },
-
   articles: {
     border: "none",
     color: "#5C9A9A",
@@ -177,7 +174,6 @@ export default function BurgerMenu() {
     ) {
       return;
     }
-
     setState({ ...state, [anchor]: open });
   };
 
@@ -224,7 +220,10 @@ export default function BurgerMenu() {
               </Link>
             </li>
             <li>
-              <Link href="/vendre-un-produit" style={{ textDecoration: "none" }}>
+              <Link
+                href="/vendre-un-produit"
+                style={{ textDecoration: "none" }}
+              >
                 <Button className={classes.ajout}>
                   <ListItemIcon>
                     <AddLocationIcon className={classes.plus} />

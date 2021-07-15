@@ -2,7 +2,6 @@ import React from "react";
 import Footer from "./footer/Footer";
 import Header from "./header/Header";
 
-
 function Main(props) {
   const { children } = props;
   return (
@@ -13,4 +12,5 @@ function Main(props) {
     </div>
   );
 }
+
 export default Main;
