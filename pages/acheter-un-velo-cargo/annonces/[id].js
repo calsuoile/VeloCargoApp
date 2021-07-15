@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 
   const paths = data.map((ads) => {
     return {
-      params: { id: ads.id.toString() },
+      params: { id: ads.ads_id.toString() },
     };
   });
 
@@ -31,7 +31,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(props) {
 
   const ads = await axios.get(
-    `http://localhost:3030/ads/${props.params.id}`
+    `http://localhost:3030/ads/${props.params.ads_id}`
   );
   // const ads = {
   //   id: 1,
@@ -56,12 +56,12 @@ export async function getStaticProps(props) {
   //   battery_wolt: "50",
   // };
 
-  const user = {
-    firstname: "Michel",
-    lastname: "Dupont",
-    phone_number: "06 88 27 55 32",
-    email: "michel.dupont@gmail.com",
-  };
+  // const user = {
+  //   firstname: "Michel",
+  //   lastname: "Dupont",
+  //   phone_number: "06 88 27 55 32",
+  //   email: "michel.dupont@gmail.com",
+  // };
 
   return {
     props: {
