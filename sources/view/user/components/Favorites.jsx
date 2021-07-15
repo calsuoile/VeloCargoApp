@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { makeStyles, Typography } from "@material-ui/core";
 import UserContext from "../../../context/user";
 import axios from "axios";
-import CardAds from "../../home/CardAds";
+import CardAds from "../../ads/view_ads/components/CardAds";
 
 const useStyles = makeStyles((theme) => ({
   contain: {
@@ -57,6 +57,8 @@ function Favorites(props) {
   //   },
   // ]);
 
+  //si l'utilisateur est connecté, et s'il a ajouté des annonces en favoris, alors, lui afficher
+  //ces annonces s'il y en a (ajout du "?" pour que cela fonctionne aussi s'il n'y en pas)
   useEffect(() => {
     if (Object.keys(connectedUser).length > 0 && connectedUser.favorites?.length) {
       Promise.all(

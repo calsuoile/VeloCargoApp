@@ -33,8 +33,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ConnectionButton() {
   const classes = useStyles();
-  const {connectedUser, setConnectedUser} = useContext(UserContext);
-  const router= useRouter();
+  const { connectedUser, setConnectedUser } = useContext(UserContext);
+  const router = useRouter();
 
   const handleClick = () => {
     setConnectedUser({});
