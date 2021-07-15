@@ -4,6 +4,9 @@ import OtherArticlesWindow from "./components/OtherArticlesWindow";
 import DeleteButton from "../../../common/DeleteButton";
 import Link from "next/link";
 
+const moment = require("moment");
+moment.locale("fr");
+
 const useStyles = makeStyles((theme) => ({
   image: {
     width: "100%",
@@ -33,12 +36,13 @@ const useStyles = makeStyles((theme) => ({
   },
 
   containerOtherArticles: {
-    // border: `1px solid ${colors.grey[200]}`,
+    // border: `1px solid`,
     borderRadius: theme.spacing(2),
     [theme.breakpoints.up("md")]: {
       padding: theme.spacing(3),
     },
     margin: "20px",
+    marginTop: "-40px",
   },
   authorImage: {
     display: "flex",
@@ -64,14 +68,15 @@ const ViewArticle = ({ articleView: [articleView], otherArticles }) => {
       </div>
       <div className={classes.title}>
         <Typography variant="h1">{articleView.title}</Typography>
-        <DeleteButton />
+        <DeleteButton id={articleView.id}/>
       </div>
       <div className={classes.authorImage}>
         <Avatar alt="Clément Fouillet" src="/assets/clement_fouillet.jpg" />
         <Typography
           style={{ marginLeft: "10px", marginTop: "10px", fontStyle: "italic" }}
         >
-          Le {articleView.created_at} par {articleView.author_id}{" "}
+          Le {moment(articleView.created_at).format("LL à hh:mm")} - Clément
+          Fouillet{" "}
         </Typography>
       </div>
       <div className={classes.container}>
@@ -80,8 +85,9 @@ const ViewArticle = ({ articleView: [articleView], otherArticles }) => {
           <img src={articleView.photo} className={classes.otherImages} />
         </Typography>
 
+        {/* encart d'affichage des derniers articles créés */}
         <div className={classes.containerOtherArticles}>
-          <Typography variant="h3">Derniers articles</Typography>
+          <Typography variant="h4">Derniers articles</Typography>
           {otherArticles.map((otherArticle) => (
             <Link href={"/articles/" + otherArticle.id} key={otherArticle.id}>
               <a style={{ textDecoration: "none", color: "inherit" }}>

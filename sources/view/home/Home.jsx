@@ -3,12 +3,12 @@ import ListArticlesHomePage from "./ListArticlesHomePage";
 import ButtonBase from "./ButtonBases";
 import ListAdsHomePage from "./ListAdsHomePage";
 
-function Home(props) {
+function Home({ articles, ads }) {
   return (
     <div>
       <ButtonBase />
-      <ListAdsHomePage />
-      <ListArticlesHomePage />
+      <ListAdsHomePage ads={ads} />
+      <ListArticlesHomePage articles={articles} />
     </div>
   );
 }

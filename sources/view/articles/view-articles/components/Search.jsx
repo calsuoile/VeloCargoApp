@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   //   },
 }));
 
-const Search = ({ searchValue, handleSearchValueChange }) => {
+const Search = ({ keyWord, onChange }) => {
   const classes = useStyles();
   const theme = useTheme();
 
@@ -63,9 +63,9 @@ const Search = ({ searchValue, handleSearchValueChange }) => {
               </InputAdornment>
             }
             placeholder="Rechercher un article"
-            value={searchValue}
+            value={keyWord}
             type="text"
-            onChange={handleSearchValueChange}
+            onChange={onChange}
           />
         </FormControl>
         {/* <Button

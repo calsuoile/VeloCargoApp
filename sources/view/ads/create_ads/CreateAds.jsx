@@ -35,7 +35,7 @@ function CreateAds(props) {
             variant="contained"
             color="primary"
           >
-            Vendre un Velo
+            Vendre un Vélo Cargo
           </Button>
         </Link>
         <Link href="vendre-un-accessoire">

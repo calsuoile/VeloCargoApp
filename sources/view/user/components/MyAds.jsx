@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { makeStyles, Typography } from "@material-ui/core";
 import axios from "axios";
 import UserContext from "../../../context/user";
-import CardAds from "../../home/CardAds";
+import CardAds from "../../ads/view_ads/components/CardAds"
 
 const useStyles = makeStyles((theme) => ({
   contain: {

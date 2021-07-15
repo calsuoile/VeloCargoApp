@@ -45,7 +45,7 @@ export default function Header() {
 
   return (
     <div className={classes.root}>
-      <Link href="/accueil">
+      <Link href="/">
         <a>
           <img className={classes.logo} src="/assets/CargoBikeTrade.png" />
         </a>
