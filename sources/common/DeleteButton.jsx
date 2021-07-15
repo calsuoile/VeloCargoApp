@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function DeleteButton() {
+function DeleteButton({ id }) {
   const classes = useStyles();
 
   const [open, setOpen] = useState(false);
@@ -27,7 +27,7 @@ function DeleteButton() {
     setOpen(false);
   };
 
-  const handleDeleteTrue = () => {
+  const handleDeleteTrue = (id) => {
     setOpen(false);
     axios.delete(`http://localhost:3030/articles/${id}`);
   };
@@ -45,7 +45,7 @@ function DeleteButton() {
       <Dialog open={open}>
         {
           <ModalDelete
-            handleDeleteTrue={handleDeleteTrue}
+            handleDeleteTrue={() => handleDeleteTrue(id)}
             handleReturn={handleReturn}
           />
         }

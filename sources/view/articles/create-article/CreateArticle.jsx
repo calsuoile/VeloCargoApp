@@ -4,8 +4,9 @@ import TextField from "@material-ui/core/TextField";
 import { Typography } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
-import Paper from '@material-ui/core/Paper';
+import Paper from "@material-ui/core/Paper";
 import Upload from "../../../common/components/Upload";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -57,13 +58,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const handlePicture = (imageUrl) => {
-  console.log(imageUrl);
-  const newImages = [...form.photo, imageUrl];
-  setForm({ ...form, photo: newImages });
-  console.log(newImages);
-};
-
 const CreateArticle = () => {
   const classes = useStyles();
   const [form, setForm] = useState({
@@ -80,18 +74,18 @@ const CreateArticle = () => {
     setForm({ ...form, text: e.target.value });
   };
 
-  const handleSaveArticle = (e) => {
-    e.preventDefault();
-    console.log(form);
-  };
-
   const handlePicture = (imageUrl) => {
     console.log(imageUrl);
     const newImages = [...form.photo, imageUrl];
     setForm({ ...form, photo: newImages });
     console.log(newImages);
   };
-  
+
+  const handleSaveArticle = async () => {
+    console.log(form);
+    await axios.post("http://localhost:3030/articles", form);
+  };
+
   return (
     <>
       <Typography variant="h1">
@@ -111,6 +105,7 @@ const CreateArticle = () => {
             id="outlined-basic"
             label="Titre de l'article"
             variant="outlined"
+            name="title"
             value={form.title}
             onChange={handleTitleChange}
           />
@@ -126,6 +121,7 @@ const CreateArticle = () => {
               multiline
               rows={30}
               variant="outlined"
+              name="text"
               value={form.text}
               onChange={handleTextChange}
             />
@@ -141,6 +137,7 @@ const CreateArticle = () => {
             id="contained-button-file"
             multiple
             type="file"
+            name="photo"
           />
           <div>
             <label htmlFor="contained-button-file">
