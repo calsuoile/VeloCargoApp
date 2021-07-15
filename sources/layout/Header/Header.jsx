@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   logo: {
     // display: "flex",
     width: "150px",
-    marginLeft: "20px",
+    marginLeft: "40px",
     marginRight: "20px",
   },
 }));

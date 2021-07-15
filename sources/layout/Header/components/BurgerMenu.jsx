@@ -22,137 +22,142 @@ const useStyles = makeStyles({
     color: "#f4c15b",
   },
   burgerbut: {
-    backgroundColor: "white",
-    height: "40px",
+    backgroundColor: "#5C9A9A",
     width: "30px",
     fontFamily: "Staatliches, cursive",
     textAlign: "center",
     fontWeight: "bold",
     margin: "5px",
+    marginLeft: "50%",
     "&:hover": {
-      background: "#f4c15b",
+      background: "#F29F24",
     },
   },
   puces: {
     listStyle: "none",
+    marginLeft: "5%"
   },
   accueil: {
     border: "none",
-    color: "#F2B869",
+    color: "#5C9A9A",
     padding: "20px",
     backgroundColor: "white",
-    fontFamily: "Staatliches, cursive",
-    fontSize: "15px",
+    fontFamily: "Open Sans Condensed, sans-serif",
+    fontSize: "18px",
     "&:hover": {
-      fontSize: "17px",
+      fontSize: "19px",
     },
   },
   profil: {
     border: "none",
-    color: "#F2B869",
+    color: "#5C9A9A",
     padding: "20px",
     backgroundColor: "white",
-    fontFamily: "Staatliches, cursive",
-    fontSize: "15px",
+    fontFamily: "Open Sans Condensed, sans-serif",
+    fontSize: "18px",
     "&:hover": {
-      fontSize: "17px",
+      fontSize: "19px",
     },
   },
   ajout: {
     border: "none",
-    color: "#F2B869",
+    color: "#5C9A9A",
     padding: "20px",
     backgroundColor: "white",
-    fontFamily: "Staatliches, cursive",
-    fontSize: "15px",
+    fontFamily: "Open Sans Condensed, sans-serif",
+    fontSize: "18px",
     "&:hover": {
-      fontSize: "17px",
+      fontSize: "19px",
     },
   },
   articles: {
     border: "none",
-    color: "#F2B869",
+    color: "#5C9A9A",
     padding: "20px",
     backgroundColor: "white",
-    fontFamily: "Staatliches, cursive",
-    fontSize: "15px",
+    fontFamily: "Open Sans Condensed, sans-serif",
+    fontSize: "18px",
     "&:hover": {
-      fontSize: "17px",
+      fontSize: "19px",
     },
   },
+
   connexion: {
     border: "none",
-    color: "#F2B869",
+    color: "#5C9A9A",
     padding: "20px",
     backgroundColor: "white",
-    fontFamily: "Staatliches, cursive",
-    fontSize: "15px",
+    fontFamily: "Open Sans Condensed, sans-serif",
+    fontSize: "18px",
     "&:hover": {
-      fontSize: "17px",
+      fontSize: "19px",
     },
   },
+
   propos: {
     border: "none",
-    color: "#F2B869",
+    color: "#5C9A9A",
     padding: "20px",
     backgroundColor: "white",
-    fontFamily: "Staatliches, cursive",
-    fontSize: "15px",
+    fontFamily: "Open Sans Condensed, sans-serif",
+    fontSize: "18px",
     "&:hover": {
-      fontSize: "17px",
+      fontSize: "19px",
     },
   },
+
   contact: {
     border: "none",
-    color: "#F2B869",
+    color: "#5C9A9A",
     padding: "20px",
     backgroundColor: "white",
-    fontFamily: "Staatliches, cursive",
-    fontSize: "15px",
+    fontFamily: "Open Sans Condensed, sans-serif",
+    fontSize: "18px",
     "&:hover": {
-      fontSize: "17px",
+      fontSize: "19px",
     },
   },
+
   menuicon: {
-    color: "#f4c15b",
+    color: "white",
     fontSize: "40px",
     marginLeft: "10px",
     marginRight: "10px",
     "&:hover": {
-      color: "white",
+      // color: "#5C9A9A",
     },
   },
   homeicon: {
-    color: "#F2B869",
-    fontSize: "30px",
+    color: "#F29F24",
+    fontSize: "32px",
   },
   circle: {
-    color: "#F2B869",
-    fontSize: "30px",
+    color: "#F29F24",
+    fontSize: "32px",
   },
   plus: {
-    color: "#F2B869",
-    fontSize: "30px",
+    color: "#F29F24",
+    fontSize: "32px",
   },
   article: {
-    color: "#F2B869",
-    fontSize: "30px",
+    color: "#F29F24",
+    fontSize: "32px",
   },
   loupe: {
-    color: "#F2B869",
-    fontSize: "30px",
+    color: "#F29F24",
+    fontSize: "32px",
   },
   cadenas: {
-    color: "#F2B869",
-    fontSize: "30px",
+    color: "#F29F24",
+    fontSize: "32px",
   },
   inscri: {
-    color: "#F2B869",
-    fontSize: "30px",
+    color: "#F29F24",
+    fontSize: "32px",
   },
   question: {
-    color: "#F2B869",
-    fontSize: "30px",
+    color: "#F29F24",
+    fontSize: "32px",
   },
 });
 
@@ -190,7 +195,7 @@ export default function BurgerMenu() {
                   <ListItemIcon>
                     <HomeIcon className={classes.homeicon} />
                   </ListItemIcon>
-                  <strong>ACCUEIL</strong>
+                 ACCUEIL
                 </Button>
               </Link>
             </li>
@@ -240,7 +245,7 @@ export default function BurgerMenu() {
                 </Button>
               </Link>
             </li>
-            <Divider />
+            
             <li>
               <Link href="/articles" style={{ textDecoration: "none" }}>
                 <Button className={classes.articles}>
