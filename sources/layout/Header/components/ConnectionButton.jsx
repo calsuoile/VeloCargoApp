@@ -77,7 +77,7 @@ export default function ConnectionButton() {
       )}
       {Object.keys(connectedUser).length === 0 && (
         <Link href="connexion">
-          <Button aria-label="connexion" variant="contained" color="secondary">
+          <Button aria-label="connexion" variant="contained" color="secondary" className={classes.buttonco}>
             Connexion{" "}
           </Button>
         </Link>

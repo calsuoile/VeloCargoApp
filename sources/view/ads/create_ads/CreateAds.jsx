@@ -7,19 +7,35 @@ const useStyles = makeStyles((theme) => ({
   buttons: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-around",
-    marginBottom: "50px",
-    marginTop: "50px",
-  },
-  button: {
-    marginBottom: "50px",
+    justifyContent: "space-evenly",
+    marginBottom: "120px",
+    marginTop: "80px",
   },
 
+
   title: {
-    display: "flex",
-    justifyContent: "center",
     marginTop: "50px",
-  },
+    color: "#006262",
+    fontFamily:"Staatliches, cursive",
+    textAlign: "center",
+    fontSize: "40px",
+},
+hr: {
+  width: "10%",
+  height: "3px",
+  backgroundColor:"#006262",
+  border:"none",
+  marginTop: "30px"
+},
+  img: {
+    width: "27%",
+    borderRadius: "10%",
+    cursor:"pointer",
+    "&:hover": {
+      width: "28%",
+     
+    }
+  }
 }));
 function CreateAds(props) {
   const classes = useStyles();
@@ -28,25 +44,29 @@ function CreateAds(props) {
       <Typography className={classes.title} variant="h5">
         Que souhaitez vous vendre ?{" "}
       </Typography>
+      <hr className={classes.hr}></hr>
       <div className={classes.buttons}>
         <Link href="vendre-un-velo-cargo">
-          <Button
+        <img className={classes.img} src="/assets/velo.png" />
+          {/* <Button
             className={classes.button}
             variant="contained"
             color="primary"
           >
             Vendre un Velo
-          </Button>
+          </Button> */}
         </Link>
         <Link href="vendre-un-accessoire">
-        <Button className={classes.button} variant="contained" color="primary">
+        <img className={classes.img} src="/assets/access.png" />
+        {/* <Button className={classes.button} variant="contained" color="primary">
           Vendre un Accessoire
-        </Button>
+        </Button> */}
         </Link>
         <Link href="vendre-une-remorque">
-        <Button className={classes.button} variant="contained" color="primary">
+        <img className={classes.img} src="/assets/remorque.png" />
+        {/* <Button className={classes.button} variant="contained" color="primary">
           Vendre une Remorque
-        </Button>
+        </Button> */}
         </Link>
        
       </div>

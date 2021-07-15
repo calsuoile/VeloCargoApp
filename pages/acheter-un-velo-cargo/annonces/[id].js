@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 
   const paths = data.map((ads) => {
     return {
-      params: { id: ads.id.toString() },
+      params: { id: ads.ads_id.toString() },
     };
   });
 
@@ -31,7 +31,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(props) {
 
   const ads = await axios.get(
-    `http://localhost:3030/ads/${props.params.id}`
+    `http://localhost:3030/ads/${props.params.ads_id}`
   );
   // const ads = {
   //   id: 1,

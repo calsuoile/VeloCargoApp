@@ -118,9 +118,10 @@ export default function Form() {
       <div>
         <Typography className={classes.contact}>
           <strong>CONTACTEZ-NOUS</strong>
-          <hr className={classes.hr}></hr>
+         
         
         </Typography>
+        <hr className={classes.hr}></hr>
         <form className={classes.form} noValidate onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>

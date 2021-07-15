@@ -7,7 +7,8 @@ const useStyles = makeStyles({
     width: "80%",
   },
   slider: {
-    color: "red",
+    color: "#F29F24",
+    width: "100%"
   },
 });
 
@@ -15,7 +16,7 @@ function valuetext(value) {
   return `${value}`;
 }
 
-export default function RangeSlider({ min, max, step, onChange, value}) {
+export default function RangeSlider({ min, max, step, onChange, value, name}) {
   const classes = useStyles();
 
   return (
@@ -25,12 +26,12 @@ export default function RangeSlider({ min, max, step, onChange, value}) {
         value={value}
         min={min}
         max={max}
+        name={name}
         step={step}
         onChange={onChange}
         valueLabelDisplay="on"
         aria-labelledby="range-slider"
         getAriaValueText={valuetext}
-        
       />
     </div>
   );
