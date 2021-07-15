@@ -21,7 +21,8 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     fontFamily: "Open Sans Condensed, sans-serif",
     fontWeight: 400,
-    fontSize: "20px",
+    fontSize: "50px",
+    marginRight: "40px",
     "&:hover": {
       backgroundColor: "#F29F24",
     }
@@ -39,7 +40,7 @@ export default function IconsHeader() {
   return (
     <div className={classes.root}>
       <Link href="connexion">
-        <Button aria-label="connexion" variant="contained" className={classes.button}>
+        <Button aria-label="connexion" className={classes.button}>
           Connexion{" "}
         </Button>
       </Link>

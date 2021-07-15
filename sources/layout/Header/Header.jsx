@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   logo: {
     // display: "flex",
     width: "150px",
-    marginLeft: "20px",
+    marginLeft: "40px",
     marginRight: "20px",
   },
 }));
@@ -55,7 +55,7 @@ export default function Header() {
       </Hidden>
       <Hidden smDown>
         <SelectBike />
-        <SplitButtonType />
+        {/* <SplitButtonType /> */}
         <ArticlesTipsButton />
       </Hidden>
       <div style={{ flexGrow: 1 }}></div>
