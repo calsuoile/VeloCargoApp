@@ -16,6 +16,11 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: " #F29F24 ",
     },
+    [theme.breakpoints.down("sm")]: {
+      width:"20px",
+      fontSize : "10px",
+      marginLeft : "80%"
+    },
   },
   title: {
     margin: "50px",
@@ -23,11 +28,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     color: "#006969",
     fontSize: "40px",
-    // color : "white",
-    // backgroundColor: "#5E77EB",
-    // padding: "15px",
-    // // width: "400px"
-    // borderBottom: `2px solid black`,
+    [theme.breakpoints.down("sm")]: {
+   fontSize : "30px"
+    },
   },
   marketplace: {
     marginTop: "30px",
