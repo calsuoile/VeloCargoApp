@@ -8,32 +8,45 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles((theme) => ({
   head: {
     display: "flex",
-    flexDirection: "column",
-    textAlign: "center",
     marginTop: theme.spacing(8),
+    alignItems: "center",
+    marginBottom: "30px",
+  },
+  orangetitle: {
+  flexDirection: "column",
+  textAlign: "center",
+  marginRight: "30px",
+
   },
   partnaires: {
     display: "flex",
     justifyContent: "space-around",
     alignItems: "center",
     marginBottom: "10%",
+    marginLeft: "200px",
+    marginRight: "200px",
+    marginTop: "60px"
   },
   talkAbout: {
     display: "flex",
     justifyContent: "space-around",
     alignItems: "center",
+    marginLeft: "350px",
+    marginRight: "350px",
+    marginTop: "60px",
+    marginBottom: "5%",
   },
   title: {
     display: "flex",
     justifyContent: "space-around",
-    matrginTop: "30px",
+
   },
   img_partnaires: {
     maxWidth: "200px",
     maxHeight: "100px",
   },
   img_title: {
-    maxWidth: "300px",
+    maxWidth: "500px",
     maxHeight: "500px",
     merginTop: theme.spacing(10),
     borderRadius: "30px",
@@ -44,27 +57,55 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: "100px",
   },
   paragraph: {
-    width: "60%",
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
+    textAlign: "center",
     textAlign: "justify",
+    marginLeft: "250px",
+    marginRight: "250px",
+    marginBottom: "5%",
+
   },
   undertitle: {
-    margin: "40px",
+    display: "flex",
+    justifyContent: "center",
   },
   main: {
     display: "flex",
     flexDirection: "column",
   },
+  clement: {
+    color: "#F27C08"
+  },
+  fondateur: {
+    fontSize: "30px",
+    color: "#F29F24"
+  },
+  hr: {
+    width: "10%",
+    height: "2px",
+    backgroundColor:"#006262",
+    border:"none",
+    marginTop: "20px",
+    marginBottom: "40px"
+  },
+  hrclement: {
+   backgroundColor: "#F27C08",
+   border:"none",
+   height: "1px",
+  },
 }));
 
 const sections = [
-  { title: "Notre histoire", url: "http://localhost:3000/a-propos#Histoire" },
-  { title: "Nos ojectifs", url: "http://localhost:3000/a-propos#Objectifs" },
-  { title: "Notre vision", url: "http://localhost:3000/a-propos#NotreVision" },
+  { title: "NOTRE HISTOIRE", url: "http://localhost:3000/a-propos#Histoire" },
+  { title: "NOS OBJECTIFS", url: "http://localhost:3000/a-propos#Objectifs" },
+  { title: "NOTRE VISION", url: "http://localhost:3000/a-propos#NotreVision" },
   {
-    title: "Ils parlent de nous",
+    title: "ILS PARLENT DE NOUS",
     url: "http://localhost:3000/a-propos#IlsEnPArlent",
   },
-  { title: "Partenaires", url: "http://localhost:3000/a-propos#Partenaires" },
+  { title: "NOS PARTENAIRES", url: "http://localhost:3000/a-propos#Partenaires" },
 ];
 
 export default function About() {
@@ -74,16 +115,19 @@ export default function About() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <TopBar title="A propos" sections={sections} />
+        <TopBar title="À propos" sections={sections} style={{ textDecoration : "none" }}/>
         <div className={classes.root}>
           <div className={classes.title}>
             <div className={classes.head}>
-              <Typography gutterBottom variant="h1" component="h1">
+              <div className={classes.orangetitle}>
+              <Typography gutterBottom variant="h1" component="h1" className={classes.clement}>
                 Clément Fouillet
               </Typography>
-              <Typography gutterBottom variant="h3" component="h1">
+              <hr className={classes.hrclement}></hr>
+              <Typography gutterBottom variant="h2" component="h1" className={classes.fondateur}>
                 Fondateur de Cargo Bike Trade
               </Typography>
+              </div>
               <img
                 className={classes.img_title}
                 src="/assets/Clément_F_Fondateur.jpg"
@@ -95,12 +139,13 @@ export default function About() {
               <Typography
                 className={classes.undertitle}
                 gutterBottom
-                variant="h2"
+                variant="h5"
                 component="h1"
                 id="Histoire"
               >
                 Notre histoire
               </Typography>
+              <hr className={classes.hr}></hr>
               <p className={classes.paragraph}>
                 Lorsque j’étais étudiant à Bordeaux, j'avais pour habitude
                 d'acheter et revendre des vélos d'occasion sur mon temps libre
@@ -122,12 +167,13 @@ export default function About() {
               <Typography
                 className={classes.undertitle}
                 gutterBottom
-                variant="h2"
+                variant="h5"
                 component="h1"
                 id="Objectifs"
               >
                 Nos objectifs
               </Typography>
+              <hr className={classes.hr}></hr>
               <p className={classes.paragraph}>
                 <strong>Vous aider dans la vente de votre vélo cargo,</strong>{" "}
                 via une annonce détaillée, et des services additionnels pour
@@ -150,20 +196,20 @@ export default function About() {
               <Typography
                 className={classes.undertitle}
                 gutterBottom
-                variant="h2"
+                variant="h5"
                 component="h1"
                 id="NotreVision"
               >
                 Notre vision
               </Typography>
+              <hr className={classes.hr}></hr>
               <p className={classes.paragraph}>
                 <strong>
                   « Un vélo cargo triporteur possédant une caisse de 1 500 L
                   émet 85 % de CO² en moins qu'un véhicule thermique de la même
                   capacité. »
                 </strong>
-              </p>
-              <p className={classes.source}>
+                <br />
                 Source :
                 https://www.ecologie.gouv.fr/plan-national-developpement-cyclologistique
               </p>
@@ -180,12 +226,13 @@ export default function About() {
           <Typography
             className={classes.undertitle}
             gutterBottom
-            variant="h2"
+            variant="h5"
             component="h1"
             id="IlsEnPArlent"
           >
             Ils parlent de nous
           </Typography>
+          <hr className={classes.hr}></hr>
           <div className={classes.talkAbout}>
             <a href="https://youtu.be/UBvMiqYDE_8?t=732">
               <img
@@ -207,12 +254,13 @@ export default function About() {
           <Typography
             className={classes.undertitle}
             gutterBottom
-            variant="h2"
+            variant="h5"
             component="h1"
             id="Partenaires"
           >
             Partenaires
           </Typography>
+          <hr className={classes.hr}></hr>
           <div id="partnaires" className={classes.partnaires}>
             <a href="https://www.cyclofix.com/?utm_term=cyclofix&utm_campaign=ACQ+-+Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=9490984877&hsa_cam=1075025205&hsa_grp=55328601283&hsa_ad=298926109639&hsa_src=g&hsa_tgt=kwd-333483140602&hsa_kw=cyclofix&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQjw8vqGBhC_ARIsADMSd1DlvqcSYYdQkPFgcFNnP76KV2ANpaZF8LOKYUM_43qGhkuwdYSubxIaAoWREALw_wcB">
               <img

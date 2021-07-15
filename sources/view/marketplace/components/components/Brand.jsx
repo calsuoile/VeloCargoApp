@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
       width: "200px",
       backgroundColor: "white",
       borderRadius: "5px",
+      marginLeft:"10px"
     },
   },
 }));

@@ -81,7 +81,11 @@ export default function ConnectionButton() {
       )}
       {Object.keys(connectedUser).length === 0 && (
         <Link href="connexion">
+<<<<<<< HEAD
+          <Button aria-label="connexion" variant="contained" color="secondary" className={classes.buttonco}>
+=======
           <Button aria-label="connexion" variant="contained" color="secondary" className={classes.button}>
+>>>>>>> origin/dev
             Connexion{" "}
           </Button>
         </Link>
