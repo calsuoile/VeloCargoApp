@@ -6,6 +6,13 @@ import CardAds from "../ads/view_ads/components/CardAds";
 import Link from "next/link";
 
 const useStyles = makeStyles((theme) => ({
+  hr: {
+    width: "15%",
+    height: "3px",
+    backgroundColor:"#006262",
+    border:"none",
+    marginBottom: "5%",
+  },
   button: {
     display: "flex",
     marginLeft: "85%",
@@ -23,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   title: {
+    marginTop: "5%",
     margin: "50px",
     display: "flex",
     justifyContent: "center",
@@ -52,6 +60,7 @@ function ListAdsHomePage({ ads }) {
       <Typography className={classes.title} variant="h3">
         ACHETER UN VÉLO CARGO
       </Typography>
+      <hr className={classes.hr}></hr>
 
       <div className={classes.marketplace}>
         {ads?.map((card) => (
