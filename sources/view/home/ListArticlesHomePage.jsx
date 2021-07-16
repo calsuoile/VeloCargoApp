@@ -16,9 +16,9 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: " #F29F24 ",
     },
     [theme.breakpoints.down("sm")]: {
-      width:"20px",
-      fontSize : "10px",
-      marginLeft : "80%"
+      width: "20px",
+      fontSize: "10px",
+      marginLeft: "80%",
     },
   },
   title: {
@@ -29,14 +29,10 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "20px",
     color: "#006969",
     fontSize: "40px",
-<<<<<<< HEAD
     [theme.breakpoints.down("sm")]: {
-      fontSize : "30px"
-       },
-=======
->>>>>>> origin/dev
+      fontSize: "30px",
+    },
   },
-
   cards: {
     display: "flex",
     justifyContent: "space-around",

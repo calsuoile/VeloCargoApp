@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { makeStyles } from "@material-ui/core";
 import UserContext from "../../../context/user";
 import axios from "axios";
@@ -86,11 +86,9 @@ function MyProfil(props) {
   };
 
   const handleClick = async () => {
-    console.log("handle1");
     try {
       const accessToken = localStorage.getItem("userToken");
       if (accessToken) {
-        console.log("handle2");
         const config = {
           headers: {
             Authorization: `Bearer ${accessToken}`,

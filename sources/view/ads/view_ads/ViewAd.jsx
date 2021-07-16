@@ -1,14 +1,18 @@
 import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import React, { useState } from "react";
+import React, { useContext,useState } from "react";
 import PlaceIcon from "@material-ui/icons/Place";
 import PhoneIcon from "@material-ui/icons/Phone";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
-import IconButton from "@material-ui/core/IconButton";
 import AdsTable from "./components/AdsTable";
 import AdsTechnique from "./components/AdsTechnique";
 import AdsCarousel from "./components/AdsCarousel";
 import DeleteButtonAds from "../../../common/DeleteButtonAds";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import UserContext from "./../../../context/user";
+import IconButton from "@material-ui/core/IconButton";
+import axios from "axios";
 
 const useStyles = makeStyles({
   box: {
@@ -94,6 +98,29 @@ function ViewAd({ ads, user }) {
     setEmail(!email);
   }
 
+  const [isFavorite, setIsFavorite] = React.useState(false);
+  const { connectedUser } = useContext(UserContext);
+
+  const handleClickFavorite = () => {
+    setIsFavorite(!isFavorite);
+  };
+
+  const handleClick = async () => {
+    const accessToken = localStorage.getItem("userToken");
+    if ((accessToken) && (setIsFavorite(true))) {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      };
+      await axios.post(
+        `https://localhost:3030/users/${props.id}/favorites`,
+        {},
+        config
+      );
+    }
+  };
+
   return (
     <div className={classes.box}>
       <div className={classes.header}>
@@ -130,6 +157,19 @@ function ViewAd({ ads, user }) {
           {ads.created_at}
         </Typography>
         <DeleteButtonAds color="secondary" />
+        <div
+          color="secondary"
+          className={classes.icon}
+          onClick={handleClickFavorite}
+        >
+          {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+          {/* <IconButton aria-label="add to favorites" onClick={handleClick}>
+            {connectedUser?.favorites?.includes(props._id) && <FavoriteIcon />}
+            {!connectedUser?.favorites?.includes(props._id) && (
+              <FavoriteBorderIcon />
+            )}
+          </IconButton> */}
+        </div>
       </div>
       <div className={classes.photo}>
         <AdsCarousel className={classes.carousel} />

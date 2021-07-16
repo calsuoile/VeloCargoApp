@@ -56,17 +56,17 @@ export async function getStaticProps(props) {
   //   battery_wolt: "50",
   // };
 
-  // const user = {
-  //   firstname: "Michel",
-  //   lastname: "Dupont",
-  //   phone_number: "06 88 27 55 32",
-  //   email: "michel.dupont@gmail.com",
-  // };
+  const user = {
+    firstname: "Michel",
+    lastname: "Dupont",
+    phone_number: "06 88 27 55 32",
+    email: "michel.dupont@gmail.com",
+  };
 
   return {
     props: {
       ads: ads.data,
-      user: user.data,
+      user: user,
     },
     revalidate: 60,
   };
