@@ -132,7 +132,7 @@ function ViewAd({ ads, user }) {
         <DeleteButtonAds color="secondary" />
       </div>
       <div className={classes.photo}>
-        <AdsCarousel className={classes.carousel} />
+        <AdsCarousel className={classes.carousel} ads={ads}/>
       </div>
       <div className={classes.table}>
         {" "}
@@ -144,7 +144,7 @@ function ViewAd({ ads, user }) {
         </Typography>
         <AdsTechnique ads={ads} />
       </div>
-      <div className={classes.accessory}>
+      {/* <div className={classes.accessory}>
         <Typography variant="h3" className={classes.title}>
           Accessoires Complémentaire
         </Typography>
@@ -162,7 +162,7 @@ function ViewAd({ ads, user }) {
             width="200"
           ></img>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

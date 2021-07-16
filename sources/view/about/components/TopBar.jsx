@@ -23,8 +23,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "20px",
     fontFamily:"Open Sans Condensed, sans-serif",
     marginTop: "10px",
-    textDecoration: "none", 
-    color: "inherit",
+    color: "black",
+    
   },
   toolbarLink: {
     padding: theme.spacing(1),
