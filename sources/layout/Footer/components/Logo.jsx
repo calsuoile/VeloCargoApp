@@ -3,17 +3,16 @@ import { makeStyles } from "@material-ui/core/styles";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
 
 const useStyles = makeStyles((theme) => ({
   buttongroup: {
-    marginTop: "30px"
+    marginTop: "30px",
   },
   div: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   img: {
     width: "50%",
@@ -43,8 +42,7 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       color: "#F27C08",
     },
-  marginBottom: "30px",
-
+    marginBottom: "30px",
   },
   icon: {
     fontSize: "35px",
@@ -64,28 +62,28 @@ function Logo(props) {
   return (
     <div className={classes.div}>
       <img className={classes.img} src="/assets/CargoBikeTrade.png" />
-    <div className={classes.buttongroup}>
-    <a href="https://instagram.com/CargoBikeTrade">
-    <button className={classes.button}>
-    <InstagramIcon className={classes.icon} />
-    </button>
-    </a>
-    <a href="https://facebook.com/CargoBikeTrade">
-      <button className={classes.button2}>
-        <FacebookIcon className={classes.icon} />
-      </button>
-      </a>
-      <a href="https://twitter.com/CargoBikeTrade">
-      <button className={classes.button3}>
-        <TwitterIcon className={classes.icon} />
-      </button>
-      </a>
-      <a href="https://linkedin.com/company/cargobiketrade">
-      <button className={classes.button4}>
-        <LinkedInIcon className={classes.icon} />
-      </button>
-      </a>
-    </div>
+      <div className={classes.buttongroup}>
+        <a href="https://instagram.com/CargoBikeTrade" target="_blank">
+          <button className={classes.button}>
+            <InstagramIcon className={classes.icon} />
+          </button>
+        </a>
+        <a href="https://facebook.com/CargoBikeTrade" target="_blank">
+          <button className={classes.button2}>
+            <FacebookIcon className={classes.icon} />
+          </button>
+        </a>
+        <a href="https://twitter.com/CargoBikeTrade" target="_blank">
+          <button className={classes.button3}>
+            <TwitterIcon className={classes.icon} />
+          </button>
+        </a>
+        <a href="https://linkedin.com/company/cargobiketrade" target="_blank">
+          <button className={classes.button4}>
+            <LinkedInIcon className={classes.icon} />
+          </button>
+        </a>
+      </div>
     </div>
   );
 }

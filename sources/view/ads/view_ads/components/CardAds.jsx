@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -7,6 +7,9 @@ import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import DeleteButtonAds from "../../../../common/DeleteButtonAds";
+import UserContext from "../../../../context/user";
+import IconButton from "@material-ui/core/IconButton";
+import axios from "axios";
 
 
 const moment = require("moment");
@@ -60,9 +63,26 @@ const useStyles = makeStyles({
 
 export default function CardAds({ photo, title, price, department, created_at }) {
   const [isFavorite, setIsFavorite] = React.useState(true);
+  const { connectedUser } = useContext(UserContext);
 
   const handleClickFavorite = () => {
     setIsFavorite(!isFavorite);
+  };
+
+  const handleClick = async () => {
+    const accessToken = localStorage.getItem("userToken");
+    if ((accessToken) && (setIsFavorite(true))) {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      };
+      await axios.post(
+        `https://localhost:3030/users/${props.id}/favorites`,
+        {},
+        config
+      );
+    }
   };
 
   const classes = useStyles();
@@ -91,7 +111,13 @@ export default function CardAds({ photo, title, price, department, created_at })
           className={classes.icon}
           onClick={handleClickFavorite}
         >
-          {isFavorite ? <FavoriteBorderIcon /> : <FavoriteIcon />}
+          {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+          {/* <IconButton aria-label="add to favorites" onClick={handleClick}>
+            {connectedUser?.favorites?.includes(props._id) && <FavoriteIcon />}
+            {!connectedUser?.favorites?.includes(props._id) && (
+              <FavoriteBorderIcon />
+            )}
+          </IconButton> */}
         </div>
         <DeleteButtonAds color="secondary" />
       </div>

@@ -13,10 +13,9 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "30px",
   },
   orangetitle: {
-  flexDirection: "column",
-  textAlign: "center",
-  marginRight: "30px",
-
+    flexDirection: "column",
+    textAlign: "center",
+    marginRight: "30px",
   },
   partnaires: {
     display: "flex",
@@ -25,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "10%",
     marginLeft: "200px",
     marginRight: "200px",
-    marginTop: "60px"
+    marginTop: "60px",
   },
   talkAbout: {
     display: "flex",
@@ -39,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
   title: {
     display: "flex",
     justifyContent: "space-around",
-
   },
   img_partnaires: {
     maxWidth: "200px",
@@ -65,7 +63,6 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "250px",
     marginRight: "250px",
     marginBottom: "5%",
-
   },
   undertitle: {
     display: "flex",
@@ -75,25 +72,25 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
   },
-  clement: {
-    color: "#F27C08"
+  clement: {
+    color: "#F27C08",
   },
   fondateur: {
     fontSize: "30px",
-    color: "#F29F24"
+    color: "#F29F24",
   },
   hr: {
     width: "10%",
     height: "2px",
-    backgroundColor:"#006262",
-    border:"none",
+    backgroundColor: "#006262",
+    border: "none",
     marginTop: "20px",
-    marginBottom: "40px"
+    marginBottom: "40px",
   },
   hrclement: {
-   backgroundColor: "#F27C08",
-   border:"none",
-   height: "1px",
+    backgroundColor: "#F27C08",
+    border: "none",
+    height: "1px",
   },
   link : {
     textDecoration: "none",
@@ -108,7 +105,10 @@ const sections = [
     title: "ILS PARLENT DE NOUS",
     url: "http://localhost:3000/a-propos#IlsEnPArlent",
   },
-  { title: "NOS PARTENAIRES", url: "http://localhost:3000/a-propos#Partenaires" },
+  {
+    title: "NOS PARTENAIRES",
+    url: "http://localhost:3000/a-propos#Partenaires",
+  },
 ];
 
 export default function About() {
@@ -118,18 +118,32 @@ export default function About() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <TopBar title="À propos" sections={sections} style={{ textDecoration : "none" }}/>
+        <TopBar
+          title="À propos"
+          sections={sections}
+          style={{ textDecoration: "none" }}
+        />
         <div className={classes.root}>
           <div className={classes.title}>
             <div className={classes.head}>
               <div className={classes.orangetitle}>
-              <Typography gutterBottom variant="h1" component="h1" className={classes.clement}>
-                Clément Fouillet
-              </Typography>
-              <hr className={classes.hrclement}></hr>
-              <Typography gutterBottom variant="h2" component="h1" className={classes.fondateur}>
-                Fondateur de Cargo Bike Trade
-              </Typography>
+                <Typography
+                  gutterBottom
+                  variant="h1"
+                  component="h1"
+                  className={classes.clement}
+                >
+                  Clément Fouillet
+                </Typography>
+                <hr className={classes.hrclement}></hr>
+                <Typography
+                  gutterBottom
+                  variant="h2"
+                  component="h1"
+                  className={classes.fondateur}
+                >
+                  Fondateur de Cargo Bike Trade
+                </Typography>
               </div>
               <img
                 className={classes.img_title}
@@ -237,7 +251,7 @@ export default function About() {
           </Typography>
           <hr className={classes.hr}></hr>
           <div className={classes.talkAbout}>
-            <a href="https://youtu.be/UBvMiqYDE_8?t=732">
+            <a href="https://youtu.be/UBvMiqYDE_8?t=732" target="_blank">
               <img
                 className={classes.img_talkAbout}
                 src="/assets/logo_a_propos/pause_velo.jpg"
@@ -245,7 +259,10 @@ export default function About() {
                 href="https://youtu.be/UBvMiqYDE_8?t=732"
               />
             </a>
-            <a href="https://www.serialblogueuse.com/2021/06/02/10-bonnes-raisons-pour-se-deplacer-a-velo-cargo-en-ville/">
+            <a
+              href="https://www.serialblogueuse.com/2021/06/02/10-bonnes-raisons-pour-se-deplacer-a-velo-cargo-en-ville/"
+              target="_blank"
+            >
               <img
                 className={classes.img_talkAbout}
                 src="/assets/logo_a_propos/serial_blogueuse.jpg"
@@ -265,21 +282,24 @@ export default function About() {
           </Typography>
           <hr className={classes.hr}></hr>
           <div id="partnaires" className={classes.partnaires}>
-            <a href="https://www.cyclofix.com/?utm_term=cyclofix&utm_campaign=ACQ+-+Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=9490984877&hsa_cam=1075025205&hsa_grp=55328601283&hsa_ad=298926109639&hsa_src=g&hsa_tgt=kwd-333483140602&hsa_kw=cyclofix&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQjw8vqGBhC_ARIsADMSd1DlvqcSYYdQkPFgcFNnP76KV2ANpaZF8LOKYUM_43qGhkuwdYSubxIaAoWREALw_wcB">
+            <a
+              href="https://www.cyclofix.com/?utm_term=cyclofix&utm_campaign=ACQ+-+Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=9490984877&hsa_cam=1075025205&hsa_grp=55328601283&hsa_ad=298926109639&hsa_src=g&hsa_tgt=kwd-333483140602&hsa_kw=cyclofix&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQjw8vqGBhC_ARIsADMSd1DlvqcSYYdQkPFgcFNnP76KV2ANpaZF8LOKYUM_43qGhkuwdYSubxIaAoWREALw_wcB"
+              target="_blank"
+            >
               <img
                 className={classes.img_partnaires}
                 src="/assets/logo_a_propos/cyclofix.png"
                 alt="Cyclofix"
               />
             </a>
-            <a href="https://www.velhome.co/">
+            <a href="https://www.velhome.co/" target="_blank">
               <img
                 className={classes.img_partnaires}
                 src="/assets/logo_a_propos/velhome.png"
                 alt="Velhome"
               />
             </a>
-            <a href="https://cylantro.eu/">
+            <a href="https://cylantro.eu/" target="_blank">
               <img
                 className={classes.img_partnaires}
                 src="/assets/logo_a_propos/cylantro.png"
