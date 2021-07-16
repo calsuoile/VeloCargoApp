@@ -29,12 +29,9 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "20px",
     color: "#006969",
     fontSize: "40px",
-<<<<<<< HEAD
     [theme.breakpoints.down("sm")]: {
       fontSize : "30px"
        },
-=======
->>>>>>> origin/dev
   },
 
   cards: {
