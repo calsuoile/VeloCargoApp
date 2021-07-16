@@ -10,6 +10,10 @@ import AdsTechnique from "./components/AdsTechnique";
 import AdsCarousel from "./components/AdsCarousel";
 import DeleteButtonAds from "../../../common/DeleteButtonAds";
 
+
+const moment = require("moment");
+moment.locale("fr");
+
 const useStyles = makeStyles({
   box: {
     position: "relative",
@@ -127,7 +131,7 @@ function ViewAd({ ads, user }) {
           <PlaceIcon /> {ads.country}, {ads.department}
         </Typography>
         <Typography variant="body1" className={classes.when}>
-          {ads.created_at}
+          {moment(ads.created_at).format("LL à hh:mm")}
         </Typography>
         <DeleteButtonAds color="secondary" />
       </div>

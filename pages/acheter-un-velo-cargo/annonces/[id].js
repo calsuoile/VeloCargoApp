@@ -2,17 +2,16 @@ import ViewAd from "../../../sources/view/ads/view_ads/ViewAd";
 import { useRouter } from "next/router";
 import axios from "axios";
 
-
 const AdPage = ({ ads, user }) => {
   const router = useRouter();
   if (router.isFallback) {
     return <p>Loading...</p>;
   }
-  return <ViewAd ads={ads} user={user} />;
+
+  return <ViewAd ads={ads[0]} user={user} />;
 };
 
 export async function getStaticPaths() {
-
   const res = await axios.get("http://localhost:3030/ads");
   const data = await res.data;
 
@@ -24,19 +23,16 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: "blocking"
+    fallback: "blocking",
   };
 }
 
 export async function getStaticProps(props) {
-
-  const ads = await axios.get(
-    `http://localhost:3030/ads/${props.params.ads_id}`
-  );
+  const ads = await axios.get(`http://localhost:3030/ads/${props.params.id}`);
   // const ads = {
   //   id: 1,
   //   created_at: "25 mai 2021", // table ads
-  //   price: "2000", // table ads 
+  //   price: "2000", // table ads
   //   category: "Triporteur",
   //   model: "560x",
   //   guarantee: "Oui",
