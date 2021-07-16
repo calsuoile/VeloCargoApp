@@ -8,6 +8,10 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import DeleteButtonAds from "../../../../common/DeleteButtonAds";
 
+
+const moment = require("moment");
+moment.locale("fr");
+
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
@@ -43,7 +47,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function CardAds({ photo, title, price, city }) {
+export default function CardAds({ photo, title, price, department, created_at }) {
   const [isFavorite, setIsFavorite] = React.useState(true);
 
   const handleClickFavorite = () => {
@@ -60,13 +64,16 @@ export default function CardAds({ photo, title, price, city }) {
             {title}
           </Typography>
           <Typography variant="h6" className={classes.price}>
-            {price}
+            {price}€
           </Typography>
         </CardContent>
       </CardActionArea>
       <div className={classes.cityandicon}>
         <Typography variant="body2" color="secondary" className={classes.city}>
-          {city}
+          {department}
+        </Typography>
+        <Typography variant="body2" color="secondary" className={classes.city}>
+          {moment(created_at).format("LL à hh:mm")}
         </Typography>
         <div
           color="secondary"
