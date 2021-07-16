@@ -25,9 +25,8 @@ export default function SortBy() {
   const [open, setOpen] = React.useState(false);
 
   const handleChangeSort = (event) => {
-    if (value === 20) {
-      axios.get("http://localhost:3030/ads")
-    }
+    axios.get("http://localhost:3030/ads?order=asc");
+
     setSort(event.target.value);
   };
 
@@ -38,8 +37,6 @@ export default function SortBy() {
   const handleOpen = () => {
     setOpen(true);
   };
-
-
 
   return (
     <div className={classes.root}>

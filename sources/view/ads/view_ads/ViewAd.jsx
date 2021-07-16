@@ -132,7 +132,7 @@ function ViewAd({ ads, user }) {
         <DeleteButtonAds color="secondary" />
       </div>
       <div className={classes.photo}>
-        <AdsCarousel className={classes.carousel} />
+        <AdsCarousel className={classes.carousel} ads={ads}/>
       </div>
       <div className={classes.table}>
         {" "}
