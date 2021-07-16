@@ -21,10 +21,10 @@ import {
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="h7" color="textSecondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="accueil">
-        VéloCargo
+      <Link color="inherit" href="/">
+        CargoBikeTrade
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -59,14 +59,22 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "rgba(237, 162, 116, 1)",
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
+    width: "80%", // Fix IE 11 issue.
+    marginTop: "50px",
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    backgroundColor: "#5C9A9A",
+    color: "white",
+    fontFamily: "Open Sans Condensed, sans-serif",
+    fontWeight: 400,
+    fontSize: "20px",
+  },
+  names: {
+    display: "flex",
   },
   name: {
-    display: "flex",
+  marginRight: "5%"
   },
   ok: {
     fontFamily: "Open Sans Condensed, sans-serif",
@@ -85,6 +93,19 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Open Sans Condensed, sans-serif",
     fontSize: "15px",
     marginTop: "20px",
+  },
+  title: {
+    marginTop: "5%",
+    color: "#006262",
+    fontSize: "40px"
+  },
+  hr: {
+    width: "50%",
+    height: "3px",
+    backgroundColor:"#006262",
+    border:"none",
+    marginTop: "5%",
+    marginBottom: "10px",
   },
 }));
 
@@ -136,10 +157,12 @@ export default function Register() {
           <Avatar className={classes.avatar}>
             <DirectionsBikeIcon />
           </Avatar>
-          <Typography variant="h5">INSCRIPTION</Typography>
+          <Typography className={classes.title} variant="h3">INSCRIPTION</Typography>
+          <hr className={classes.hr}></hr>
           <form className={classes.form} onSubmit={handleClick} noValidate>
-            <div className={classes.name}>
+            <div className={classes.names}>
               <TextField
+                className={classes.name}
                 value={lastname}
                 variant="outlined"
                 margin="normal"
@@ -153,6 +176,7 @@ export default function Register() {
                 onChange={(e) => setLastName(e.target.value)}
               />
               <TextField
+              className={classes.fname}
                 value={firstname}
                 variant="outlined"
                 margin="normal"

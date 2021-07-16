@@ -12,7 +12,7 @@ function index({ articles, ads }) {
 
 export async function getStaticProps(props) {
   const articles = await axios.get("http://localhost:3030/articles?limit=3");
-  const ads = await axios.get("http://localhost:3030/ads?limit=4");
+  const ads = await axios.get("http://localhost:3030/ads?limit=3");
 
   return {
     props: { articles: articles.data, ads: ads.data },

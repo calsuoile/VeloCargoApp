@@ -5,6 +5,13 @@ import ArticleCard from "../articles/view-articles/components/ArticleCard";
 import Link from "next/link";
 
 const useStyles = makeStyles((theme) => ({
+  hr: {
+    width: "15%",
+    height: "3px",
+    backgroundColor: "#006262",
+    border: "none",
+    marginBottom: "5%",
+  },
   button: {
     display: "flex",
     marginLeft: "85%",
@@ -22,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   title: {
+    marginTop: "5%",
     display: "flex",
     justifyContent: "center",
     paddingBottom: "20px",
@@ -49,6 +57,7 @@ const ListArticlesHomePage = ({ articles }) => {
       <Typography className={classes.title} variant="h3">
         ARTICLES & ASTUCES
       </Typography>
+      <hr className={classes.hr}></hr>
       <div className={classes.cards}>
         {/* map pour affichage de tous les éléments de l'objet articles */}
         {articles?.map((article) => (

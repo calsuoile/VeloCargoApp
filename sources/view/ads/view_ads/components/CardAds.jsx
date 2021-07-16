@@ -11,13 +11,13 @@ import UserContext from "../../../../context/user";
 import IconButton from "@material-ui/core/IconButton";
 import axios from "axios";
 
+
+const moment = require("moment");
+moment.locale("fr");
+
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
-    height: 400,
-    borderRadius: "5px",
-    margin: "10px",
-    backgroundColor: "#fff",
   },
   media: {
     height: 140,
@@ -26,8 +26,12 @@ const useStyles = makeStyles({
     backgroundColor: "#fff",
   },
   image: {
-    width: "100%",
-    height: 250,
+    width: 320,
+    heigth: 240,
+    borderRadius: "20px 20px 0px 0px",
+    boxShadow: "2px 4px 4px #BFD9D9",
+    
+
   },
   cityandicon: {
     height: "50px",
@@ -37,17 +41,28 @@ const useStyles = makeStyles({
     paddingLeft: "20px",
     paddingRight: "20px",
     paddingBottom: "20px",
+    color: "#F23508",
   },
   title: {
-    color: "#006969",
+    color: "#F27C08",
+    fontWeight: "bold",
+    fontSize: "20px"
   },
   price: {
-    color: "#B4B8D4",
+    color: "#BFD9D9",
+    fontSize: "25px"
   },
+  date: {
+    color: "black",
+    fontSize: "15px"
+  },
+  city: {
+    color: "red",
+  }
 });
 
-export default function CardAds({ photo, title, price, city }) {
-  const [isFavorite, setIsFavorite] = React.useState(false);
+export default function CardAds({ photo, title, price, department, created_at }) {
+  const [isFavorite, setIsFavorite] = React.useState(true);
   const { connectedUser } = useContext(UserContext);
 
   const handleClickFavorite = () => {
@@ -76,17 +91,20 @@ export default function CardAds({ photo, title, price, city }) {
       <CardActionArea>
         <img className={classes.image} src={photo} />
         <CardContent className={classes.content}>
-          <Typography variant="h6" component="h1" className={classes.title}>
+          <Typography variant="h5" component="h1" className={classes.title}>
             {title}
           </Typography>
-          <Typography variant="h6" className={classes.price}>
-            {price}
+          <Typography variant="h3" className={classes.price}>
+            {price}€
           </Typography>
         </CardContent>
       </CardActionArea>
       <div className={classes.cityandicon}>
         <Typography variant="body2" color="secondary" className={classes.city}>
-          {city}
+          {department}
+        </Typography>
+        <Typography variant="body1" color="secondary" className={classes.date}>
+          {moment(created_at).format("LL à hh:mm")}
         </Typography>
         <div
           color="secondary"

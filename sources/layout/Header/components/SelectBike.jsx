@@ -107,6 +107,9 @@ function SelectBike(props) {
                   onKeyDown={handleListKeyDown}
                 >
                   <MenuItem className={classes.item} onClick={handleClose}>
+                    Voir Tout
+                  </MenuItem>
+                  <MenuItem className={classes.item} onClick={handleClose}>
                     Biporteurs
                   </MenuItem>
                   <MenuItem className={classes.item} onClick={handleClose}>

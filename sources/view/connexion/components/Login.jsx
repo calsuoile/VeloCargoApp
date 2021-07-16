@@ -15,10 +15,10 @@ import { useRouter } from "next/router";
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="h7" color="textSecondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="accueil">
-        VéloCargo
+      <Link color="inherit" href="/">
+      CargoBikeTrade
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -49,16 +49,33 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   avatar: {
-    margin: "20px",
+    margin: theme.spacing(1),
     backgroundColor: "rgba(237, 162, 116, 1)",
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: "80%", // Fix IE 11 issue.
     marginTop: "50px",
   },
   submit: {
+    margin: theme.spacing(3, 0, 2),
+    backgroundColor: "#5C9A9A",
+    color: "white",
+    fontFamily: "Open Sans Condensed, sans-serif",
+    fontWeight: 400,
+    fontSize: "20px",
+  },
+  title: {
+    marginTop: "5%",
+    color: "#006262",
+    fontSize: "40px"
+  },
+  hr: {
     width: "50%",
-    margin: "100px",
+    height: "3px",
+    backgroundColor:"#006262",
+    border:"none",
+    marginTop: "5%",
+    marginBottom: "10px",
   },
 }));
 
@@ -111,7 +128,8 @@ export default function Login() {
           <Avatar className={classes.avatar}>
             <DirectionsBikeIcon />
           </Avatar>
-          <Typography variant="h5">CONNEXION</Typography>
+          <Typography className={classes.title} variant="h3">CONNEXION</Typography>
+          <hr className={classes.hr}></hr>
           <form className={classes.form} noValidate>
             <TextField
               value={email}
