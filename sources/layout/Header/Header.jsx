@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import SplitButtonType from "./components/SplitButtonType";
 import SelectBike from "./components/SelectBike";
 import ConnectionButton from "./components/ConnectionButton";
 import ArticlesTipsButton from "./components/ArticlesTipsButton";

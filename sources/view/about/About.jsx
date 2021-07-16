@@ -95,6 +95,9 @@ const useStyles = makeStyles((theme) => ({
    border:"none",
    height: "1px",
   },
+  link : {
+    textDecoration: "none",
+  }
 }));
 
 const sections = [
