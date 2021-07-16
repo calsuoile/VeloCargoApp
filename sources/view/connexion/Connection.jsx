@@ -6,7 +6,7 @@ import Register from "/sources/view/connexion/components/Register";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    // justifyContent: "center",
+    justifyContent: "center",
     // width: '100%',
     // height: '100vh',
     // backgroundColor: "#EDA274",
