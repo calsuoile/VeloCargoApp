@@ -53,7 +53,7 @@ export default function AdsTable({ ads }) {
             <TableCell align="right">{ads.model}</TableCell>
             <TableCell className={classes.cell}>Localisation</TableCell>
             <TableCell align="right">
-              {ads.dep}, {ads.country}
+              {ads.department}, {ads.country}
             </TableCell>
           </TableRow>
 
