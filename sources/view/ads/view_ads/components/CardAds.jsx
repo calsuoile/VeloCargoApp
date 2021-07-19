@@ -11,7 +11,6 @@ import UserContext from "../../../../context/user";
 import IconButton from "@material-ui/core/IconButton";
 import axios from "axios";
 
-
 const moment = require("moment");
 moment.locale("fr");
 
@@ -30,8 +29,6 @@ const useStyles = makeStyles({
     heigth: 240,
     borderRadius: "20px 20px 0px 0px",
     boxShadow: "2px 4px 4px #BFD9D9",
-    
-
   },
   cityandicon: {
     height: "50px",
@@ -46,22 +43,28 @@ const useStyles = makeStyles({
   title: {
     color: "#F27C08",
     fontWeight: "bold",
-    fontSize: "20px"
+    fontSize: "20px",
   },
   price: {
     color: "#BFD9D9",
-    fontSize: "25px"
+    fontSize: "25px",
   },
   date: {
     color: "black",
-    fontSize: "15px"
+    fontSize: "15px",
   },
   city: {
     color: "red",
-  }
+  },
 });
 
-export default function CardAds({ photo, title, price, department, created_at }) {
+export default function CardAds({
+  photo,
+  title,
+  price,
+  department,
+  created_at,
+}) {
   const [isFavorite, setIsFavorite] = React.useState(true);
   const { connectedUser } = useContext(UserContext);
 
@@ -71,7 +74,7 @@ export default function CardAds({ photo, title, price, department, created_at })
 
   const handleClick = async () => {
     const accessToken = localStorage.getItem("userToken");
-    if ((accessToken) && (setIsFavorite(true))) {
+    if (accessToken && setIsFavorite(true)) {
       const config = {
         headers: {
           Authorization: `Bearer ${accessToken}`,
@@ -86,10 +89,14 @@ export default function CardAds({ photo, title, price, department, created_at })
   };
 
   const classes = useStyles();
+  const photos = photo?.split(",");
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <img className={classes.image} src={photo} />
+        <img
+          className={classes.image}
+          src={photos.length > 0 ? photos[0] : ""}
+        />
         <CardContent className={classes.content}>
           <Typography variant="h5" component="h1" className={classes.title}>
             {title}

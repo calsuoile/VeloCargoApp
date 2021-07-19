@@ -129,7 +129,7 @@ function SelectBike(props) {
                   </MenuItem>
                   <MenuItem
                     className={classes.item}
-                    onClick={(event) => handleClose(event, "longtrail")}
+                    onClick={(event) => handleClose(event, "longtail")}
                   >
                     Longtails
                   </MenuItem>

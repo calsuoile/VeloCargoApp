@@ -96,9 +96,9 @@ function Footer(props) {
               <li className={classes.undertitle}>Tricycle</li>
             </a>
           </Link>
-          <Link href="/acheter-un-velo-cargo/longtrail">
+          <Link href="/acheter-un-velo-cargo/longtail">
             <a style={{ textDecoration: "none", color: "inherit" }}>
-              <li className={classes.undertitle}>LongTrail</li>
+              <li className={classes.undertitle}>LongTail</li>
             </a>
           </Link>
           <Link href="/acheter-un-velo-cargo/remorque">

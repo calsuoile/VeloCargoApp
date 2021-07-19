@@ -11,7 +11,7 @@ export async function getStaticPaths() {
       { params: { type: "triporteur" } },
       { params: { type: "biporteur" } },
       { params: { type: "tricycle" } },
-      { params: { type: "longtrail" } },
+      { params: { type: "longtail" } },
       { params: { type: "remorque" } },
       { params: { type: "accessoire" } },
     ],

@@ -168,9 +168,15 @@ function AdsAccessorie(props) {
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
-    axios.post(`http://localhost:3030/accessories`, form, config).then(() => {
-      router.push("/");
-    });
+    axios
+      .post(
+        `http://localhost:3030/accessories`,
+        { ...form, type: "accessoire", photo: form.photo.toString() },
+        config
+      )
+      .then(() => {
+        router.push("/");
+      });
   };
   return (
     <div>
