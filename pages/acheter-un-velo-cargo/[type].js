@@ -1,8 +1,8 @@
 import MarketPlace from "../../sources/view/marketplace/Marketplace";
 import axios from "axios";
 
-export default function AdsPage({ adsCard }) {
-  return <MarketPlace adsCard={adsCard} />;
+export default function AdsPage({ adsCard, total, type }) {
+  return <MarketPlace adsCard={adsCard} total={total} type={type} />;
 }
 
 export async function getStaticPaths() {
@@ -26,7 +26,9 @@ export async function getStaticProps(props) {
 
   return {
     props: {
-      adsCard: adsCard.data,
+      adsCard: adsCard?.data?.data,
+      total: adsCard?.data?.metadata?.totalAds,
+      type: props.params.type,
     },
     revalidate: 60,
   };
