@@ -64,11 +64,15 @@ export default function CardAds({
   price,
   department,
   created_at,
+  ads_id,
+  user_id,
 }) {
   const [isFavorite, setIsFavorite] = React.useState(true);
   const { connectedUser } = useContext(UserContext);
 
-  const handleClickFavorite = () => {
+  const handleClickFavorite = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     setIsFavorite(!isFavorite);
   };
 
@@ -81,7 +85,7 @@ export default function CardAds({
         },
       };
       await axios.post(
-        `https://localhost:3030/users/${props.id}/favorites`,
+        `https://localhost:3030/users/${id}/favorites`,
         {},
         config
       );
@@ -126,7 +130,9 @@ export default function CardAds({
             )}
           </IconButton> */}
         </div>
-        <DeleteButtonAds color="secondary" />
+        {user_id === connectedUser?.id && (
+          <DeleteButtonAds color="secondary" adsId={ads_id} />
+        )}
       </div>
     </Card>
   );

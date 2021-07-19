@@ -15,7 +15,7 @@ export async function getStaticProps(props) {
   const ads = await axios.get("http://localhost:3030/ads?limit=3");
 
   return {
-    props: { articles: articles.data.data, ads: ads.data },
+    props: { articles: articles.data.data, ads: ads.data.data },
     revalidate: 60,
   };
 }

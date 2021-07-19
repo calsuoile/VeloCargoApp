@@ -13,7 +13,7 @@ const AdPage = ({ ads }) => {
 
 export async function getStaticPaths() {
   const res = await axios.get("http://localhost:3030/ads");
-  const data = await res.data;
+  const data = await res?.data?.data;
 
   const paths = data.map((ads) => {
     return {
