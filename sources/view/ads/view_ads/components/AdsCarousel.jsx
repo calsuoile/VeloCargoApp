@@ -7,8 +7,8 @@ const AdsCarousel = ({ className, ads }) => {
   return (
     <div className={className}>
       <Carousel>
-        {photos?.map((photo) => (
-          <div>
+        {photos?.map((photo, index) => (
+          <div key={index}>
             <img src={photo} />
           </div>
         ))}
