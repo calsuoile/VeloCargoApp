@@ -15,8 +15,6 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     fontSize: "22px",
     marginRight: "20px",
-    borderLeft: "1px solid",
-    paddingLeft: "20px",
     "&:hover": {
       cursor: "pointer",
     },
@@ -30,7 +28,9 @@ export default function CreateAdsButton() {
     <div className={classes.root}>
       <Link href="/vendre-un-produit">
         <a style={{ textDecoration: "none", color: "inherit" }}>
-          <Typography className={classes.typo}><strong>DÉPOSER UNE ANNONCE</strong></Typography>
+          <Typography className={classes.typo}>
+            <strong>DÉPOSER UNE ANNONCE</strong>
+          </Typography>
         </a>
       </Link>
     </div>
