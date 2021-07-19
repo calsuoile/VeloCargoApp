@@ -63,7 +63,7 @@ const CreateArticle = () => {
   const [form, setForm] = useState({
     title: "",
     text: "",
-    photo: [],
+    photo: "",
   });
 
   const handleTitleChange = (e) => {
@@ -75,10 +75,7 @@ const CreateArticle = () => {
   };
 
   const handlePicture = (imageUrl) => {
-    console.log(imageUrl);
-    const newImages = [...form.photo, imageUrl];
-    setForm({ ...form, photo: newImages });
-    console.log(newImages);
+    setForm({ ...form, photo: imageUrl });
   };
 
   const handleSaveArticle = async () => {
@@ -140,12 +137,8 @@ const CreateArticle = () => {
             name="photo"
           />
           <div>
-            <label htmlFor="contained-button-file">
-              {form.photo.map((image, index) => {
-                return <img src={image} alt="" key={index} width="150px" />;
-              })}
-              <Upload handlePicture={handlePicture} />
-            </label>
+            {form.photo && <img src={form.photo} alt="" width="150px" />}
+            <Upload handlePicture={handlePicture} />
           </div>
           <div className={classes.saveButton}></div>
           <Button
