@@ -7,6 +7,7 @@ import Popper from "@material-ui/core/Popper";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import { makeStyles } from "@material-ui/core/styles";
+import { useRouter } from "next/router";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,12 +47,14 @@ function SelectBike(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
+  const router = useRouter();
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
   };
 
-  const handleClose = (event) => {
+  const handleClose = (event, target) => {
+    router.push(`/acheter-un-velo-cargo/${target}`);
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
       return;
     }
@@ -106,25 +109,46 @@ function SelectBike(props) {
                   id="menu-list-grow"
                   onKeyDown={handleListKeyDown}
                 >
-                  <MenuItem className={classes.item} onClick={handleClose}>
+                  <MenuItem
+                    className={classes.item}
+                    onClick={(event) => handleClose(event, "")}
+                  >
                     Voir Tout
                   </MenuItem>
-                  <MenuItem className={classes.item} onClick={handleClose}>
+                  <MenuItem
+                    className={classes.item}
+                    onClick={(event) => handleClose(event, "biporteur")}
+                  >
                     Biporteurs
                   </MenuItem>
-                  <MenuItem className={classes.item} onClick={handleClose}>
+                  <MenuItem
+                    className={classes.item}
+                    onClick={(event) => handleClose(event, "triporteur")}
+                  >
                     Triporteurs
                   </MenuItem>
-                  <MenuItem className={classes.item} onClick={handleClose}>
+                  <MenuItem
+                    className={classes.item}
+                    onClick={(event) => handleClose(event, "longtrail")}
+                  >
                     Longtails
                   </MenuItem>
-                  <MenuItem className={classes.item} onClick={handleClose}>
+                  <MenuItem
+                    className={classes.item}
+                    onClick={(event) => handleClose(event, "tricycle")}
+                  >
                     Tricycles
                   </MenuItem>
-                  <MenuItem className={classes.item} onClick={handleClose}>
+                  <MenuItem
+                    className={classes.item}
+                    onClick={(event) => handleClose(event, "remorque")}
+                  >
                     Remorques
                   </MenuItem>
-                  <MenuItem className={classes.item} onClick={handleClose}>
+                  <MenuItem
+                    className={classes.item}
+                    onClick={(event) => handleClose(event, "accessoire")}
+                  >
                     Accessoires
                   </MenuItem>
                 </MenuList>
