@@ -5,6 +5,7 @@ import PaginationPage from "../../marketplace/components/PaginationPage";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -22,21 +23,37 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ListArticles = ({ articles: initialArticles }) => {
+const ListArticles = ({
+  articles: initialArticles,
+  total,
+  page: initialPage = 1,
+}) => {
   const classes = useStyles();
+  const router = useRouter();
 
   const [articles, setArticles] = useState(initialArticles);
   const [keyWord, setKeyWord] = useState("");
+  const [page, setPage] = useState(initialPage);
+
+  const pageChange = (e, page) => {
+    setPage(page);
+    router.push(`/articles/page/${page}`);
+  };
 
   useEffect(() => {
     if (keyWord) {
       axios
         .get(`http://localhost:3030/articles?title=${keyWord}`)
         .then((response) => {
-          setArticles(response.data);
+          setArticles(response.data.data);
         });
+      setPage(1);
     }
   }, [keyWord]);
+
+  useEffect(() => {
+    setArticles(initialArticles);
+  }, [initialArticles]);
 
   return (
     <>
@@ -55,7 +72,7 @@ const ListArticles = ({ articles: initialArticles }) => {
           </Link>
         ))}
       </div>
-      <PaginationPage />
+      <PaginationPage total={total} onChange={pageChange} page={page} />
     </>
   );
 };

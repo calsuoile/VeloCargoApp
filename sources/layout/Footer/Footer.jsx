@@ -141,7 +141,7 @@ function Footer(props) {
           </Link>
         </ul>
         <ul className={classes.link}>
-          <Link href="/articles">
+          <Link href="/articles/page/1">
             <a style={{ textDecoration: "none", color: "inherit" }}>
               {" "}
               <li className={classes.title}>
