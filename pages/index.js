@@ -5,7 +5,7 @@ import Home from "../sources/view/home/Home";
 function index({ articles, ads }) {
   return (
     <div>
-      <Home articles={articles} ads={ads}/>
+      <Home articles={articles} ads={ads} />
     </div>
   );
 }
@@ -15,7 +15,7 @@ export async function getStaticProps(props) {
   const ads = await axios.get("http://localhost:3030/ads?limit=3");
 
   return {
-    props: { articles: articles.data, ads: ads.data },
+    props: { articles: articles.data.data, ads: ads.data },
     revalidate: 60,
   };
 }
