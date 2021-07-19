@@ -3,6 +3,8 @@ import { Avatar, makeStyles, Typography } from "@material-ui/core";
 import OtherArticlesWindow from "./components/OtherArticlesWindow";
 import DeleteButton from "../../../common/DeleteButton";
 import Link from "next/link";
+import { useContext } from "react";
+import UserContext from "../../../context/user";
 
 const moment = require("moment");
 moment.locale("fr");
@@ -56,6 +58,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ViewArticle = ({ articleView: [articleView], otherArticles }) => {
   const classes = useStyles();
+  const { connectedUser } = useContext(UserContext);
 
   return (
     <>
@@ -68,7 +71,9 @@ const ViewArticle = ({ articleView: [articleView], otherArticles }) => {
       </div>
       <div className={classes.title}>
         <Typography variant="h1">{articleView.title}</Typography>
-        <DeleteButton id={articleView.id}/>
+        {connectedUser?.id && connectedUser?.role === "admin" && (
+          <DeleteButton id={articleView.id} />
+        )}
       </div>
       <div className={classes.authorImage}>
         <Avatar alt="Clément Fouillet" src="/assets/clement_fouillet.jpg" />
