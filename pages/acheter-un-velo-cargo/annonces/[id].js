@@ -12,7 +12,7 @@ const AdPage = ({ ads }) => {
 };
 
 export async function getStaticPaths() {
-  const res = await axios.get("http://localhost:3030/ads");
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}ads`);
   const data = await res?.data?.data;
 
   const paths = data.map((ads) => {
@@ -28,7 +28,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(props) {
-  const ads = await axios.get(`http://localhost:3030/ads/${props.params.id}`);
+  const ads = await axios.get(
+    `${process.env.NEXT_PUBLIC_API_URL}ads/${props.params.id}`
+  );
 
   return {
     props: {

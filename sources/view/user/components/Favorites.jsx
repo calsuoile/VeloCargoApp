@@ -43,7 +43,9 @@ function Favorites(props) {
     ) {
       Promise.all(
         connectedUser?.favorites?.map((item) => {
-          const req = axios.get(`http://localhost:3030/ads/${item}`);
+          const req = axios.get(
+            `${process.env.NEXT_PUBLIC_API_URL}ads/${item}`
+          );
           return req;
         })
       ).then((response) => setFavorites(response));

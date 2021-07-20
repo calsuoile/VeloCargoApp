@@ -6,7 +6,7 @@ export default function AdsPage({ adsCard, total }) {
 }
 
 export async function getStaticProps(props) {
-  const adsCard = await axios.get("http://localhost:3030/ads");
+  const adsCard = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}ads`);
 
   return {
     props: {

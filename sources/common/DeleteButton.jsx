@@ -29,7 +29,7 @@ function DeleteButton({ id }) {
 
   const handleDeleteTrue = (id) => {
     setOpen(false);
-    axios.delete(`http://localhost:3030/articles/${id}`);
+    axios.delete(`${process.env.NEXT_PUBLIC_API_URL}articles/${id}`);
   };
 
   return (

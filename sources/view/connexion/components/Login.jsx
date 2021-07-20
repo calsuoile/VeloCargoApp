@@ -18,7 +18,7 @@ function Copyright() {
     <Typography variant="h7" color="textSecondary" align="center">
       {"Copyright © "}
       <Link color="inherit" href="/">
-      CargoBikeTrade
+        CargoBikeTrade
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -67,13 +67,13 @@ const useStyles = makeStyles((theme) => ({
   title: {
     marginTop: "5%",
     color: "#006262",
-    fontSize: "40px"
+    fontSize: "40px",
   },
   hr: {
     width: "50%",
     height: "3px",
-    backgroundColor:"#006262",
-    border:"none",
+    backgroundColor: "#006262",
+    border: "none",
     marginTop: "5%",
     marginBottom: "10px",
   },
@@ -94,7 +94,7 @@ export default function Login() {
     };
     try {
       const token = await axios.post(
-        `http://localhost:3030/users/login`,
+        `${process.env.NEXT_PUBLIC_API_URL}users/login`,
         userId
       );
       console.log(token.data);
@@ -105,7 +105,7 @@ export default function Login() {
         },
       };
       const userProfile = await axios.get(
-        `http://localhost:3030/users/me`,
+        `${process.env.NEXT_PUBLIC_API_URL}users/me`,
         config
       );
       setConnectedUser(userProfile.data);
@@ -128,7 +128,9 @@ export default function Login() {
           <Avatar className={classes.avatar}>
             <DirectionsBikeIcon />
           </Avatar>
-          <Typography className={classes.title} variant="h3">CONNEXION</Typography>
+          <Typography className={classes.title} variant="h3">
+            CONNEXION
+          </Typography>
           <hr className={classes.hr}></hr>
           <form className={classes.form} noValidate>
             <TextField

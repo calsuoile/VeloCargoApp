@@ -80,7 +80,7 @@ const CreateArticle = () => {
 
   const handleSaveArticle = async () => {
     console.log(form);
-    await axios.post("http://localhost:3030/articles", form);
+    await axios.post(`${process.env.NEXT_PUBLIC_API_URL}articles`, form);
   };
 
   return (

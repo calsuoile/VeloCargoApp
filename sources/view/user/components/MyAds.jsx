@@ -44,7 +44,10 @@ function MyAds(props) {
         },
       };
       axios
-        .get(`http://localhost:3030/ads?user_id=${connectedUser.id}`, config)
+        .get(
+          `${process.env.NEXT_PUBLIC_API_URL}ads?user_id=${connectedUser.id}`,
+          config
+        )
         .then((response) => {
           setAds(response?.data?.data);
           console.log(response?.data?.data);

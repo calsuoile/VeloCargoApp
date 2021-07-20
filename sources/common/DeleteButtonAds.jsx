@@ -24,7 +24,7 @@ function DeleteButtonAds({ adsId }) {
       headers: { Authorization: `Bearer ${token}` },
     };
     await axios.delete(
-      `http://localhost:3030/ads/${adsId}?soldOnWebsite=${
+      `${process.env.NEXT_PUBLIC_API_URL}ads/${adsId}?soldOnWebsite=${
         form.sell === "Oui" ? 1 : 0
       }`,
       config

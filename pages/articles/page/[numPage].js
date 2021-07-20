@@ -17,7 +17,7 @@ export async function getStaticProps({ params }) {
   //faire la requête axios
 
   const articles = await axios.get(
-    `http://localhost:3030/articles?page=${params.numPage}`
+    `${process.env.NEXT_PUBLIC_API_URL}articles?page=${params.numPage}`
   );
 
   return {

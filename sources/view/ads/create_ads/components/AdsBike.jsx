@@ -183,7 +183,7 @@ export default function AdsBike(props) {
     };
     axios
       .post(
-        `http://localhost:3030/cargobikes`,
+        `${process.env.NEXT_PUBLIC_API_URL}cargobikes`,
         { ...form, photo: form.photo.toString() },
         config
       )

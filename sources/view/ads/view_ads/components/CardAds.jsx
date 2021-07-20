@@ -90,13 +90,13 @@ export default function CardAds({
       if (isFavorite) {
         // if it's favorite it means you should remove it
         await axios.delete(
-          `http://localhost:3030/ads/${ads_id}/favorites`,
+          `${process.env.NEXT_PUBLIC_API_URL}ads/${ads_id}/favorites`,
           config
         );
       } else {
         // if not then we should add it
         await axios.post(
-          `http://localhost:3030/ads/${ads_id}/favorites`,
+          `${process.env.NEXT_PUBLIC_API_URL}ads/${ads_id}/favorites`,
           {},
           config
         );

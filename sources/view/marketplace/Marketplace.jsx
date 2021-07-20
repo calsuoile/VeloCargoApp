@@ -51,7 +51,7 @@ function Marketplace({ adsCard, type = "", total: initialTotal }) {
       .join("&");
 
     axios
-      .get(`http://localhost:3030/ads?${queryFilter}`)
+      .get(`${process.env.NEXT_PUBLIC_API_URL}ads?${queryFilter}`)
       .then((response) => response.data)
       .then((data) => {
         setAds(data?.data);

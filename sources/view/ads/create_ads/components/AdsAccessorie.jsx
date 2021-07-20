@@ -170,7 +170,7 @@ function AdsAccessorie(props) {
     };
     axios
       .post(
-        `http://localhost:3030/accessories`,
+        `${process.env.NEXT_PUBLIC_API_URL}accessories`,
         { ...form, type: "accessoire", photo: form.photo.toString() },
         config
       )

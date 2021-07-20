@@ -20,7 +20,7 @@ export default function VeloCargo({ Component, pageProps }) {
         };
 
         const userProfile = await axios.get(
-          `http://localhost:3030/users/me`,
+          `${process.env.NEXT_PUBLIC_API_URL}users/me`,
           config
         );
 

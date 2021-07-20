@@ -95,7 +95,7 @@ function MyProfil(props) {
           },
         };
         const updatedUser = await axios.patch(
-          `http://localhost:3030/users/${connectedUser.id}`,
+          `${process.env.NEXT_PUBLIC_API_URL}users/${connectedUser.id}`,
           form,
           config
         );

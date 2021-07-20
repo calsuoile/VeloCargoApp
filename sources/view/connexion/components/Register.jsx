@@ -74,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
   },
   name: {
-  marginRight: "5%"
+    marginRight: "5%",
   },
   ok: {
     fontFamily: "Open Sans Condensed, sans-serif",
@@ -97,13 +97,13 @@ const useStyles = makeStyles((theme) => ({
   title: {
     marginTop: "5%",
     color: "#006262",
-    fontSize: "40px"
+    fontSize: "40px",
   },
   hr: {
     width: "50%",
     height: "3px",
-    backgroundColor:"#006262",
-    border:"none",
+    backgroundColor: "#006262",
+    border: "none",
     marginTop: "5%",
     marginBottom: "10px",
   },
@@ -126,7 +126,10 @@ export default function Register() {
       email: email,
       password: password,
     };
-    await axios.post(`http://localhost:3030/users`, userInscription);
+    await axios.post(
+      `${process.env.NEXT_PUBLIC_API_URL}users`,
+      userInscription
+    );
     router.push("/connexion");
   };
 
@@ -157,7 +160,9 @@ export default function Register() {
           <Avatar className={classes.avatar}>
             <DirectionsBikeIcon />
           </Avatar>
-          <Typography className={classes.title} variant="h3">INSCRIPTION</Typography>
+          <Typography className={classes.title} variant="h3">
+            INSCRIPTION
+          </Typography>
           <hr className={classes.hr}></hr>
           <form className={classes.form} onSubmit={handleClick} noValidate>
             <div className={classes.names}>
@@ -176,7 +181,7 @@ export default function Register() {
                 onChange={(e) => setLastName(e.target.value)}
               />
               <TextField
-              className={classes.fname}
+                className={classes.fname}
                 value={firstname}
                 variant="outlined"
                 margin="normal"
@@ -215,7 +220,7 @@ export default function Register() {
               type="password"
               id="password"
               autoComplete="current-password"
-              onChange={((e) => setPassword(e.target.value))}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <Button
               type="submit"

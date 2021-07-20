@@ -174,7 +174,7 @@ function AdsTrailer(props) {
     };
     axios
       .post(
-        `http://localhost:3030/trailers`,
+        `${process.env.NEXT_PUBLIC_API_URL}trailers`,
         { ...form, type: "remorque", photo: form.photo.toString() },
         config
       )

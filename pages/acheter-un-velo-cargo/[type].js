@@ -21,7 +21,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(props) {
   const adsCard = await axios.get(
-    `http://localhost:3030/ads?type=${props.params.type}`
+    `${process.env.NEXT_PUBLIC_API_URL}ads?type=${props.params.type}`
   );
 
   return {

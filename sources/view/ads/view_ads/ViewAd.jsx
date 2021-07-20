@@ -108,22 +108,6 @@ function ViewAd({ ads }) {
     setIsFavorite(!isFavorite);
   };
 
-  const handleClick = async () => {
-    const accessToken = localStorage.getItem("userToken");
-    if (accessToken && setIsFavorite(true)) {
-      const config = {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      };
-      await axios.post(
-        `https://localhost:3030/users/${props.id}/favorites`,
-        {},
-        config
-      );
-    }
-  };
-
   return (
     <div className={classes.box}>
       <div className={classes.header}>
