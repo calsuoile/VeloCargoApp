@@ -12,6 +12,7 @@ import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
 import UserContext from "../../../context/user";
 import axios from "axios";
 import { useRouter } from "next/router";
+import * as yup from "yup";
 
 function Copyright() {
   return (
@@ -79,12 +80,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const schema = yup.object().shape({
+  email: yup
+    .string()
+    .email({ key: "email", msg: "Merci de saisir un email valide" })
+    .required({ key: "email", msg: "Merci de saisir un email valide" }),
+  password: yup
+    .string()
+    .required({ key: "password", msg: "Merci de saisir votre mot de passe" }),
+});
+
 export default function Login() {
   const classes = useStyles();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const router = useRouter();
   const { setConnectedUser } = useContext(UserContext);
+  const [errors, setErrors] = React.useState([]);
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -92,27 +104,40 @@ export default function Login() {
       email: email,
       password: password,
     };
-    try {
-      const token = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}users/login`,
-        userId
-      );
-      console.log(token.data);
-      localStorage.setItem("userToken", token.data.access_token);
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token.data.access_token}`,
-        },
-      };
-      const userProfile = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}users/me`,
-        config
-      );
-      setConnectedUser(userProfile.data);
-      router.push("/");
-    } catch (error) {
-      ("identifiants incorrectes");
-    }
+
+    schema
+      .validate(userId)
+      .then(async () => {
+        try {
+          const token = await axios.post(
+            `${process.env.NEXT_PUBLIC_API_URL}users/login`,
+            userId
+          );
+          console.log(token.data);
+          localStorage.setItem("userToken", token.data.access_token);
+          const config = {
+            headers: {
+              Authorization: `Bearer ${token.data.access_token}`,
+            },
+          };
+          const userProfile = await axios.get(
+            `${process.env.NEXT_PUBLIC_API_URL}users/me`,
+            config
+          );
+          setConnectedUser(userProfile.data);
+          router.push("/");
+        } catch (error) {
+          if (error.response.status === 401) {
+            setErrors([
+              {
+                key: "email",
+                msg: "Identifiant ou mot de passe éronné",
+              },
+            ]);
+          }
+        }
+      })
+      .catch((err) => setErrors(err.errors));
   };
 
   return (
@@ -145,6 +170,8 @@ export default function Login() {
               autoComplete="email"
               autoFocus
               onChange={(e) => setEmail(e.target.value)}
+              error={errors.find((item) => item.key === "email")}
+              helperText={errors.find((item) => item.key === "email")?.msg}
             />
             <TextField
               value={password}
@@ -158,6 +185,8 @@ export default function Login() {
               id="password"
               autoComplete="current-password"
               onChange={(e) => setPassword(e.target.value)}
+              error={errors.find((item) => item.key === "password")}
+              helperText={errors.find((item) => item.key === "password")?.msg}
             />
             <Button
               type="submit"

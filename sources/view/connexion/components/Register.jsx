@@ -18,6 +18,7 @@ import {
   DialogContentText,
   DialogTitle,
 } from "@material-ui/core";
+import * as yup from "yup";
 
 function Copyright() {
   return (
@@ -109,42 +110,52 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const schema = yup.object().shape({
+  email: yup
+    .string()
+    .email({ key: "email", msg: "Merci de saisir un email valide" })
+    .required({ key: "email", msg: "Merci de saisir un email valide" }),
+  password: yup
+    .string()
+    .required({ key: "password", msg: "Merci de saisir votre mot de passe" }),
+  firstname: yup
+    .string()
+    .required({ key: "firstname", msg: "Merci de saisir votre prénom" }),
+  lastname: yup
+    .string()
+    .required({ key: "lastname", msg: "Merci de saisir votre nom" }),
+});
+
 export default function Register() {
   const classes = useStyles();
-  const [lastname, setLastName] = useState("");
-  const [firstname, setFirstName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [form, setForm] = useState({
+    lastname: "",
+    firstname: "",
+    email: "",
+    password: "",
+  });
   const router = useRouter();
   const [open, setOpen] = useState(false);
+  const [errors, setErrors] = useState([]);
 
   const handleClick = async (e) => {
     e.preventDefault();
-    const userInscription = {
-      lastname: lastname,
-      firstname: firstname,
-      email: email,
-      password: password,
-    };
-    await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}users`,
-      userInscription
-    );
-    router.push("/connexion");
+
+    schema
+      .validate({ ...form, [e.target.name]: e.target.value })
+      .then(async () => {
+        await axios.post(`${process.env.NEXT_PUBLIC_API_URL}users`, form);
+        router.push("/connexion");
+        setOpen(true);
+      })
+      .catch((err) => setErrors(err.errors));
   };
 
-  const handleOnChange = (email) => {
-    // don't remember from where i copied this code, but this works.
-    let re =
-      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-    if (re.test(email)) {
-      // this is a valid email address
-      // call setState({email: email}) to update the email
-      // or update the data in redux store.
-    } else {
-      ("Email invalide");
-    }
+  const handleChange = (e) => {
+    schema
+      .validate({ ...form, [e.target.name]: e.target.value })
+      .catch((err) => setErrors(err.errors));
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   return (
@@ -168,7 +179,7 @@ export default function Register() {
             <div className={classes.names}>
               <TextField
                 className={classes.name}
-                value={lastname}
+                value={form.lastname}
                 variant="outlined"
                 margin="normal"
                 required
@@ -178,11 +189,13 @@ export default function Register() {
                 type="lastname"
                 id="lastname"
                 autoComplete="current-password"
-                onChange={(e) => setLastName(e.target.value)}
+                onChange={handleChange}
+                error={errors.find((item) => item.key === "lastname")}
+                helperText={errors.find((item) => item.key === "lastname")?.msg}
               />
               <TextField
                 className={classes.fname}
-                value={firstname}
+                value={form.firstname}
                 variant="outlined"
                 margin="normal"
                 required
@@ -192,11 +205,15 @@ export default function Register() {
                 type="firstname"
                 id="firstname"
                 autoComplete="current-password"
-                onChange={(e) => setFirstName(e.target.value)}
+                onChange={handleChange}
+                error={errors.find((item) => item.key === "firstname")}
+                helperText={
+                  errors.find((item) => item.key === "firstname")?.msg
+                }
               />
             </div>
             <TextField
-              value={email}
+              value={form.email}
               variant="outlined"
               margin="normal"
               required
@@ -207,10 +224,12 @@ export default function Register() {
               autoComplete="email"
               autoFocus
               type="email"
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={handleChange}
+              error={errors.find((item) => item.key === "email")}
+              helperText={errors.find((item) => item.key === "email")?.msg}
             />
             <TextField
-              value={password}
+              value={form.password}
               variant="outlined"
               margin="normal"
               required
@@ -220,7 +239,9 @@ export default function Register() {
               type="password"
               id="password"
               autoComplete="current-password"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={handleChange}
+              error={errors.find((item) => item.key === "password")}
+              helperText={errors.find((item) => item.key === "password")?.msg}
             />
             <Button
               type="submit"
@@ -228,7 +249,6 @@ export default function Register() {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={() => setOpen(true)}
             >
               Inscription
             </Button>
