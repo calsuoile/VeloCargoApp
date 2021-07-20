@@ -8,8 +8,8 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import DeleteButtonAds from "../../../../common/DeleteButtonAds";
 import UserContext from "../../../../context/user";
-import IconButton from "@material-ui/core/IconButton";
 import axios from "axios";
+import { useEffect } from "react";
 
 const moment = require("moment");
 moment.locale("fr");
@@ -67,28 +67,41 @@ export default function CardAds({
   ads_id,
   user_id,
 }) {
-  const [isFavorite, setIsFavorite] = React.useState(true);
   const { connectedUser } = useContext(UserContext);
+  const [isFavorite, setIsFavorite] = React.useState(
+    connectedUser?.favorites?.includes(ads_id)
+  );
 
-  const handleClickFavorite = (e) => {
+  useEffect(() => {
+    setIsFavorite(connectedUser?.favorites?.includes(ads_id));
+  }, [connectedUser]);
+
+  const handleClickFavorite = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    setIsFavorite(!isFavorite);
-  };
-
-  const handleClick = async () => {
     const accessToken = localStorage.getItem("userToken");
-    if (accessToken && setIsFavorite(true)) {
+    if (accessToken) {
       const config = {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
       };
-      await axios.post(
-        `https://localhost:3030/users/${id}/favorites`,
-        {},
-        config
-      );
+
+      if (isFavorite) {
+        // if it's favorite it means you should remove it
+        await axios.delete(
+          `http://localhost:3030/ads/${ads_id}/favorites`,
+          config
+        );
+      } else {
+        // if not then we should add it
+        await axios.post(
+          `http://localhost:3030/ads/${ads_id}/favorites`,
+          {},
+          config
+        );
+      }
+      setIsFavorite(!isFavorite);
     }
   };
 
