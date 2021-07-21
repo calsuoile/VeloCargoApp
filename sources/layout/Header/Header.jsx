@@ -38,10 +38,6 @@ export default function Header() {
   const classes = useStyles();
   const { connectedUser } = useContext(UserContext);
 
-  if (connectedUser?.id && connectedUser.role === "admin") {
-    return <CreateArticleButton />;
-  }
-
   return (
     <div className={classes.root}>
       <Link href="/">
@@ -58,7 +54,9 @@ export default function Header() {
       </Hidden>
       <div style={{ flexGrow: 1 }}></div>
       <Hidden smDown>
-        <CreateArticleButton />
+        {connectedUser?.id && connectedUser?.role === "admin" && (
+          <CreateArticleButton />
+        )}
         <CreateAdsButton />
         <AboutButton />
       </Hidden>

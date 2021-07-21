@@ -17,13 +17,13 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "20px",
   },
   container: {
-    margin : "20px",
-    borderRadius : "20px",
-  }, 
+    margin: "20px",
+    borderRadius: "20px",
+  },
 
-  buttonCancel : {
-    backgourndColor : "#B4B8D4"
-  }
+  buttonCancel: {
+    backgourndColor: "#B4B8D4",
+  },
 }));
 
 function ModalDeleteAds({ handleDeleteTrue, handleReturn }) {
@@ -59,7 +59,7 @@ function ModalDeleteAds({ handleDeleteTrue, handleReturn }) {
         <Button
           variant="contained"
           color="secondary"
-          onClick={handleDeleteTrue}
+          onClick={() => handleDeleteTrue(form)}
           className={classes.buttonDelete}
         >
           Supprimer

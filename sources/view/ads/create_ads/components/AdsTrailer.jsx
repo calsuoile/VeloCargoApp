@@ -172,9 +172,15 @@ function AdsTrailer(props) {
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
-    axios.post(`http://localhost:3030/trailer`, form, config).then(() => {
-      router.push("/");
-    });
+    axios
+      .post(
+        `${process.env.NEXT_PUBLIC_API_URL}trailers`,
+        { ...form, type: "remorque", photo: form.photo.toString() },
+        config
+      )
+      .then(() => {
+        router.push("/");
+      });
   };
 
   return (
