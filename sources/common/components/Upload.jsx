@@ -13,12 +13,12 @@ function Upload({ handlePicture }) {
   };
 
   const handleUpload = async (e) => {
-    console.log(authEndpoint);
-    const token = await axios.get(authEndpoint);
-    console.log(
-      "🚀 ~ file: Upload.jsx ~ line 17 ~ handleUpload ~ token",
-      token
-    );
+    const tokenBearer = localStorage.getItem("userToken");
+    const token = await axios.get(authEndpoint, {
+      headers: { Authorization: `Bearer ${tokenBearer}` },
+    });
+
+    console.log(token);
 
     const formData = new FormData();
 

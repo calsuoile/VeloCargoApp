@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useContext } from "react";
+import UserContext from "../../../context/user";
+import { toast } from "react-toastify";
 
 const useStyles = makeStyles((theme) => ({
   buttons: {
@@ -37,6 +41,16 @@ const useStyles = makeStyles((theme) => ({
 
 function CreateAds(props) {
   const classes = useStyles();
+  const router = useRouter();
+  const { connectedUser } = useContext(UserContext);
+
+  useEffect(() => {
+    if (!connectedUser?.id) {
+      toast.error("Veuillez vous connecter pour déposer une annonce");
+      router.push("/connexion");
+    }
+  }, []);
+
   return (
     <div>
       <Typography className={classes.title} variant="h5">

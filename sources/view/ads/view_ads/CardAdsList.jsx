@@ -28,7 +28,7 @@ function CardAdsList({ adsCard }) {
   return (
     <div>
       <div className={classes.marketplace}>
-        {adsCard.map((card) => (
+        {adsCard?.map((card) => (
           <Link
             href={"/acheter-un-velo-cargo/annonces/" + card.ads_id}
             key={card.ads_id}

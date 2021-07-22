@@ -15,8 +15,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     [theme.breakpoints.down("sm")]: {
-      margin : "auto",
-      display: "block"
+      margin: "auto",
+      display: "block",
     },
   },
 
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "60px",
     marginBottom: "20px",
     [theme.breakpoints.down("sm")]: {
-      margin : "auto",
+      margin: "auto",
     },
   },
 
@@ -55,14 +55,14 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 500,
     fontFamily: "Open Sans Condensed, sans-serif",
     color: "white",
-    fontSize:"25px",
+    fontSize: "25px",
     borderBottom: "1px solid white",
     paddingBottom: "20px",
-    width: "30%"
-  }, 
+    width: "30%",
+  },
   undertitle: {
-    marginBottom: "5px"
-  }
+    marginBottom: "5px",
+  },
 }));
 
 function Footer(props) {
@@ -72,9 +72,7 @@ function Footer(props) {
     <div className={classes.container}>
       <div className={classes.list}>
         <ul className={classes.link}>
-          <Typography className={classes.connexion}>
-            PLAN DU SITE
-          </Typography>
+          <Typography className={classes.connexion}>PLAN DU SITE</Typography>
           <Link href="/acheter-un-velo-cargo">
             <a style={{ textDecoration: "none", color: "inherit" }}>
               {" "}
@@ -83,33 +81,33 @@ function Footer(props) {
               </li>
             </a>
           </Link>
-          <Link href="/">
-          <a style={{ textDecoration: "none", color: "inherit" }}>
+          <Link href="/acheter-un-velo-cargo/triporteur">
+            <a style={{ textDecoration: "none", color: "inherit" }}>
               <li className={classes.undertitle}>Triporteur</li>
             </a>
           </Link>
-          <Link href="/">
-          <a style={{ textDecoration: "none", color: "inherit" }}>
+          <Link href="/acheter-un-velo-cargo/biporteur">
+            <a style={{ textDecoration: "none", color: "inherit" }}>
               <li className={classes.undertitle}>Biporteur</li>
             </a>
           </Link>
-          <Link href="/">
-          <a style={{ textDecoration: "none", color: "inherit" }}>
+          <Link href="/acheter-un-velo-cargo/tricycle">
+            <a style={{ textDecoration: "none", color: "inherit" }}>
               <li className={classes.undertitle}>Tricycle</li>
             </a>
           </Link>
-          <Link href="/">
-          <a style={{ textDecoration: "none", color: "inherit" }}>
-              <li className={classes.undertitle}>LongTrail</li>
+          <Link href="/acheter-un-velo-cargo/longtail">
+            <a style={{ textDecoration: "none", color: "inherit" }}>
+              <li className={classes.undertitle}>LongTail</li>
             </a>
           </Link>
-          <Link href="/">
-          <a style={{ textDecoration: "none", color: "inherit" }}>
+          <Link href="/acheter-un-velo-cargo/remorque">
+            <a style={{ textDecoration: "none", color: "inherit" }}>
               <li className={classes.undertitle}>Remorques</li>
             </a>
           </Link>
-          <Link href="/">
-          <a style={{ textDecoration: "none", color: "inherit" }}>
+          <Link href="/acheter-un-velo-cargo/accessoire">
+            <a style={{ textDecoration: "none", color: "inherit" }}>
               <li className={classes.undertitle}>Accessoires</li>
             </a>
           </Link>
@@ -143,7 +141,7 @@ function Footer(props) {
           </Link>
         </ul>
         <ul className={classes.link}>
-          <Link href="/articles">
+          <Link href="/articles/page/1">
             <a style={{ textDecoration: "none", color: "inherit" }}>
               {" "}
               <li className={classes.title}>

@@ -25,6 +25,7 @@
     "react-responsive-carousel": "^3.2.18",
     "react-router-dom": "^5.2.0",
     "react-select": "^4.3.1",
+    "react-toastify": "^7.0.4",
     "react-typed": "^1.2.0",
     "react-visibility-sensor": "^5.1.1",
     "swiper": "^6.7.0",

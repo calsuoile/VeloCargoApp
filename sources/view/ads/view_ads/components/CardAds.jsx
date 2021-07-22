@@ -8,9 +8,8 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import DeleteButtonAds from "../../../../common/DeleteButtonAds";
 import UserContext from "../../../../context/user";
-import IconButton from "@material-ui/core/IconButton";
 import axios from "axios";
-
+import { useEffect } from "react";
 
 const moment = require("moment");
 moment.locale("fr");
@@ -30,8 +29,6 @@ const useStyles = makeStyles({
     heigth: 240,
     borderRadius: "20px 20px 0px 0px",
     boxShadow: "2px 4px 4px #BFD9D9",
-    
-
   },
   cityandicon: {
     height: "50px",
@@ -46,50 +43,77 @@ const useStyles = makeStyles({
   title: {
     color: "#F27C08",
     fontWeight: "bold",
-    fontSize: "20px"
+    fontSize: "20px",
   },
   price: {
     color: "#BFD9D9",
-    fontSize: "25px"
+    fontSize: "25px",
   },
   date: {
     color: "black",
-    fontSize: "15px"
+    fontSize: "15px",
   },
   city: {
     color: "red",
-  }
+  },
 });
 
-export default function CardAds({ photo, title, price, department, created_at }) {
-  const [isFavorite, setIsFavorite] = React.useState(true);
+export default function CardAds({
+  photo,
+  title,
+  price,
+  department,
+  created_at,
+  ads_id,
+  user_id,
+}) {
   const { connectedUser } = useContext(UserContext);
+  const [isFavorite, setIsFavorite] = React.useState(
+    connectedUser?.favorites?.includes(ads_id)
+  );
 
-  const handleClickFavorite = () => {
-    setIsFavorite(!isFavorite);
-  };
+  useEffect(() => {
+    setIsFavorite(connectedUser?.favorites?.includes(ads_id));
+  }, [connectedUser]);
 
-  const handleClick = async () => {
+  const handleClickFavorite = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     const accessToken = localStorage.getItem("userToken");
-    if ((accessToken) && (setIsFavorite(true))) {
+    if (accessToken) {
       const config = {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
       };
-      await axios.post(
-        `https://localhost:3030/users/${props.id}/favorites`,
-        {},
-        config
-      );
+
+      if (isFavorite) {
+        // if it's favorite it means you should remove it
+        await axios.delete(
+          `${process.env.NEXT_PUBLIC_API_URL}ads/${ads_id}/favorites`,
+          config
+        );
+      } else {
+        // if not then we should add it
+        await axios.post(
+          `${process.env.NEXT_PUBLIC_API_URL}ads/${ads_id}/favorites`,
+          {},
+          config
+        );
+      }
+      setIsFavorite(!isFavorite);
     }
   };
 
   const classes = useStyles();
+  const photos = photo?.split(",");
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <img className={classes.image} src={photo} />
+        <img
+          className={classes.image}
+          src={photos?.length > 0 ? photos[0] : ""}
+        />
         <CardContent className={classes.content}>
           <Typography variant="h5" component="h1" className={classes.title}>
             {title}
@@ -119,7 +143,9 @@ export default function CardAds({ photo, title, price, department, created_at })
             )}
           </IconButton> */}
         </div>
-        <DeleteButtonAds color="secondary" />
+        {user_id === connectedUser?.id && (
+          <DeleteButtonAds color="secondary" adsId={ads_id} />
+        )}
       </div>
     </Card>
   );

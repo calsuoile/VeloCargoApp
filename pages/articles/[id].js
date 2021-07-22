@@ -13,8 +13,8 @@ const ArticlePage = ({ articleView, otherArticles }) => {
 };
 
 export async function getStaticPaths() {
-  const res = await axios.get("http://localhost:3030/articles");
-  const data = await res.data;
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}articles`);
+  const data = await res.data?.data;
 
   const paths = data.map((articleView) => {
     return {
@@ -30,17 +30,17 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(props) {
   const articleView = await axios.get(
-    `http://localhost:3030/articles/${props.params.id}`
+    `${process.env.NEXT_PUBLIC_API_URL}articles/${props.params.id}`
   );
 
   const otherArticles = await axios.get(
-    "http://localhost:3030/articles?limit=4"
+    `${process.env.NEXT_PUBLIC_API_URL}articles?limit=4`
   );
 
   return {
     props: {
       articleView: articleView.data,
-      otherArticles: otherArticles.data,
+      otherArticles: otherArticles.data?.data,
     },
     revalidate: 60,
   };

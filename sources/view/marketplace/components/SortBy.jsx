@@ -19,15 +19,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SortBy() {
+export default function SortBy({ onChange, order }) {
   const classes = useStyles();
-  const [sort, setSort] = React.useState("");
   const [open, setOpen] = React.useState(false);
 
   const handleChangeSort = (event) => {
-    axios.get("http://localhost:3030/ads?order=asc");
-
-    setSort(event.target.value);
+    onChange(event.target.value);
   };
 
   const handleClose = () => {
@@ -50,14 +47,14 @@ export default function SortBy() {
           open={open}
           onClose={handleClose}
           onOpen={handleOpen}
-          value={sort}
+          value={order}
           onChange={handleChangeSort}
         >
           <MenuItem value=""></MenuItem>
-          <MenuItem value={10}>Plus récents</MenuItem>
-          <MenuItem value={20}>Plus anciens</MenuItem>
-          <MenuItem value={30}>Prix croissant</MenuItem>
-          <MenuItem value={40}>Prix décroissant</MenuItem>
+          <MenuItem value={"sort=created_at&order=desc"}>Plus récents</MenuItem>
+          <MenuItem value={"sort=created_at&order=asc"}>Plus anciens</MenuItem>
+          <MenuItem value={"sort=price&order=asc"}>Prix croissant</MenuItem>
+          <MenuItem value={"sort=price&order=desc"}>Prix décroissant</MenuItem>
         </Select>
       </FormControl>
     </div>

@@ -35,7 +35,7 @@ const useStyles = makeStyles({
   },
   puces: {
     listStyle: "none",
-    marginLeft: "5%"
+    marginLeft: "5%",
   },
   accueil: {
     border: "none",
@@ -195,7 +195,7 @@ export default function BurgerMenu() {
                   <ListItemIcon>
                     <HomeIcon className={classes.homeicon} />
                   </ListItemIcon>
-                 ACCUEIL
+                  ACCUEIL
                 </Button>
               </Link>
             </li>
@@ -245,9 +245,9 @@ export default function BurgerMenu() {
                 </Button>
               </Link>
             </li>
-            
+
             <li>
-              <Link href="/articles" style={{ textDecoration: "none" }}>
+              <Link href="/articles/page/1" style={{ textDecoration: "none" }}>
                 <Button className={classes.articles}>
                   <ListItemIcon>
                     <SearchIcon className={classes.loupe} />
