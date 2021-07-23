@@ -31,7 +31,7 @@ function SelectCategory({ name, value, onChange }) {
           onChange={onChange}
           label="Catégorie"
           inputProps={{
-            name: "category",
+            name: name,
             id: "outlined-age-native-simple",
           }}
         >

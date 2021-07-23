@@ -33,37 +33,19 @@ function Favorites(props) {
   const classes = useStyles();
   const { connectedUser } = useContext(UserContext);
   const [favorites, setFavorites] = useState([]);
-  // const [favorites, setFavorites] = useState([
-  //   {
-  //     id: "1",
-  //     photo: "https://source.unsplash.com/random?bike/4",
-  //     title: "Vélo Cargo",
-  //     price: "1230 €",
-  //     city: "Bordeaux",
-  //   },
-  //   {
-  //     id: "2",
-  //     photo: "https://source.unsplash.com/random?bike/5",
-  //     title: "Vélo Cargo",
-  //     price: "1380 €",
-  //     city: "Bordeaux",
-  //   },
-  //   {
-  //     id: "3",
-  //     photo: "https://source.unsplash.com/random?bike/6",
-  //     title: "Vélo Cargo",
-  //     price: "1560 €",
-  //     city: "Bordeaux",
-  //   },
-  // ]);
 
-  //ajout des annonces en favoris si l'user est connecté, et s'il y en a 
+  //ajout des annonces en favoris si l'user est connecté, et s'il y en a
   //ajout du "?" pour que cela fonctionne aussi s'il n'y en pas
   useEffect(() => {
-    if (Object.keys(connectedUser).length > 0 && connectedUser.favorites?.length) {
+    if (
+      Object.keys(connectedUser).length > 0 &&
+      connectedUser.favorites?.length
+    ) {
       Promise.all(
         connectedUser?.favorites?.map((item) => {
-          const req = axios.get(`http://localhost:3030/ads/${item}`);
+          const req = axios.get(
+            `${process.env.NEXT_PUBLIC_API_URL}ads/${item}`
+          );
           return req;
         })
       ).then((response) => setFavorites(response));
@@ -78,7 +60,7 @@ function Favorites(props) {
         </Typography>
         <div className={classes.favorite}>
           {favorites?.map((favorite, index) => (
-            <CardAds {...favorite} key={index} />
+            <CardAds {...favorite.data[0]} key={index} />
           ))}
         </div>
       </div>

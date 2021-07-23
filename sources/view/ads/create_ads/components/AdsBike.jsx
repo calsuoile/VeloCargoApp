@@ -169,10 +169,8 @@ export default function AdsBike(props) {
   };
 
   const handlePicture = (imageUrl) => {
-    console.log(imageUrl);
     const newImages = [...form.photo, imageUrl];
     setForm({ ...form, photo: newImages });
-    console.log(newImages);
   };
 
   const router = useRouter();
@@ -183,9 +181,15 @@ export default function AdsBike(props) {
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
-    axios.post(`http://localhost:3030/cargobikes`, form, config).then(() => {
-      router.push("/");
-    });
+    axios
+      .post(
+        `${process.env.NEXT_PUBLIC_API_URL}cargobikes`,
+        { ...form, photo: form.photo.toString() },
+        config
+      )
+      .then(() => {
+        router.push("/");
+      });
   };
 
   return (

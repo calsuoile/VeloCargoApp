@@ -1,6 +1,6 @@
 import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import React, { useContext,useState } from "react";
+import React, { useContext, useState } from "react";
 import PlaceIcon from "@material-ui/icons/Place";
 import PhoneIcon from "@material-ui/icons/Phone";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
@@ -13,7 +13,6 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import UserContext from "./../../../context/user";
 import IconButton from "@material-ui/core/IconButton";
 import axios from "axios";
-
 
 const moment = require("moment");
 moment.locale("fr");
@@ -90,7 +89,7 @@ const useStyles = makeStyles({
   },
 });
 
-function ViewAd({ ads, user }) {
+function ViewAd({ ads }) {
   const classes = useStyles();
   const [phoneNumber, setPhoneNumber] = useState(true);
   function handlePhone() {
@@ -109,29 +108,13 @@ function ViewAd({ ads, user }) {
     setIsFavorite(!isFavorite);
   };
 
-  const handleClick = async () => {
-    const accessToken = localStorage.getItem("userToken");
-    if ((accessToken) && (setIsFavorite(true))) {
-      const config = {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      };
-      await axios.post(
-        `https://localhost:3030/users/${props.id}/favorites`,
-        {},
-        config
-      );
-    }
-  };
-
   return (
     <div className={classes.box}>
       <div className={classes.header}>
         <Typography variant="h3">VELO CARGO PEUGEOT</Typography>
         <div className={classes.vendeur}>
           <Typography variant="body2">
-            {user.firstname} {user.lastname}
+            {ads?.firstname} {ads?.lastname}
           </Typography>
           <Typography variant="body2" className={classes.contact}>
             {" "}
@@ -141,7 +124,7 @@ function ViewAd({ ads, user }) {
                 <PhoneIcon />
               </IconButton>
             ) : (
-              <p className={classes.num}>{user.phone_number}</p>
+              <p className={classes.num}>{ads?.phone_number}</p>
             )}{" "}
             {email ? (
               <IconButton color="secondary" onClick={handleEmail}>
@@ -149,7 +132,7 @@ function ViewAd({ ads, user }) {
                 <MailOutlineIcon />{" "}
               </IconButton>
             ) : (
-              <p className={classes.num}>{user.email}</p>
+              <p className={classes.num}>{ads?.email}</p>
             )}
           </Typography>
         </div>
@@ -176,7 +159,7 @@ function ViewAd({ ads, user }) {
         </div>
       </div>
       <div className={classes.photo}>
-        <AdsCarousel className={classes.carousel} ads={ads}/>
+        <AdsCarousel className={classes.carousel} ads={ads} />
       </div>
       <div className={classes.table}>
         {" "}

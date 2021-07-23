@@ -33,33 +33,9 @@ function MyAds(props) {
   const classes = useStyles();
   const { connectedUser } = useContext(UserContext);
   const [ads, setAds] = useState([]);
-  const [myAds, setMyAds] = useState([
-    {
-      id: "1",
-      photo: "https://source.unsplash.com/random?bike/4",
-      title: "Vélo Cargo",
-      price: "1230 €",
-      city: "Bordeaux",
-    },
-    {
-      id: "2",
-      photo: "https://source.unsplash.com/random?bike/5",
-      title: "Vélo Cargo",
-      price: "1380 €",
-      city: "Bordeaux",
-    },
-    {
-      id: "3",
-      photo: "https://source.unsplash.com/random?bike/6",
-      title: "Vélo Cargo",
-      price: "1560 €",
-      city: "Bordeaux",
-    },
-  ]);
 
   //si l'utilisateur est connecté, cela renvoie les annonces qu'il a posté sur sa page user
   useEffect(() => {
-    console.log(connectedUser);
     if (Object.keys(connectedUser).length > 0) {
       const accessToken = localStorage.getItem("userToken");
       const config = {
@@ -68,10 +44,13 @@ function MyAds(props) {
         },
       };
       axios
-        .get(`http://localhost:3030/ads`, config)
+        .get(
+          `${process.env.NEXT_PUBLIC_API_URL}ads?user_id=${connectedUser.id}`,
+          config
+        )
         .then((response) => {
-          setAds(response.data);
-          console.log(response.data);
+          setAds(response?.data?.data);
+          console.log(response?.data?.data);
         });
     }
   }, [connectedUser]);
@@ -83,7 +62,7 @@ function MyAds(props) {
           Mes Annonces :{" "}
         </Typography>
         <div className={classes.ads}>
-          {myAds.map((ads, index) => (
+          {ads.map((ads, index) => (
             <CardAds {...ads} key={index} />
           ))}
         </div>

@@ -17,19 +17,24 @@ export default function RadioButtonsGroup({ name, value, onChange }) {
         required={true}
       >
         <FormControlLabel
-          value={"Biporteur"}
+          value={"biporteur"}
           control={<Radio />}
           label="Biporteur"
         />
         <FormControlLabel
-          value={"Triporteur"}
+          value={"triporteur"}
           control={<Radio />}
           label="Triporteur"
         />
         <FormControlLabel
-          value={"Longtail"}
+          value={"longtail"}
           control={<Radio />}
           label="Longtail"
+        />
+        <FormControlLabel
+          value={"tricyle"}
+          control={<Radio />}
+          label="Tricyle"
         />
       </RadioGroup>
     </FormControl>

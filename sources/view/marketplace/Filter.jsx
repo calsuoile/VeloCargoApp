@@ -23,16 +23,16 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     borderRadius: "30px",
-    backgroundColor:"#006262",
+    backgroundColor: "#006262",
     color: "white",
     fontFamily: "Open Sans Condensed, sans-serif",
     fontWeight: 600,
     fontSize: "20px",
     width: "80%",
-    margin:"30px",
+    margin: "30px",
     "&:hover": {
-      backgroundColor:"#F29F24",
-    }
+      backgroundColor: "#F29F24",
+    },
   },
   diff: {
     color: "black",
@@ -41,38 +41,37 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "10px",
   },
   title: {
-      color: "white",
-      fontFamily:"Staatliches, cursive",
-      textAlign: "center",
-      fontSize: "40px",
+    color: "white",
+    fontFamily: "Staatliches, cursive",
+    textAlign: "center",
+    fontSize: "40px",
   },
   hr: {
     width: "50%",
     marginTop: "8%",
-    marginBottom: "10%"
+    marginBottom: "10%",
   },
   dep: {
     backgroundColor: "white",
     borderRadius: "5px",
     width: "180px",
-    margin:"10px"
+    margin: "10px",
   },
   titleprice: {
     marginTop: "30px",
-        color: "#006262",
-        fontFamily:"Staatliches, cursive",
-        fontSize: "20px",
-  }
-
+    color: "#006262",
+    fontFamily: "Staatliches, cursive",
+    fontSize: "20px",
+  },
 }));
 
 function valuetext(value) {
   return `${value}`;
 }
-function Filter(props) {
+function Filter({ onSubmit, type }) {
   const classes = useStyles();
   const [filter, setFilter] = React.useState({
-    category: "",
+    type: type,
     country: "",
     department: "",
     brand: "",
@@ -87,7 +86,7 @@ function Filter(props) {
   };
 
   const handleClick = () => {
-    console.log(filter);
+    onSubmit(filter);
   };
 
   const handleChecked = (e) => {
@@ -101,23 +100,24 @@ function Filter(props) {
   return (
     <div className={classes.filter}>
       <Typography gutterBottom variant="h5" className={classes.title}>
-        FILTRES 
+        FILTRES
       </Typography>
       <hr className={classes.hr}></hr>
       <SelectCategory
-        value={filter.category}
+        value={filter.type}
         onChange={handleChange}
-        name={"category"}
+        name={"type"}
       />
       <CountrySelector
         value={filter.country}
         onChange={handleChange}
         name={"country"}
       />
-      <Department 
-      value={filter.department}
-      onChange={handleChange}
-      name={"department"}/>
+      <Department
+        value={filter.department}
+        onChange={handleChange}
+        name={"department"}
+      />
 
       <h1 className={classes.titleprice}>Prix maximum :</h1>
 
@@ -157,7 +157,7 @@ function Filter(props) {
         className={classes.button}
       >
         Rechercher
-        <SearchIcon className={classes.icon}/>
+        <SearchIcon className={classes.icon} />
       </Button>
     </div>
   );

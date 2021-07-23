@@ -5,6 +5,8 @@ import { CssBaseline } from "@material-ui/core";
 import theme from "../sources/theme";
 import Main from "../sources/layout/Main";
 import axios from "axios";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function VeloCargo({ Component, pageProps }) {
   const [connectedUser, setConnectedUser] = useState({});
@@ -20,7 +22,7 @@ export default function VeloCargo({ Component, pageProps }) {
         };
 
         const userProfile = await axios.get(
-          `http://localhost:3030/users/me`,
+          `${process.env.NEXT_PUBLIC_API_URL}users/me`,
           config
         );
 
@@ -37,6 +39,7 @@ export default function VeloCargo({ Component, pageProps }) {
         <Main>
           <CssBaseline />
           <Component {...pageProps} />
+          <ToastContainer />
         </Main>
       </UserContext.Provider>
     </ThemeProvider>
