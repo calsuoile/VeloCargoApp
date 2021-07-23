@@ -21,12 +21,10 @@ export default function VeloCargo({ Component, pageProps }) {
           },
         };
 
-         axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}users/me`,
-          config
-        ).then((userProfile) =>  setConnectedUser(userProfile.data)).catch((err) => console.error(err));
-
-       ;
+        axios
+          .get(`${process.env.NEXT_PUBLIC_API_URL}users/me`, config)
+          .then((userProfile) => setConnectedUser(userProfile.data))
+          .catch((err) => console.error(err));
       }
     };
 
