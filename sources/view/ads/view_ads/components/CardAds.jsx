@@ -112,7 +112,7 @@ export default function CardAds({
       <CardActionArea>
         <img
           className={classes.image}
-          src={photos?.length > 0 ? photos[0] : ""}
+          src={photos?.length > 0 ? photos[0] : ""} //ajouter une image par défaut 
         />
         <CardContent className={classes.content}>
           <Typography variant="h5" component="h1" className={classes.title}>
