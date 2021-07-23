@@ -175,8 +175,7 @@ function AdsTrailer(props) {
     axios
       .post(
         `${process.env.NEXT_PUBLIC_API_URL}trailers`,
-        { ...form, type: "remorque", photo: form.photo.toString() },
-        config
+        { ...form, type: "remorque", photo: form.photo.toString() }, //transforme le tableau en string pour pouvoir mettre plusieurs photos en BDD. 
       )
       .then(() => {
         router.push("/");
