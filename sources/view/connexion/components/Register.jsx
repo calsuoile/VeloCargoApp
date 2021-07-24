@@ -22,7 +22,7 @@ import * as yup from "yup";
 
 function Copyright() {
   return (
-    <Typography variant="h7" color="textSecondary" align="center">
+    <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
       <Link color="inherit" href="/">
         CargoBikeTrade
