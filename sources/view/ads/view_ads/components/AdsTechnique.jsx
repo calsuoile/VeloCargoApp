@@ -54,7 +54,7 @@ export default function AdsTechnique({ ads }) {
         <AccordionDetails>
           <Typography>
             Puissance du moteur : {ads.engine_power} Watt. Batterie :{" "}
-            {ads.battery_wolt} Volt.
+            {ads.battery_volt} Volt.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -107,7 +107,7 @@ export default function AdsTechnique({ ads }) {
           id="panel3a-header"
         >
           <Typography variant="h5" className={classes.heading}>
-            Etat Esththétique
+            Etat Esthétique
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
