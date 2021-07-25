@@ -74,7 +74,7 @@ function ListAdsHomePage({ ads }) {
           </Link>
         ))}
       </div>
-      <Link href="acheter-un-velo-cargo" style={{ textDecoration: "none" }}>
+      <Link href="/acheter-un-velo-cargo" style={{ textDecoration: "none" }}>
         <Button
           variant="contained"
           color="secondary"

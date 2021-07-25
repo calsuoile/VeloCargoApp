@@ -13,6 +13,8 @@ import RadioButtonsGroup from "../../../../common/RadioButtonsGroup";
 import { useRouter } from "next/router";
 import axios from "axios";
 import Upload from "../../../../common/components/Upload";
+import DepartmentSelector from "../../../../common/components/DepartmentSelector";
+import { toast } from "react-toastify";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -164,7 +166,6 @@ export default function AdsBike(props) {
   };
 
   const handleClick = () => {
-    console.log(form);
     postForm();
   };
 
@@ -188,7 +189,8 @@ export default function AdsBike(props) {
         config
       )
       .then(() => {
-        router.push("/");
+        toast.success("Votre annonce a bien été déposée");
+        router.push("/acheter-un-velo-cargo");
       });
   };
 
@@ -258,16 +260,11 @@ export default function AdsBike(props) {
                   onChange={handleChange}
                   name={"country"}
                 />
-                <TextField
-                  className={classes.velo}
-                  required={true}
-                  id="outlined-basic"
-                  label="Département"
-                  variant="outlined"
-                  name="department"
-                  form={form.department}
+                <DepartmentSelector
+                  value={form.department}
                   onChange={handleChange}
-                ></TextField>
+                  name={"department"}
+                />
               </div>
             </Typography>
           </AccordionDetails>

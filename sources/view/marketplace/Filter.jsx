@@ -8,7 +8,7 @@ import SelectCategory from "./components/components/SelectCategory";
 import CountrySelector from "../../common/components/CountrySelector";
 import SwitchForm from "../../common/components/SwitchForm";
 import RangeSlider from "./components/components/RangeSlider";
-import Department from "./components/components/Department";
+import DepartmentSelector from "../../common/components/DepartmentSelector";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
@@ -113,7 +113,7 @@ function Filter({ onSubmit, type }) {
         onChange={handleChange}
         name={"country"}
       />
-      <Department
+      <DepartmentSelector
         value={filter.department}
         onChange={handleChange}
         name={"department"}

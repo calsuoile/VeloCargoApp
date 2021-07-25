@@ -24,7 +24,7 @@ function CountrySelector({ name, value, onChange }) {
   return (
     <div>
       <FormControl variant="outlined" className={classes.formControl}>
-        <InputLabel htmlFor="outlined-age-native-simple">PAYS</InputLabel>
+        <InputLabel htmlFor="outlined-age-native-simple">Pays</InputLabel>
         <Select
           required={true}
           native
