@@ -141,14 +141,12 @@ function Filter({ onSubmit, type }) {
         checked={filter.electric}
         onChange={handleChecked}
         label={"Electrique"}
-        className={classes.check}
       />
       <SwitchForm
         label={"Garantie"}
         checked={filter.guarantee}
         onChange={handleChecked}
         name={"guarantee"}
-        className={classes.check}
       />
       <Button
         onClick={handleClick}

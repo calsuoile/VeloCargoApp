@@ -58,7 +58,7 @@ function ListAdsHomePage({ ads }) {
   return (
     <div>
       <Typography className={classes.title} variant="h3">
-        ACHETER UN VÉLO CARGO
+        Dernières annonces
       </Typography>
       <hr className={classes.hr}></hr>
 

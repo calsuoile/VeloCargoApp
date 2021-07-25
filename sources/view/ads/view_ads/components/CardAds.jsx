@@ -131,7 +131,7 @@ export default function CardAds({
           {department}
         </Typography>
         <Typography variant="body1" color="secondary" className={classes.date}>
-          {moment(created_at).format("LL à hh:mm")}
+          {moment(created_at).format("LL à HH:mm")}
         </Typography>
         <div
           color="secondary"
