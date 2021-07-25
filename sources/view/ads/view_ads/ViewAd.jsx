@@ -111,7 +111,7 @@ function ViewAd({ ads }) {
   return (
     <div className={classes.box}>
       <div className={classes.header}>
-        <Typography variant="h3">VELO CARGO PEUGEOT</Typography>
+        <Typography variant="h3">{ads?.title}</Typography>
         <div className={classes.vendeur}>
           <Typography variant="body2">
             {ads?.firstname} {ads?.lastname}
