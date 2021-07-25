@@ -554,7 +554,7 @@ export default function AdsBike(props) {
                       id="outlined-basic"
                       label="Voltage Batterie"
                       variant="outlined"
-                      name="battery_wolt"
+                      name="battery_volt"
                       form={form.battery_volt}
                       onChange={handleChange}
                     ></TextField>

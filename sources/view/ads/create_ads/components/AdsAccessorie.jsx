@@ -325,7 +325,38 @@ function AdsAccessorie(props) {
               </Typography>
             </AccordionDetails>
           </Accordion>
-
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon className={classes.expandIcon} />}
+              aria-controls="panel2a-content"
+              id="panel2a-header"
+            >
+              <Typography variant="h5" className={classes.heading}>
+                4. ETAT
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <div className={classes.contain}>
+                <Typography>
+                  <div className={classes.margin}>
+                    {" "}
+                    <Typography>
+                      <TextField
+                        className={classes.velo}
+                        required={true}
+                        id="outlined-basic"
+                        label="Etat Général"
+                        variant="outlined"
+                        name="general_state"
+                        form={form.general_state}
+                        onChange={handleChange}
+                      ></TextField>
+                    </Typography>
+                  </div>
+                </Typography>
+              </div>
+            </AccordionDetails>
+          </Accordion>
           <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon className={classes.expandIcon} />}
@@ -333,7 +364,7 @@ function AdsAccessorie(props) {
               id="panel3a-header"
             >
               <Typography variant="h5" className={classes.heading}>
-                7. PHOTOS
+                5. PHOTOS
               </Typography>
             </AccordionSummary>
             <AccordionDetails>

@@ -43,7 +43,7 @@ export default function AdsTable({ ads }) {
         <TableBody>
           <TableRow>
             <TableCell className={classes.cell}>Catégorie</TableCell>
-            <TableCell align="right">{ads.category}</TableCell>
+            <TableCell align="right">{ads.type}</TableCell>
             <TableCell className={classes.cell}>Marque</TableCell>
             <TableCell align="right">{ads.brand}</TableCell>
           </TableRow>
@@ -59,16 +59,16 @@ export default function AdsTable({ ads }) {
 
           <TableRow>
             <TableCell className={classes.cell}>Garantie</TableCell>
-            <TableCell align="right">{ads.guarantee}</TableCell>
+            <TableCell align="right">{ads.guarantee === 1 ? "Oui" : "Non"}</TableCell>
             <TableCell className={classes.cell}>Etat Général</TableCell>
             <TableCell align="right">{ads.general_state}</TableCell>
           </TableRow>
 
           <TableRow>
-            <TableCell className={classes.cell}>Numéro Bicicode</TableCell>
+            <TableCell className={classes.cell}>Numéro Bicycode</TableCell>
             <TableCell align="right">{ads.bicycode}</TableCell>
             <TableCell className={classes.cell}>Eléctrique</TableCell>
-            <TableCell align="right">{ads.electric}</TableCell>
+            <TableCell align="right">{ads.electric === 1 ? "Oui" : "Non"}</TableCell>
           </TableRow>
         </TableBody>
       </Table>
