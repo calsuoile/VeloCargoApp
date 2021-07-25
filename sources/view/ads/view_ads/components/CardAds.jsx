@@ -10,6 +10,7 @@ import DeleteButtonAds from "../../../../common/DeleteButtonAds";
 import UserContext from "../../../../context/user";
 import axios from "axios";
 import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 const moment = require("moment");
 moment.locale("fr");
@@ -93,6 +94,7 @@ export default function CardAds({
           `${process.env.NEXT_PUBLIC_API_URL}ads/${ads_id}/favorites`,
           config
         );
+        toast.info("Annonce retirée des favoris");
       } else {
         // if not then we should add it
         await axios.post(
@@ -100,6 +102,7 @@ export default function CardAds({
           {},
           config
         );
+        toast.success("Annonce ajoutée aux favoris");
       }
       setIsFavorite(!isFavorite);
     }
@@ -112,7 +115,7 @@ export default function CardAds({
       <CardActionArea>
         <img
           className={classes.image}
-          src={photos?.length > 0 ? photos[0] : "/assets/no-img-cargobike.jpeg"} //ajouter une image par défaut 
+          src={photos?.length > 0 ? photos[0] : "/assets/no-img-cargobike.jpeg"} //ajouter une image par défaut
         />
         <CardContent className={classes.content}>
           <Typography variant="h5" component="h1" className={classes.title}>
