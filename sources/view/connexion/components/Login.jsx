@@ -15,10 +15,11 @@ import { useRouter } from "next/router";
 import * as yup from "yup";
 
 function Copyright() {
+  const classes = useStyles();
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="/">
+      <Link color="inherit" href="/" className={classes.Copyright}>
         CargoBikeTrade
       </Link>{" "}
       {new Date().getFullYear()}
@@ -77,6 +78,10 @@ const useStyles = makeStyles((theme) => ({
     border: "none",
     marginTop: "5%",
     marginBottom: "10px",
+  },
+  Copyright: {
+    textDecoration: "none",
+    color: "inherit",
   },
 }));
 
