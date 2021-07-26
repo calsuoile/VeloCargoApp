@@ -1,5 +1,5 @@
 import axios from "axios";
-import ListArticles from "../../../sources/view/articles/view-articles/ListArticles";
+import ListArticles from "../../../src/view/articles/view-articles/ListArticles";
 import { useRouter } from "next/router";
 
 export default function ArticlesPage({ articles, total, page }) {

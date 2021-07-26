@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Login from "/sources/view/connexion/components/Login";
-import Register from "/sources/view/connexion/components/Register";
+import Login from "/src/view/connexion/components/Login";
+import Register from "/src/view/connexion/components/Register";
 
 const useStyles = makeStyles((theme) => ({
   root: {

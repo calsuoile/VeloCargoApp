@@ -1,4 +1,4 @@
-import AdsTrailer from "../../sources/view/ads/create_ads/components/AdsTrailer";
+import AdsTrailer from "../../src/view/ads/create_ads/components/AdsTrailer";
 
 export default function CreateAdAccessoriePage({}) {
   return <AdsTrailer />;
