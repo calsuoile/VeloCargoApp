@@ -83,22 +83,22 @@ function Footer(props) {
           </Link>
           <Link href="/acheter-un-velo-cargo/triporteur">
             <a style={{ textDecoration: "none", color: "inherit" }}>
-              <li className={classes.undertitle}>Triporteur</li>
+              <li className={classes.undertitle}>Triporteurs</li>
             </a>
           </Link>
           <Link href="/acheter-un-velo-cargo/biporteur">
             <a style={{ textDecoration: "none", color: "inherit" }}>
-              <li className={classes.undertitle}>Biporteur</li>
+              <li className={classes.undertitle}>Biporteurs</li>
             </a>
           </Link>
           <Link href="/acheter-un-velo-cargo/tricycle">
             <a style={{ textDecoration: "none", color: "inherit" }}>
-              <li className={classes.undertitle}>Tricycle</li>
+              <li className={classes.undertitle}>Tricycles</li>
             </a>
           </Link>
           <Link href="/acheter-un-velo-cargo/longtail">
             <a style={{ textDecoration: "none", color: "inherit" }}>
-              <li className={classes.undertitle}>LongTail</li>
+              <li className={classes.undertitle}>Longtails</li>
             </a>
           </Link>
           <Link href="/acheter-un-velo-cargo/remorque">

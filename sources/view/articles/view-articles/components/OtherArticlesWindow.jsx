@@ -44,7 +44,7 @@ const OtherArticlesWindow = ({ title, photo, created_at }) => {
                     style={{ fontSize: 10 }}
                   >
                     <i>{`Rédigé le ${moment(created_at).format(
-                      "LL à hh:mm:ss"
+                      "LL à HH:mm"
                     )} par Clément Fouillet`}</i>
                   </Typography>
                 </React.Fragment>
