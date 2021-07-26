@@ -87,7 +87,6 @@ export default function CardAds({
           Authorization: `Bearer ${accessToken}`,
         },
       };
-
       if (isFavorite) {
         // if it's favorite it means you should remove it
         await axios.delete(

@@ -190,7 +190,7 @@ export default function BurgerMenu() {
         <div className={classes.menuburgerlist}>
           <ul className={classes.puces}>
             <li>
-              <Link href="/accueil" style={{ textDecoration: "none" }}>
+              <Link href="/" style={{ textDecoration: "none" }}>
                 <Button className={classes.accueil}>
                   <ListItemIcon>
                     <HomeIcon className={classes.homeicon} />

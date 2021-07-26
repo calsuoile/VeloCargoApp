@@ -140,9 +140,10 @@ const schema = yup.object().shape({
   price: yup
     .string()
     .required({ key: "price", msg: "Merci de saisir un prix" }),
-  general_state: yup
-    .string()
-    .required({ key: "general_state", msg: "Merci de préciser l'état général" }),
+  general_state: yup.string().required({
+    key: "general_state",
+    msg: "Merci de préciser l'état général",
+  }),
   electric: yup
     .string()
     .required({ key: "electric", msg: "Merci d'indiquer s'il est électrique" }),
@@ -182,27 +183,49 @@ export default function AdsBike(props) {
 
   const handleChange = (e) => {
     schema
-      .validate({ ...form, [e.target.name]: e.target.value })
+      .validate(
+        { ...form, [e.target.name]: e.target.value },
+        { abortEarly: false }
+      )
       .catch((err) => setErrors(err.errors));
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleChecked = (e) => {
+    schema
+      .validate(
+        { ...form, [e.target.name]: e.target.value },
+        { abortEarly: false }
+      )
+      .catch((err) => setErrors(err.errors));
     setForm({ ...form, [e.target.name]: e.target.checked });
   };
 
   const handleClick = async (e) => {
-    console.log(form);
     e.preventDefault();
-    // postForm();
+    const token = localStorage.getItem("userToken");
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
 
     schema
-      .validate({ ...form, [e.target.name]: e.target.value })
+      .validate(
+        { ...form, [e.target.name]: e.target.value },
+        { abortEarly: false }
+      )
       .then(async () => {
-        await axios.post(`${process.env.NEXT_PUBLIC_API_URL}cargobikes`, form);
+        await axios.post(
+          `${process.env.NEXT_PUBLIC_API_URL}cargobikes`,
+          form,
+          config
+        );
         router.push("/");
       })
-      .catch((err) => setErrors(err.errors));
+      .catch((err) => {
+        console.log(err);
+        console.dir(err.errors, { depth: null });
+        setErrors(err.errors);
+      });
   };
 
   const handlePicture = (imageUrl) => {

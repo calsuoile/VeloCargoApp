@@ -40,7 +40,7 @@ function SelectCategory({ name, value, onChange }) {
           <option value="triporteur">Triporteurs</option>
           <option value="tricycle">Tricycles</option>
           <option value="longtail">Longtails</option>
-          <option value="accessoires">Accessoires</option>
+          <option value="accessoire">Accessoires</option>
           <option value="remorque">Remorques</option>
         </Select>
       </FormControl>

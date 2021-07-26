@@ -33,7 +33,8 @@ function Marketplace({ adsCard, type = "", total: initialTotal }) {
   useEffect(() => {
     setAds(adsCard);
     setTotal(initialTotal);
-  }, [adsCard, initialTotal]);
+    setFilter({ ...filter, type: type });
+  }, [adsCard, initialTotal, type]);
 
   useEffect(() => {
     const queryFilter = Object.entries(filter)
