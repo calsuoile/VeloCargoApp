@@ -141,7 +141,7 @@ function ViewAd({ ads }) {
           <PlaceIcon /> {ads.country}, {ads.department}
         </Typography>
         <Typography variant="body1" className={classes.when}>
-          {moment(ads.created_at).format("LL à hh:mm")}
+          {moment(ads.created_at).format("LL à HH:mm")}
         </Typography>
         <DeleteButtonAds color="secondary" />
         <div

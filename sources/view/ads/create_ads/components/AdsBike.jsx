@@ -14,6 +14,8 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import Upload from "../../../../common/components/Upload";
 import * as yup from "yup";
+import DepartmentSelector from "../../../../common/components/DepartmentSelector";
+import { toast } from "react-toastify";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -303,20 +305,15 @@ export default function AdsBike(props) {
                     errors.find((item) => item.key === "country")?.msg
                   }
                 />
-                <TextField
-                  className={classes.velo}
-                  required={true}
-                  id="outlined-basic"
-                  label="Département"
-                  variant="outlined"
-                  name="department"
-                  form={form.department}
+                <DepartmentSelector
+                  value={form.department}
                   onChange={handleChange}
+                  name={"department"}
                   error={errors.find((item) => item.key === "department")}
                   helperText={
                     errors.find((item) => item.key === "department")?.msg
                   }
-                ></TextField>
+                />
               </div>
             </Typography>
           </AccordionDetails>

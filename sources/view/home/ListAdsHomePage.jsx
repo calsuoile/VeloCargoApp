@@ -58,7 +58,7 @@ function ListAdsHomePage({ ads }) {
   return (
     <div>
       <Typography className={classes.title} variant="h3">
-        ACHETER UN VÉLO CARGO
+        Dernières annonces
       </Typography>
       <hr className={classes.hr}></hr>
 
@@ -74,7 +74,7 @@ function ListAdsHomePage({ ads }) {
           </Link>
         ))}
       </div>
-      <Link href="acheter-un-velo-cargo" style={{ textDecoration: "none" }}>
+      <Link href="/acheter-un-velo-cargo" style={{ textDecoration: "none" }}>
         <Button
           variant="contained"
           color="secondary"
