@@ -11,11 +11,6 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
   },
-  favorite: {
-    [theme.breakpoints.down("sm")]: {
-      display: "none",
-    },
-  },
   button: {
     backgroundColor: "#5C9A9A",
     color: "white",
@@ -30,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     fontSize: "25px",
     color:"white",
-
   },
 }));
 
