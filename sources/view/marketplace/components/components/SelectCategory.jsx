@@ -36,12 +36,12 @@ function SelectCategory({ name, value, onChange }) {
           }}
         >
           <option aria-label="None" value="" />
-          <option value="biporteur">Biporteur</option>
-          <option value="triporteur">Triporteur</option>
-          <option value="tricycle">Tricycle</option>
-          <option value="longtail">Longtail</option>
-          <option value="accessoires">Accessoire</option>
-          <option value="remorque">Remorque</option>
+          <option value="biporteur">Biporteurs</option>
+          <option value="triporteur">Triporteurs</option>
+          <option value="tricycle">Tricycles</option>
+          <option value="longtail">Longtails</option>
+          <option value="accessoires">Accessoires</option>
+          <option value="remorque">Remorques</option>
         </Select>
       </FormControl>
     </div>

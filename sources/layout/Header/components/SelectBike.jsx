@@ -85,7 +85,7 @@ function SelectBike(props) {
         onClick={handleToggle}
         className={classes.button}
       >
-        VÉLO CARGO
+        VÉLOS CARGOS
       </Button>
       <Popper
         open={open}

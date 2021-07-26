@@ -11,7 +11,6 @@ export default function SwitchForm({ label, onChange, checked, name }) {
           onChange={onChange}
           name={name}
           color="primary"
-          // inputProps={{required : false}}
         />
       }
       label={label}

@@ -69,7 +69,7 @@ const ListArticlesHomePage = ({ articles }) => {
         ))}
       </div>
       <div>
-        <Link href="articles" style={{ textDecoration: "none" }}>
+        <Link href="/articles" style={{ textDecoration: "none" }}>
           <Button
             variant="contained"
             color="secondary"
