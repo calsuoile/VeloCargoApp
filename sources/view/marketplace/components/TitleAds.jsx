@@ -23,7 +23,7 @@ function TitleAds(props) {
     return (
         <div>
           <Typography className={classes.title}>
-          ANNONCES EN LIGNE
+          ANNONCES
           </Typography>
           <hr className={classes.hr}></hr>
         </div>

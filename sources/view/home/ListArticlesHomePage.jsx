@@ -55,7 +55,7 @@ const ListArticlesHomePage = ({ articles }) => {
   return (
     <>
       <Typography className={classes.title} variant="h3">
-        Derniers ARTICLES & ASTUCES
+        ARTICLES & ASTUCES
       </Typography>
       <hr className={classes.hr}></hr>
       <div className={classes.cards}>
