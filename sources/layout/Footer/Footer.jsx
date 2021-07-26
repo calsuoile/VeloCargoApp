@@ -121,7 +121,7 @@ function Footer(props) {
               </li>
             </a>
           </Link>
-          <Link href="/vendre-un-velo-cargo">
+          {/* <Link href="/vendre-un-velo-cargo">
             <a style={{ textDecoration: "none", color: "inherit" }}>
               {" "}
               <li className={classes.undertitle}>Vendre un Vélo Cargo</li>
@@ -138,7 +138,7 @@ function Footer(props) {
               {" "}
               <li className={classes.undertitle}>Vendre une remorque</li>
             </a>
-          </Link>
+          </Link> */}
         </ul>
         <ul className={classes.link}>
           <Link href="/articles/page/1">
