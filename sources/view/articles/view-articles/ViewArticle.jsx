@@ -80,7 +80,7 @@ const ViewArticle = ({ articleView: [articleView], otherArticles }) => {
         <Typography
           style={{ marginLeft: "10px", marginTop: "10px", fontStyle: "italic" }}
         >
-          Le {moment(articleView.created_at).format("LL à hh:mm")} - Clément
+          Le {moment(articleView.created_at).format("LL à HH:mm")} - Clément
           Fouillet{" "}
         </Typography>
       </div>

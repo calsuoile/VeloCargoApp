@@ -58,13 +58,13 @@ function CreateAds(props) {
       </Typography>
       <hr className={classes.hr}></hr>
       <div className={classes.buttons}>
-        <Link href="vendre-un-velo-cargo">
+        <Link href="/vendre-un-velo-cargo">
           <img className={classes.img} src="/assets/velo.png" />
         </Link>
-        <Link href="vendre-un-accessoire">
+        <Link href="/vendre-un-accessoire">
           <img className={classes.img} src="/assets/access.png" />
         </Link>
-        <Link href="vendre-une-remorque">
+        <Link href="/vendre-une-remorque">
           <img className={classes.img} src="/assets/remorque.png" />
         </Link>
       </div>

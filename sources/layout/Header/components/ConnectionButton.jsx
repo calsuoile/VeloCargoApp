@@ -72,7 +72,7 @@ export default function ConnectionButton() {
               Déconnexion
             </Button>
           </Link>
-          <Link href="mon-profil">
+          <Link href="/mon-profil">
             <IconButton>
               <AccountCircleIcon />
             </IconButton>
@@ -80,7 +80,7 @@ export default function ConnectionButton() {
         </div>
       )}
       {Object.keys(connectedUser).length === 0 && (
-        <Link href="connexion">
+        <Link href="/connexion">
           <Button aria-label="connexion" variant="contained" color="secondary" className={classes.buttonco}>
             Connexion{" "}
           </Button>

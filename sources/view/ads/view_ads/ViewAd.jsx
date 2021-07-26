@@ -111,7 +111,7 @@ function ViewAd({ ads }) {
   return (
     <div className={classes.box}>
       <div className={classes.header}>
-        <Typography variant="h3">{ads.title}</Typography>
+        <Typography variant="h3">{ads?.title}</Typography>
         <div className={classes.vendeur}>
           <Typography variant="body2">
             {ads?.firstname} {ads?.lastname}
@@ -141,7 +141,7 @@ function ViewAd({ ads }) {
           <PlaceIcon /> {ads.country}, {ads.department}
         </Typography>
         <Typography variant="body1" className={classes.when}>
-          {moment(ads.created_at).format("LL à hh:mm")}
+          {moment(ads.created_at).format("LL à HH:mm")}
         </Typography>
         <DeleteButtonAds color="secondary" />
         <div

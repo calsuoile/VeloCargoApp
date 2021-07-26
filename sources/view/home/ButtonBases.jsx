@@ -105,7 +105,7 @@ function ButtonBases(props) {
         />
         <span className={classes.imageBackdrop} />
         <span className={classes.imageButton}>
-          <Link href="acheter-un-velo-cargo" style={{ textDecoration: "none" }}>
+          <Link href="/acheter-un-velo-cargo" style={{ textDecoration: "none" }}>
             <Typography
               component="span"
               variant="h5"
@@ -136,7 +136,7 @@ function ButtonBases(props) {
         />
         <span className={classes.imageBackdrop} />
         <span className={classes.imageButton}>
-          <Link href="vendre-un-produit" style={{ textDecoration: "none" }}>
+          <Link href="/vendre-un-produit" style={{ textDecoration: "none" }}>
             <Typography
               component="span"
               variant="h5"

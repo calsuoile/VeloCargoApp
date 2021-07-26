@@ -13,6 +13,9 @@ import RadioButtonsGroup from "../../../../common/RadioButtonsGroup";
 import { useRouter } from "next/router";
 import axios from "axios";
 import Upload from "../../../../common/components/Upload";
+import * as yup from "yup";
+import DepartmentSelector from "../../../../common/components/DepartmentSelector";
+import { toast } from "react-toastify";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: "2px",
     },
   },
-
   expandIcon: {
     color: "#B4B8D4",
   },
@@ -54,12 +56,10 @@ const useStyles = makeStyles((theme) => ({
       marginTop: "20px",
     },
   },
-
   intro: {
     display: "flex",
     flexDirection: "column",
   },
-
   title: {
     width: 600,
     marginBottom: 10,
@@ -77,13 +77,11 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
     },
   },
-
   country: {
     width: 100,
     color: "rgba(104, 219, 150, 1)",
     marginTop: 50,
   },
-
   localisation: {
     display: "flex",
     alignItems: "center",
@@ -97,7 +95,6 @@ const useStyles = makeStyles((theme) => ({
       alignItems: "flex-start",
     },
   },
-
   velo: {
     marginRight: 40,
     width: 500,
@@ -117,7 +114,6 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 10,
     display: "flex",
     marginLeft: "85%",
-
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(1),
       marginLeft: "auto",
@@ -125,8 +121,37 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const schema = yup.object().shape({
+  title: yup
+    .string()
+    .required({ key: "title", msg: "Merci de saisir un titre" }),
+  description: yup
+    .string()
+    .required({ key: "description", msg: "Merci de saisir une description" }),
+  country: yup
+    .string()
+    .required({ key: "country", msg: "Merci de selectionner un pays" }),
+  department: yup
+    .string()
+    .required({ key: "department", msg: "Merci de saisir un département" }),
+  type: yup
+    .string()
+    .required({ key: "type", msg: "Merci de saisir un type de vélo" }),
+  price: yup
+    .string()
+    .required({ key: "price", msg: "Merci de saisir un prix" }),
+  general_state: yup
+    .string()
+    .required({ key: "general_state", msg: "Merci de préciser l'état général" }),
+  electric: yup
+    .string()
+    .required({ key: "electric", msg: "Merci d'indiquer s'il est électrique" }),
+});
+
 export default function AdsBike(props) {
   const classes = useStyles();
+  const [errors, setErrors] = useState([]);
+  const router = useRouter();
 
   const [form, setForm] = useState({
     title: "",
@@ -156,6 +181,9 @@ export default function AdsBike(props) {
   });
 
   const handleChange = (e) => {
+    schema
+      .validate({ ...form, [e.target.name]: e.target.value })
+      .catch((err) => setErrors(err.errors));
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
@@ -163,9 +191,18 @@ export default function AdsBike(props) {
     setForm({ ...form, [e.target.name]: e.target.checked });
   };
 
-  const handleClick = () => {
+  const handleClick = async (e) => {
     console.log(form);
-    postForm();
+    e.preventDefault();
+    // postForm();
+
+    schema
+      .validate({ ...form, [e.target.name]: e.target.value })
+      .then(async () => {
+        await axios.post(`${process.env.NEXT_PUBLIC_API_URL}cargobikes`, form);
+        router.push("/");
+      })
+      .catch((err) => setErrors(err.errors));
   };
 
   const handlePicture = (imageUrl) => {
@@ -173,24 +210,22 @@ export default function AdsBike(props) {
     setForm({ ...form, photo: newImages });
   };
 
-  const router = useRouter();
-
   //donne l'accès seulement aux utilisateurs connectés de poster une annonce
-  const postForm = () => {
-    const token = localStorage.getItem("userToken");
-    const config = {
-      headers: { Authorization: `Bearer ${token}` },
-    };
-    axios
-      .post(
-        `${process.env.NEXT_PUBLIC_API_URL}cargobikes`,
-        { ...form, photo: form.photo.toString() },
-        config
-      )
-      .then(() => {
-        router.push("/");
-      });
-  };
+  // const postForm = () => {
+  //   const token = localStorage.getItem("userToken");
+  //   const config = {
+  //     headers: { Authorization: `Bearer ${token}` },
+  //   };
+  //   axios
+  //     .post(
+  //       `${process.env.NEXT_PUBLIC_API_URL}cargobikes`,
+  //       { ...form, photo: form.photo.toString() },
+  //       config
+  //     )
+  //     .then(() => {
+  //       router.push("/");
+  //     });
+  // };
 
   return (
     <div className={classes.root}>
@@ -221,6 +256,10 @@ export default function AdsBike(props) {
                     name="title"
                     form={form.title}
                     onChange={handleChange}
+                    error={errors.find((item) => item.key === "title")}
+                    helperText={
+                      errors.find((item) => item.key === "title")?.msg
+                    }
                   ></TextField>
 
                   <TextField
@@ -234,6 +273,10 @@ export default function AdsBike(props) {
                     form={form.description}
                     onChange={handleChange}
                     placeholder="Ici n'hésitez pas à renseigner toutes informations qui pourraient intéresser l'acheteur : anecdotes, détails esthétiques, confort de l'assise, entretient du vélo..."
+                    error={errors.find((item) => item.key === "description")}
+                    helperText={
+                      errors.find((item) => item.key === "description")?.msg
+                    }
                   ></TextField>
                 </div>
               </Typography>
@@ -257,17 +300,20 @@ export default function AdsBike(props) {
                   value={form.country}
                   onChange={handleChange}
                   name={"country"}
+                  error={errors.find((item) => item.key === "country")}
+                  helperText={
+                    errors.find((item) => item.key === "country")?.msg
+                  }
                 />
-                <TextField
-                  className={classes.velo}
-                  required={true}
-                  id="outlined-basic"
-                  label="Département"
-                  variant="outlined"
-                  name="department"
-                  form={form.department}
+                <DepartmentSelector
+                  value={form.department}
                   onChange={handleChange}
-                ></TextField>
+                  name={"department"}
+                  error={errors.find((item) => item.key === "department")}
+                  helperText={
+                    errors.find((item) => item.key === "department")?.msg
+                  }
+                />
               </div>
             </Typography>
           </AccordionDetails>
@@ -289,6 +335,8 @@ export default function AdsBike(props) {
                   value={form.type}
                   onChange={handleChange}
                   name={"type"}
+                  error={errors.find((item) => item.key === "type")}
+                  helperText={errors.find((item) => item.key === "type")?.msg}
                 />
               </div>
               <div>
@@ -321,6 +369,8 @@ export default function AdsBike(props) {
                   name="price"
                   form={form.price}
                   onChange={handleChange}
+                  error={errors.find((item) => item.key === "price")}
+                  helperText={errors.find((item) => item.key === "price")?.msg}
                 ></TextField>
               </div>
             </Typography>
@@ -446,6 +496,12 @@ export default function AdsBike(props) {
                       name="general_state"
                       form={form.general_state}
                       onChange={handleChange}
+                      error={errors.find(
+                        (item) => item.key === "general_state"
+                      )}
+                      helperText={
+                        errors.find((item) => item.key === "general_state")?.msg
+                      }
                     ></TextField>
                   </Typography>
                 </div>
@@ -537,6 +593,10 @@ export default function AdsBike(props) {
                       checked={form.electric}
                       onChange={handleChecked}
                       label={"Electrique *"}
+                      error={errors.find((item) => item.key === "electric")}
+                      helperText={
+                        errors.find((item) => item.key === "electric")?.msg
+                      }
                     />
                     <div className={classes.margin}>
                       <TextField
@@ -554,7 +614,7 @@ export default function AdsBike(props) {
                       id="outlined-basic"
                       label="Voltage Batterie"
                       variant="outlined"
-                      name="battery_wolt"
+                      name="battery_volt"
                       form={form.battery_volt}
                       onChange={handleChange}
                     ></TextField>
