@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CardAdsList from "../ads/view_ads/CardAdsList";
-import SortBy from "/sources/view/marketplace/components/SortBy";
-import TitleAds from "/sources/view/marketplace/components/TitleAds";
+import SortBy from "/src/view/marketplace/components/SortBy";
+import TitleAds from "/src/view/marketplace/components/TitleAds";
 import { makeStyles } from "@material-ui/core/styles";
 import Filter from "../marketplace/Filter";
 import PaginationPage from "./components/PaginationPage";
