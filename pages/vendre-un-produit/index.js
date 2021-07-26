@@ -1,4 +1,4 @@
-import CreateAds from "../../sources/view/ads/create_ads/CreateAds";
+import CreateAds from "../../src/view/ads/create_ads/CreateAds";
 
 export default function CreateAdPage({}) {
   return <CreateAds />;
