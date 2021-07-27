@@ -7,8 +7,18 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   title: {
-    // textDecoration: "underline",
-    marginBottom: "15px",
+    marginTop: "30px",
+    cursor: "pointer",
+  },
+  undertitle: {
+    marginTop: "30px",
+    cursor: "pointer",
+    display: "inline-block",
+  },
+  articles: {
+   marginTop: "-25px",
+   cursor: "pointer",
+   display: "inline-block",
   },
   container: {
     backgroundImage: "url(/assets/backgr.png)",
@@ -31,11 +41,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       margin: "auto",
     },
-  },
-
-  logoform: {
-    // display: "flex",
-    // alignItems: "center",
   },
 
   link: {
@@ -81,45 +86,46 @@ function Footer(props) {
               </li>
             </a>
           </Link>
-          <Link href="/acheter-un-velo-cargo/triporteur">
-            <a style={{ textDecoration: "none", color: "inherit" }}>
-              <li className={classes.undertitle}>Triporteurs</li>
-            </a>
+          <div className={classes.undertitle}>
+          <Link href="/acheter-un-velo-cargo/triporteur" className={classes.undertitle}>
+          <a className={classes.undertitle} style={{ textDecoration: "none", color: "inherit" }}>
+              <li >Triporteurs</li>
+          </a>
           </Link>
           <Link href="/acheter-un-velo-cargo/biporteur">
-            <a style={{ textDecoration: "none", color: "inherit" }}>
+          <a className={classes.undertitle} style={{ textDecoration: "none", color: "inherit" }}>
               <li className={classes.undertitle}>Biporteurs</li>
-            </a>
+              </a>
           </Link>
           <Link href="/acheter-un-velo-cargo/tricycle">
-            <a style={{ textDecoration: "none", color: "inherit" }}>
+          <a className={classes.undertitle} style={{ textDecoration: "none", color: "inherit" }}>
               <li className={classes.undertitle}>Tricycles</li>
-            </a>
+              </a>
           </Link>
           <Link href="/acheter-un-velo-cargo/longtail">
-            <a style={{ textDecoration: "none", color: "inherit" }}>
+          <a className={classes.undertitle} style={{ textDecoration: "none", color: "inherit" }}>
               <li className={classes.undertitle}>Longtails</li>
-            </a>
+              </a>
           </Link>
           <Link href="/acheter-un-velo-cargo/remorque">
-            <a style={{ textDecoration: "none", color: "inherit" }}>
+          <a className={classes.undertitle} style={{ textDecoration: "none", color: "inherit" }}>
               <li className={classes.undertitle}>Remorques</li>
-            </a>
+              </a>
           </Link>
           <Link href="/acheter-un-velo-cargo/accessoire">
-            <a style={{ textDecoration: "none", color: "inherit" }}>
+          <a className={classes.undertitle} style={{ textDecoration: "none", color: "inherit" }}>
               <li className={classes.undertitle}>Accessoires</li>
-            </a>
+              </a>
           </Link>
+       
+       </div>
         </ul>
+        
         <ul className={classes.link}>
-          <Link href="/vendre-un-produit">
-            <a style={{ textDecoration: "none", color: "inherit" }}>
-              {" "}
-              <li className={classes.title}>
+              <Link href="/vendre-un-produit">
+              <li className={classes.articles}>
                 <strong>VENDRE UN PRODUIT</strong>
               </li>
-            </a>
           </Link>
           {/* <Link href="/vendre-un-velo-cargo">
             <a style={{ textDecoration: "none", color: "inherit" }}>
@@ -144,7 +150,7 @@ function Footer(props) {
           <Link href="/articles/page/1">
             <a style={{ textDecoration: "none", color: "inherit" }}>
               {" "}
-              <li className={classes.title}>
+              <li className={classes.articles}>
                 <strong>ARTICLES & ASTUCES</strong>
               </li>
             </a>

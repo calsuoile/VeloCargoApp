@@ -6,10 +6,10 @@ import Select from "@material-ui/core/Select";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
-    margin: theme.spacing(1),
     width: "200px",
     backgroundColor: "white",
     borderRadius: "5px",
+    margin:"10px",
   },
  
 

@@ -12,6 +12,10 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-evenly",
     marginTop: "50px",
+    [theme.breakpoints.down("sm")]: {
+      margin: "auto",
+      display: "block",
+    },
   },
   titlesort: {
     display: "flex",

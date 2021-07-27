@@ -18,6 +18,7 @@ moment.locale("fr");
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
+    minWidth: 345,
   },
   media: {
     height: 140,
