@@ -7,7 +7,7 @@ import Main from "../src/layout/Main";
 import axios from "axios";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "../sources/styles.css";
+import "../src/styles.css";
 
 
 

@@ -279,9 +279,9 @@ export default function AdsBike(props) {
                     name="title"
                     form={form.title}
                     onChange={handleChange}
-                    error={errors.find((item) => item.key === "title")}
+                    error={errors?.find((item) => item.key === "title")}
                     helperText={
-                      errors.find((item) => item.key === "title")?.msg
+                      errors?.find((item) => item.key === "title")?.msg
                     }
                   ></TextField>
 
@@ -296,9 +296,9 @@ export default function AdsBike(props) {
                     form={form.description}
                     onChange={handleChange}
                     placeholder="Ici n'hésitez pas à renseigner toutes informations qui pourraient intéresser l'acheteur : anecdotes, détails esthétiques, confort de l'assise, entretient du vélo..."
-                    error={errors.find((item) => item.key === "description")}
+                    error={errors?.find((item) => item.key === "description")}
                     helperText={
-                      errors.find((item) => item.key === "description")?.msg
+                      errors?.find((item) => item.key === "description")?.msg
                     }
                   ></TextField>
                 </div>
@@ -323,18 +323,18 @@ export default function AdsBike(props) {
                   value={form.country}
                   onChange={handleChange}
                   name={"country"}
-                  error={errors.find((item) => item.key === "country")}
+                  error={errors?.find((item) => item.key === "country")}
                   helperText={
-                    errors.find((item) => item.key === "country")?.msg
+                    errors?.find((item) => item.key === "country")?.msg
                   }
                 />
                 <DepartmentSelector
                   value={form.department}
                   onChange={handleChange}
                   name={"department"}
-                  error={errors.find((item) => item.key === "department")}
+                  error={errors?.find((item) => item.key === "department")}
                   helperText={
-                    errors.find((item) => item.key === "department")?.msg
+                    errors?.find((item) => item.key === "department")?.msg
                   }
                 />
               </div>
@@ -358,8 +358,8 @@ export default function AdsBike(props) {
                   value={form.type}
                   onChange={handleChange}
                   name={"type"}
-                  error={errors.find((item) => item.key === "type")}
-                  helperText={errors.find((item) => item.key === "type")?.msg}
+                  error={errors?.find((item) => item.key === "type")}
+                  helperText={errors?.find((item) => item.key === "type")?.msg}
                 />
               </div>
               <div>
@@ -392,8 +392,8 @@ export default function AdsBike(props) {
                   name="price"
                   form={form.price}
                   onChange={handleChange}
-                  error={errors.find((item) => item.key === "price")}
-                  helperText={errors.find((item) => item.key === "price")?.msg}
+                  error={errors?.find((item) => item.key === "price")}
+                  helperText={errors?.find((item) => item.key === "price")?.msg}
                 ></TextField>
               </div>
             </Typography>
@@ -519,11 +519,11 @@ export default function AdsBike(props) {
                       name="general_state"
                       form={form.general_state}
                       onChange={handleChange}
-                      error={errors.find(
+                      error={errors?.find(
                         (item) => item.key === "general_state"
                       )}
                       helperText={
-                        errors.find((item) => item.key === "general_state")?.msg
+                        errors?.find((item) => item.key === "general_state")?.msg
                       }
                     ></TextField>
                   </Typography>
@@ -616,9 +616,9 @@ export default function AdsBike(props) {
                       checked={form.electric}
                       onChange={handleChecked}
                       label={"Electrique *"}
-                      error={errors.find((item) => item.key === "electric")}
+                      error={errors?.find((item) => item.key === "electric")}
                       helperText={
-                        errors.find((item) => item.key === "electric")?.msg
+                        errors?.find((item) => item.key === "electric")?.msg
                       }
                     />
                     <div className={classes.margin}>

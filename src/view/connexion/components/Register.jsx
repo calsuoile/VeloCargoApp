@@ -19,6 +19,7 @@ import {
   DialogTitle,
 } from "@material-ui/core";
 import * as yup from "yup";
+import { toast } from "react-toastify";
 
 function Copyright() {
   return (
@@ -148,7 +149,12 @@ export default function Register() {
         router.push("/connexion");
         setOpen(true);
       })
-      .catch((err) => setErrors(err.errors));
+      .catch((err) => {
+        if (err?.response?.status) {
+          toast.error("Cet email est déjà pris");
+        }
+        setErrors(err.errors);
+      });
   };
 
   const handleChange = (e) => {
@@ -190,8 +196,10 @@ export default function Register() {
                 id="lastname"
                 autoComplete="current-password"
                 onChange={handleChange}
-                error={errors.find((item) => item.key === "lastname")}
-                helperText={errors.find((item) => item.key === "lastname")?.msg}
+                error={errors?.find((item) => item.key === "lastname")}
+                helperText={
+                  errors?.find((item) => item.key === "lastname")?.msg
+                }
               />
               <TextField
                 className={classes.fname}
@@ -206,9 +214,9 @@ export default function Register() {
                 id="firstname"
                 autoComplete="current-password"
                 onChange={handleChange}
-                error={errors.find((item) => item.key === "firstname")}
+                error={errors?.find((item) => item.key === "firstname")}
                 helperText={
-                  errors.find((item) => item.key === "firstname")?.msg
+                  errors?.find((item) => item.key === "firstname")?.msg
                 }
               />
             </div>
@@ -225,8 +233,8 @@ export default function Register() {
               autoFocus
               type="email"
               onChange={handleChange}
-              error={errors.find((item) => item.key === "email")}
-              helperText={errors.find((item) => item.key === "email")?.msg}
+              error={errors?.find((item) => item.key === "email")}
+              helperText={errors?.find((item) => item.key === "email")?.msg}
             />
             <TextField
               value={form.password}
@@ -240,8 +248,8 @@ export default function Register() {
               id="password"
               autoComplete="current-password"
               onChange={handleChange}
-              error={errors.find((item) => item.key === "password")}
-              helperText={errors.find((item) => item.key === "password")?.msg}
+              error={errors?.find((item) => item.key === "password")}
+              helperText={errors?.find((item) => item.key === "password")?.msg}
             />
             <Button
               type="submit"

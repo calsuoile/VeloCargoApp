@@ -5,7 +5,7 @@ import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
 import IconButton from "@material-ui/core/IconButton";
 import axios from "axios";
 
-function DeleteButtonAds({ adsId }) {
+function DeleteButtonAds({ adsId, onDelete = null }) {
   const [open, setOpen] = useState(false);
 
   const handleDelete = (e) => {
@@ -30,6 +30,9 @@ function DeleteButtonAds({ adsId }) {
       config
     );
     setOpen(false);
+    if (onDelete) {
+      onDelete();
+    }
   };
 
   return (

@@ -13,6 +13,9 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import UserContext from "./../../../context/user";
 import IconButton from "@material-ui/core/IconButton";
 import axios from "axios";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 const moment = require("moment");
 moment.locale("fr");
@@ -91,6 +94,7 @@ const useStyles = makeStyles({
 
 function ViewAd({ ads }) {
   const classes = useStyles();
+  const router = useRouter();
   const [phoneNumber, setPhoneNumber] = useState(true);
   function handlePhone() {
     setPhoneNumber(!phoneNumber);
@@ -100,18 +104,50 @@ function ViewAd({ ads }) {
   function handleEmail() {
     setEmail(!email);
   }
-
-  const [isFavorite, setIsFavorite] = React.useState(false);
   const { connectedUser } = useContext(UserContext);
 
-  const handleClickFavorite = () => {
-    setIsFavorite(!isFavorite);
+  const [isFavorite, setIsFavorite] = React.useState(
+    connectedUser?.favorites?.includes(ads?.ads_id)
+  );
+
+  useEffect(() => {
+    setIsFavorite(connectedUser?.favorites?.includes(ads?.ads_id));
+  }, [connectedUser]);
+
+  const handleClickFavorite = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const accessToken = localStorage.getItem("userToken");
+    if (accessToken) {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      };
+      if (isFavorite) {
+        // if it's favorite it means you should remove it
+        await axios.delete(
+          `${process.env.NEXT_PUBLIC_API_URL}ads/${ads.ads_id}/favorites`,
+          config
+        );
+        toast.info("Annonce retirée des favoris");
+      } else {
+        // if not then we should add it
+        await axios.post(
+          `${process.env.NEXT_PUBLIC_API_URL}ads/${ads.ads_id}/favorites`,
+          {},
+          config
+        );
+        toast.success("Annonce ajoutée aux favoris");
+      }
+      setIsFavorite(!isFavorite);
+    }
   };
 
   return (
     <div className={classes.box}>
       <div className={classes.header}>
-        <Typography variant="h3">{ads.title}</Typography>
+        <Typography variant="h3">{ads?.title}</Typography>
         <div className={classes.vendeur}>
           <Typography variant="body2">
             {ads?.firstname} {ads?.lastname}
@@ -138,12 +174,18 @@ function ViewAd({ ads }) {
         </div>
         <Typography variant="body2" className={classes.where}>
           {" "}
-          <PlaceIcon /> {ads.country}, {ads.department}
+          <PlaceIcon /> {ads?.country}, {ads?.department}
         </Typography>
         <Typography variant="body1" className={classes.when}>
-          {moment(ads.created_at).format("LL à HH:mm")}
+          {moment(ads?.created_at).format("LL à HH:mm")}
         </Typography>
-        <DeleteButtonAds color="secondary" />
+        {ads?.user_id === connectedUser?.id && (
+          <DeleteButtonAds
+            onDelete={() => router.push("/acheter-un-velo-cargo")}
+            color="secondary"
+            adsId={ads?.ads_id}
+          />
+        )}
         <div
           color="secondary"
           className={classes.icon}
@@ -171,25 +213,6 @@ function ViewAd({ ads }) {
         </Typography>
         <AdsTechnique ads={ads} />
       </div>
-      {/* <div className={classes.accessory}>
-        <Typography variant="h3" className={classes.title}>
-          Accessoires Complémentaire
-        </Typography>
-        <div className={classes.accessoryImg}>
-          <img
-            src="https://source.unsplash.com/random?bike/1"
-            width="200"
-          ></img>
-          <img
-            src="https://source.unsplash.com/random?bike/2"
-            width="200"
-          ></img>
-          <img
-            src="https://source.unsplash.com/random?bike/3"
-            width="200"
-          ></img>
-        </div>
-      </div> */}
     </div>
   );
 }
