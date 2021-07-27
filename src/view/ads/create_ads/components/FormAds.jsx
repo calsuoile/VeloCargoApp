@@ -15,9 +15,7 @@ const Step1 = ({ values, erros, handleChange, handleBlur }) => (
       onChange={handleChange}
       onBlur={handleBlur}
     />
-
     {erros.name && <p style={{ color: "red" }}>{erros.name}</p>}
-
     <DatePickers />
   </div>
 );
@@ -36,7 +34,6 @@ function FormAds(props) {
     },
     step: 1,
   };
-
   next = (formValues) =>
     this.setState((state) => ({
       step: state.step + 1,
@@ -56,6 +53,7 @@ function FormAds(props) {
       bag.setSubmitting(false);
     }
   };
+  
   return (
     <div>
       <Formik

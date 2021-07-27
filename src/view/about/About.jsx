@@ -2,7 +2,6 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
-import TopBar from "./components/TopBar";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
@@ -11,6 +10,11 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(8),
     alignItems: "center",
     marginBottom: "30px",
+    [theme.breakpoints.down("sm")]: {
+      margin: "auto",
+      display: "block",
+      marginTop: "30px"
+    },
   },
   orangetitle: {
     flexDirection: "column",
@@ -46,9 +50,9 @@ const useStyles = makeStyles((theme) => ({
   img_title: {
     maxWidth: "500px",
     maxHeight: "500px",
-    merginTop: theme.spacing(10),
     borderRadius: "30px",
-    margin: "30px",
+    marginLeft: "40px",
+    marginBottom: "30px",
   },
   img_talkAbout: {
     maxWidth: "200px",
@@ -75,6 +79,13 @@ const useStyles = makeStyles((theme) => ({
   clement: {
     color: "#F27C08",
   },
+
+  apropos: {
+    textAlign: "center",
+    color: "black",
+    fontSize: "50px",
+    marginTop: "50px"
+  },
   fondateur: {
     fontSize: "30px",
     color: "#F29F24",
@@ -87,29 +98,22 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "20px",
     marginBottom: "40px",
   },
+  hr2: {
+    width: "10%",
+    height: "2px",
+    backgroundColor: "#006262",
+    border: "none",
+    marginTop: "20px",
+  },
   hrclement: {
     backgroundColor: "#F27C08",
     border: "none",
     height: "1px",
   },
-  link : {
+  link: {
     textDecoration: "none",
-  }
+  },
 }));
-
-const sections = [
-  { title: "NOTRE HISTOIRE", url: "http://localhost:3000/a-propos#Histoire" },
-  { title: "NOS OBJECTIFS", url: "http://localhost:3000/a-propos#Objectifs" },
-  { title: "NOTRE VISION", url: "http://localhost:3000/a-propos#NotreVision" },
-  {
-    title: "ILS PARLENT DE NOUS",
-    url: "http://localhost:3000/a-propos#IlsEnPArlent",
-  },
-  {
-    title: "NOS PARTENAIRES",
-    url: "http://localhost:3000/a-propos#Partenaires",
-  },
-];
 
 export default function About() {
   const classes = useStyles();
@@ -118,11 +122,15 @@ export default function About() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <TopBar
-          title="À propos"
-          sections={sections}
-          style={{ textDecoration: "none" }}
-        />
+        <Typography
+          gutterBottom
+          variant="h5"
+          component="h1"
+          className={classes.apropos}
+        >
+          À PROPOS
+        </Typography>
+        <hr className={classes.hr2}></hr>
         <div className={classes.root}>
           <div className={classes.title}>
             <div className={classes.head}>
@@ -144,7 +152,7 @@ export default function About() {
                 >
                   Fondateur de Cargo Bike Trade
                 </Typography>
-              </div>
+                </div>
               <img
                 className={classes.img_title}
                 src="/assets/Clément_F_Fondateur.jpg"

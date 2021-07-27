@@ -14,18 +14,6 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import * as yup from "yup";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="/">
-        CargoBikeTrade
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,33 +25,34 @@ const useStyles = makeStyles((theme) => ({
   contain: {
     opacity: 0.5,
     "&:hover": {
-      //     background: "rgb(104,219,150)",
-      //   background: "radial-gradient(circle, rgba(104,219,150,1) 0%, rgba(255,209,150,0.6713060224089635) 100%)",
-      zIndex: 1,
+      // zIndex: 1,
       opacity: 1,
     },
   },
   paper: {
-    margin: theme.spacing(10, 20),
+    margin: theme.spacing(15, 30),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: "rgba(237, 162, 116, 1)",
-  },
   form: {
-    width: "80%", // Fix IE 11 issue.
+    width: "100%", // Fix IE 11 issue.
     marginTop: "50px",
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    marginTop: "20px",
     backgroundColor: "#5C9A9A",
     color: "white",
+    width: "250px",
     fontFamily: "Open Sans Condensed, sans-serif",
     fontWeight: 400,
     fontSize: "20px",
+    "&:hover": {
+      backgroundColor: "#F27C08",
+    }
   },
   title: {
     marginTop: "5%",
@@ -72,12 +61,15 @@ const useStyles = makeStyles((theme) => ({
   },
   hr: {
     width: "50%",
-    height: "3px",
+    height: "2px",
     backgroundColor: "#006262",
     border: "none",
     marginTop: "5%",
     marginBottom: "10px",
   },
+  text: {
+    width: "250px",
+  }
 }));
 
 const schema = yup.object().shape({
@@ -150,15 +142,14 @@ export default function Login() {
         className={classes.contain}
       >
         <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <DirectionsBikeIcon />
-          </Avatar>
+            <img src="./assets/icon1.png" width="80px" className={classes.avatar}/>
           <Typography className={classes.title} variant="h3">
             CONNEXION
           </Typography>
           <hr className={classes.hr}></hr>
           <form className={classes.form} noValidate>
             <TextField
+              className={classes.text}
               value={email}
               variant="outlined"
               margin="normal"
@@ -174,6 +165,7 @@ export default function Login() {
               helperText={errors.find((item) => item.key === "email")?.msg}
             />
             <TextField
+              className={classes.text}
               value={password}
               variant="outlined"
               margin="normal"
@@ -198,9 +190,6 @@ export default function Login() {
             >
               CONNEXION
             </Button>
-            <Box mt={5}>
-              <Copyright />
-            </Box>
           </form>
         </div>
       </Grid>

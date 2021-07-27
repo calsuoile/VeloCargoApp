@@ -74,7 +74,6 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
     },
   },
-
   country: {
     width: "200",
     [theme.breakpoints.down("sm")]: {
@@ -82,11 +81,9 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
     },
   },
-
   localisation: {
     display: "flex",
     alignItems: "center",
-    // justifyContent: "space-evenly",
     flexDirection: "row",
     margin: 25,
     [theme.breakpoints.down("sm")]: {
@@ -104,7 +101,6 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
     },
   },
-
   contain: {
     width: "100%",
   },
@@ -116,7 +112,6 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 10,
     display: "flex",
     marginLeft: "85%",
-
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(1),
       marginLeft: "auto",
@@ -126,6 +121,8 @@ const useStyles = makeStyles((theme) => ({
 
 function AdsTrailer(props) {
   const classes = useStyles();
+  const router = useRouter();
+
   const [form, setForm] = React.useState({
     title: "",
     created_at: "",
@@ -147,6 +144,7 @@ function AdsTrailer(props) {
     guarantee: false,
     photo: [],
   });
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -154,6 +152,7 @@ function AdsTrailer(props) {
   const handleChecked = (e) => {
     setForm({ ...form, [e.target.name]: e.target.checked });
   };
+
   const handleClick = () => {
     postForm();
   };
@@ -164,8 +163,6 @@ function AdsTrailer(props) {
     setForm({ ...form, photo: newImages });
     // console.log(newImages);
   };
-
-  const router = useRouter();
 
   const postForm = () => {
     const token = localStorage.getItem("userToken");
@@ -252,10 +249,6 @@ function AdsTrailer(props) {
                   value={form.department}
                   onChange={handleChange}
                   name={"department"}
-                  // error={errors.find((item) => item.key === "department")}
-                  // helperText={
-                  //   errors.find((item) => item.key === "department")?.msg
-                  // }
                 />
               </div>
             </Typography>
@@ -283,7 +276,6 @@ function AdsTrailer(props) {
                   form={form.brand}
                   onChange={handleChange}
                 ></TextField>
-
                 <TextField
                   className={classes.velo}
                   id="outlined-basic"
@@ -293,7 +285,6 @@ function AdsTrailer(props) {
                   form={form.model}
                   onChange={handleChange}
                 ></TextField>
-
                 <TextField
                   className={classes.velo}
                   required={true}
@@ -491,7 +482,6 @@ function AdsTrailer(props) {
             </Typography>
           </AccordionDetails>
         </Accordion>
-
         <Accordion>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon className={classes.expandIcon} />}

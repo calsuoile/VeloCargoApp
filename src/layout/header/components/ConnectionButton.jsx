@@ -8,22 +8,33 @@ import UserContext from "../../../context/user";
 import { useRouter } from "next/router";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    "& > *": {
-      margin: theme.spacing(1),
-    },
-  },
   buttonDeco: {
     backgroundColor: "#5C9A9A",
     color: "white",
     fontFamily: "Open Sans Condensed, sans-serif",
     fontWeight: 400,
     fontSize: "20px",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "10px",
+    "&:hover": {
+      backgroundColor: "#F29F24",
     },
+    [theme.breakpoints.down("sm")]: {
+<<<<<<< HEAD:sources/layout/Header/components/ConnectionButton.jsx
+      width:"20px",
+      fontSize : "10px",
+  },
+},
+  icon: {
+    fontSize: "25px",
+    color: "white",
   },
   buttonco: {
+=======
+      fontSize: "10px",
+      marginRight: "10px",
+    },
+  },
+  buttonCo: {
+>>>>>>> origin/dev:src/layout/header/components/ConnectionButton.jsx
     backgroundColor: "#5C9A9A",
     color: "white",
     fontFamily: "Open Sans Condensed, sans-serif",
@@ -47,6 +58,13 @@ const useStyles = makeStyles((theme) => ({
   },
   user: {
     display: "flex",
+    marginRight: 10,
+  },
+  userCo: {
+    [theme.breakpoints.up("sm")]: {
+      display: "flex",
+      justifyContent: "flex-end",
+    },
   },
 }));
 
@@ -64,7 +82,7 @@ export default function ConnectionButton() {
   return (
     <div className={classes.root}>
       {Object.keys(connectedUser).length > 0 && (
-        <div>
+        <div className={classes.userCo}>
           <Link href="/">
             <Button
               className={classes.buttonDeco}
@@ -91,7 +109,7 @@ export default function ConnectionButton() {
             aria-label="connexion"
             variant="contained"
             color="secondary"
-            className={classes.buttonco}
+            className={classes.buttonCo}
           >
             Connexion{" "}
           </Button>
