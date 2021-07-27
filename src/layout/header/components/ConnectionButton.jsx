@@ -13,25 +13,15 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
   },
-  favorite: {
-    [theme.breakpoints.down("sm")]: {
-      display: "none",
-    },
-  },
-  button: {
+  buttonDeco: {
     backgroundColor: "#5C9A9A",
     color: "white",
     fontFamily: "Open Sans Condensed, sans-serif",
     fontWeight: 400,
     fontSize: "20px",
     [theme.breakpoints.down("sm")]: {
-      width:"20px",
-      fontSize : "10px"
+      fontSize: "10px",
     },
-  },
-  icon: {
-    fontSize: "25px",
-    color: "white",
   },
   buttonco: {
     backgroundColor: "#5C9A9A",
@@ -42,8 +32,22 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "40px",
     "&:hover": {
       backgroundColor: "#F29F24",
-    }
-  }
+    },
+  },
+  name: {
+    fontFamily: "Open Sans Condensed, sans-serif",
+    color: "white",
+    marginTop: 12,
+    marginLeft: 3,
+    fontSize: 20,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: 15,
+      marginLeft: 1,
+    },
+  },
+  user: {
+    display: "flex",
+  },
 }));
 
 export default function ConnectionButton() {
@@ -60,11 +64,10 @@ export default function ConnectionButton() {
   return (
     <div className={classes.root}>
       {Object.keys(connectedUser).length > 0 && (
-        <div className={classes.user}>
-          <div className={classes.name}>{connectedUser.firstName}</div>
+        <div>
           <Link href="/">
             <Button
-              className={classes.button}
+              className={classes.buttonDeco}
               variant="contained"
               color="secondary"
               onClick={handleClick}
@@ -72,16 +75,24 @@ export default function ConnectionButton() {
               Déconnexion
             </Button>
           </Link>
-          <Link href="/mon-profil">
-            <IconButton>
-              <AccountCircleIcon />
-            </IconButton>
-          </Link>
+          <div className={classes.user}>
+            <Link href="/mon-profil">
+              <IconButton>
+                <AccountCircleIcon />
+              </IconButton>
+            </Link>
+            <div className={classes.name}>{connectedUser.firstname}</div>
+          </div>
         </div>
       )}
       {Object.keys(connectedUser).length === 0 && (
         <Link href="/connexion">
-          <Button aria-label="connexion" variant="contained" color="secondary" className={classes.buttonco}>
+          <Button
+            aria-label="connexion"
+            variant="contained"
+            color="secondary"
+            className={classes.buttonco}
+          >
             Connexion{" "}
           </Button>
         </Link>

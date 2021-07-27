@@ -4,7 +4,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import Button from "@material-ui/core/Button";
 import List from "@material-ui/core/List";
-import Divider from "@material-ui/core/Divider";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import HomeIcon from "@material-ui/icons/Home";
 import AddBoxIcon from "@material-ui/icons/AddBox";
@@ -23,12 +22,12 @@ const useStyles = makeStyles({
   },
   burgerbut: {
     backgroundColor: "#5C9A9A",
-    width: "30px",
+    width: "25px",
     fontFamily: "Staatliches, cursive",
     textAlign: "center",
     fontWeight: "bold",
-    margin: "5px",
-    marginLeft: "50%",
+    margin: "20px",
+    // marginLeft: "50%",
     "&:hover": {
       background: "#F29F24",
     },
@@ -81,7 +80,6 @@ const useStyles = makeStyles({
       fontSize: "19px",
     },
   },
-
   connexion: {
     border: "none",
     color: "#5C9A9A",
@@ -93,7 +91,6 @@ const useStyles = makeStyles({
       fontSize: "19px",
     },
   },
-
   propos: {
     border: "none",
     color: "#5C9A9A",
@@ -105,7 +102,6 @@ const useStyles = makeStyles({
       fontSize: "19px",
     },
   },
-
   contact: {
     border: "none",
     color: "#5C9A9A",
@@ -117,7 +113,6 @@ const useStyles = makeStyles({
       fontSize: "19px",
     },
   },
-
   menuicon: {
     color: "white",
     fontSize: "40px",
@@ -190,7 +185,7 @@ export default function BurgerMenu() {
         <div className={classes.menuburgerlist}>
           <ul className={classes.puces}>
             <li>
-              <Link href="/accueil" style={{ textDecoration: "none" }}>
+              <Link href="/" style={{ textDecoration: "none" }}>
                 <Button className={classes.accueil}>
                   <ListItemIcon>
                     <HomeIcon className={classes.homeicon} />
