@@ -78,7 +78,7 @@ function MyProfil(props) {
 
   const handleEdition = () => {
     setEdition(true);
-    console.log("edition");
+    // console.log("edition");
   };
 
   const handleChange = (e) => {

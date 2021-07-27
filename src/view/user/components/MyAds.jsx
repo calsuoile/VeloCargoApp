@@ -51,7 +51,6 @@ function MyAds(props) {
         )
         .then((response) => {
           setAds(response?.data?.data);
-          console.log(response?.data?.data);
         });
     }
   }, [connectedUser]);

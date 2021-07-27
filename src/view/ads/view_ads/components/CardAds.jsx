@@ -9,7 +9,6 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import DeleteButtonAds from "../../../../common/DeleteButtonAds";
 import UserContext from "../../../../context/user";
 import axios from "axios";
-import { useEffect } from "react";
 import { toast } from "react-toastify";
 
 const moment = require("moment");
@@ -73,8 +72,6 @@ export default function CardAds({
     connectedUser?.favorites?.includes(ads_id)
   );
 
-  
-
   const handleClickFavorite = async (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -116,7 +113,7 @@ export default function CardAds({
             photo && photos.length > 0
               ? photos[0]
               : "/assets/no-img-cargobike.jpeg"
-          } 
+          }
         />
         <CardContent className={classes.content}>
           <Typography variant="h5" component="h1" className={classes.title}>
