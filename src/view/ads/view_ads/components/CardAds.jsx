@@ -73,9 +73,7 @@ export default function CardAds({
     connectedUser?.favorites?.includes(ads_id)
   );
 
-  useEffect(() => {
-    setIsFavorite(connectedUser?.favorites?.includes(ads_id));
-  }, [connectedUser]);
+  
 
   const handleClickFavorite = async (e) => {
     e.preventDefault();
@@ -87,7 +85,6 @@ export default function CardAds({
           Authorization: `Bearer ${accessToken}`,
         },
       };
-
       if (isFavorite) {
         // if it's favorite it means you should remove it
         await axios.delete(
@@ -115,7 +112,11 @@ export default function CardAds({
       <CardActionArea>
         <img
           className={classes.image}
-          src={photos?.length > 0 ? photos[0] : "/assets/no-img-cargobike.jpeg"} //ajouter une image par défaut
+          src={
+            photo && photos.length > 0
+              ? photos[0]
+              : "/assets/no-img-cargobike.jpeg"
+          } 
         />
         <CardContent className={classes.content}>
           <Typography variant="h5" component="h1" className={classes.title}>

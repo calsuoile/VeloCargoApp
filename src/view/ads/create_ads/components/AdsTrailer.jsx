@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import Upload from "../../../../common/components/Upload";
 import SwitchForm from "../../../../common/components/SwitchForm";
+import DepartmentSelector from "../../../../common/components/DepartmentSelector";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -154,7 +155,6 @@ function AdsTrailer(props) {
     setForm({ ...form, [e.target.name]: e.target.checked });
   };
   const handleClick = () => {
-    console.log(form);
     postForm();
   };
 
@@ -175,7 +175,8 @@ function AdsTrailer(props) {
     axios
       .post(
         `${process.env.NEXT_PUBLIC_API_URL}trailers`,
-        { ...form, type: "remorque", photo: form.photo.toString() }, //transforme le tableau en string pour pouvoir mettre plusieurs photos en BDD. 
+        { ...form, type: "remorque", photo: form.photo.toString() },
+        config //transforme le tableau en string pour pouvoir mettre plusieurs photos en BDD.
       )
       .then(() => {
         router.push("/");
@@ -247,16 +248,15 @@ function AdsTrailer(props) {
                   onChange={handleChange}
                   name={"country"}
                 />
-                <TextField
-                  className={classes.velo}
-                  required={true}
-                  id="outlined-basic"
-                  label="Département"
-                  variant="outlined"
-                  name="department"
-                  form={form.department}
+                <DepartmentSelector
+                  value={form.department}
                   onChange={handleChange}
-                ></TextField>
+                  name={"department"}
+                  // error={errors.find((item) => item.key === "department")}
+                  // helperText={
+                  //   errors.find((item) => item.key === "department")?.msg
+                  // }
+                />
               </div>
             </Typography>
           </AccordionDetails>

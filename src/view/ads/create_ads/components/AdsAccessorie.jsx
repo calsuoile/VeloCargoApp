@@ -16,6 +16,7 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
+import DepartmentSelector from "../../../../common/components/DepartmentSelector";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -150,7 +151,6 @@ function AdsAccessorie(props) {
   };
 
   const handleClick = () => {
-    console.log(form);
     postForm();
   };
 
@@ -245,16 +245,15 @@ function AdsAccessorie(props) {
                     onChange={handleChange}
                     name={"country"}
                   />
-                  <TextField
-                    className={classes.velo}
-                    required={true}
-                    id="outlined-basic"
-                    label="Département"
-                    variant="outlined"
-                    name="department"
-                    form={form.department}
-                    onChange={handleChange}
-                  ></TextField>
+                  <DepartmentSelector
+                  value={form.department}
+                  onChange={handleChange}
+                  name={"department"}
+                  // error={errors.find((item) => item.key === "department")}
+                  // helperText={
+                  //   errors.find((item) => item.key === "department")?.msg
+                  // }
+                />
                 </div>
               </Typography>
             </AccordionDetails>

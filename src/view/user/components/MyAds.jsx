@@ -3,6 +3,7 @@ import { makeStyles, Typography } from "@material-ui/core";
 import axios from "axios";
 import UserContext from "../../../context/user";
 import CardAds from "../../ads/view_ads/components/CardAds";
+import Link from "next/link";
 
 const useStyles = makeStyles((theme) => ({
   contain: {
@@ -63,7 +64,14 @@ function MyAds(props) {
         </Typography>
         <div className={classes.ads}>
           {ads.map((ads, index) => (
-            <CardAds {...ads} key={index} />
+            <Link
+              href={"/acheter-un-velo-cargo/annonces/" + ads.ads_id}
+              key={ads.ads_id}
+            >
+              <a style={{ textDecoration: "none", color: "inherit" }}>
+                <CardAds {...ads} key={index} />
+              </a>
+            </Link>
           ))}
         </div>
       </div>

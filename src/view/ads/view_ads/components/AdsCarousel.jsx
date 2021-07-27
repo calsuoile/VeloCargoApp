@@ -8,9 +8,18 @@ const AdsCarousel = ({ className, ads }) => {
     <div className={className}>
       <Carousel>
         {photos?.map((photo, index) => (
-          <div key={index}>
-            <img src={photo} />
-          </div>
+          <div
+            key={index}
+            style={{
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              minWidth: "500px",
+              minHeight: "350px",
+              height: "auto",
+              backgroundImage: `url(${photo})`,
+            }}
+          ></div>
         ))}
       </Carousel>
     </div>
