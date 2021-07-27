@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import Home from "../sources/view/home/Home";
+import Home from "../src/view/home/Home";
 
 function index({ articles, ads }) {
   return (

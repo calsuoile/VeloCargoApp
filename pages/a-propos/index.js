@@ -1,4 +1,4 @@
-import About from "../../sources/view/about/About";
+import About from "../../src/view/about/About";
 
 export default function AProposPage() {
   return <About />;

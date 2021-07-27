@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import UserContext from "../sources/context/user";
+import UserContext from "../src/context/user";
 import { ThemeProvider } from "@material-ui/styles";
 import { CssBaseline } from "@material-ui/core";
-import theme from "../sources/theme";
-import Main from "../sources/layout/Main";
+import theme from "../src/theme";
+import Main from "../src/layout/Main";
 import axios from "axios";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

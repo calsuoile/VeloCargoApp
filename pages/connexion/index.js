@@ -1,4 +1,4 @@
-import Connection from "../../sources/view/connexion/Connection";
+import Connection from "../../src/view/connexion/Connection";
 
 export default function AProposPage() {
   return <Connection />;

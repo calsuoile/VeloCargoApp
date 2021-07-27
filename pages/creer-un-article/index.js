@@ -1,4 +1,4 @@
-import CreateArticle from "../../sources/view/articles/create-article/CreateArticle";
+import CreateArticle from "../../src/view/articles/create-article/CreateArticle";
 
 export default function CreateArticlePage() {
   return <CreateArticle />;
