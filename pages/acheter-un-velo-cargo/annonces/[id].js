@@ -8,7 +8,13 @@ const AdPage = ({ ads }) => {
     return <p>Loading...</p>;
   }
 
-  return <ViewAd ads={ads[0]} />;
+  if (ads[0].type == "trailer") {
+    return <ViewAdTrailer ads={ads[0]} />;
+  } else if (ads[0].type == "accessories") {
+    return <ViewAdAccessory ads={ads[0]} />;
+  } else {
+    return <ViewAd ads={ads[0]} />;
+  }
 };
 
 export async function getStaticPaths() {

@@ -18,7 +18,7 @@ function Upload({ handlePicture }) {
       headers: { Authorization: `Bearer ${tokenBearer}` },
     });
 
-    console.log(token);
+    // console.log(token);
 
     const formData = new FormData();
 

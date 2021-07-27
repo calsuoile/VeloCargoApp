@@ -67,9 +67,10 @@ const ViewArticle = ({ articleView: [articleView], otherArticles }) => {
       </div>
       <div className={classes.title}>
         <Typography variant="h1">{articleView.title}</Typography>
-        {connectedUser?.id && connectedUser?.role === "admin" && (
+        {/* {connectedUser?.id && connectedUser?.role === "admin" && (
           <DeleteButton id={articleView.id} />
-        )}
+        )} */}
+        <DeleteButton id={articleView.id} />
       </div>
       <div className={classes.authorImage}>
         <Avatar alt="Clément Fouillet" src="/assets/clement_fouillet.jpg" />

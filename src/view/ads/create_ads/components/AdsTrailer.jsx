@@ -158,10 +158,10 @@ function AdsTrailer(props) {
   };
 
   const handlePicture = (imageUrl) => {
-    console.log(imageUrl);
+    // console.log(imageUrl);
     const newImages = [...form.photo, imageUrl];
     setForm({ ...form, photo: newImages });
-    console.log(newImages);
+    // console.log(newImages);
   };
 
   const postForm = () => {

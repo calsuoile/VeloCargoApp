@@ -102,7 +102,7 @@ export default function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(userComment);
+    // console.log(userComment);
   };
 
   const [open, setOpen] = React.useState(false);
@@ -127,7 +127,6 @@ export default function Form() {
                 fullWidth
                 id="firstname"
                 label="Prénom"
-                autoFocus
                 onChange={handleTextFieldChange}
                 value={userComment.firstname}
               />
@@ -211,7 +210,6 @@ export default function Form() {
                 className={classes.ok}
                 onClick={() => setOpen(false)}
                 color="primary"
-                autoFocus
               >
                 <strong>Ok</strong>
               </Button>
