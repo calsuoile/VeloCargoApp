@@ -13,7 +13,6 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import UserContext from "./../../../context/user";
 import IconButton from "@material-ui/core/IconButton";
 import axios from "axios";
-import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 

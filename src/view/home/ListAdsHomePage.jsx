@@ -61,7 +61,6 @@ function ListAdsHomePage({ ads }) {
         Dernières annonces
       </Typography>
       <hr className={classes.hr}></hr>
-
       <div className={classes.marketplace}>
         {ads?.map((card) => (
           <Link

@@ -20,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
     margin: "20px",
     borderRadius: "20px",
   },
-
   buttonCancel: {
     backgourndColor: "#B4B8D4",
   },
@@ -28,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
 
 function ModalDeleteAds({ handleDeleteTrue, handleReturn }) {
   const classes = useStyles();
-
   const [form, setForm] = useState({
     sell: "",
   });

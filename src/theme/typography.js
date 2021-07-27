@@ -1,7 +1,7 @@
 import { common } from "@material-ui/core/colors";
 import palette from "./palette";
 
-// A utiliser dans des balises <Typrography> avec variant="...". 
+// A utiliser dans des balises <Typrography> avec variant="...".
 const typography = {
   h1: {
     color: palette.primary.light,
@@ -9,16 +9,16 @@ const typography = {
     fontSize: "40px",
     lineHeight: 1.1,
     fontFamily: "Staatliches, cursive",
-    // Gros titre épais et vert clair. 
+    // Gros titre épais et vert clair.
   },
   h2: {
-    color: palette.primary.light, 
+    color: palette.primary.light,
     fontWeight: 400,
     fontSize: "38px",
     lineHeight: 1.5,
     fontFamily: "Open Sans Condensed, sans-serif",
     textTransform: "uppercase",
-    // Sous titre fin et vert en majuscule. 
+    // Sous titre fin et vert en majuscule.
   },
   h3: {
     color: palette.primary.light,
@@ -33,17 +33,17 @@ const typography = {
     fontWeight: 400,
     fontSize: "24px",
     lineHeight: 1.35,
-    fontfamily: "Raleway"
-    // Titre lettre arrondie et jaune clair. 
+    fontfamily: "Raleway",
+    // Titre lettre arrondie et jaune clair.
   },
   h5: {
-    color: palette.primary.main, 
+    color: palette.primary.main,
     fontWeight: 400,
     fontSize: "38px",
     lineHeight: 1.5,
     fontFamily: "Open Sans Condensed, sans-serif",
     textTransform: "uppercase",
-    // Même titre que h2 en Noir. 
+    // Même titre que h2 en Noir.
   },
   h6: {
     color: common.white,
@@ -92,15 +92,12 @@ const typography = {
     fontSize: "13px",
     textTransform: "uppercase",
     fontWeight: "bold",
-    color: palette.secondary.light
+    color: palette.secondary.light,
   },
-  // sous titre petite lettre en majuscule, terra cotta. 
+  // sous titre petite lettre en majuscule, terra cotta.
   outlined: {
     fontFamily: "Open Sans Condensed",
-   
   },
 };
-
-
 
 export default typography;

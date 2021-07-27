@@ -7,7 +7,7 @@ const palette = {
   type: "light",
   primary: {
     light: "#B4B8D4", // bleu clair
-    main: "#006969", // new vert 
+    main: "#006969", // new vert
     dark: "#B4B8D4", // bleu clair
     contrastText: "rgba(255, 255, 255, 1)", // blanc
   },
@@ -17,7 +17,6 @@ const palette = {
     dark: "#006969", // jaune clair doux
     contrastText: "rgba(252, 248, 247, 1)", // blanc
   },
-  
   error: {
     light: "rgba(237, 162, 116, 1)", // orange terra cota
     main: "#006969", //
@@ -31,4 +30,5 @@ const palette = {
     hint: "rgba(0, 0, 0, 0.38)",
   },
 };
+
 export default palette;

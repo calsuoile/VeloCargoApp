@@ -36,7 +36,11 @@ function ModalDelete({ handleDeleteTrue, handleReturn }) {
         <RadioGroup name="sell" value={form.sell} onChange={handleChange}>
           <div className={classes.radioGroup}>
             <FormControlLabel value="Oui" control={<Radio />} label="Biensûr" />
-            <FormControlLabel value="Non" control={<Radio />} label="Oh que non" />
+            <FormControlLabel
+              value="Non"
+              control={<Radio />}
+              label="Oh que non"
+            />
           </div>
         </RadioGroup>
       </div>

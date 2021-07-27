@@ -9,7 +9,6 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import DeleteButtonAds from "../../../../common/DeleteButtonAds";
 import UserContext from "../../../../context/user";
 import axios from "axios";
-import { useEffect } from "react";
 import { toast } from "react-toastify";
 
 const moment = require("moment");
@@ -72,8 +71,6 @@ export default function CardAds({
   const [isFavorite, setIsFavorite] = React.useState(
     connectedUser?.favorites?.includes(ads_id)
   );
-
-  
 
   const handleClickFavorite = async (e) => {
     e.preventDefault();
