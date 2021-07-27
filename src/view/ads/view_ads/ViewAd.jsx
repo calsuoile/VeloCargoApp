@@ -1,6 +1,6 @@
 import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import PlaceIcon from "@material-ui/icons/Place";
 import PhoneIcon from "@material-ui/icons/Phone";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
@@ -89,7 +89,7 @@ const useStyles = makeStyles({
   },
 });
 
-function ViewAd({ ads }) {
+function ViewAd({ ads, user_id, ads_id }) {
   const classes = useStyles();
   const [phoneNumber, setPhoneNumber] = useState(true);
   function handlePhone() {
@@ -101,12 +101,50 @@ function ViewAd({ ads }) {
     setEmail(!email);
   }
 
-  const [isFavorite, setIsFavorite] = React.useState(false);
+  // const [isFavorite, setIsFavorite] = React.useState(false);
   const { connectedUser } = useContext(UserContext);
+  const [isFavorite, setIsFavorite] = useState(
+    connectedUser?.favorites?.includes(ads_id)
+  );
 
-  const handleClickFavorite = () => {
-    setIsFavorite(!isFavorite);
+  useEffect(() => {
+    setIsFavorite(connectedUser?.favorites?.includes(ads_id));
+  }, [connectedUser]);
+
+  const handleClickFavorite = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const accessToken = localStorage.getItem("userToken");
+    if (accessToken) {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      };
+
+      if (isFavorite) {
+        // if it's favorite it means you should remove it
+        await axios.delete(
+          `${process.env.NEXT_PUBLIC_API_URL}ads/${ads_id}/favorites`,
+          config
+        );
+        toast.info("Annonce retirée des favoris");
+      } else {
+        // if not then we should add it
+        await axios.post(
+          `${process.env.NEXT_PUBLIC_API_URL}ads/${ads_id}/favorites`,
+          {},
+          config
+        );
+        toast.success("Annonce ajoutée aux favoris");
+      }
+      setIsFavorite(!isFavorite);
+    }
   };
+
+  // const handleClickFavorite = () => {
+  //   setIsFavorite(!isFavorite);
+  // };
 
   return (
     <div className={classes.box}>
@@ -143,19 +181,15 @@ function ViewAd({ ads }) {
         <Typography variant="body1" className={classes.when}>
           {moment(ads.created_at).format("LL à HH:mm")}
         </Typography>
-        <DeleteButtonAds color="secondary" />
+        {user_id === connectedUser?.id && (
+          <DeleteButtonAds color="secondary" adsId={ads_id} />
+        )}{" "}
         <div
           color="secondary"
           className={classes.icon}
           onClick={handleClickFavorite}
         >
           {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-          {/* <IconButton aria-label="add to favorites" onClick={handleClick}>
-            {connectedUser?.favorites?.includes(props._id) && <FavoriteIcon />}
-            {!connectedUser?.favorites?.includes(props._id) && (
-              <FavoriteBorderIcon />
-            )}
-          </IconButton> */}
         </div>
       </div>
       <div className={classes.photo}>
@@ -171,25 +205,6 @@ function ViewAd({ ads }) {
         </Typography>
         <AdsTechnique ads={ads} />
       </div>
-      {/* <div className={classes.accessory}>
-        <Typography variant="h3" className={classes.title}>
-          Accessoires Complémentaire
-        </Typography>
-        <div className={classes.accessoryImg}>
-          <img
-            src="https://source.unsplash.com/random?bike/1"
-            width="200"
-          ></img>
-          <img
-            src="https://source.unsplash.com/random?bike/2"
-            width="200"
-          ></img>
-          <img
-            src="https://source.unsplash.com/random?bike/3"
-            width="200"
-          ></img>
-        </div>
-      </div> */}
     </div>
   );
 }

@@ -139,12 +139,6 @@ export default function CardAds({
           onClick={handleClickFavorite}
         >
           {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-          {/* <IconButton aria-label="add to favorites" onClick={handleClick}>
-            {connectedUser?.favorites?.includes(props._id) && <FavoriteIcon />}
-            {!connectedUser?.favorites?.includes(props._id) && (
-              <FavoriteBorderIcon />
-            )}
-          </IconButton> */}
         </div>
         {user_id === connectedUser?.id && (
           <DeleteButtonAds color="secondary" adsId={ads_id} />
