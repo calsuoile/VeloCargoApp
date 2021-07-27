@@ -75,6 +75,15 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "15px",
     marginTop: "20px",
   },
+  copyright: 
+  {
+    textAlign: "center",
+    margin:"40px",
+    textDecoration: "none", 
+    color: "inherit",
+    cursor: "pointer",
+    color: "white"
+  }
 }));
 
 export default function Form() {
@@ -208,6 +217,9 @@ export default function Form() {
               </Button>
             </DialogActions>
           </Dialog>
+          <a href="https://cargobiketrade.com" className={classes.copyright}>
+          <p>©2021 cargobiketrade.com</p>
+          </a>
         </form>
       </div>
     </Container>
