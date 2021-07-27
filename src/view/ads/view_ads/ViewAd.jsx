@@ -13,6 +13,9 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import UserContext from "./../../../context/user";
 import IconButton from "@material-ui/core/IconButton";
 import axios from "axios";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 const moment = require("moment");
 moment.locale("fr");
@@ -91,6 +94,7 @@ const useStyles = makeStyles({
 
 function ViewAd({ ads, user_id, ads_id }) {
   const classes = useStyles();
+  const router = useRouter();
   const [phoneNumber, setPhoneNumber] = useState(true);
   function handlePhone() {
     setPhoneNumber(!phoneNumber);
@@ -100,15 +104,13 @@ function ViewAd({ ads, user_id, ads_id }) {
   function handleEmail() {
     setEmail(!email);
   }
-
-  // const [isFavorite, setIsFavorite] = React.useState(false);
   const { connectedUser } = useContext(UserContext);
-  const [isFavorite, setIsFavorite] = useState(
-    connectedUser?.favorites?.includes(ads_id)
+  const [isFavorite, setIsFavorite] = React.useState(
+    connectedUser?.favorites?.includes(ads?.ads_id)
   );
 
   useEffect(() => {
-    setIsFavorite(connectedUser?.favorites?.includes(ads_id));
+    setIsFavorite(connectedUser?.favorites?.includes(ads?.ads_id));
   }, [connectedUser]);
 
   const handleClickFavorite = async (e) => {
@@ -121,18 +123,17 @@ function ViewAd({ ads, user_id, ads_id }) {
           Authorization: `Bearer ${accessToken}`,
         },
       };
-
       if (isFavorite) {
         // if it's favorite it means you should remove it
         await axios.delete(
-          `${process.env.NEXT_PUBLIC_API_URL}ads/${ads_id}/favorites`,
+          `${process.env.NEXT_PUBLIC_API_URL}ads/${ads.ads_id}/favorites`,
           config
         );
         toast.info("Annonce retirée des favoris");
       } else {
         // if not then we should add it
         await axios.post(
-          `${process.env.NEXT_PUBLIC_API_URL}ads/${ads_id}/favorites`,
+          `${process.env.NEXT_PUBLIC_API_URL}ads/${ads.ads_id}/favorites`,
           {},
           config
         );
@@ -149,7 +150,7 @@ function ViewAd({ ads, user_id, ads_id }) {
   return (
     <div className={classes.box}>
       <div className={classes.header}>
-        <Typography variant="h3">{ads.title}</Typography>
+        <Typography variant="h3">{ads?.title}</Typography>
         <div className={classes.vendeur}>
           <Typography variant="body2">
             {ads?.firstname} {ads?.lastname}
@@ -176,14 +177,18 @@ function ViewAd({ ads, user_id, ads_id }) {
         </div>
         <Typography variant="body2" className={classes.where}>
           {" "}
-          <PlaceIcon /> {ads.country}, {ads.department}
+          <PlaceIcon /> {ads?.country}, {ads?.department}
         </Typography>
         <Typography variant="body1" className={classes.when}>
-          {moment(ads.created_at).format("LL à HH:mm")}
+          {moment(ads?.created_at).format("LL à HH:mm")}
         </Typography>
-        {user_id === connectedUser?.id && (
-          <DeleteButtonAds color="secondary" adsId={ads_id} />
-        )}{" "}
+        {ads?.user_id === connectedUser?.id && (
+          <DeleteButtonAds
+            onDelete={() => router.push("/acheter-un-velo-cargo")}
+            color="secondary"
+            adsId={ads?.ads_id}
+          />
+        )}
         <div
           color="secondary"
           className={classes.icon}

@@ -180,7 +180,7 @@ export default function AdsBike(props) {
         config
       )
       .then(() => {
-        router.push("/");
+        router.push("/acheter-un-velo-cargo");
       });
   };
 
