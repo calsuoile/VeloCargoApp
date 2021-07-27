@@ -13,9 +13,7 @@ import RadioButtonsGroup from "../../../../common/RadioButtonsGroup";
 import { useRouter } from "next/router";
 import axios from "axios";
 import Upload from "../../../../common/components/Upload";
-import * as yup from "yup";
 import DepartmentSelector from "../../../../common/components/DepartmentSelector";
-import { toast } from "react-toastify";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -121,37 +119,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const schema = yup.object().shape({
-  title: yup
-    .string()
-    .required({ key: "title", msg: "Merci de saisir un titre" }),
-  description: yup
-    .string()
-    .required({ key: "description", msg: "Merci de saisir une description" }),
-  country: yup
-    .string()
-    .required({ key: "country", msg: "Merci de selectionner un pays" }),
-  department: yup
-    .string()
-    .required({ key: "department", msg: "Merci de saisir un département" }),
-  type: yup
-    .string()
-    .required({ key: "type", msg: "Merci de saisir un type de vélo" }),
-  price: yup
-    .string()
-    .required({ key: "price", msg: "Merci de saisir un prix" }),
-  general_state: yup.string().required({
-    key: "general_state",
-    msg: "Merci de préciser l'état général",
-  }),
-  electric: yup
-    .string()
-    .required({ key: "electric", msg: "Merci d'indiquer s'il est électrique" }),
-});
-
 export default function AdsBike(props) {
   const classes = useStyles();
-  const [errors, setErrors] = useState([]);
   const router = useRouter();
 
   const [form, setForm] = useState({
@@ -182,50 +151,15 @@ export default function AdsBike(props) {
   });
 
   const handleChange = (e) => {
-    schema
-      .validate(
-        { ...form, [e.target.name]: e.target.value },
-        { abortEarly: false }
-      )
-      .catch((err) => setErrors(err.errors));
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleChecked = (e) => {
-    schema
-      .validate(
-        { ...form, [e.target.name]: e.target.value },
-        { abortEarly: false }
-      )
-      .catch((err) => setErrors(err.errors));
     setForm({ ...form, [e.target.name]: e.target.checked });
   };
 
   const handleClick = async (e) => {
-    e.preventDefault();
-    const token = localStorage.getItem("userToken");
-    const config = {
-      headers: { Authorization: `Bearer ${token}` },
-    };
-
-    schema
-      .validate(
-        { ...form, [e.target.name]: e.target.value },
-        { abortEarly: false }
-      )
-      .then(async () => {
-        await axios.post(
-          `${process.env.NEXT_PUBLIC_API_URL}cargobikes`,
-          form,
-          config
-        );
-        router.push("/");
-      })
-      .catch((err) => {
-        console.log(err);
-        console.dir(err.errors, { depth: null });
-        setErrors(err.errors);
-      });
+    postForm();
   };
 
   const handlePicture = (imageUrl) => {
@@ -233,22 +167,22 @@ export default function AdsBike(props) {
     setForm({ ...form, photo: newImages });
   };
 
-  //donne l'accès seulement aux utilisateurs connectés de poster une annonce
-  // const postForm = () => {
-  //   const token = localStorage.getItem("userToken");
-  //   const config = {
-  //     headers: { Authorization: `Bearer ${token}` },
-  //   };
-  //   axios
-  //     .post(
-  //       `${process.env.NEXT_PUBLIC_API_URL}cargobikes`,
-  //       { ...form, photo: form.photo.toString() },
-  //       config
-  //     )
-  //     .then(() => {
-  //       router.push("/");
-  //     });
-  // };
+  // donne l'accès seulement aux utilisateurs connectés de poster une annonce
+  const postForm = () => {
+    const token = localStorage.getItem("userToken");
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+    axios
+      .post(
+        `${process.env.NEXT_PUBLIC_API_URL}cargobikes`,
+        { ...form, photo: form.photo.toString() },
+        config
+      )
+      .then(() => {
+        router.push("/acheter-un-velo-cargo");
+      });
+  };
 
   return (
     <div className={classes.root}>
@@ -279,12 +213,7 @@ export default function AdsBike(props) {
                     name="title"
                     form={form.title}
                     onChange={handleChange}
-                    error={errors?.find((item) => item.key === "title")}
-                    helperText={
-                      errors?.find((item) => item.key === "title")?.msg
-                    }
                   ></TextField>
-
                   <TextField
                     className={classes.description}
                     required={true}
@@ -296,10 +225,6 @@ export default function AdsBike(props) {
                     form={form.description}
                     onChange={handleChange}
                     placeholder="Ici n'hésitez pas à renseigner toutes informations qui pourraient intéresser l'acheteur : anecdotes, détails esthétiques, confort de l'assise, entretient du vélo..."
-                    error={errors?.find((item) => item.key === "description")}
-                    helperText={
-                      errors?.find((item) => item.key === "description")?.msg
-                    }
                   ></TextField>
                 </div>
               </Typography>
@@ -323,19 +248,11 @@ export default function AdsBike(props) {
                   value={form.country}
                   onChange={handleChange}
                   name={"country"}
-                  error={errors?.find((item) => item.key === "country")}
-                  helperText={
-                    errors?.find((item) => item.key === "country")?.msg
-                  }
                 />
                 <DepartmentSelector
                   value={form.department}
                   onChange={handleChange}
                   name={"department"}
-                  error={errors?.find((item) => item.key === "department")}
-                  helperText={
-                    errors?.find((item) => item.key === "department")?.msg
-                  }
                 />
               </div>
             </Typography>
@@ -358,8 +275,6 @@ export default function AdsBike(props) {
                   value={form.type}
                   onChange={handleChange}
                   name={"type"}
-                  error={errors?.find((item) => item.key === "type")}
-                  helperText={errors?.find((item) => item.key === "type")?.msg}
                 />
               </div>
               <div>
@@ -392,8 +307,6 @@ export default function AdsBike(props) {
                   name="price"
                   form={form.price}
                   onChange={handleChange}
-                  error={errors?.find((item) => item.key === "price")}
-                  helperText={errors?.find((item) => item.key === "price")?.msg}
                 ></TextField>
               </div>
             </Typography>
@@ -519,12 +432,6 @@ export default function AdsBike(props) {
                       name="general_state"
                       form={form.general_state}
                       onChange={handleChange}
-                      error={errors?.find(
-                        (item) => item.key === "general_state"
-                      )}
-                      helperText={
-                        errors?.find((item) => item.key === "general_state")?.msg
-                      }
                     ></TextField>
                   </Typography>
                 </div>
@@ -616,10 +523,6 @@ export default function AdsBike(props) {
                       checked={form.electric}
                       onChange={handleChecked}
                       label={"Electrique *"}
-                      error={errors?.find((item) => item.key === "electric")}
-                      helperText={
-                        errors?.find((item) => item.key === "electric")?.msg
-                      }
                     />
                     <div className={classes.margin}>
                       <TextField

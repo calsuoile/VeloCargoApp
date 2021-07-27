@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
       display: "block",
     },
   },
-
   list: {
     textDecoration: "none",
     display: "flex",
@@ -32,12 +31,10 @@ const useStyles = makeStyles((theme) => ({
       margin: "auto",
     },
   },
-
   logoform: {
     // display: "flex",
     // alignItems: "center",
   },
-
   link: {
     marginTop: "50px",
     listStyleType: "none",
@@ -151,11 +148,9 @@ function Footer(props) {
           </Link>
         </ul>
       </div>
-
       <div className={classes.form}>
         <Form />
       </div>
-
       <div className={classes.logo}>
         <Logo />
       </div>

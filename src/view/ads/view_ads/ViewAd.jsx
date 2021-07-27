@@ -1,6 +1,6 @@
 import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import PlaceIcon from "@material-ui/icons/Place";
 import PhoneIcon from "@material-ui/icons/Phone";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
@@ -92,7 +92,7 @@ const useStyles = makeStyles({
   },
 });
 
-function ViewAd({ ads }) {
+function ViewAd({ ads, user_id, ads_id }) {
   const classes = useStyles();
   const router = useRouter();
   const [phoneNumber, setPhoneNumber] = useState(true);
@@ -105,7 +105,6 @@ function ViewAd({ ads }) {
     setEmail(!email);
   }
   const { connectedUser } = useContext(UserContext);
-
   const [isFavorite, setIsFavorite] = React.useState(
     connectedUser?.favorites?.includes(ads?.ads_id)
   );
@@ -143,6 +142,10 @@ function ViewAd({ ads }) {
       setIsFavorite(!isFavorite);
     }
   };
+
+  // const handleClickFavorite = () => {
+  //   setIsFavorite(!isFavorite);
+  // };
 
   return (
     <div className={classes.box}>
@@ -192,12 +195,6 @@ function ViewAd({ ads }) {
           onClick={handleClickFavorite}
         >
           {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-          {/* <IconButton aria-label="add to favorites" onClick={handleClick}>
-            {connectedUser?.favorites?.includes(props._id) && <FavoriteIcon />}
-            {!connectedUser?.favorites?.includes(props._id) && (
-              <FavoriteBorderIcon />
-            )}
-          </IconButton> */}
         </div>
       </div>
       <div className={classes.photo}>
