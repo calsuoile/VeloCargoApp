@@ -8,7 +8,7 @@ const useStyles = makeStyles({
   },
   slider: {
     color: "#F29F24",
-    width: "100%"
+    width: "100%",
   },
 });
 
@@ -16,7 +16,7 @@ function valuetext(value) {
   return `${value}`;
 }
 
-export default function RangeSlider({ min, max, step, onChange, value, name}) {
+export default function RangeSlider({ min, max, step, onChange, value, name }) {
   const classes = useStyles();
 
   return (

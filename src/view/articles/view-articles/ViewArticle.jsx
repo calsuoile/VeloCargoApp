@@ -14,14 +14,12 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     maxHeight: 600,
   },
-
   otherImages: {
     maxWidth: "50%",
     borderRadius: "4px",
     margin: "20px",
   },
   container: {
-    // border: "1px solid black",
     display: "flex",
     justifyContent: "space-between",
     [theme.breakpoints.down("sm")]: {
@@ -29,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   containerText: {
-    // border: "1px solid black",
     width: "65%",
     marginLeft: "20px",
     marginTop: "20px",
@@ -38,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
   },
 
   containerOtherArticles: {
-    // border: `1px solid`,
     borderRadius: theme.spacing(2),
     [theme.breakpoints.up("md")]: {
       padding: theme.spacing(3),

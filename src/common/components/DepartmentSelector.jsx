@@ -6,12 +6,9 @@ import Select from "@material-ui/core/Select";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
-    // marginBottom: theme.spacing(1),
     minWidth: 100,
     backgroundColor: "white",
     borderRadius: "5px",
-
-
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -24,7 +21,9 @@ function DepartmentSelector({ name, value, onChange }) {
   return (
     <div>
       <FormControl variant="outlined" className={classes.formControl}>
-        <InputLabel htmlFor="outlined-age-native-simple">Département</InputLabel>
+        <InputLabel htmlFor="outlined-age-native-simple">
+          Département
+        </InputLabel>
         <Select
           required={true}
           native
@@ -41,7 +40,9 @@ function DepartmentSelector({ name, value, onChange }) {
           <option value="Ain">01 - Ain</option>
           <option value="Aisne">02 - Aisne</option>
           <option value="Allier">03 - Allier</option>
-          <option value="Alpes-de-Haute-Provence">04 - Alpes-de-Haute-Provence</option>
+          <option value="Alpes-de-Haute-Provence">
+            04 - Alpes-de-Haute-Provence
+          </option>
           <option value="Hautes-Alpes">05 - Hautes-Alpes</option>
           <option value="Alpes-Maritimes">06 - Alpes-Maritimes</option>
           <option value="Ardèche">07 - Ardèche</option>
@@ -102,7 +103,9 @@ function DepartmentSelector({ name, value, onChange }) {
           <option value="Orne">61 - Orne</option>
           <option value="Pas-de-Calais">62 - Pas-de-Calais</option>
           <option value="Puy-de-Dôme">63 - Puy-de-Dôme</option>
-          <option value="Pyrénées-Atlantiques">64 - Pyrénées-Atlantiques</option>
+          <option value="Pyrénées-Atlantiques">
+            64 - Pyrénées-Atlantiques
+          </option>
           <option value="Hautes-Pyrénées">65 - Hautes-Pyrénées</option>
           <option value="Pyrénées-Orientales">66 - Pyrénées-Orientales</option>
           <option value="Bas-Rhin">67 - Bas-Rhin</option>
@@ -128,7 +131,9 @@ function DepartmentSelector({ name, value, onChange }) {
           <option value="Haute-Vienne">87 - Haute-Vienne</option>
           <option value="Vosges">88 - Vosges</option>
           <option value="Yonne">89 - Yonne</option>
-          <option value="Territoire-de-Belfort">90 - Territoire-de-Belfort</option>
+          <option value="Territoire-de-Belfort">
+            90 - Territoire-de-Belfort
+          </option>
           <option value="Essonne">91 - Essonne</option>
           <option value="Hauts-de-Seine">92 - Hauts-de-Seine</option>
           <option value="Seine-Saint-Denis">93 - Seine-Saint-Denis</option>

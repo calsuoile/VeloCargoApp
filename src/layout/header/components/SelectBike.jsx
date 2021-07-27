@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
   },
   paper: {
-    //   marginRight: theme.spacing(2),
     backgroundColor: "#006969",
     width: "100%",
     color: "white",
@@ -76,6 +75,7 @@ function SelectBike(props) {
     }
     prevOpen.current = open;
   }, [open]);
+
   return (
     <div className={classes.container}>
       <Button

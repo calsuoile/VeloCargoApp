@@ -31,10 +31,6 @@ const useStyles = makeStyles((theme) => ({
       margin: "auto",
     },
   },
-  logoform: {
-    // display: "flex",
-    // alignItems: "center",
-  },
   link: {
     marginTop: "50px",
     listStyleType: "none",
@@ -118,24 +114,6 @@ function Footer(props) {
               </li>
             </a>
           </Link>
-          {/* <Link href="/vendre-un-velo-cargo">
-            <a style={{ textDecoration: "none", color: "inherit" }}>
-              {" "}
-              <li className={classes.undertitle}>Vendre un Vélo Cargo</li>
-            </a>
-          </Link>
-          <Link href="/vendre-un-accessoire">
-            <a style={{ textDecoration: "none", color: "inherit" }}>
-              <li className={classes.undertitle}>Vendre un accessoire</li>
-            </a>
-          </Link>
-
-          <Link href="/vendre-une-remorque">
-            <a style={{ textDecoration: "none", color: "inherit" }}>
-              {" "}
-              <li className={classes.undertitle}>Vendre une remorque</li>
-            </a>
-          </Link> */}
         </ul>
         <ul className={classes.link}>
           <Link href="/articles/page/1">

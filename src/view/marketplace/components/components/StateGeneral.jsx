@@ -11,8 +11,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "white",
     borderRadius: "5px",
   },
- 
-
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
@@ -24,7 +22,9 @@ function StateGeneral({ name, value, onChange }) {
   return (
     <div>
       <FormControl variant="outlined" className={classes.formControl}>
-        <InputLabel htmlFor="outlined-age-native-simple">Etat Général</InputLabel>
+        <InputLabel htmlFor="outlined-age-native-simple">
+          Etat Général
+        </InputLabel>
         <Select
           required={true}
           native

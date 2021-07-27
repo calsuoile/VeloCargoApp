@@ -11,7 +11,7 @@ const styles = (theme) => ({
     flexWrap: "wrap",
     minWidth: 300,
     width: "100%",
-    backgroudImage : "url('/assets/fond.jpeg')",
+    backgroudImage: "url('/assets/fond.jpeg')",
     backgroundSize: "cover",
   },
   image: {
@@ -105,7 +105,10 @@ function ButtonBases(props) {
         />
         <span className={classes.imageBackdrop} />
         <span className={classes.imageButton}>
-          <Link href="/acheter-un-velo-cargo" style={{ textDecoration: "none" }}>
+          <Link
+            href="/acheter-un-velo-cargo"
+            style={{ textDecoration: "none" }}
+          >
             <Typography
               component="span"
               variant="h5"
@@ -118,7 +121,6 @@ function ButtonBases(props) {
           </Link>
         </span>
       </ButtonBase>
-
       <ButtonBase
         focusRipple
         key="Vendre un vélo cargo"
