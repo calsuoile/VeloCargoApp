@@ -1,4 +1,4 @@
-import AdsAccessorie from "../../sources/view/ads/create_ads/components/AdsAccessorie";
+import AdsAccessorie from "../../src/view/ads/create_ads/components/AdsAccessorie";
 
 export default function CreateAdAccessoriePage({}) {
   return <AdsAccessorie />;

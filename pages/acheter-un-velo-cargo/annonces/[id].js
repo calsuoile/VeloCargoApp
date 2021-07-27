@@ -1,4 +1,4 @@
-import ViewAd from "../../../sources/view/ads/view_ads/ViewAd";
+import ViewAd from "../../../src/view/ads/view_ads/ViewAd";
 import { useRouter } from "next/router";
 import axios from "axios";
 

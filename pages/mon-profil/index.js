@@ -1,5 +1,5 @@
-import User from "../../sources/view/user/User";
-import UserContext from "../../sources/context/user";
+import User from "../../src/view/user/User";
+import UserContext from "../../src/context/user";
 import { useContext } from "react";
 // import useSWR from 'swr';
 

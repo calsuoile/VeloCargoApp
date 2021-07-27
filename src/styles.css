@@ -1,0 +1,19 @@
+.Toastify__toast-container {
+  width: 320px;
+}
+.Toastify__toast--default {
+  background: #fff;
+  color: #aaa;
+}
+.Toastify__toast--info {
+  background: #f29f24;
+}
+.Toastify__toast--success {
+  background: #006262;
+}
+.Toastify__toast--warning {
+  background: yellow;
+}
+.Toastify__toast--error {
+  background: rgb(189, 53, 53);
+}
