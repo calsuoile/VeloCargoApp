@@ -14,6 +14,8 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import Upload from "../../../../common/components/Upload";
 import DepartmentSelector from "../../../../common/components/DepartmentSelector";
+import { toast } from "react-toastify";
+import StateGeneral from "../../../marketplace/components/components/StateGeneral";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -423,16 +425,11 @@ export default function AdsBike(props) {
                 <div className={classes.margin}>
                   {" "}
                   <Typography>
-                    <TextField
-                      className={classes.velo}
-                      required={true}
-                      id="outlined-basic"
-                      label="Etat Général"
-                      variant="outlined"
+                    <StateGeneral
                       name="general_state"
                       form={form.general_state}
                       onChange={handleChange}
-                    ></TextField>
+                    />
                   </Typography>
                 </div>
                 <div className={classes.margin}>
@@ -441,7 +438,7 @@ export default function AdsBike(props) {
                     <TextField
                       className={classes.velo}
                       id="outlined-basic"
-                      label="Etat Mécanic"
+                      label="Etat Mécanique"
                       variant="outlined"
                       name="mecanic_state"
                       form={form.mecanic_state}

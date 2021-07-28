@@ -11,8 +11,10 @@ moment.locale("fr");
 
 const useStyles = makeStyles((theme) => ({
   image: {
-    width: "100%",
-    maxHeight: 600,
+    display: "flex",
+    justifyContent: "center",
+    width: "70%",
+    height: "70%",
   },
   otherImages: {
     maxWidth: "50%",
@@ -33,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "justify",
     lineHeight: "2em",
   },
-
   containerOtherArticles: {
     borderRadius: theme.spacing(2),
     [theme.breakpoints.up("md")]: {
@@ -67,10 +68,10 @@ const ViewArticle = ({ articleView: [articleView], otherArticles }) => {
       </div>
       <div className={classes.title}>
         <Typography variant="h1">{articleView.title}</Typography>
-        {/* {connectedUser?.id && connectedUser?.role === "admin" && (
+        {connectedUser?.id && connectedUser?.role === "admin" && (
           <DeleteButton id={articleView.id} />
-        )} */}
-        <DeleteButton id={articleView.id} />
+        )}
+        {/* <DeleteButton id={articleView.id} /> */}
       </div>
       <div className={classes.authorImage}>
         <Avatar alt="Clément Fouillet" src="/assets/clement_fouillet.jpg" />
@@ -84,7 +85,7 @@ const ViewArticle = ({ articleView: [articleView], otherArticles }) => {
       <div className={classes.container}>
         <Typography variant="body1" className={classes.containerText}>
           {articleView.text}
-          <img src={articleView.photo} className={classes.otherImages} />
+          <img src={articleView?.photo} className={classes.otherImages} />
         </Typography>
 
         {/* encart d'affichage des derniers articles créés */}

@@ -39,7 +39,7 @@ const typography = {
   h5: {
     color: palette.primary.main,
     fontWeight: 400,
-    fontSize: "38px",
+    fontSize: "50px",
     lineHeight: 1.5,
     fontFamily: "Open Sans Condensed, sans-serif",
     textTransform: "uppercase",

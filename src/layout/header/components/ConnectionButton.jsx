@@ -22,6 +22,10 @@ const useStyles = makeStyles((theme) => ({
       marginRight: "10px",
     },
   },
+  icon: {
+    fontSize: "40px",
+    color: "white",
+  },
   buttonCo: {
     backgroundColor: "#5C9A9A",
     color: "white",
@@ -31,29 +35,16 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "40px",
     "&:hover": {
       backgroundColor: "#F29F24",
-    },
-  },
-  name: {
-    fontFamily: "Open Sans Condensed, sans-serif",
-    color: "white",
-    marginTop: 12,
-    marginLeft: 3,
-    fontSize: 20,
+    }
+  }, 
+  name : { 
     [theme.breakpoints.down("sm")]: {
-      fontSize: 15,
-      marginLeft: 1,
-    },
-  },
-  user: {
-    display: "flex",
-    marginRight: 10,
-  },
-  userCo: {
-    [theme.breakpoints.up("sm")]: {
       display: "flex",
-      justifyContent: "flex-end",
+      justifyContent: "center", 
+      alignItems: "center",
+      marginTop : "30px"
     },
-  },
+  }
 }));
 
 export default function ConnectionButton() {
@@ -84,7 +75,7 @@ export default function ConnectionButton() {
           <div className={classes.user}>
             <Link href="/mon-profil">
               <IconButton>
-                <AccountCircleIcon />
+                <AccountCircleIcon className={classes.icon} />
               </IconButton>
             </Link>
             <div className={classes.name}>{connectedUser.firstname}</div>
