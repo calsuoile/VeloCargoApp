@@ -11,8 +11,10 @@ moment.locale("fr");
 
 const useStyles = makeStyles((theme) => ({
   image: {
-    width: "100%",
-    maxHeight: 600,
+    display: "flex",
+    justifyContent: "center",
+    width: "70%",
+    height: "70%",
   },
   otherImages: {
     maxWidth: "50%",
@@ -33,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "justify",
     lineHeight: "2em",
   },
-
   containerOtherArticles: {
     borderRadius: theme.spacing(2),
     [theme.breakpoints.up("md")]: {

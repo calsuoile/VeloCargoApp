@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     width: "90%",
-    margin: "20px",
+    margin: "auto",
     justifySelf: "center",
   },
   littletitle: {
