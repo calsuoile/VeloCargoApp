@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 function Favorites(props) {
   const classes = useStyles();
   const { connectedUser } = useContext(UserContext);
@@ -62,8 +63,8 @@ function Favorites(props) {
         <div className={classes.favorite}>
           {favorites?.map((favorite, index) => (
             <Link
-              href={"/acheter-un-velo-cargo/annonces/" + favorite.ads_id}
-              key={favorite.ads_id}
+              href={"/acheter-un-velo-cargo/annonces/" + favorite.data[0].ads_id}
+              key={favorite.data[0].ads_id}
             >
               <a style={{ textDecoration: "none", color: "inherit" }}>
                 <CardAds {...favorite.data[0]} key={index} />

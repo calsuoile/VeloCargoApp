@@ -14,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Open Sans Condensed, sans-serif",
     fontWeight: 400,
     fontSize: "20px",
+    "&:hover": {
+      backgroundColor: "#F29F24",
+    },
     [theme.breakpoints.down("sm")]: {
       fontSize: "10px",
       marginRight: "10px",

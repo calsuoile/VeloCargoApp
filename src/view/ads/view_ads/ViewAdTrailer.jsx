@@ -4,8 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 import PlaceIcon from "@material-ui/icons/Place";
 import PhoneIcon from "@material-ui/icons/Phone";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
-import AdsTable from "./components/AdsTable";
-import AdsTechnique from "./components/AdsTechnique";
+import AdsTableTrailer from "./components/AdsTableTrailer";
 import AdsCarousel from "./components/AdsCarousel";
 import DeleteButtonAds from "../../../common/DeleteButtonAds";
 import FavoriteIcon from "@material-ui/icons/Favorite";
@@ -22,12 +21,14 @@ moment.locale("fr");
 const useStyles = makeStyles({
   box: {
     position: "relative",
-    margin: "150px",
+    margin: "50px",
   },
   header: {
     width: "100%",
+    marginLeft: "20px",
     borderBlockEnd: "1px solid",
-    paddingBottom: "10px",
+    borderBottomHeight: "10px",
+    paddingBottom: "15px",
   },
   where: {
     paddingTop: "5px",
@@ -51,6 +52,7 @@ const useStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    // paddingTop: "10px",
   },
   table: {
     display: "flex",
@@ -65,7 +67,6 @@ const useStyles = makeStyles({
     marginLeft: "0px",
     marginBottom: "30px",
     borderBottom: "1px solid",
-    color:"#F27C08",
   },
   accessory: {
     marginTop: "50px",
@@ -85,20 +86,11 @@ const useStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     marginRight: "10px",
-    color: "black",
-  },
-  iconFav: {
-    margin: 20,
-  },
-  icons: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-end",
-    padding: 10,
+    color: "rgba(255, 196, 0, 1)",
   },
 });
 
-function ViewAd({ ads, user_id, ads_id }) {
+function ViewAdTrailer({ ads, user_id, ads_id }) {
   const classes = useStyles();
   const router = useRouter();
   const [phoneNumber, setPhoneNumber] = useState(true);
@@ -135,7 +127,7 @@ function ViewAd({ ads, user_id, ads_id }) {
           `${process.env.NEXT_PUBLIC_API_URL}ads/${ads.ads_id}/favorites`,
           config
         );
-        toast.info("Annonce retirée des favoris");
+        toast.info("Annonce retirée de vos favoris");
       } else {
         // if not then we should add it
         await axios.post(
@@ -143,20 +135,17 @@ function ViewAd({ ads, user_id, ads_id }) {
           {},
           config
         );
-        toast.success("Annonce ajoutée aux favoris");
+        toast.success("Annonce ajoutée à vos favoris");
       }
       setIsFavorite(!isFavorite);
     }
   };
 
-  // const handleClickFavorite = () => {
-  //   setIsFavorite(!isFavorite);
-  // };
 
   return (
     <div className={classes.box}>
       <div className={classes.header}>
-        <Typography variant="h5">{ads?.title}</Typography>
+        <Typography variant="h3">{ads?.title}</Typography>
         <div className={classes.vendeur}>
           <Typography variant="body2">
             {ads?.firstname} {ads?.lastname}
@@ -188,19 +177,19 @@ function ViewAd({ ads, user_id, ads_id }) {
         <Typography variant="body1" className={classes.when}>
           {moment(ads?.created_at).format("LL à HH:mm")}
         </Typography>
-        <div className={classes.icons}>
-          {ads?.user_id === connectedUser?.id && (
-            <DeleteButtonAds
-              onDelete={() => router.push("/acheter-un-velo-cargo")}
-              color="secondary"
-              adsId={ads?.ads_id}
-            />
-          )}
-          {isFavorite ? (
-            <FavoriteIcon onClick={handleClickFavorite} />
-          ) : (
-            <FavoriteBorderIcon onClick={handleClickFavorite} />
-          )}
+        {ads?.user_id === connectedUser?.id && (
+          <DeleteButtonAds
+            onDelete={() => router.push("/acheter-un-velo-cargo")}
+            color="secondary"
+            adsId={ads?.ads_id}
+          />
+        )}
+        <div
+          color="secondary"
+          className={classes.icon}
+          onClick={handleClickFavorite}
+        >
+          {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
         </div>
       </div>
       <div className={classes.photo}>
@@ -208,16 +197,10 @@ function ViewAd({ ads, user_id, ads_id }) {
       </div>
       <div className={classes.table}>
         {" "}
-        <AdsTable ads={ads} />
-      </div>
-      <div className={classes.technique}>
-        <Typography variant="h3" className={classes.title}>
-          Fiche technique
-        </Typography>
-        <AdsTechnique ads={ads} />
+        <AdsTableTrailer ads={ads} />
       </div>
     </div>
   );
 }
 
-export default ViewAd;
+export default ViewAdTrailer;

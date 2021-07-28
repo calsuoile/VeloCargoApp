@@ -3,10 +3,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import { Typography } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
-import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
 import Paper from "@material-ui/core/Paper";
 import Upload from "../../../common/components/Upload";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -58,6 +58,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CreateArticle = () => {
   const classes = useStyles();
+  const router = useRouter();
   const [form, setForm] = useState({
     title: "",
     text: "",
@@ -76,9 +77,10 @@ const CreateArticle = () => {
     setForm({ ...form, photo: imageUrl });
   };
 
-  const handleSaveArticle = async () => {
-    console.log(form);
-    await axios.post(`${process.env.NEXT_PUBLIC_API_URL}articles`, form);
+  const handleSaveArticle = () => {
+    axios.post(`${process.env.NEXT_PUBLIC_API_URL}articles`, form).then(() => {
+      router.push("/articles/page/1");
+    });
   };
 
   return (
@@ -89,7 +91,7 @@ const CreateArticle = () => {
       <Paper
         className={classes.container}
         variant="elevation"
-        elevation="3"
+        elevation={3}
         color="primary"
       >
         <Typography variant="h2" className={classes.littletitle}>

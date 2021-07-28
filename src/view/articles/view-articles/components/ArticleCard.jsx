@@ -4,7 +4,7 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import DeleteButtonAds from "../../../../common/DeleteButtonAds";
+import DeleteButton from "../../../../common/DeleteButton";
 import { useContext } from "react";
 import UserContext from "../../../../context/user";
 
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ArticleCard({ photo, title, created_at }) {
+export default function ArticleCard({ photo, title, created_at, id }) {
   const classes = useStyles();
   const { connectedUser } = useContext(UserContext);
 
@@ -52,7 +52,7 @@ export default function ArticleCard({ photo, title, created_at }) {
         </CardContent>
       </CardActionArea>
       {connectedUser?.id && connectedUser?.role === "admin" && (
-        <DeleteButtonAds className={classes.deleteButton} />
+        <DeleteButton id={id} className={classes.deleteButton} />
       )}
     </Card>
   );
