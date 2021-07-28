@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "40px",
     color: "white",
   },
-  buttonco: {
+  buttonCo: {
     backgroundColor: "#5C9A9A",
     color: "white",
     fontFamily: "Open Sans Condensed, sans-serif",
