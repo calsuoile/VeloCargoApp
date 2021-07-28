@@ -128,7 +128,7 @@ function ViewAdCargobike({ ads, user_id, ads_id }) {
           `${process.env.NEXT_PUBLIC_API_URL}ads/${ads.ads_id}/favorites`,
           config
         );
-        toast.info("Annonce retirée des favoris");
+        toast.info("Annonce retirée de vos favoris");
       } else {
         // if not then we should add it
         await axios.post(
@@ -136,7 +136,7 @@ function ViewAdCargobike({ ads, user_id, ads_id }) {
           {},
           config
         );
-        toast.success("Annonce ajoutée aux favoris");
+        toast.success("Annonce ajoutée à vos favoris");
       }
       setIsFavorite(!isFavorite);
     }
