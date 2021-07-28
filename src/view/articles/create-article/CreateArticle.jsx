@@ -53,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
   },
   littletitle: {
     marginLeft: "15px",
+    color: "#006969"
   },
 }));
 
@@ -85,7 +86,7 @@ const CreateArticle = () => {
 
   return (
     <>
-      <Typography variant="h1">
+      <Typography variant="h5">
         <div className={classes.title}>Créer un article</div>
       </Typography>
       <Paper
