@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   icon: {
-    fontSize: "25px",
+    fontSize: "40px",
     color: "white",
   },
   buttonco: {
@@ -43,6 +43,14 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: "#F29F24",
     }
+  }, 
+  name : { 
+    [theme.breakpoints.down("sm")]: {
+      display: "flex",
+      justifyContent: "center", 
+      alignItems: "center",
+      marginTop : "30px"
+    },
   }
 }));
 
@@ -74,7 +82,7 @@ export default function ConnectionButton() {
           </Link>
           <Link href="/mon-profil">
             <IconButton>
-              <AccountCircleIcon />
+              <AccountCircleIcon className={classes.icon} />
             </IconButton>
           </Link>
         </div>

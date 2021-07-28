@@ -16,6 +16,10 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "50px",
     borderBottom: "1px solid",
     marginBottom: "20px",
+    color : "#BFD9D9",
+    [theme.breakpoints.down("sm")]: {
+      marginLeft : "5px",
+    },
   },
   favorite: {
     marginTop: "30px",

@@ -28,8 +28,8 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   icon: {
-    fontSize: "25px",
-    color:"white",
+    fontSize: "40px",
+    color:"white"
 
   },
 }));
@@ -45,7 +45,7 @@ export default function IconsHeader() {
         </Button>
       </Link>
       <Link href="/mon-profil">
-        <IconButton>
+        <IconButton >
           <AccountCircleIcon className={classes.icon}/>
         </IconButton>
       </Link>
