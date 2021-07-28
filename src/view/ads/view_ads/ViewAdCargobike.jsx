@@ -96,6 +96,13 @@ const useStyles = makeStyles({
     justifyContent: "flex-end",
     padding: 10,
   },
+  description: {
+    fontSize: 20,
+    marginBottom: 10
+  },
+  fav : {
+    color: "#F27C08",
+  },
 });
 
 function ViewAdCargobike({ ads, user_id, ads_id }) {
@@ -197,11 +204,14 @@ function ViewAdCargobike({ ads, user_id, ads_id }) {
             />
           )}
           {isFavorite ? (
-            <FavoriteIcon onClick={handleClickFavorite} />
-          ) : (
-            <FavoriteBorderIcon onClick={handleClickFavorite} />
-          )}
+           <FavoriteIcon className={classes.fav} onClick={handleClickFavorite} />
+           ) : (
+             <FavoriteBorderIcon className={classes.fav} onClick={handleClickFavorite} />
+           )}
         </div>
+        <Typography variant="body1" className={classes.description}>
+          {ads?.description}
+        </Typography>
       </div>
       <div className={classes.photo}>
         <AdsCarousel className={classes.carousel} ads={ads} />

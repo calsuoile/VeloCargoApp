@@ -8,7 +8,7 @@ import PaginationPage from "./components/PaginationPage";
 import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
-  Marketplace: {
+  marketplace: {
     display: "flex",
     justifyContent: "space-evenly",
     marginTop: "50px",
@@ -71,7 +71,7 @@ function Marketplace({ adsCard, type = "", total: initialTotal }) {
 
   const classes = useStyles();
   return (
-    <div className={classes.Marketplace}>
+    <div className={classes.marketplace}>
       <Filter onSubmit={doFilter} type={filter.type} />
       <div className={classes.column}>
         <TitleAds />
