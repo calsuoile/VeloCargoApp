@@ -16,6 +16,7 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
+import StateGeneral from "../../../marketplace/components/components/StateGeneral";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -341,16 +342,11 @@ function AdsAccessorie(props) {
                   <div className={classes.margin}>
                     {" "}
                     <Typography>
-                      <TextField
-                        className={classes.velo}
-                        required={true}
-                        id="outlined-basic"
-                        label="Etat Général"
-                        variant="outlined"
+                      <StateGeneral
                         name="general_state"
                         form={form.general_state}
                         onChange={handleChange}
-                      ></TextField>
+                      />
                     </Typography>
                   </div>
                 </Typography>

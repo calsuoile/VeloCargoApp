@@ -16,6 +16,7 @@ import Upload from "../../../../common/components/Upload";
 import * as yup from "yup";
 import DepartmentSelector from "../../../../common/components/DepartmentSelector";
 import { toast } from "react-toastify";
+import StateGeneral from "../../../marketplace/components/components/StateGeneral";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -142,7 +143,10 @@ const schema = yup.object().shape({
     .required({ key: "price", msg: "Merci de saisir un prix" }),
   general_state: yup
     .string()
-    .required({ key: "general_state", msg: "Merci de préciser l'état général" }),
+    .required({
+      key: "general_state",
+      msg: "Merci de préciser l'état général",
+    }),
   electric: yup
     .string()
     .required({ key: "electric", msg: "Merci d'indiquer s'il est électrique" }),
@@ -487,22 +491,11 @@ export default function AdsBike(props) {
                 <div className={classes.margin}>
                   {" "}
                   <Typography>
-                    <TextField
-                      className={classes.velo}
-                      required={true}
-                      id="outlined-basic"
-                      label="Etat Général"
-                      variant="outlined"
+                    <StateGeneral
                       name="general_state"
                       form={form.general_state}
                       onChange={handleChange}
-                      error={errors.find(
-                        (item) => item.key === "general_state"
-                      )}
-                      helperText={
-                        errors.find((item) => item.key === "general_state")?.msg
-                      }
-                    ></TextField>
+                    />
                   </Typography>
                 </div>
                 <div className={classes.margin}>
@@ -511,7 +504,7 @@ export default function AdsBike(props) {
                     <TextField
                       className={classes.velo}
                       id="outlined-basic"
-                      label="Etat Mécanic"
+                      label="Etat Mécanique"
                       variant="outlined"
                       name="mecanic_state"
                       form={form.mecanic_state}

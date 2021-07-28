@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function StateGeneral({ name, value, onChange }) {
+function StateGeneral({ name, value, onChange, label  }) {
   const classes = useStyles();
 
   return (
@@ -31,7 +31,7 @@ function StateGeneral({ name, value, onChange }) {
           value={value}
           name={name}
           onChange={onChange}
-          label="Etat General"
+          label={label}
           inputProps={{
             name: "general_state",
             id: "outlined-age-native-simple",

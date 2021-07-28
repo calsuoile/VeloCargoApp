@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import Upload from "../../../../common/components/Upload";
 import SwitchForm from "../../../../common/components/SwitchForm";
+import StateGeneral from "../../../marketplace/components/components/StateGeneral";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -175,7 +176,7 @@ function AdsTrailer(props) {
     axios
       .post(
         `${process.env.NEXT_PUBLIC_API_URL}trailers`,
-        { ...form, type: "remorque", photo: form.photo.toString() }, //transforme le tableau en string pour pouvoir mettre plusieurs photos en BDD. 
+        { ...form, type: "remorque", photo: form.photo.toString() } //transforme le tableau en string pour pouvoir mettre plusieurs photos en BDD.
       )
       .then(() => {
         router.push("/");
@@ -420,16 +421,11 @@ function AdsTrailer(props) {
                 <div className={classes.margin}>
                   {" "}
                   <Typography>
-                    <TextField
-                      className={classes.velo}
-                      required={true}
-                      id="outlined-basic"
-                      label="Etat Général"
-                      variant="outlined"
+                    <StateGeneral
                       name="general_state"
                       form={form.general_state}
                       onChange={handleChange}
-                    ></TextField>
+                    />
                   </Typography>
                 </div>
                 <div className={classes.margin}>
