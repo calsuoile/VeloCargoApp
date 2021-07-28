@@ -15,7 +15,7 @@ import AssignmentIcon from "@material-ui/icons/Assignment";
 import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
 import Link from "next/link";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) =>({
   list: {
     width: 350,
     color: "#f4c15b",
@@ -30,6 +30,10 @@ const useStyles = makeStyles({
     // marginLeft: "50%",
     "&:hover": {
       background: "#F29F24",
+    },
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(1),
+      marginLeft: "10%",
     },
   },
   puces: {
@@ -154,7 +158,7 @@ const useStyles = makeStyles({
     color: "#F29F24",
     fontSize: "32px",
   },
-});
+}));
 
 export default function BurgerMenu() {
   const classes = useStyles();
