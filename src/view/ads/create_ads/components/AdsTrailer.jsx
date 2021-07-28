@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import Upload from "../../../../common/components/Upload";
 import SwitchForm from "../../../../common/components/SwitchForm";
+import StateGeneral from "../../../marketplace/components/components/StateGeneral";
 import DepartmentSelector from "../../../../common/components/DepartmentSelector";
 
 const useStyles = makeStyles((theme) => ({
@@ -411,16 +412,11 @@ function AdsTrailer(props) {
                 <div className={classes.margin}>
                   {" "}
                   <Typography>
-                    <TextField
-                      className={classes.velo}
-                      required={true}
-                      id="outlined-basic"
-                      label="Etat Général"
-                      variant="outlined"
+                    <StateGeneral
                       name="general_state"
                       form={form.general_state}
                       onChange={handleChange}
-                    ></TextField>
+                    />
                   </Typography>
                 </div>
                 <div className={classes.margin}>
