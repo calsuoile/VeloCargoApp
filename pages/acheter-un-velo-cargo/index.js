@@ -1,4 +1,4 @@
-import MarketPlace from "../../sources/view/marketplace/Marketplace";
+import MarketPlace from "../../src/view/marketplace/Marketplace";
 import axios from "axios";
 
 export default function AdsPage({ adsCard, total }) {

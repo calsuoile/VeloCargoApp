@@ -1,4 +1,6 @@
-import ViewAd from "../../../sources/view/ads/view_ads/ViewAd";
+import ViewAdCargobike from "../../../src/view/ads/view_ads/ViewAdCargobike";
+import ViewAdTrailer from "../../../src/view/ads/view_ads/ViewAdTrailer";
+import ViewAdAccessory from "../../../src/view/ads/view_ads/ViewAdAccessory";
 import { useRouter } from "next/router";
 import axios from "axios";
 
@@ -8,7 +10,13 @@ const AdPage = ({ ads }) => {
     return <p>Loading...</p>;
   }
 
-  return <ViewAd ads={ads[0]} />;
+  if (ads[0].type == "remorque") {
+    return <ViewAdTrailer ads={ads[0]} />;
+  } else if (ads[0].type == "accessoire") {
+    return <ViewAdAccessory ads={ads[0]} />;
+  } else {
+    return <ViewAdCargobike ads={ads[0]} />;
+  }
 };
 
 export async function getStaticPaths() {

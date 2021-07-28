@@ -1,4 +1,4 @@
-import AdsBike from "../../sources/view/ads/create_ads/components/AdsBike";
+import AdsBike from "../../src/view/ads/create_ads/components/AdsBike";
 
 export default function CreateAdCargoBikePage({}) {
   return <AdsBike />;
