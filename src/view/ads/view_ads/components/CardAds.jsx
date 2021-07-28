@@ -16,20 +16,28 @@ moment.locale("fr");
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
-    minWidth: 345,
-  },
-  media: {
-    height: 140,
+    width: 300,
+    heigth: 450,
+    margin: 30,
   },
   content: {
     backgroundColor: "#fff",
+    height: 80,
+    display: "flex",
+    justifyContent: "space-between",
   },
   image: {
-    width: 320,
-    heigth: 240,
-    borderRadius: "20px 20px 0px 0px",
-    boxShadow: "2px 4px 4px #BFD9D9",
+    width: "600px",
+    maxWidth: "100%",
+    // height: "auto",
+    maxHeight: 230,
+    // maxWidth: 350,
+    // minWidth: 270,
+    display: "flex",
+    justifyContent: "center",
+    margin: "auto",
+    // borderRadius: "20px 20px 0px 0px",
+    // boxShadow: "2px 4px 4px #BFD9D9",
   },
   cityandicon: {
     height: "50px",
@@ -37,7 +45,7 @@ const useStyles = makeStyles({
     justifyContent: "space-between",
     alignItems: "center",
     paddingLeft: "20px",
-    paddingRight: "20px",
+    paddingRight: "5px",
     paddingBottom: "20px",
     color: "#F23508",
   },
@@ -45,17 +53,22 @@ const useStyles = makeStyles({
     color: "#F27C08",
     fontWeight: "bold",
     fontSize: "20px",
+    marginBottom: 6,
   },
   price: {
     color: "#BFD9D9",
     fontSize: "25px",
+    marginBottom: 6,
   },
   date: {
     color: "black",
     fontSize: "15px",
   },
-  city: {
-    color: "red",
+  icon: {
+    display: "flex",
+    alignItems: "center",
+    marginLeft: 12,
+    flexDirection: "flex-end"
   },
 });
 
@@ -108,6 +121,7 @@ export default function CardAds({
   return (
     <Card className={classes.root}>
       <CardActionArea>
+        <div className={classes.contain}>
         <img
           className={classes.image}
           src={
@@ -116,6 +130,7 @@ export default function CardAds({
               : "/assets/no-img-cargobike.jpeg"
           }
         />
+        </div>
         <CardContent className={classes.content}>
           <Typography variant="h5" component="h1" className={classes.title}>
             {title}
