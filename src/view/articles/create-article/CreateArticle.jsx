@@ -91,7 +91,7 @@ const CreateArticle = () => {
       <Paper
         className={classes.container}
         variant="elevation"
-        elevation="3"
+        elevation={3}
         color="primary"
       >
         <Typography variant="h2" className={classes.littletitle}>
