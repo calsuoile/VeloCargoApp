@@ -29,15 +29,13 @@ const useStyles = makeStyles({
   image: {
     width: "600px",
     maxWidth: "100%",
-    // height: "auto",
     maxHeight: 230,
+    minHeight: 200,
     // maxWidth: 350,
     // minWidth: 270,
     display: "flex",
     justifyContent: "center",
     margin: "auto",
-    // borderRadius: "20px 20px 0px 0px",
-    // boxShadow: "2px 4px 4px #BFD9D9",
   },
   cityandicon: {
     height: "50px",

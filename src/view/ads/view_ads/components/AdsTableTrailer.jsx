@@ -12,18 +12,16 @@ const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
-
   container: {
     width: "70%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   },
-
   cell: {
     fontFamily: "Open Sans Condensed",
     fontWeight: "bold",
-    color: "rgba(104, 219, 150, 1)",
+    color: "#006969",
   },
 });
 
@@ -56,7 +54,6 @@ export default function AdsTableTrailer({ ads }) {
             <TableCell className={classes.cell}>Modèle</TableCell>
             <TableCell align="right">{ads?.model}</TableCell>
           </TableRow>
-
           <TableRow>
             <TableCell className={classes.cell}>Etat Général</TableCell>
             <TableCell align="right">{ads?.general_state}</TableCell>
@@ -71,13 +68,6 @@ export default function AdsTableTrailer({ ads }) {
             </TableCell>
             <TableCell align="right">{ads?.max_children}</TableCell>
           </TableRow>
-
-          {/* <TableRow>
-            <TableCell className={classes.cell}>Garantie</TableCell>
-            <TableCell align="right">
-              {ads?.guarantee === 1 ? "Oui" : "Non"}
-            </TableCell>
-          </TableRow> */}
         </TableBody>
       </Table>
     </TableContainer>

@@ -21,14 +21,12 @@ moment.locale("fr");
 const useStyles = makeStyles({
   box: {
     position: "relative",
-    margin: "50px",
+    margin: "150px",
   },
   header: {
     width: "100%",
-    marginLeft: "20px",
     borderBlockEnd: "1px solid",
-    borderBottomHeight: "10px",
-    paddingBottom: "15px",
+    paddingBottom: "10px",
   },
   where: {
     paddingTop: "5px",
@@ -52,7 +50,6 @@ const useStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    // paddingTop: "10px",
   },
   table: {
     display: "flex",
@@ -67,6 +64,7 @@ const useStyles = makeStyles({
     marginLeft: "0px",
     marginBottom: "30px",
     borderBottom: "1px solid",
+    color:"#F27C08",
   },
   accessory: {
     marginTop: "50px",
@@ -86,7 +84,16 @@ const useStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     marginRight: "10px",
-    color: "rgba(255, 196, 0, 1)",
+    color: "black",
+  },
+  iconFav: {
+    margin: 20,
+  },
+  icons: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    padding: 10,
   },
 });
 
@@ -145,7 +152,7 @@ function ViewAdAccessory({ ads, user_id, ads_id }) {
   return (
     <div className={classes.box}>
       <div className={classes.header}>
-        <Typography variant="h3">{ads?.title}</Typography>
+        <Typography variant="h5">{ads?.title}</Typography>
         <div className={classes.vendeur}>
           <Typography variant="body2">
             {ads?.firstname} {ads?.lastname}
@@ -177,19 +184,19 @@ function ViewAdAccessory({ ads, user_id, ads_id }) {
         <Typography variant="body1" className={classes.when}>
           {moment(ads?.created_at).format("LL à HH:mm")}
         </Typography>
-        {ads?.user_id === connectedUser?.id && (
-          <DeleteButtonAds
-            onDelete={() => router.push("/acheter-un-velo-cargo")}
-            color="secondary"
-            adsId={ads?.ads_id}
-          />
-        )}
-        <div
-          color="secondary"
-          className={classes.icon}
-          onClick={handleClickFavorite}
-        >
-          {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+        <div className={classes.icons}>
+          {ads?.user_id === connectedUser?.id && (
+            <DeleteButtonAds
+              onDelete={() => router.push("/acheter-un-velo-cargo")}
+              color="secondary"
+              adsId={ads?.ads_id}
+            />
+          )}
+          {isFavorite ? (
+            <FavoriteIcon onClick={handleClickFavorite} />
+          ) : (
+            <FavoriteBorderIcon onClick={handleClickFavorite} />
+          )}
         </div>
       </div>
       <div className={classes.photo}>
