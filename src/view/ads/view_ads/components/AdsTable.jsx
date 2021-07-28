@@ -12,21 +12,18 @@ const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
-
   container: {
     width: "70%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   },
-
   cell: {
     fontFamily: "Open Sans Condensed",
     fontWeight: "bold",
-    color: "rgba(104, 219, 150, 1)",
+    color: "#006969",
   },
 });
-
 
 export default function AdsTable({ ads }) {
   const classes = useStyles();

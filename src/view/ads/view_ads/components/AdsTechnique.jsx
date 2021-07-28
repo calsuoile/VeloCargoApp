@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: theme.typography.fontWeightRegular,
   },
   expandIcon: {
-    color: "rgba(104, 219, 150, 1)",
+    color: "#006969",
   },
 }));
 
