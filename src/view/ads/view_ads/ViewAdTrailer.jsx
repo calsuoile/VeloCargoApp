@@ -4,8 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 import PlaceIcon from "@material-ui/icons/Place";
 import PhoneIcon from "@material-ui/icons/Phone";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
-import AdsTable from "./components/AdsTable";
-import AdsTechnique from "./components/AdsTechnique";
+import AdsTableTrailer from "./components/AdsTableTrailer";
 import AdsCarousel from "./components/AdsCarousel";
 import DeleteButtonAds from "../../../common/DeleteButtonAds";
 import FavoriteIcon from "@material-ui/icons/Favorite";
@@ -91,7 +90,7 @@ const useStyles = makeStyles({
   },
 });
 
-function ViewAd({ ads, user_id, ads_id }) {
+function ViewAdTrailer({ ads, user_id, ads_id }) {
   const classes = useStyles();
   const router = useRouter();
   const [phoneNumber, setPhoneNumber] = useState(true);
@@ -142,9 +141,6 @@ function ViewAd({ ads, user_id, ads_id }) {
     }
   };
 
-  // const handleClickFavorite = () => {
-  //   setIsFavorite(!isFavorite);
-  // };
 
   return (
     <div className={classes.box}>
@@ -201,16 +197,10 @@ function ViewAd({ ads, user_id, ads_id }) {
       </div>
       <div className={classes.table}>
         {" "}
-        <AdsTable ads={ads} />
-      </div>
-      <div className={classes.technique}>
-        <Typography variant="h3" className={classes.title}>
-          Fiche technique
-        </Typography>
-        <AdsTechnique ads={ads} />
+        <AdsTableTrailer ads={ads} />
       </div>
     </div>
   );
 }
 
-export default ViewAd;
+export default ViewAdTrailer;

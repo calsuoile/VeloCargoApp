@@ -10,9 +10,7 @@ const useStyles = makeStyles((theme) => ({
     width: "200px",
     backgroundColor: "white",
     borderRadius: "5px",
-    margin:"10px",
-
-
+    margin: "10px",
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -59,7 +57,7 @@ function DepartmentSelector({ name, value, onChange }) {
           <option value="Calvados">14 - Calvados</option>
           <option value="Cantal">15 - Cantal</option>
           <option value="Charente">16 - Charente</option>
-          <option value="Chanrente-Maritime">17 - Chanrente-Maritime</option>
+          <option value="Charente-Maritime">17 - Charente-Maritime</option>
           <option value="Cher">18 - Cher</option>
           <option value="Corrèze">19 - Corrèze</option>
           <option value="Corse-du-Sud">2A - Corse-du-Sud</option>
