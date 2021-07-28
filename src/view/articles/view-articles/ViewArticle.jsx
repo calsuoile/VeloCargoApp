@@ -84,7 +84,7 @@ const ViewArticle = ({ articleView: [articleView], otherArticles }) => {
       <div className={classes.container}>
         <Typography variant="body1" className={classes.containerText}>
           {articleView.text}
-          <img src={articleView.photo} className={classes.otherImages} />
+          <img src={articleView?.photo} className={classes.otherImages} />
         </Typography>
 
         {/* encart d'affichage des derniers articles créés */}
