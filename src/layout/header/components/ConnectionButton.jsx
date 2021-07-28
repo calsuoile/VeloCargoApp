@@ -18,23 +18,11 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "#F29F24",
     },
     [theme.breakpoints.down("sm")]: {
-<<<<<<< HEAD:sources/layout/Header/components/ConnectionButton.jsx
-      width:"20px",
-      fontSize : "10px",
-  },
-},
-  icon: {
-    fontSize: "25px",
-    color: "white",
-  },
-  buttonco: {
-=======
       fontSize: "10px",
       marginRight: "10px",
     },
   },
   buttonCo: {
->>>>>>> origin/dev:src/layout/header/components/ConnectionButton.jsx
     backgroundColor: "#5C9A9A",
     color: "white",
     fontFamily: "Open Sans Condensed, sans-serif",
