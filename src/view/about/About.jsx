@@ -13,31 +13,45 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       margin: "auto",
       display: "block",
-      marginTop: "30px"
+      marginTop: "30px",
     },
   },
   orangetitle: {
-    flexDirection: "column",
     textAlign: "center",
-    marginRight: "30px",
   },
   partnaires: {
     display: "flex",
+    flexDirection: "column",
     justifyContent: "space-around",
     alignItems: "center",
     marginBottom: "10%",
     marginLeft: "200px",
     marginRight: "200px",
     marginTop: "60px",
+    [theme.breakpoints.down("sm")]: {
+      margin: "auto",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      marginTop: "30px",
+    },
   },
   talkAbout: {
     display: "flex",
+    flexDirection: "column",
     justifyContent: "space-around",
     alignItems: "center",
     marginLeft: "350px",
     marginRight: "350px",
     marginTop: "60px",
     marginBottom: "5%",
+    [theme.breakpoints.down("sm")]: {
+      margin: "auto",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      marginTop: "30px",
+    },
   },
   title: {
     display: "flex",
@@ -48,11 +62,16 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: "100px",
   },
   img_title: {
-    maxWidth: "500px",
+    maxWidth: "300px",
     maxHeight: "500px",
     borderRadius: "30px",
-    marginLeft: "40px",
+    marginLeft: "auto",
     marginBottom: "30px",
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: "300px",
+      margin: "auto",
+      marginLeft: "18px",
+    },
   },
   img_talkAbout: {
     maxWidth: "200px",
@@ -67,6 +86,11 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "250px",
     marginRight: "250px",
     marginBottom: "5%",
+    [theme.breakpoints.down("sm")]: {
+      margin: "auto",
+      display: "block",
+      marginTop: "30px",
+    },
   },
   undertitle: {
     display: "flex",
@@ -84,7 +108,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     color: "black",
     fontSize: "50px",
-    marginTop: "50px"
+    marginTop: "50px",
   },
   fondateur: {
     fontSize: "30px",
@@ -112,6 +136,11 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     textDecoration: "none",
+    [theme.breakpoints.down("sm")]: {
+      margin: "auto",
+      display: "block",
+      marginTop: "30px",
+    },
   },
 }));
 
@@ -152,7 +181,7 @@ export default function About() {
                 >
                   Fondateur de Cargo Bike Trade
                 </Typography>
-                </div>
+              </div>
               <img
                 className={classes.img_title}
                 src="/assets/Clément_F_Fondateur.jpg"
