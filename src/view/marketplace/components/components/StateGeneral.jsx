@@ -6,32 +6,32 @@ import Select from "@material-ui/core/Select";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
-    margin: theme.spacing(1),
     width: "200px",
     backgroundColor: "white",
     borderRadius: "5px",
+    margin:"10px",
   },
- 
-
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
 }));
 
-function StateGeneral({ name, value, onChange }) {
+function StateGeneral({ name, value, onChange, label  }) {
   const classes = useStyles();
 
   return (
     <div>
       <FormControl variant="outlined" className={classes.formControl}>
-        <InputLabel htmlFor="outlined-age-native-simple">Etat Général</InputLabel>
+        <InputLabel htmlFor="outlined-age-native-simple">
+          Etat Général
+        </InputLabel>
         <Select
           required={true}
           native
           value={value}
           name={name}
           onChange={onChange}
-          label="Etat General"
+          label={label}
           inputProps={{
             name: "general_state",
             id: "outlined-age-native-simple",

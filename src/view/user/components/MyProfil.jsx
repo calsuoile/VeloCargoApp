@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { makeStyles } from "@material-ui/core";
 import UserContext from "../../../context/user";
 import axios from "axios";
-import { Typography, Button, Input } from "@material-ui/core";
+import { Typography, Button, Input, TextField } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   h1: {
@@ -10,14 +10,22 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     marginTop: "10px",
     fontSize: "80px",
+    color : "#BFD9D9"
   },
   container: {
     border: "3px solid #006969 ",
     margin: "50px 50px 50px 50px",
-    padding: "10px",
     borderRadius: "10px",
     marginBottom: "100px",
     width: "92%",
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(1),
+      width: "80%",
+      display: "flex",
+      justifyContent: "center",
+      flexDirection: "column",
+      margin: "5px auto",
+    },
   },
   firstname: {
     display: "flex",
@@ -37,30 +45,46 @@ const useStyles = makeStyles((theme) => ({
   },
   contact: {
     display: "flex",
-    flexDirection: "column",
     justifyContent: "center",
-    alignItems: "center",
-    margin: "30px",
   },
+
   button: {
     width: "100px",
     display: "flex",
     marginLeft: "90%",
+    marginTop: "30px",
     marginBottom: "30px",
     borderRadius: "15px",
     color: "white",
+    [theme.breakpoints.down("sm")]: {
+      display: "flex",
+      marginLeft: "35%",
+      padding: theme.spacing(1),
+    },
   },
   form: {
+    display: "flex",
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
-    margin: theme.spacing(1),
-    width: "500px",
-    fontSize: "50px",
+    flexDirection: "column",
+    margin: theme.spacing(3),
+    // width: "100%px",
+    marginLeft: "50px",
+    marginRight: "50px",
+    paddingBottom: "10px",
+    color: "#006969",
   },
+  text: {
+    marginBottom: "10px",
+  },
+
   button2: {
     marginTop: "10px",
     borderRadius: "15px",
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(1),
+    },
   },
 }));
 
@@ -78,7 +102,7 @@ function MyProfil(props) {
 
   const handleEdition = () => {
     setEdition(true);
-    console.log("edition");
+    // console.log("edition");
   };
 
   const handleChange = (e) => {
@@ -129,55 +153,61 @@ function MyProfil(props) {
             </div>{" "}
           </div>
         ) : (
-          <div>
-            <form className={classes.form}>
-              <div className={classes.name}>
-                <Input
-                  fullWidth={true}
-                  placeholder="Prénom"
-                  name="firstname"
-                  value={form.firstname}
-                  onChange={handleChange}
-                ></Input>{" "}
-                <Input
-                  fullWidth={true}
-                  placeholder="Nom"
-                  name="lastname"
-                  value={form.lastname}
-                  onChange={handleChange}
-                ></Input>
-              </div>
-              <div className={classes.contact}>
-                <Input
-                  fullWidth={true}
-                  placeholder="Email"
-                  name="email"
-                  value={form.email}
-                  onChange={handleChange}
-                ></Input>
-                <Input
-                  fullWidth={true}
-                  placeholder="Numéro de téléphone"
-                  name="phone_number"
-                  value={form.phone_number}
-                  onChange={handleChange}
-                ></Input>
-                <Input
-                  fullWidth={true}
-                  placeholder="Ville"
-                  name="city"
-                  value={form.city}
-                  onChange={handleChange}
-                ></Input>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  className={classes.button2}
-                  onClick={handleClick}
-                >
-                  Valider
-                </Button>
-              </div>
+          <div className={classes.form}>
+            <form>
+              <TextField
+                fullWidth={true}
+                placeholder="Prénom"
+                name="firstname"
+                variant="outlined"
+                value={form.firstname}
+                onChange={handleChange}
+                className={classes.text}
+              ></TextField>{" "}
+              <TextField
+                fullWidth={true}
+                placeholder="Nom"
+                name="lastname"
+                variant="outlined"
+                value={form.lastname}
+                onChange={handleChange}
+                className={classes.text}
+              ></TextField>
+              <TextField
+                fullWidth={true}
+                placeholder="Email"
+                name="email"
+                variant="outlined"
+                value={form.email}
+                onChange={handleChange}
+                className={classes.text}
+              ></TextField>
+              <TextField
+                fullWidth={true}
+                placeholder="Numéro de téléphone"
+                name="phone_number"
+                variant="outlined"
+                value={form.phone_number}
+                onChange={handleChange}
+                className={classes.text}
+              ></TextField>
+              <TextField
+                fullWidth={true}
+                placeholder="Ville"
+                name="city"
+                variant="outlined"
+                value={form.city}
+                onChange={handleChange}
+                className={classes.text}
+              ></TextField>
+              <Button
+                variant="contained"
+                color="secondary"
+                className={classes.button2}
+                onClick={handleClick}
+              >
+                Valider
+              </Button>
             </form>{" "}
           </div>
         )}

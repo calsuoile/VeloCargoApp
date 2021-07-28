@@ -8,10 +8,14 @@ import PaginationPage from "./components/PaginationPage";
 import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
-  Marketplace: {
+  marketplace: {
     display: "flex",
     justifyContent: "space-evenly",
     marginTop: "50px",
+    [theme.breakpoints.down("sm")]: {
+      margin: "auto",
+      display: "block",
+    },
   },
   titlesort: {
     display: "flex",
@@ -33,7 +37,8 @@ function Marketplace({ adsCard, type = "", total: initialTotal }) {
   useEffect(() => {
     setAds(adsCard);
     setTotal(initialTotal);
-  }, [adsCard, initialTotal]);
+    setFilter({ ...filter, type: type });
+  }, [adsCard, initialTotal, type]);
 
   useEffect(() => {
     const queryFilter = Object.entries(filter)
@@ -66,7 +71,7 @@ function Marketplace({ adsCard, type = "", total: initialTotal }) {
 
   const classes = useStyles();
   return (
-    <div className={classes.Marketplace}>
+    <div className={classes.marketplace}>
       <Filter onSubmit={doFilter} type={filter.type} />
       <div className={classes.column}>
         <TitleAds />

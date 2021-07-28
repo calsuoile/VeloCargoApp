@@ -6,10 +6,11 @@ import Select from "@material-ui/core/Select";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
-    margin: theme.spacing(1),
-    minWidth: 200,
+    // margin: theme.spacing(1),
+    width: "200px",
     backgroundColor: "white",
     borderRadius: "5px",
+    margin:"10px",
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -40,7 +41,7 @@ function SelectCategory({ name, value, onChange }) {
           <option value="triporteur">Triporteurs</option>
           <option value="tricycle">Tricycles</option>
           <option value="longtail">Longtails</option>
-          <option value="accessoires">Accessoires</option>
+          <option value="accessoire">Accessoires</option>
           <option value="remorque">Remorques</option>
         </Select>
       </FormControl>

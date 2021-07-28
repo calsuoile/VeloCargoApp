@@ -19,21 +19,11 @@ import {
   DialogTitle,
 } from "@material-ui/core";
 import * as yup from "yup";
+import { toast } from "react-toastify";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="/">
-        CargoBikeTrade
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles((theme) => ({
+
   root: {
     display: "flex",
     width: "100%",
@@ -45,37 +35,42 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       //     background: "rgb(104,219,150)",
       //   background: "radial-gradient(circle, rgba(104,219,150,1) 0%, rgba(255,209,150,0.6713060224089635) 100%)",
-      zIndex: 1,
+      // zIndex: 1,
       opacity: 1,
     },
   },
   paper2: {
-    margin: theme.spacing(10, 20),
+    margin: theme.spacing(15, 30),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: "rgba(237, 162, 116, 1)",
-  },
   form: {
-    width: "80%", // Fix IE 11 issue.
+    width: "100%", // Fix IE 11 issue.
     marginTop: "50px",
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    marginTop: "20px",
     backgroundColor: "#5C9A9A",
     color: "white",
+    width: "250px",
     fontFamily: "Open Sans Condensed, sans-serif",
     fontWeight: 400,
     fontSize: "20px",
+    "&:hover": {
+      backgroundColor: "#F27C08",
+    }
   },
   names: {
     display: "flex",
+    width: "250px",
+
   },
   name: {
-    marginRight: "5%",
+    marginRight: "5px",
   },
   ok: {
     fontFamily: "Open Sans Condensed, sans-serif",
@@ -102,12 +97,15 @@ const useStyles = makeStyles((theme) => ({
   },
   hr: {
     width: "50%",
-    height: "3px",
+    height: "2px",
     backgroundColor: "#006262",
     border: "none",
     marginTop: "5%",
     marginBottom: "10px",
   },
+  text: {
+    width: "250px",
+  }
 }));
 
 const schema = yup.object().shape({
@@ -148,7 +146,12 @@ export default function Register() {
         router.push("/connexion");
         setOpen(true);
       })
-      .catch((err) => setErrors(err.errors));
+      .catch((err) => {
+        if (err?.response?.status) {
+          toast.error("Cet email est déjà pris");
+        }
+        setErrors(err.errors);
+      });
   };
 
   const handleChange = (e) => {
@@ -168,9 +171,7 @@ export default function Register() {
         className={classes.contain}
       >
         <div className={classes.paper2}>
-          <Avatar className={classes.avatar}>
-            <DirectionsBikeIcon />
-          </Avatar>
+          <img src="./assets/icon2.png" width="80px" className={classes.avatar}/>
           <Typography className={classes.title} variant="h3">
             INSCRIPTION
           </Typography>
@@ -190,8 +191,10 @@ export default function Register() {
                 id="lastname"
                 autoComplete="current-password"
                 onChange={handleChange}
-                error={errors.find((item) => item.key === "lastname")}
-                helperText={errors.find((item) => item.key === "lastname")?.msg}
+                error={errors?.find((item) => item.key === "lastname")}
+                helperText={
+                  errors?.find((item) => item.key === "lastname")?.msg
+                }
               />
               <TextField
                 className={classes.fname}
@@ -206,13 +209,14 @@ export default function Register() {
                 id="firstname"
                 autoComplete="current-password"
                 onChange={handleChange}
-                error={errors.find((item) => item.key === "firstname")}
+                error={errors?.find((item) => item.key === "firstname")}
                 helperText={
-                  errors.find((item) => item.key === "firstname")?.msg
+                  errors?.find((item) => item.key === "firstname")?.msg
                 }
               />
             </div>
             <TextField
+            className={classes.text}
               value={form.email}
               variant="outlined"
               margin="normal"
@@ -225,10 +229,11 @@ export default function Register() {
               autoFocus
               type="email"
               onChange={handleChange}
-              error={errors.find((item) => item.key === "email")}
-              helperText={errors.find((item) => item.key === "email")?.msg}
+              error={errors?.find((item) => item.key === "email")}
+              helperText={errors?.find((item) => item.key === "email")?.msg}
             />
             <TextField
+            className={classes.text}
               value={form.password}
               variant="outlined"
               margin="normal"
@@ -240,8 +245,8 @@ export default function Register() {
               id="password"
               autoComplete="current-password"
               onChange={handleChange}
-              error={errors.find((item) => item.key === "password")}
-              helperText={errors.find((item) => item.key === "password")?.msg}
+              error={errors?.find((item) => item.key === "password")}
+              helperText={errors?.find((item) => item.key === "password")?.msg}
             />
             <Button
               type="submit"
@@ -279,9 +284,6 @@ export default function Register() {
                 </Button>
               </DialogActions>
             </Dialog>
-            <Box mt={5}>
-              <Copyright />
-            </Box>
           </form>
         </div>
       </Grid>

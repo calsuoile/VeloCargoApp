@@ -12,6 +12,8 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import Upload from "../../../../common/components/Upload";
 import SwitchForm from "../../../../common/components/SwitchForm";
+import StateGeneral from "../../../marketplace/components/components/StateGeneral";
+import DepartmentSelector from "../../../../common/components/DepartmentSelector";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -73,7 +75,6 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
     },
   },
-
   country: {
     width: "200",
     [theme.breakpoints.down("sm")]: {
@@ -81,11 +82,9 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
     },
   },
-
   localisation: {
     display: "flex",
     alignItems: "center",
-    // justifyContent: "space-evenly",
     flexDirection: "row",
     margin: 25,
     [theme.breakpoints.down("sm")]: {
@@ -103,7 +102,6 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
     },
   },
-
   contain: {
     width: "100%",
   },
@@ -115,7 +113,6 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 10,
     display: "flex",
     marginLeft: "85%",
-
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(1),
       marginLeft: "auto",
@@ -125,6 +122,8 @@ const useStyles = makeStyles((theme) => ({
 
 function AdsTrailer(props) {
   const classes = useStyles();
+  const router = useRouter();
+
   const [form, setForm] = React.useState({
     title: "",
     created_at: "",
@@ -146,6 +145,7 @@ function AdsTrailer(props) {
     guarantee: false,
     photo: [],
   });
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -153,19 +153,17 @@ function AdsTrailer(props) {
   const handleChecked = (e) => {
     setForm({ ...form, [e.target.name]: e.target.checked });
   };
+
   const handleClick = () => {
-    console.log(form);
     postForm();
   };
 
   const handlePicture = (imageUrl) => {
-    console.log(imageUrl);
+    // console.log(imageUrl);
     const newImages = [...form.photo, imageUrl];
     setForm({ ...form, photo: newImages });
-    console.log(newImages);
+    // console.log(newImages);
   };
-
-  const router = useRouter();
 
   const postForm = () => {
     const token = localStorage.getItem("userToken");
@@ -175,7 +173,8 @@ function AdsTrailer(props) {
     axios
       .post(
         `${process.env.NEXT_PUBLIC_API_URL}trailers`,
-        { ...form, type: "remorque", photo: form.photo.toString() }, //transforme le tableau en string pour pouvoir mettre plusieurs photos en BDD. 
+        { ...form, type: "remorque", photo: form.photo.toString() },
+        config //transforme le tableau en string pour pouvoir mettre plusieurs photos en BDD.
       )
       .then(() => {
         router.push("/");
@@ -247,16 +246,11 @@ function AdsTrailer(props) {
                   onChange={handleChange}
                   name={"country"}
                 />
-                <TextField
-                  className={classes.velo}
-                  required={true}
-                  id="outlined-basic"
-                  label="Département"
-                  variant="outlined"
-                  name="department"
-                  form={form.department}
+                <DepartmentSelector
+                  value={form.department}
                   onChange={handleChange}
-                ></TextField>
+                  name={"department"}
+                />
               </div>
             </Typography>
           </AccordionDetails>
@@ -283,7 +277,6 @@ function AdsTrailer(props) {
                   form={form.brand}
                   onChange={handleChange}
                 ></TextField>
-
                 <TextField
                   className={classes.velo}
                   id="outlined-basic"
@@ -293,7 +286,6 @@ function AdsTrailer(props) {
                   form={form.model}
                   onChange={handleChange}
                 ></TextField>
-
                 <TextField
                   className={classes.velo}
                   required={true}
@@ -420,16 +412,11 @@ function AdsTrailer(props) {
                 <div className={classes.margin}>
                   {" "}
                   <Typography>
-                    <TextField
-                      className={classes.velo}
-                      required={true}
-                      id="outlined-basic"
-                      label="Etat Général"
-                      variant="outlined"
+                    <StateGeneral
                       name="general_state"
                       form={form.general_state}
                       onChange={handleChange}
-                    ></TextField>
+                    />
                   </Typography>
                 </div>
                 <div className={classes.margin}>
@@ -491,7 +478,6 @@ function AdsTrailer(props) {
             </Typography>
           </AccordionDetails>
         </Accordion>
-
         <Accordion>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon className={classes.expandIcon} />}

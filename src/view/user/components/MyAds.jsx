@@ -3,6 +3,7 @@ import { makeStyles, Typography } from "@material-ui/core";
 import axios from "axios";
 import UserContext from "../../../context/user";
 import CardAds from "../../ads/view_ads/components/CardAds";
+import Link from "next/link";
 
 const useStyles = makeStyles((theme) => ({
   contain: {
@@ -16,6 +17,10 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "50px",
     borderBottom: "1px solid",
     marginBottom: "20px",
+    color : "#BFD9D9",
+    [theme.breakpoints.down("sm")]: {
+      marginLeft : "5px",
+    },
   },
   ads: {
     marginTop: "30px",
@@ -50,7 +55,6 @@ function MyAds(props) {
         )
         .then((response) => {
           setAds(response?.data?.data);
-          console.log(response?.data?.data);
         });
     }
   }, [connectedUser]);
@@ -63,7 +67,14 @@ function MyAds(props) {
         </Typography>
         <div className={classes.ads}>
           {ads.map((ads, index) => (
-            <CardAds {...ads} key={index} />
+            <Link
+              href={"/acheter-un-velo-cargo/annonces/" + ads.ads_id}
+              key={ads.ads_id}
+            >
+              <a style={{ textDecoration: "none", color: "inherit" }}>
+                <CardAds {...ads} key={index} />
+              </a>
+            </Link>
           ))}
         </div>
       </div>

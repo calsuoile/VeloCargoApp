@@ -28,12 +28,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     fontSize: "40px",
   },
-  container: {
-    //  backgroundColor: "#FFA1B0",
-    //  borderRadius: "30px",
-  },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: "100%",
     marginTop: theme.spacing(3),
   },
   submit: {
@@ -60,8 +56,6 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     fontWeight: 500,
     fontSize: "30px",
-    // borderBottom: "1px solid",
-    // paddingBottom: "20px",
   },
   input: {
     backgroundColor: "white",
@@ -81,6 +75,15 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "15px",
     marginTop: "20px",
   },
+  copyright: 
+  {
+    textAlign: "center",
+    margin:"40px",
+    textDecoration: "none", 
+    color: "inherit",
+    cursor: "pointer",
+    color: "white"
+  }
 }));
 
 export default function Form() {
@@ -99,7 +102,7 @@ export default function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(userComment);
+    // console.log(userComment);
   };
 
   const [open, setOpen] = React.useState(false);
@@ -124,7 +127,6 @@ export default function Form() {
                 fullWidth
                 id="firstname"
                 label="Prénom"
-                autoFocus
                 onChange={handleTextFieldChange}
                 value={userComment.firstname}
               />
@@ -208,12 +210,14 @@ export default function Form() {
                 className={classes.ok}
                 onClick={() => setOpen(false)}
                 color="primary"
-                autoFocus
               >
                 <strong>Ok</strong>
               </Button>
             </DialogActions>
           </Dialog>
+          <a href="https://cargobiketrade.com" className={classes.copyright}>
+          <p>©2021 cargobiketrade.com</p>
+          </a>
         </form>
       </div>
     </Container>

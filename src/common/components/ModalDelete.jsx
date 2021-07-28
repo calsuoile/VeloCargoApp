@@ -16,6 +16,10 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-around",
     marginBottom: "20px",
   },
+  p: {
+    padding: "5px",
+    margin: "5px"
+  }
 }));
 
 function ModalDelete({ handleDeleteTrue, handleReturn }) {
@@ -31,12 +35,16 @@ function ModalDelete({ handleDeleteTrue, handleReturn }) {
 
   return (
     <div>
-      <div>
-        <p>Clément, es tu sûr de vouloir supprimer cet article?</p>
+      <div className={classes.p}>
+        <p>Clément, es-tu sûr de vouloir supprimer cet article ?</p>
         <RadioGroup name="sell" value={form.sell} onChange={handleChange}>
           <div className={classes.radioGroup}>
-            <FormControlLabel value="Oui" control={<Radio />} label="Biensûr" />
-            <FormControlLabel value="Non" control={<Radio />} label="Oh que non" />
+            <FormControlLabel value="Oui" control={<Radio />} label="Oui" />
+            <FormControlLabel
+              value="Non"
+              control={<Radio />}
+              label="Non"
+            />
           </div>
         </RadioGroup>
       </div>

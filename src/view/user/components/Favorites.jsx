@@ -3,6 +3,7 @@ import { makeStyles, Typography } from "@material-ui/core";
 import UserContext from "../../../context/user";
 import axios from "axios";
 import CardAds from "../../ads/view_ads/components/CardAds";
+import Link from "next/link";
 
 const useStyles = makeStyles((theme) => ({
   contain: {
@@ -16,6 +17,10 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "50px",
     borderBottom: "1px solid",
     marginBottom: "20px",
+    color : "#BFD9D9",
+    [theme.breakpoints.down("sm")]: {
+      marginLeft : "5px",
+    },
   },
   favorite: {
     marginTop: "30px",
@@ -28,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
   },
 }));
+
 
 function Favorites(props) {
   const classes = useStyles();
@@ -60,7 +66,14 @@ function Favorites(props) {
         </Typography>
         <div className={classes.favorite}>
           {favorites?.map((favorite, index) => (
-            <CardAds {...favorite.data[0]} key={index} />
+            <Link
+              href={"/acheter-un-velo-cargo/annonces/" + favorite.data[0].ads_id}
+              key={favorite.data[0].ads_id}
+            >
+              <a style={{ textDecoration: "none", color: "inherit" }}>
+                <CardAds {...favorite.data[0]} key={index} />
+              </a>
+            </Link>
           ))}
         </div>
       </div>

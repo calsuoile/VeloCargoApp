@@ -14,9 +14,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.typography.pxToRem(18),
     fontWeight: theme.typography.fontWeightRegular,
   },
-
   expandIcon: {
-    color: "rgba(104, 219, 150, 1)",
+    color: "#006969",
   },
 }));
 
@@ -37,7 +36,7 @@ export default function AdsTechnique({ ads }) {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Le vélo mesure {ads.length} cm. Le cadre est de {ads.frame_size} cm.
+            Le vélo mesure {ads?.length} cm. Le cadre est de {ads?.frame_size} cm.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -53,8 +52,8 @@ export default function AdsTechnique({ ads }) {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Puissance du moteur : {ads.engine_power} Watt. Batterie :{" "}
-            {ads.battery_volt} Volt.
+            Puissance du moteur : {ads?.engine_power} Watt. Batterie :{" "}
+            {ads?.battery_volt} Volt.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -69,7 +68,7 @@ export default function AdsTechnique({ ads }) {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>{ads.kms} Km.</Typography>
+          <Typography>{ads?.kms} Km.</Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -83,7 +82,7 @@ export default function AdsTechnique({ ads }) {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography> La caisse est de {ads.volume_box} litres.</Typography>
+          <Typography> La caisse est de {ads?.volume_box} litres.</Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -97,7 +96,7 @@ export default function AdsTechnique({ ads }) {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>{ads.mecanic_state}</Typography>
+          <Typography>{ads?.mecanic_state}</Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -111,7 +110,7 @@ export default function AdsTechnique({ ads }) {
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>{ads.esthetic_state}</Typography>
+          <Typography>{ads?.esthetic_state}</Typography>
         </AccordionDetails>
       </Accordion>
     </div>

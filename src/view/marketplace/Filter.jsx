@@ -86,6 +86,7 @@ function Filter({ onSubmit, type }) {
   };
 
   const handleClick = () => {
+    // console.log(filter);
     onSubmit(filter);
   };
 
@@ -118,9 +119,7 @@ function Filter({ onSubmit, type }) {
         onChange={handleChange}
         name={"department"}
       />
-
       <h1 className={classes.titleprice}>Prix maximum :</h1>
-
       <RangeSlider
         value={filter.price}
         step={100}
@@ -129,7 +128,6 @@ function Filter({ onSubmit, type }) {
         max={10000}
         name="price"
       />
-
       <StateGeneral
         value={filter.general_state}
         onChange={handleChange}

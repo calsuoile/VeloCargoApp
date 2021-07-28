@@ -13,24 +13,20 @@ import UserContext from "../../context/user";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
     display: "flex",
     height: "100px",
     alignItems: "center",
     justifyContent: "center",
     backgroundImage: "url(/assets/backg.png)",
   },
-  menuButton: {
-    // display: "flex",
-    [theme.breakpoints.up("sm")]: {
-      display: "none",
-    },
-  },
   logo: {
-    // display: "flex",
     width: "150px",
     marginLeft: "40px",
     marginRight: "20px",
+    [theme.breakpoints.down("sm")]: {
+      width: 120,
+      display: "flex",
+    },
   },
 }));
 
@@ -40,14 +36,14 @@ export default function Header() {
 
   return (
     <div className={classes.root}>
+      <Hidden mdUp>
+        <BurgerMenu className={classes.menuButton} />
+      </Hidden>
       <Link href="/">
         <a>
           <img className={classes.logo} src="/assets/CargoBikeTrade.png" />
         </a>
       </Link>
-      <Hidden mdUp>
-        <BurgerMenu className={classes.menuButton} />
-      </Hidden>
       <Hidden smDown>
         <SelectBike />
         <ArticlesTipsButton />
@@ -57,6 +53,7 @@ export default function Header() {
         {connectedUser?.id && connectedUser?.role === "admin" && (
           <CreateArticleButton />
         )}
+        {/* <CreateArticleButton /> */}
         <CreateAdsButton />
         <AboutButton />
       </Hidden>
