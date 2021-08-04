@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   user: {
     display: "flex",
     marginRight: 10,
-    alignItems: "center"
+    alignItems: "center",
   },
   userCo: {
     [theme.breakpoints.up("sm")]: {

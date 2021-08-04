@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
   },
   p: {
     padding: "5px",
-    margin: "5px"
-  }
+    margin: "5px",
+  },
 }));
 
 function ModalDelete({ handleDeleteTrue, handleReturn }) {
@@ -40,11 +40,7 @@ function ModalDelete({ handleDeleteTrue, handleReturn }) {
         <RadioGroup name="sell" value={form.sell} onChange={handleChange}>
           <div className={classes.radioGroup}>
             <FormControlLabel value="Oui" control={<Radio />} label="Oui" />
-            <FormControlLabel
-              value="Non"
-              control={<Radio />}
-              label="Non"
-            />
+            <FormControlLabel value="Non" control={<Radio />} label="Non" />
           </div>
         </RadioGroup>
       </div>

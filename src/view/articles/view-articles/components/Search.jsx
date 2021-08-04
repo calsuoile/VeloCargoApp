@@ -37,13 +37,6 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(1),
     },
   },
-  //   searchButton: {
-  //     maxHeight: 45,
-  //     minWidth: 135,
-  //     [theme.breakpoints.down("xs")]: {
-  //       display: "none",
-  //     },
-  //   },
 }));
 
 const Search = ({ keyWord, onChange }) => {

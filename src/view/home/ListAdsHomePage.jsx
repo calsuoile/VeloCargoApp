@@ -9,8 +9,8 @@ const useStyles = makeStyles((theme) => ({
   hr: {
     width: "15%",
     height: "3px",
-    backgroundColor:"#006262",
-    border:"none",
+    backgroundColor: "#006262",
+    border: "none",
     marginBottom: "5%",
   },
   button: {
@@ -24,9 +24,9 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: " #F29F24 ",
     },
     [theme.breakpoints.down("sm")]: {
-      width:"20px",
-      fontSize : "10px",
-      marginLeft : "80%"
+      width: "20px",
+      fontSize: "10px",
+      marginLeft: "80%",
     },
   },
   title: {
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#006969",
     fontSize: "40px",
     [theme.breakpoints.down("sm")]: {
-   fontSize : "30px"
+      fontSize: "30px",
     },
   },
   marketplace: {

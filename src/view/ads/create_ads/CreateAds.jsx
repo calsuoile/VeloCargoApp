@@ -54,7 +54,7 @@ function CreateAds(props) {
   return (
     <div>
       <Typography className={classes.title} variant="h5">
-        Que souhaitez vous vendre ?{" "}
+        Que souhaitez-vous vendre ?{" "}
       </Typography>
       <hr className={classes.hr}></hr>
       <div className={classes.buttons}>

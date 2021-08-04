@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import Link from "next/link";
 import Paper from "@material-ui/core/Paper";
-import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
 import axios from "axios";
 import { useRouter } from "next/router";
 import {
@@ -21,21 +17,15 @@ import {
 import * as yup from "yup";
 import { toast } from "react-toastify";
 
-
 const useStyles = makeStyles((theme) => ({
-
   root: {
     display: "flex",
     width: "100%",
     height: "100vh",
-    // backgroundColor: "#EDA274",
   },
   contain: {
     opacity: 0.5,
     "&:hover": {
-      //     background: "rgb(104,219,150)",
-      //   background: "radial-gradient(circle, rgba(104,219,150,1) 0%, rgba(255,209,150,0.6713060224089635) 100%)",
-      // zIndex: 1,
       opacity: 1,
     },
   },
@@ -62,12 +52,11 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "20px",
     "&:hover": {
       backgroundColor: "#F27C08",
-    }
+    },
   },
   names: {
     display: "flex",
     width: "250px",
-
   },
   name: {
     marginRight: "5px",
@@ -105,7 +94,7 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     width: "250px",
-  }
+  },
 }));
 
 const schema = yup.object().shape({
@@ -171,7 +160,11 @@ export default function Register() {
         className={classes.contain}
       >
         <div className={classes.paper2}>
-          <img src="./assets/icon2.png" width="80px" className={classes.avatar}/>
+          <img
+            src="./assets/icon2.png"
+            width="80px"
+            className={classes.avatar}
+          />
           <Typography className={classes.title} variant="h3">
             INSCRIPTION
           </Typography>
@@ -216,7 +209,7 @@ export default function Register() {
               />
             </div>
             <TextField
-            className={classes.text}
+              className={classes.text}
               value={form.email}
               variant="outlined"
               margin="normal"
@@ -233,7 +226,7 @@ export default function Register() {
               helperText={errors?.find((item) => item.key === "email")?.msg}
             />
             <TextField
-            className={classes.text}
+              className={classes.text}
               value={form.password}
               variant="outlined"
               margin="normal"
