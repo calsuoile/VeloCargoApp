@@ -159,10 +159,8 @@ function AdsTrailer(props) {
   };
 
   const handlePicture = (imageUrl) => {
-    // console.log(imageUrl);
     const newImages = [...form.photo, imageUrl];
     setForm({ ...form, photo: newImages });
-    // console.log(newImages);
   };
 
   const postForm = () => {
@@ -177,7 +175,7 @@ function AdsTrailer(props) {
         config //transforme le tableau en string pour pouvoir mettre plusieurs photos en BDD.
       )
       .then(() => {
-        router.push("/");
+        router.push("/acheter-un-velo-cargo");
       });
   };
 

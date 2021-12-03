@@ -14,7 +14,7 @@ const AdsCarousel = ({ className, ads }) => {
               backgroundSize: "contain",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
-              minWidth: "500px",
+              minWidth: "200px",
               minHeight: "350px",
               height: "auto",
               backgroundImage: `url(${photo})`,

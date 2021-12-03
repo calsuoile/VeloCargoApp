@@ -210,7 +210,7 @@ export default function About() {
                 fastidieuses ! Aucune catégorie "Vélos cargo" sur ces sites de
                 seconde main, ni même de filtres de recherche spécifiques à ces
                 vélos, dont les multiples caractéristiques les rendent aussi
-                complexe qu'une voiture. <br />
+                complexes qu'une voiture. <br />
                 C'est devant cette jungle d’annonces que l'idée de
                 cargobiketrade.com est née : Une plateforme pour faciliter
                 l’achat et la vente de vélos cargo d'occasion, entre

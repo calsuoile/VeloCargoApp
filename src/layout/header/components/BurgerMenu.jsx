@@ -15,7 +15,7 @@ import AssignmentIcon from "@material-ui/icons/Assignment";
 import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
 import Link from "next/link";
 
-const useStyles = makeStyles((theme) =>({
+const useStyles = makeStyles((theme) => ({
   list: {
     width: 350,
     color: "#f4c15b",
@@ -27,7 +27,6 @@ const useStyles = makeStyles((theme) =>({
     textAlign: "center",
     fontWeight: "bold",
     margin: "20px",
-    // marginLeft: "50%",
     "&:hover": {
       background: "#F29F24",
     },
@@ -122,9 +121,6 @@ const useStyles = makeStyles((theme) =>({
     fontSize: "40px",
     marginLeft: "10px",
     marginRight: "10px",
-    "&:hover": {
-      // color: "#5C9A9A",
-    },
   },
   homeicon: {
     color: "#F29F24",

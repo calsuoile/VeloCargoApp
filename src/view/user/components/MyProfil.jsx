@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { makeStyles } from "@material-ui/core";
 import UserContext from "../../../context/user";
 import axios from "axios";
-import { Typography, Button, Input, TextField } from "@material-ui/core";
+import { Typography, Button, TextField } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   h1: {
@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     marginTop: "10px",
     fontSize: "80px",
-    color : "#BFD9D9"
+    color: "#BFD9D9",
   },
   container: {
     border: "3px solid #006969 ",
@@ -69,7 +69,6 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     flexDirection: "column",
     margin: theme.spacing(3),
-    // width: "100%px",
     marginLeft: "50px",
     marginRight: "50px",
     paddingBottom: "10px",
@@ -102,7 +101,6 @@ function MyProfil(props) {
 
   const handleEdition = () => {
     setEdition(true);
-    // console.log("edition");
   };
 
   const handleChange = (e) => {

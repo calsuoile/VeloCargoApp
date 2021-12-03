@@ -86,7 +86,6 @@ function Filter({ onSubmit, type }) {
   };
 
   const handleClick = () => {
-    // console.log(filter);
     onSubmit(filter);
   };
 

@@ -17,9 +17,9 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "50px",
     borderBottom: "1px solid",
     marginBottom: "20px",
-    color : "#BFD9D9",
+    color: "#BFD9D9",
     [theme.breakpoints.down("sm")]: {
-      marginLeft : "5px",
+      marginLeft: "5px",
     },
   },
   favorite: {
@@ -33,7 +33,6 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
   },
 }));
-
 
 function Favorites(props) {
   const classes = useStyles();
@@ -67,7 +66,9 @@ function Favorites(props) {
         <div className={classes.favorite}>
           {favorites?.map((favorite, index) => (
             <Link
-              href={"/acheter-un-velo-cargo/annonces/" + favorite.data[0].ads_id}
+              href={
+                "/acheter-un-velo-cargo/annonces/" + favorite.data[0].ads_id
+              }
               key={favorite.data[0].ads_id}
             >
               <a style={{ textDecoration: "none", color: "inherit" }}>

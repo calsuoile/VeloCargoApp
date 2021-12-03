@@ -2,30 +2,24 @@ import React, { useContext } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import Link from "next/link";
 import Paper from "@material-ui/core/Paper";
-import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
 import UserContext from "../../../context/user";
 import axios from "axios";
 import { useRouter } from "next/router";
 import * as yup from "yup";
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     width: "100%",
     height: "100vh",
-    // backgroundColor: "#EDA274",
   },
   contain: {
     opacity: 0.5,
     "&:hover": {
-      // zIndex: 1,
       opacity: 1,
     },
   },
@@ -52,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "20px",
     "&:hover": {
       backgroundColor: "#F27C08",
-    }
+    },
   },
   title: {
     marginTop: "5%",
@@ -69,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     width: "250px",
-  }
+  },
 }));
 
 const schema = yup.object().shape({
@@ -105,7 +99,6 @@ export default function Login() {
             `${process.env.NEXT_PUBLIC_API_URL}users/login`,
             userId
           );
-          // console.log(token.data);
           localStorage.setItem("userToken", token.data.access_token);
           const config = {
             headers: {
@@ -142,7 +135,11 @@ export default function Login() {
         className={classes.contain}
       >
         <div className={classes.paper}>
-            <img src="./assets/icon1.png" width="80px" className={classes.avatar}/>
+          <img
+            src="./assets/icon1.png"
+            width="80px"
+            className={classes.avatar}
+          />
           <Typography className={classes.title} variant="h3">
             CONNEXION
           </Typography>

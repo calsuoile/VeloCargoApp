@@ -53,7 +53,6 @@ export default function Header() {
         {connectedUser?.id && connectedUser?.role === "admin" && (
           <CreateArticleButton />
         )}
-        {/* <CreateArticleButton /> */}
         <CreateAdsButton />
         <AboutButton />
       </Hidden>
