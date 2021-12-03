@@ -64,7 +64,7 @@ const useStyles = makeStyles({
     marginLeft: "0px",
     marginBottom: "30px",
     borderBottom: "1px solid",
-    color:"#F27C08",
+    color: "#F27C08",
   },
   accessory: {
     marginTop: "50px",
@@ -97,9 +97,9 @@ const useStyles = makeStyles({
   },
   description: {
     fontSize: 20,
-    marginBottom: 10
+    marginBottom: 10,
   },
-  fav : {
+  fav: {
     color: "#F27C08",
   },
 });
@@ -155,7 +155,6 @@ function ViewAdAccessory({ ads, user_id, ads_id }) {
     }
   };
 
-
   return (
     <div className={classes.box}>
       <div className={classes.header}>
@@ -200,10 +199,16 @@ function ViewAdAccessory({ ads, user_id, ads_id }) {
             />
           )}
           {isFavorite ? (
-             <FavoriteIcon className={classes.fav} onClick={handleClickFavorite} />
-             ) : (
-               <FavoriteBorderIcon className={classes.fav} onClick={handleClickFavorite} />
-             )}
+            <FavoriteIcon
+              className={classes.fav}
+              onClick={handleClickFavorite}
+            />
+          ) : (
+            <FavoriteBorderIcon
+              className={classes.fav}
+              onClick={handleClickFavorite}
+            />
+          )}
         </div>
         <Typography variant="body1" className={classes.description}>
           {ads?.description}

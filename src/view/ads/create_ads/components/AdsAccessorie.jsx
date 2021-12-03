@@ -91,7 +91,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
-    // margin: 25,
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(1),
       flexDirection: "column",
@@ -156,10 +155,8 @@ function AdsAccessorie(props) {
   };
 
   const handlePicture = (imageUrl) => {
-    // console.log(imageUrl);
     const newImages = [...form.photo, imageUrl];
     setForm({ ...form, photo: newImages });
-    // console.log(newImages);
   };
 
   const router = useRouter();
@@ -176,7 +173,7 @@ function AdsAccessorie(props) {
         config
       )
       .then(() => {
-        router.push("/");
+        router.push("/acheter-un-velo-cargo");
       });
   };
   return (
@@ -247,14 +244,14 @@ function AdsAccessorie(props) {
                     name={"country"}
                   />
                   <DepartmentSelector
-                  value={form.department}
-                  onChange={handleChange}
-                  name={"department"}
-                  // error={errors.find((item) => item.key === "department")}
-                  // helperText={
-                  //   errors.find((item) => item.key === "department")?.msg
-                  // }
-                />
+                    value={form.department}
+                    onChange={handleChange}
+                    name={"department"}
+                    // error={errors.find((item) => item.key === "department")}
+                    // helperText={
+                    //   errors.find((item) => item.key === "department")?.msg
+                    // }
+                  />
                 </div>
               </Typography>
             </AccordionDetails>

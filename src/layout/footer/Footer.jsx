@@ -16,9 +16,9 @@ const useStyles = makeStyles((theme) => ({
     display: "inline-block",
   },
   articles: {
-   marginTop: "-25px",
-   cursor: "pointer",
-   display: "inline-block",
+    marginTop: "-25px",
+    cursor: "pointer",
+    display: "inline-block",
   },
   container: {
     backgroundImage: "url(/assets/backgr.png)",
@@ -85,45 +85,65 @@ function Footer(props) {
             </a>
           </Link>
           <div className={classes.undertitle}>
-          <Link href="/acheter-un-velo-cargo/triporteur" className={classes.undertitle}>
-          <a className={classes.undertitle} style={{ textDecoration: "none", color: "inherit" }}>
-              <li >Triporteurs</li>
-          </a>
-          </Link>
-          <Link href="/acheter-un-velo-cargo/biporteur">
-          <a className={classes.undertitle} style={{ textDecoration: "none", color: "inherit" }}>
-              <li className={classes.undertitle}>Biporteurs</li>
+            <Link
+              href="/acheter-un-velo-cargo/triporteur"
+              className={classes.undertitle}
+            >
+              <a
+                className={classes.undertitle}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <li>Triporteurs</li>
               </a>
-          </Link>
-          <Link href="/acheter-un-velo-cargo/tricycle">
-          <a className={classes.undertitle} style={{ textDecoration: "none", color: "inherit" }}>
-              <li className={classes.undertitle}>Tricycles</li>
+            </Link>
+            <Link href="/acheter-un-velo-cargo/biporteur">
+              <a
+                className={classes.undertitle}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <li className={classes.undertitle}>Biporteurs</li>
               </a>
-          </Link>
-          <Link href="/acheter-un-velo-cargo/longtail">
-          <a className={classes.undertitle} style={{ textDecoration: "none", color: "inherit" }}>
-              <li className={classes.undertitle}>Longtails</li>
+            </Link>
+            <Link href="/acheter-un-velo-cargo/tricycle">
+              <a
+                className={classes.undertitle}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <li className={classes.undertitle}>Tricycles</li>
               </a>
-          </Link>
-          <Link href="/acheter-un-velo-cargo/remorque">
-          <a className={classes.undertitle} style={{ textDecoration: "none", color: "inherit" }}>
-              <li className={classes.undertitle}>Remorques</li>
+            </Link>
+            <Link href="/acheter-un-velo-cargo/longtail">
+              <a
+                className={classes.undertitle}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <li className={classes.undertitle}>Longtails</li>
               </a>
-          </Link>
-          <Link href="/acheter-un-velo-cargo/accessoire">
-          <a className={classes.undertitle} style={{ textDecoration: "none", color: "inherit" }}>
-              <li className={classes.undertitle}>Accessoires</li>
+            </Link>
+            <Link href="/acheter-un-velo-cargo/remorque">
+              <a
+                className={classes.undertitle}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <li className={classes.undertitle}>Remorques</li>
               </a>
-          </Link>
-       
-       </div>
+            </Link>
+            <Link href="/acheter-un-velo-cargo/accessoire">
+              <a
+                className={classes.undertitle}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <li className={classes.undertitle}>Accessoires</li>
+              </a>
+            </Link>
+          </div>
         </ul>
-        
+
         <ul className={classes.link}>
-              <Link href="/vendre-un-produit">
-              <li className={classes.articles}>
-                <strong>VENDRE UN PRODUIT</strong>
-              </li>
+          <Link href="/vendre-un-produit">
+            <li className={classes.articles}>
+              <strong>VENDRE UN PRODUIT</strong>
+            </li>
           </Link>
         </ul>
         <ul className={classes.link}>

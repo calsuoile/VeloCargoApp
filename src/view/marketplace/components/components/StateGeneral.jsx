@@ -9,14 +9,14 @@ const useStyles = makeStyles((theme) => ({
     width: "200px",
     backgroundColor: "white",
     borderRadius: "5px",
-    margin:"10px",
+    margin: "10px",
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
 }));
 
-function StateGeneral({ name, value, onChange, label  }) {
+function StateGeneral({ name, value, onChange, label }) {
   const classes = useStyles();
 
   return (
@@ -38,11 +38,11 @@ function StateGeneral({ name, value, onChange, label  }) {
           }}
         >
           <option aria-label="None" value="" />
-          <option value="neuf">Neuf</option>
-          <option value="revise">Révisé</option>
-          <option value="commeneuf">Comme neuf</option>
-          <option value="areviser">A réviser</option>
-          <option value="areparer">A réparer</option>
+          <option value="Neuf">Neuf</option>
+          <option value="Revisé">Révisé</option>
+          <option value="Comme neuf">Comme neuf</option>
+          <option value="A réviser">A réviser</option>
+          <option value="A réparer">A réparer</option>
         </Select>
       </FormControl>
     </div>

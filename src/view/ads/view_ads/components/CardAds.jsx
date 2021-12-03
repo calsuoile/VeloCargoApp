@@ -31,8 +31,6 @@ const useStyles = makeStyles({
     maxWidth: "100%",
     maxHeight: 230,
     minHeight: 200,
-    // maxWidth: 350,
-    // minWidth: 270,
     display: "flex",
     justifyContent: "center",
     margin: "auto",
@@ -66,7 +64,7 @@ const useStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     marginLeft: 12,
-    flexDirection: "flex-end"
+    flexDirection: "flex-end",
   },
 });
 
@@ -120,14 +118,14 @@ export default function CardAds({
     <Card className={classes.root}>
       <CardActionArea>
         <div className={classes.contain}>
-        <img
-          className={classes.image}
-          src={
-            photo && photos.length > 0
-              ? photos[0]
-              : "/assets/no-img-cargobike.jpeg"
-          }
-        />
+          <img
+            className={classes.image}
+            src={
+              photo && photos.length > 0
+                ? photos[0]
+                : "/assets/no-img-cargobike.jpeg"
+            }
+          />
         </div>
         <CardContent className={classes.content}>
           <Typography variant="h5" component="h1" className={classes.title}>

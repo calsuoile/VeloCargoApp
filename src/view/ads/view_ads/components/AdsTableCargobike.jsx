@@ -24,66 +24,48 @@ export default function AdsTableAccessory({ ads }) {
 
   return (
     <TableContainer className={classes.container} component={Paper}>
-      <Table className={classes.table} aria-label="simple table">
+      <Table aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell className={classes.cell}>Prix</TableCell>
             <TableCell align="right">{ads?.price}€</TableCell>
           </TableRow>
-        </TableHead>
-        <TableHead>
           <TableRow>
             <TableCell className={classes.cell}>Catégorie</TableCell>
             <TableCell align="right">{ads?.type}</TableCell>
-          </TableRow>{" "}
-        </TableHead>
-        <TableHead>
+          </TableRow>
           <TableRow>
             <TableCell className={classes.cell}>Année</TableCell>
             <TableCell align="right">{ads?.build_year}</TableCell>
           </TableRow>
-        </TableHead>
-        <TableHead>
           <TableRow>
             <TableCell className={classes.cell}>Localisation</TableCell>
             <TableCell align="right">
               {ads?.department}, {ads?.country}
             </TableCell>
           </TableRow>
-        </TableHead>
-        <TableHead>
           <TableRow>
             <TableCell className={classes.cell}>Marque</TableCell>
             <TableCell align="right">{ads?.brand}</TableCell>
           </TableRow>
-        </TableHead>
-        <TableHead>
           <TableRow>
             <TableCell className={classes.cell}>Modèle</TableCell>
             <TableCell align="right">{ads?.model}</TableCell>
           </TableRow>
-        </TableHead>
-        <TableHead>
           <TableRow>
             <TableCell className={classes.cell}>Etat Général</TableCell>
             <TableCell align="right">{ads?.general_state}</TableCell>
           </TableRow>
-        </TableHead>
-        <TableHead>
           <TableRow>
             <TableCell className={classes.cell}>Garantie</TableCell>
             <TableCell align="right">
               {ads?.guarantee === 1 ? "Oui" : "Non"}
             </TableCell>
           </TableRow>
-        </TableHead>
-        <TableHead>
           <TableRow>
             <TableCell className={classes.cell}>Numéro Bicycode</TableCell>
             <TableCell align="right">{ads?.bicycode}</TableCell>
           </TableRow>
-        </TableHead>
-        <TableHead>
           <TableRow>
             <TableCell className={classes.cell}>Eléctrique</TableCell>
             <TableCell align="right">

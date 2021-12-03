@@ -20,11 +20,11 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "40px",
     "&:hover": {
       backgroundColor: "#F29F24",
-    }
+    },
   },
   icon: {
-    fontSize: "20px",
-    color:"white"
+    fontSize: "40px",
+    color: "white",
   },
 }));
 
@@ -39,8 +39,8 @@ export default function IconsHeader() {
         </Button>
       </Link>
       <Link href="/mon-profil">
-        <IconButton >
-          <AccountCircleIcon className={classes.icon}/>
+        <IconButton>
+          <AccountCircleIcon className={classes.icon} />
         </IconButton>
       </Link>
     </div>

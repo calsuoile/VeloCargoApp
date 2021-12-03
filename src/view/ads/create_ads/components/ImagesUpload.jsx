@@ -32,7 +32,6 @@ function ImagesUpload({ onUpload, images, form }) {
 
   const handleUpload = async (e) => {
     const token = await axios.get(authEndpoint);
-    //console.log(token);
 
     const formData = new FormData();
 

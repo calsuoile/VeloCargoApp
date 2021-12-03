@@ -17,9 +17,9 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "50px",
     borderBottom: "1px solid",
     marginBottom: "20px",
-    color : "#BFD9D9",
+    color: "#BFD9D9",
     [theme.breakpoints.down("sm")]: {
-      marginLeft : "5px",
+      marginLeft: "5px",
     },
   },
   ads: {
