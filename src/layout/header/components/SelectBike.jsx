@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     backgroundColor: "#006969",
-    width: "20%",
+    width: "100%",
     color: "white",
   },
   container: {

@@ -22,7 +22,7 @@ moment.locale("fr");
 const useStyles = makeStyles({
   box: {
     position: "relative",
-    margin: "150px",
+    margin: "10%",
   },
   header: {
     width: "100%",

@@ -8,24 +8,18 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-  },
-  container: {
-    width: "70%",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  cell: {
-    fontFamily: "Open Sans Condensed",
-    fontWeight: "bold",
-    color: "#006969",
-  },
-});
+const useStyles = makeStyles((theme) => ({
+    container: {
+      width: "100%",
+    },
+    cell: {
+      fontFamily: "Open Sans Condensed",
+      fontWeight: "bold",
+      color: "#006969",
+    },
+}));
 
-export default function AdsTableCargobike({ ads }) {
+export default function AdsTableAccessory({ ads }) {
   const classes = useStyles();
 
   return (
@@ -35,45 +29,68 @@ export default function AdsTableCargobike({ ads }) {
           <TableRow>
             <TableCell className={classes.cell}>Prix</TableCell>
             <TableCell align="right">{ads?.price}€</TableCell>
-            <TableCell className={classes.cell}>Catégorie</TableCell>
-            <TableCell align="right">{ads?.type}</TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableHead>
+          <TableRow>
+            <TableCell className={classes.cell}>Catégorie</TableCell>
+            <TableCell align="right">{ads?.type}</TableCell>
+          </TableRow>{" "}
+        </TableHead>
+        <TableHead>
           <TableRow>
             <TableCell className={classes.cell}>Année</TableCell>
             <TableCell align="right">{ads?.build_year}</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableHead>
+          <TableRow>
             <TableCell className={classes.cell}>Localisation</TableCell>
             <TableCell align="right">
               {ads?.department}, {ads?.country}
             </TableCell>
           </TableRow>
-
+        </TableHead>
+        <TableHead>
           <TableRow>
             <TableCell className={classes.cell}>Marque</TableCell>
             <TableCell align="right">{ads?.brand}</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableHead>
+          <TableRow>
             <TableCell className={classes.cell}>Modèle</TableCell>
             <TableCell align="right">{ads?.model}</TableCell>
           </TableRow>
-
+        </TableHead>
+        <TableHead>
           <TableRow>
             <TableCell className={classes.cell}>Etat Général</TableCell>
             <TableCell align="right">{ads?.general_state}</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableHead>
+          <TableRow>
             <TableCell className={classes.cell}>Garantie</TableCell>
             <TableCell align="right">
               {ads?.guarantee === 1 ? "Oui" : "Non"}
             </TableCell>
           </TableRow>
-
+        </TableHead>
+        <TableHead>
           <TableRow>
             <TableCell className={classes.cell}>Numéro Bicycode</TableCell>
             <TableCell align="right">{ads?.bicycode}</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableHead>
+          <TableRow>
             <TableCell className={classes.cell}>Eléctrique</TableCell>
             <TableCell align="right">
               {ads?.electric === 1 ? "Oui" : "Non"}
             </TableCell>
           </TableRow>
-        </TableBody>
+        </TableHead>
       </Table>
     </TableContainer>
   );
