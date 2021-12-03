@@ -75,15 +75,14 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "15px",
     marginTop: "20px",
   },
-  copyright: 
-  {
+  copyright: {
     textAlign: "center",
-    margin:"40px",
-    textDecoration: "none", 
+    margin: "40px",
+    textDecoration: "none",
     color: "inherit",
     cursor: "pointer",
-    color: "white"
-  }
+    color: "white",
+  },
 }));
 
 export default function Form() {
@@ -102,7 +101,6 @@ export default function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(userComment);
   };
 
   const [open, setOpen] = React.useState(false);
@@ -216,7 +214,7 @@ export default function Form() {
             </DialogActions>
           </Dialog>
           <a href="https://cargobiketrade.com" className={classes.copyright}>
-          <p>©2021 cargobiketrade.com</p>
+            <p>©2021 cargobiketrade.com</p>
           </a>
         </form>
       </div>

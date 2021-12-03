@@ -36,7 +36,8 @@ export default function AdsTechnique({ ads }) {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Le vélo mesure {ads?.length} cm. Le cadre est de {ads?.frame_size} cm.
+            Le vélo mesure {ads?.length} cm. Le cadre est de {ads?.frame_size}{" "}
+            cm.
           </Typography>
         </AccordionDetails>
       </Accordion>

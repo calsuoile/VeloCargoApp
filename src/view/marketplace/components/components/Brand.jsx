@@ -5,11 +5,10 @@ import TextField from "@material-ui/core/TextField";
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
-      // margin: theme.spacing(1),
       width: "200px",
       backgroundColor: "white",
       borderRadius: "5px",
-      margin:"10px",
+      margin: "10px",
     },
   },
 }));

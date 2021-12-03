@@ -18,8 +18,6 @@ function Upload({ handlePicture }) {
       headers: { Authorization: `Bearer ${tokenBearer}` },
     });
 
-    // console.log(token);
-
     const formData = new FormData();
 
     formData.append("file", e.target.files[0]);
@@ -40,7 +38,6 @@ function Upload({ handlePicture }) {
       formData,
       config
     );
-    console.log(response.data);
     handlePicture(response.data.url);
   };
 

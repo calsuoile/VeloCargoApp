@@ -58,7 +58,7 @@ export default function AdsTableTrailer({ ads }) {
             <TableCell className={classes.cell}>Etat Général</TableCell>
             <TableCell align="right">{ads?.general_state}</TableCell>
             <TableCell className={classes.cell}>Volume Remorque (L)</TableCell>
-            <TableCell align="right">{ads?.volume_trail}</TableCell>  
+            <TableCell align="right">{ads?.volume_trail}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell className={classes.cell}>Charge Maximale (kg)</TableCell>
