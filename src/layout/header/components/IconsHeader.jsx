@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   icon: {
-    fontSize: "40px",
+    fontSize: "20px",
     color: "white",
   },
 }));
