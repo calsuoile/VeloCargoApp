@@ -36,45 +36,19 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "5px",
     display: "flex",
     alignItems: "center",
-    [theme.breakpoints.down("sm")]: {
-      display: "flex",
-      justifyContent: "center",
-      paddingTop: "0px",
-    },
   },
   when: {
     marginLeft: "25px",
-    marginTop: "20px",
-    [theme.breakpoints.down("sm")]: {
-      display: "flex",
-      justifyContent: "center",
-      paddingTop: "0px",
-      marginLeft: "0px",
-    },
   },
   contact: {
     display: "flex",
     alignItems: "center",
     margin: "5px",
-    [theme.breakpoints.down("sm")]: {
-      display: "flex",
-      flexDirection: "column",
-      margin: "0px",
-      marginTop: "20px",
-    },
   },
   vendeur: {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    marginTop: "20px",
-    marginBottom: "20px",
-    [theme.breakpoints.down("sm")]: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      margin: "20px",
-    },
   },
   photo: {
     display: "flex",
@@ -114,7 +88,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     marginRight: "10px",
-    marginLeft: "10px",
     color: "black",
   },
   iconFav: {
@@ -125,10 +98,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "flex-end",
     padding: 10,
-    [theme.breakpoints.down("sm")]: {
-      display: "flex",
-      justifyContent: "center",
-    },
   },
   description: {
     fontSize: 20,
@@ -200,7 +169,7 @@ function ViewAdCargobike({ ads, user_id, ads_id }) {
           </Typography>
           <Typography variant="body2" className={classes.contact}>
             {" "}
-            Contact :
+            Contact :{" "}
             {phoneNumber ? (
               <IconButton color="secondary" onClick={handlePhone}>
                 <PhoneIcon />
@@ -249,14 +218,9 @@ function ViewAdCargobike({ ads, user_id, ads_id }) {
           {ads?.description}
         </Typography>
       </div>
-      {ads.length ? (
-        <div className={classes.photo}>
-          <AdsCarousel className={classes.carousel} ads={ads} />
-        </div>
-      ) : (
-        ""
-      )}
-
+      <div className={classes.photo}>
+        <AdsCarousel className={classes.carousel} ads={ads} />
+      </div>
       <div className={classes.table}>
         {" "}
         <AdsTableCargobike ads={ads} />

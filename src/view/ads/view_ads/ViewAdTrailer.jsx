@@ -18,10 +18,13 @@ import { useRouter } from "next/router";
 const moment = require("moment");
 moment.locale("fr");
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   box: {
     position: "relative",
     margin: "150px",
+    [theme.breakpoints.down("sm")]: {
+      margin: "20px",
+    },
   },
   header: {
     width: "100%",
@@ -64,7 +67,7 @@ const useStyles = makeStyles({
     marginLeft: "0px",
     marginBottom: "30px",
     borderBottom: "1px solid",
-    color:"#F27C08",
+    color: "#F27C08",
   },
   accessory: {
     marginTop: "50px",
@@ -97,12 +100,12 @@ const useStyles = makeStyles({
   },
   description: {
     fontSize: 20,
-    marginBottom: 10
+    marginBottom: 10,
   },
-  fav : {
+  fav: {
     color: "#F27C08",
   },
-});
+}));
 
 function ViewAdTrailer({ ads, user_id, ads_id }) {
   const classes = useStyles();

@@ -11,18 +11,17 @@ const useStyles = makeStyles((theme) => ({
     minWidth: "500px",
     minHeight: "350px",
     height: "auto",
-    [theme.breakpoints.down("sm")]: {
-      minWidth: "80px",
-    },
-    [theme.breakpoints.down("md")]: {
-      minWidth: "120px",
-    },
+    // [theme.breakpoints.down("sm")]: {
+    //   minWidth: "80px",
+    // },
+    // [theme.breakpoints.down("md")]: {
+    //   minWidth: "120px",
+    // },
   },
 }));
 const AdsCarousel = ({ className, ads }) => {
   const classes = useStyles();
   const photos = ads?.photo?.split(",");
-  const classes = useStyles();
 
   return (
     <div className={className}>
