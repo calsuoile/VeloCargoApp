@@ -72,7 +72,7 @@ const typography = {
   },
   body2: {
     color: common.black,
-    fontSize: "16px",
+    // fontSize: "16px",
     lineHeight: 1.3,
     fontFamily: "Raleway",
     // Typo pour paragraphe et texte, lettre arrondie (taille moyenne)

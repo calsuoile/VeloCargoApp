@@ -22,6 +22,8 @@ const useStyles = makeStyles((theme) => ({
 const AdsCarousel = ({ className, ads }) => {
   const classes = useStyles();
   const photos = ads?.photo?.split(",");
+  const classes = useStyles();
+
   return (
     <div className={className}>
       <Carousel>
@@ -29,15 +31,9 @@ const AdsCarousel = ({ className, ads }) => {
           <div
             className={classes.carousel}
             key={index}
+            className={classes.carousel}
             style={{
-            // backgroundSize: "contain",
-            // backgroundRepeat: "no-repeat",
-            // backgroundPosition: "center",
-            // minWidth: "100px",
-            // //100 en resp
-            // minHeight: "350px",
-            // height: "auto",
-            backgroundImage: `url(${photo})`,
+              backgroundImage: `url(${photo})`,
             }}
           ></div>
         ))}

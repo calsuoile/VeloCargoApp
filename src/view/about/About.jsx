@@ -95,6 +95,9 @@ const useStyles = makeStyles((theme) => ({
   undertitle: {
     display: "flex",
     justifyContent: "center",
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "30px",
+    },
   },
   main: {
     display: "flex",

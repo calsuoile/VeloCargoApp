@@ -9,6 +9,10 @@ const useStyles = makeStyles({
   slider: {
     color: "#F29F24",
     width: "100%",
+    marginTop:"20px",
+    "& .MuiSlider-valueLabel": {
+      color: "#F29F24",
+    },
   },
 });
 
