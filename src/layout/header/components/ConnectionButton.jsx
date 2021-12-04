@@ -26,9 +26,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#5C9A9A",
     color: "white",
     fontFamily: "Open Sans Condensed, sans-serif",
-    fontWeight: 400,
-    fontSize: "20px",
-    marginRight: "40px",
+    fontWeight: 300,
+    fontSize: "15px",
+    marginRight: "10px",
     "&:hover": {
       backgroundColor: "#F29F24",
     },
