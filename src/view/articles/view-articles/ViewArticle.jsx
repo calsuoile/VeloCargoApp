@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   image: {
     display: "flex",
     justifyContent: "center",
-    width: "70%",
+    width: "100%",
     height: "70%",
   },
   otherImages: {
@@ -34,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "20px",
     textAlign: "justify",
     lineHeight: "2em",
+    [theme.breakpoints.down("sm")]: {
+      width: "90%",
+    },
   },
   containerOtherArticles: {
     borderRadius: theme.spacing(2),
@@ -42,6 +45,9 @@ const useStyles = makeStyles((theme) => ({
     },
     margin: "20px",
     marginTop: "-40px",
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "20px",
+    },
   },
   authorImage: {
     display: "flex",
@@ -50,6 +56,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     display: "flex",
     margin: "20px",
+    alignItems: "center"
   },
 }));
 

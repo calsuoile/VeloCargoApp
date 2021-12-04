@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
       margin: "auto",
       display: "block",
     },
+    [theme.breakpoints.up("sm")]: {
+      display: "flex",
+    },
   },
 }));
 

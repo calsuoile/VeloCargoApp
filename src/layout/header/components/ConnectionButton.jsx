@@ -19,7 +19,9 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: "10px",
-      marginRight: "10px",
+      marginLeft: "10px",
+      marginTop: "15px",
+      marginBottom:"-5px"
     },
   },
   buttonCo: {
@@ -28,15 +30,18 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Open Sans Condensed, sans-serif",
     fontWeight: 400,
     fontSize: "20px",
-    marginRight: "40px",
+    marginRight: "10px",
     "&:hover": {
       backgroundColor: "#F29F24",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "15px",
+      marginRight: "10px",
     },
   },
   name: {
     fontFamily: "Open Sans Condensed, sans-serif",
     color: "white",
-    marginTop: 12,
     marginLeft: 3,
     marginRight: 10,
     fontSize: 20,
@@ -51,13 +56,15 @@ const useStyles = makeStyles((theme) => ({
   },
   user: {
     display: "flex",
-    marginRight: 10,
     alignItems: "center",
   },
+
   userCo: {
-    [theme.breakpoints.up("sm")]: {
+    display: "flex",
+    alignItems: "center",
+    [theme.breakpoints.down("sm")]: {
       display: "flex",
-      justifyContent: "flex-end",
+      flexDirection: "column",
     },
   },
 }));

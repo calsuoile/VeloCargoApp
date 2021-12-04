@@ -24,8 +24,10 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "40px",
     marginRight: "20px",
     [theme.breakpoints.down("sm")]: {
-      width: 120,
+      width: 160,
       display: "flex",
+      marginLeft: "10px",
+      marginRight: "0px",
     },
   },
 }));
