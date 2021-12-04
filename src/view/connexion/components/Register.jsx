@@ -22,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     width: "100%",
     height: "100vh",
+    [theme.breakpoints.down("sm")]: {
+      height: "100%",
+    },
   },
   contain: {
     opacity: 0.5,
@@ -34,6 +37,12 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: "60px",
+      marginRight: "60px",
+      marginTop: "20px",
+      marginBottom: "20px",
+    },
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -41,6 +50,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     flexDirection: "column",
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "0px",
+    },
   },
   submit: {
     marginTop: "20px",
@@ -52,6 +64,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "20px",
     "&:hover": {
       backgroundColor: "#F27C08",
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "5px",
     },
   },
   names: {
@@ -83,6 +98,9 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "5%",
     color: "#006262",
     fontSize: "40px",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "15px",
+    },
   },
   hr: {
     width: "50%",
@@ -94,6 +112,11 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     width: "250px",
+  },
+  avatar: {
+    [theme.breakpoints.down("sm")]: {
+      width: "50px",
+    },
   },
 }));
 

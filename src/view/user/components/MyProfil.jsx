@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
     margin: "50px 50px 50px 50px",
     borderRadius: "10px",
     marginBottom: "100px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
     width: "92%",
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(1),
@@ -25,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: "center",
       flexDirection: "column",
       margin: "5px auto",
+      alignItems: "center",
     },
   },
   firstname: {
@@ -32,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     margin: "30px",
     [theme.breakpoints.down("sm")]: {
-      padding: theme.spacing(1),
+      margin: "10px",
     },
   },
   lastname: {
@@ -40,26 +44,27 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     margin: "30px",
     [theme.breakpoints.down("sm")]: {
-      padding: theme.spacing(1),
+      margin: "10px",
     },
   },
   contact: {
     display: "flex",
-    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "center",
   },
 
   button: {
     width: "100px",
     display: "flex",
-    marginLeft: "90%",
     marginTop: "30px",
     marginBottom: "30px",
     borderRadius: "15px",
     color: "white",
     [theme.breakpoints.down("sm")]: {
       display: "flex",
-      marginLeft: "35%",
+      justifyContent: "center",
       padding: theme.spacing(1),
+      marginLeft: 0,
     },
   },
   form: {

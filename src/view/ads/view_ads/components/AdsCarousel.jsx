@@ -1,22 +1,37 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
+import { makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles((theme) => ({
+  carousel: {
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    minWidth: "500px",
+    minHeight: "350px",
+    height: "auto",
+    [theme.breakpoints.down("sm")]: {
+      minWidth: "80px",
+    },
+    [theme.breakpoints.down("md")]: {
+      minWidth: "120px",
+    },
+  },
+}));
 
 const AdsCarousel = ({ className, ads }) => {
   const photos = ads?.photo?.split(",");
+  const classes = useStyles();
+
   return (
     <div className={className}>
       <Carousel>
         {photos?.map((photo, index) => (
           <div
             key={index}
+            className={classes.carousel}
             style={{
-              backgroundSize: "contain",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              minWidth: "200px",
-              minHeight: "350px",
-              height: "auto",
               backgroundImage: `url(${photo})`,
             }}
           ></div>

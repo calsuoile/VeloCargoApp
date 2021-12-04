@@ -36,7 +36,7 @@ const useStyles = makeStyles({
     margin: "auto",
   },
   cityandicon: {
-    height: "50px",
+    height: "auto",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
@@ -59,11 +59,11 @@ const useStyles = makeStyles({
   date: {
     color: "black",
     fontSize: "15px",
+    marginLeft: "10px"
   },
   icon: {
     display: "flex",
     alignItems: "center",
-    marginLeft: 12,
     flexDirection: "flex-end",
   },
 });
