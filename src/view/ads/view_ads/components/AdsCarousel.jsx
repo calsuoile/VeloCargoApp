@@ -25,7 +25,7 @@ const AdsCarousel = ({ className, ads }) => {
 
   return (
     <div className={className}>
-      <Carousel>
+      <Carousel showThumbs={false}>
         {photos?.map((photo, index) => (
           <div
             className={classes.carousel}
