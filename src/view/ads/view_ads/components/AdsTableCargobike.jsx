@@ -8,18 +8,18 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
-const useStyles = makeStyles({
-  container: {
-    width: "100%",
-  },
-  cell: {
-    fontFamily: "Open Sans Condensed",
-    fontWeight: "bold",
-    color: "#006969",
-  },
-});
+const useStyles = makeStyles((theme) => ({
+    container: {
+      width: "100%",
+    },
+    cell: {
+      fontFamily: "Open Sans Condensed",
+      fontWeight: "bold",
+      color: "#006969",
+    },
+}));
 
-export default function AdsTableCargobike({ ads }) {
+export default function AdsTableAccessory({ ads }) {
   const classes = useStyles();
 
   return (

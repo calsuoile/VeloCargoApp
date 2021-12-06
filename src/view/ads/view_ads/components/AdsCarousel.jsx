@@ -1,7 +1,7 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import { makeStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   carousel: {
@@ -11,24 +11,24 @@ const useStyles = makeStyles((theme) => ({
     minWidth: "500px",
     minHeight: "350px",
     height: "auto",
-    [theme.breakpoints.down("sm")]: {
-      minWidth: "80px",
-    },
-    [theme.breakpoints.down("md")]: {
-      minWidth: "120px",
-    },
+    // [theme.breakpoints.down("sm")]: {
+    //   minWidth: "80px",
+    // },
+    // [theme.breakpoints.down("md")]: {
+    //   minWidth: "120px",
+    // },
   },
 }));
-
 const AdsCarousel = ({ className, ads }) => {
-  const photos = ads?.photo?.split(",");
   const classes = useStyles();
+  const photos = ads?.photo?.split(",");
 
   return (
     <div className={className}>
       <Carousel showThumbs={false}>
         {photos?.map((photo, index) => (
           <div
+            className={classes.carousel}
             key={index}
             className={classes.carousel}
             style={{

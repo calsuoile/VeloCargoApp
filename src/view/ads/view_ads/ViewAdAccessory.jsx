@@ -18,10 +18,13 @@ import { useRouter } from "next/router";
 const moment = require("moment");
 moment.locale("fr");
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   box: {
     position: "relative",
     margin: "150px",
+    [theme.breakpoints.down("sm")]: {
+      margin: "20px",
+    },
   },
   header: {
     width: "100%",
@@ -102,7 +105,7 @@ const useStyles = makeStyles({
   fav: {
     color: "#F27C08",
   },
-});
+}));
 
 function ViewAdAccessory({ ads, user_id, ads_id }) {
   const classes = useStyles();
